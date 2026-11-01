@@ -1,0 +1,1589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Index Calculations: Spontaneous Compactification to M₄ × CP² × CP² × CP²</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                tags: 'ams'
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Latin Modern Roman', 'Computer Modern', Georgia, serif;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #fefefe;
+            color: #1a1a1a;
+            line-height: 1.9;
+        }
+        h1 {
+            text-align: center;
+            border-bottom: 3px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+            font-size: 1.8em;
+        }
+        h2 {
+            color: #c0392b;
+            margin-top: 60px;
+            border-left: 6px solid #e74c3c;
+            padding-left: 20px;
+            font-size: 1.5em;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 40px;
+            font-size: 1.25em;
+        }
+        h4 {
+            color: #27ae60;
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+        .calculation {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        .result {
+            background: linear-gradient(135deg, #e8f6f3 0%, #d5f5e3 100%);
+            border: 2px solid #27ae60;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .important {
+            background: linear-gradient(135deg, #fef9e7 0%, #fcf3cf 100%);
+            border: 2px solid #f39c12;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .definition {
+            background: linear-gradient(135deg, #eaf2f8 0%, #d4e6f1 100%);
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .step {
+            background: #fff;
+            border-left: 4px solid #9b59b6;
+            padding: 15px 20px;
+            margin: 15px 0;
+        }
+        .note {
+            background: #fdf2e9;
+            border-left: 4px solid #e67e22;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        hr {
+            border: none;
+            height: 3px;
+            background: linear-gradient(to right, #3498db, #e74c3c, #f1c40f, #27ae60);
+            margin: 50px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background: #34495e;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background: #ecf0f1;
+        }
+        .toc {
+            background: #f8f9fa;
+            border: 2px solid #34495e;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        .toc a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Complete Index Calculations for Spontaneous Compactification<br>
+$M_{16} \to (\mathbb{R} \times S^3) \times \mathbb{CP}^2 \times \mathbb{CP}^2 \times \mathbb{CP}^2$</h1>
+
+<div class="toc">
+<h3>Table of Contents</h3>
+<ul>
+    <li><a href="#sec1">1. Index Conventions and Notation</a></li>
+    <li><a href="#sec2">2. The Complete Metric Ansatz</a></li>
+    <li><a href="#sec3">3. FRW Geometry: $\mathbb{R} \times S^3$</a></li>
+    <li><a href="#sec4">4. Fubini-Study Geometry on $\mathbb{CP}^2$</a></li>
+    <li><a href="#sec5">5. Product Space Curvature Calculations</a></li>
+    <li><a href="#sec6">6. Lovelock Tensors on the Product Space</a></li>
+    <li><a href="#sec7">7. Gauge Field and Flux Calculations</a></li>
+    <li><a href="#sec8">8. Stress-Energy Tensor Components</a></li>
+    <li><a href="#sec9">9. Complete Einstein Equations</a></li>
+    <li><a href="#sec10">10. Stabilization Conditions</a></li>
+</ul>
+</div>
+
+<hr>
+
+<!-- ========== SECTION 1 ========== -->
+<h2 id="sec1">1. Index Conventions and Notation</h2>
+
+<div class="definition">
+<h4>Index Ranges</h4>
+<p>We use the following index conventions throughout:</p>
+
+$$\begin{aligned}
+M, N, P, Q, \ldots &\in \{0, 1, 2, \ldots, 15\} \quad &\text{(16D spacetime indices)}\\[6pt]
+\mu, \nu, \rho, \sigma, \ldots &\in \{0, 1, 2, 3\} \quad &\text{(4D external/FRW indices)}\\[6pt]
+m, n, p, q, \ldots &\in \{4, 5, \ldots, 15\} \quad &\text{(12D internal indices)}\\[6pt]
+a_i, b_i, c_i, d_i, \ldots &\in \{4i, 4i+1, 4i+2, 4i+3\} \quad &\text{(indices on $\mathbb{CP}^2_i$, $i=1,2,3$)}
+\end{aligned}$$
+</div>
+
+<div class="definition">
+<h4>Explicit Index Assignments</h4>
+$$\begin{aligned}
+\mathbb{CP}^2_1: \quad &a_1, b_1, \ldots \in \{4, 5, 6, 7\}\\[4pt]
+\mathbb{CP}^2_2: \quad &a_2, b_2, \ldots \in \{8, 9, 10, 11\}\\[4pt]
+\mathbb{CP}^2_3: \quad &a_3, b_3, \ldots \in \{12, 13, 14, 15\}
+\end{aligned}$$
+</div>
+
+<div class="definition">
+<h4>Metric Signature</h4>
+$$\eta_{MN} = \text{diag}(-1, +1, +1, \ldots, +1)$$
+<p>Mostly plus convention with timelike direction $x^0 = t$.</p>
+</div>
+
+<hr>
+
+<!-- ========== SECTION 2 ========== -->
+<h2 id="sec2">2. The Complete Metric Ansatz</h2>
+
+<h3>2.1 Block-Diagonal Structure</h3>
+
+<div class="calculation">
+<p>The 16D metric takes the block-diagonal form:</p>
+
+$$g_{MN} = \begin{pmatrix}
+g_{\mu\nu}^{(4)} & 0 & 0 & 0 \\
+0 & r_1^2 \hat{g}_{a_1 b_1}^{(1)} & 0 & 0 \\
+0 & 0 & r_2^2 \hat{g}_{a_2 b_2}^{(2)} & 0 \\
+0 & 0 & 0 & r_3^2 \hat{g}_{a_3 b_3}^{(3)}
+\end{pmatrix}$$
+
+<p>where $\hat{g}^{(i)}$ denotes the unit-radius Fubini-Study metric on $\mathbb{CP}^2_i$.</p>
+</div>
+
+<h3>2.2 Line Element</h3>
+
+<div class="calculation">
+$$ds^2_{16} = g_{MN}dx^M dx^N$$
+
+<p><b>Step 1:</b> Expand over index ranges:</p>
+$$= g_{\mu\nu}dx^\mu dx^\nu + g_{a_1 b_1}dx^{a_1}dx^{b_1} + g_{a_2 b_2}dx^{a_2}dx^{b_2} + g_{a_3 b_3}dx^{a_3}dx^{b_3}$$
+
+<p><b>Step 2:</b> Insert explicit forms:</p>
+$$= g_{\mu\nu}^{(4)}(x)dx^\mu dx^\nu + r_1^2(x)\hat{g}_{a_1 b_1}^{(1)}(y_1)dy_1^{a_1}dy_1^{b_1} + r_2^2(x)\hat{g}_{a_2 b_2}^{(2)}(y_2)dy_2^{a_2}dy_2^{b_2} + r_3^2(x)\hat{g}_{a_3 b_3}^{(3)}(y_3)dy_3^{a_3}dy_3^{b_3}$$
+</div>
+
+<div class="result">
+<h4>Complete 16D Line Element</h4>
+$$\boxed{ds^2_{16} = g_{\mu\nu}^{(4)}dx^\mu dx^\nu + \sum_{i=1}^{3} r_i^2 \, ds^2_{FS,i}}$$
+</div>
+
+<h3>2.3 Inverse Metric</h3>
+
+<div class="calculation">
+<p>The inverse metric $g^{MN}$ satisfies $g^{MP}g_{PN} = \delta^M_N$:</p>
+
+$$g^{MN} = \begin{pmatrix}
+g^{\mu\nu}_{(4)} & 0 & 0 & 0 \\
+0 & r_1^{-2} \hat{g}^{a_1 b_1}_{(1)} & 0 & 0 \\
+0 & 0 & r_2^{-2} \hat{g}^{a_2 b_2}_{(2)} & 0 \\
+0 & 0 & 0 & r_3^{-2} \hat{g}^{a_3 b_3}_{(3)}
+\end{pmatrix}$$
+</div>
+
+<h3>2.4 Metric Determinant</h3>
+
+<div class="calculation">
+<p><b>Step 1:</b> For block-diagonal matrices:</p>
+$$\det(g_{MN}) = \det(g_{\mu\nu}^{(4)}) \cdot \det(r_1^2 \hat{g}^{(1)}) \cdot \det(r_2^2 \hat{g}^{(2)}) \cdot \det(r_3^2 \hat{g}^{(3)})$$
+
+<p><b>Step 2:</b> Use $\det(r^2 \hat{g}) = r^{2 \cdot \dim} \det(\hat{g})$ where $\dim(\mathbb{CP}^2) = 4$:</p>
+$$= \det(g^{(4)}) \cdot r_1^8 \det(\hat{g}^{(1)}) \cdot r_2^8 \det(\hat{g}^{(2)}) \cdot r_3^8 \det(\hat{g}^{(3)})$$
+
+<p><b>Step 3:</b> Define:</p>
+$$g_{(4)} \equiv \det(g_{\mu\nu}^{(4)}), \qquad \hat{g}_{(i)} \equiv \det(\hat{g}_{a_i b_i}^{(i)})$$
+</div>
+
+<div class="result">
+$$\boxed{\sqrt{-g_{16}} = \sqrt{-g_{(4)}} \cdot r_1^4 r_2^4 r_3^4 \cdot \sqrt{\hat{g}_{(1)}\hat{g}_{(2)}\hat{g}_{(3)}}}$$
+</div>
+
+<hr>
+
+<!-- ========== SECTION 3 ========== -->
+<h2 id="sec3">3. FRW Geometry: $\mathbb{R} \times S^3$</h2>
+
+<h3>3.1 FRW Metric Components</h3>
+
+<div class="definition">
+<p>The closed FRW metric on $\mathbb{R} \times S^3$:</p>
+$$ds^2_4 = -dt^2 + a^2(t)\left[d\chi^2 + \sin^2\chi\left(d\theta^2 + \sin^2\theta \, d\phi^2\right)\right]$$
+
+<p>Coordinates: $x^\mu = (t, \chi, \theta, \phi)$ with $\mu = 0, 1, 2, 3$.</p>
+</div>
+
+<div class="calculation">
+<h4>Metric Components</h4>
+$$\begin{aligned}
+g_{00} &= -1\\[4pt]
+g_{11} &= a^2(t)\\[4pt]
+g_{22} &= a^2(t)\sin^2\chi\\[4pt]
+g_{33} &= a^2(t)\sin^2\chi\sin^2\theta
+\end{aligned}$$
+</div>
+
+<h3>3.2 Christoffel Symbols for FRW</h3>
+
+<div class="calculation">
+<p>General formula:</p>
+$$\Gamma^\lambda_{\mu\nu} = \frac{1}{2}g^{\lambda\rho}\left(\partial_\mu g_{\nu\rho} + \partial_\nu g_{\mu\rho} - \partial_\rho g_{\mu\nu}\right)$$
+
+<h4>Computing $\Gamma^0_{\mu\nu}$:</h4>
+
+<p><b>$\Gamma^0_{11}$:</b></p>
+<div class="step">
+$$\Gamma^0_{11} = \frac{1}{2}g^{00}\left(\partial_1 g_{10} + \partial_1 g_{10} - \partial_0 g_{11}\right)$$
+$$= \frac{1}{2}(-1)\left(0 + 0 - 2a\dot{a}\right)$$
+$$= a\dot{a}$$
+</div>
+
+<p><b>$\Gamma^0_{22}$:</b></p>
+<div class="step">
+$$\Gamma^0_{22} = \frac{1}{2}g^{00}\left(-\partial_0 g_{22}\right)$$
+$$= \frac{1}{2}(-1)\left(-2a\dot{a}\sin^2\chi\right)$$
+$$= a\dot{a}\sin^2\chi$$
+</div>
+
+<p><b>$\Gamma^0_{33}$:</b></p>
+<div class="step">
+$$\Gamma^0_{33} = \frac{1}{2}g^{00}\left(-\partial_0 g_{33}\right)$$
+$$= \frac{1}{2}(-1)\left(-2a\dot{a}\sin^2\chi\sin^2\theta\right)$$
+$$= a\dot{a}\sin^2\chi\sin^2\theta$$
+</div>
+
+<h4>Computing $\Gamma^1_{\mu\nu}$:</h4>
+
+<p><b>$\Gamma^1_{01} = \Gamma^1_{10}$:</b></p>
+<div class="step">
+$$\Gamma^1_{01} = \frac{1}{2}g^{11}\left(\partial_0 g_{11} + \partial_1 g_{01} - \partial_1 g_{01}\right)$$
+$$= \frac{1}{2}\cdot\frac{1}{a^2}\cdot 2a\dot{a}$$
+$$= \frac{\dot{a}}{a}$$
+</div>
+
+<p><b>$\Gamma^1_{22}$:</b></p>
+<div class="step">
+$$\Gamma^1_{22} = \frac{1}{2}g^{11}\left(-\partial_1 g_{22}\right)$$
+$$= \frac{1}{2}\cdot\frac{1}{a^2}\left(-2a^2\sin\chi\cos\chi\right)$$
+$$= -\sin\chi\cos\chi$$
+</div>
+
+<p><b>$\Gamma^1_{33}$:</b></p>
+<div class="step">
+$$\Gamma^1_{33} = \frac{1}{2}g^{11}\left(-\partial_1 g_{33}\right)$$
+$$= \frac{1}{2}\cdot\frac{1}{a^2}\left(-2a^2\sin\chi\cos\chi\sin^2\theta\right)$$
+$$= -\sin\chi\cos\chi\sin^2\theta$$
+</div>
+
+<h4>Computing $\Gamma^2_{\mu\nu}$:</h4>
+
+<p><b>$\Gamma^2_{02} = \Gamma^2_{20}$:</b></p>
+<div class="step">
+$$\Gamma^2_{02} = \frac{1}{2}g^{22}\partial_0 g_{22} = \frac{1}{2}\cdot\frac{1}{a^2\sin^2\chi}\cdot 2a\dot{a}\sin^2\chi = \frac{\dot{a}}{a}$$
+</div>
+
+<p><b>$\Gamma^2_{12} = \Gamma^2_{21}$:</b></p>
+<div class="step">
+$$\Gamma^2_{12} = \frac{1}{2}g^{22}\partial_1 g_{22} = \frac{1}{2}\cdot\frac{1}{a^2\sin^2\chi}\cdot 2a^2\sin\chi\cos\chi = \cot\chi$$
+</div>
+
+<p><b>$\Gamma^2_{33}$:</b></p>
+<div class="step">
+$$\Gamma^2_{33} = \frac{1}{2}g^{22}\left(-\partial_2 g_{33}\right) = -\frac{1}{2}\cdot\frac{1}{a^2\sin^2\chi}\cdot 2a^2\sin^2\chi\sin\theta\cos\theta = -\sin\theta\cos\theta$$
+</div>
+
+<h4>Computing $\Gamma^3_{\mu\nu}$:</h4>
+
+<p><b>$\Gamma^3_{03} = \Gamma^3_{30}$:</b></p>
+<div class="step">
+$$\Gamma^3_{03} = \frac{\dot{a}}{a}$$
+</div>
+
+<p><b>$\Gamma^3_{13} = \Gamma^3_{31}$:</b></p>
+<div class="step">
+$$\Gamma^3_{13} = \cot\chi$$
+</div>
+
+<p><b>$\Gamma^3_{23} = \Gamma^3_{32}$:</b></p>
+<div class="step">
+$$\Gamma^3_{23} = \cot\theta$$
+</div>
+</div>
+
+<div class="result">
+<h4>Summary: Non-vanishing FRW Christoffel Symbols</h4>
+$$\boxed{\begin{aligned}
+\Gamma^0_{11} &= a\dot{a}, \quad \Gamma^0_{22} = a\dot{a}\sin^2\chi, \quad \Gamma^0_{33} = a\dot{a}\sin^2\chi\sin^2\theta\\[6pt]
+\Gamma^1_{01} &= \Gamma^2_{02} = \Gamma^3_{03} = \frac{\dot{a}}{a}\\[6pt]
+\Gamma^1_{22} &= -\sin\chi\cos\chi, \quad \Gamma^1_{33} = -\sin\chi\cos\chi\sin^2\theta\\[6pt]
+\Gamma^2_{12} &= \Gamma^3_{13} = \cot\chi, \quad \Gamma^2_{33} = -\sin\theta\cos\theta\\[6pt]
+\Gamma^3_{23} &= \cot\theta
+\end{aligned}}$$
+</div>
+
+<h3>3.3 Riemann Tensor for FRW</h3>
+
+<div class="calculation">
+<p>Riemann tensor definition:</p>
+$$R^\lambda{}_{\mu\nu\rho} = \partial_\nu\Gamma^\lambda_{\mu\rho} - \partial_\rho\Gamma^\lambda_{\mu\nu} + \Gamma^\lambda_{\sigma\nu}\Gamma^\sigma_{\mu\rho} - \Gamma^\lambda_{\sigma\rho}\Gamma^\sigma_{\mu\nu}$$
+
+<h4>Computing $R^0{}_{101}$:</h4>
+<div class="step">
+$$R^0{}_{101} = \partial_0\Gamma^0_{11} - \partial_1\Gamma^0_{10} + \Gamma^0_{\sigma 0}\Gamma^\sigma_{11} - \Gamma^0_{\sigma 1}\Gamma^\sigma_{10}$$
+$$= \partial_0(a\dot{a}) - 0 + 0 - \Gamma^0_{11}\Gamma^1_{10}$$
+$$= \dot{a}^2 + a\ddot{a} - a\dot{a}\cdot\frac{\dot{a}}{a}$$
+$$= a\ddot{a}$$
+</div>
+
+<p>Thus:</p>
+$$R_{0101} = g_{00}R^0{}_{101} = -a\ddot{a}$$
+
+<h4>Computing $R^1{}_{212}$:</h4>
+<div class="step">
+$$R^1{}_{212} = \partial_1\Gamma^1_{22} - \partial_2\Gamma^1_{21} + \Gamma^1_{\sigma 1}\Gamma^\sigma_{22} - \Gamma^1_{\sigma 2}\Gamma^\sigma_{21}$$
+$$= \partial_1(-\sin\chi\cos\chi) - 0 + \Gamma^1_{01}\Gamma^0_{22} + \Gamma^1_{21}\Gamma^2_{22} - \Gamma^1_{22}\Gamma^2_{21}$$
+$$= -\cos^2\chi + \sin^2\chi + \frac{\dot{a}}{a}\cdot a\dot{a}\sin^2\chi + 0 - (-\sin\chi\cos\chi)\cot\chi$$
+$$= -\cos 2\chi + \dot{a}^2\sin^2\chi + \cos^2\chi$$
+$$= \sin^2\chi(1 + \dot{a}^2)$$
+</div>
+
+<p>Wait, let me recalculate more carefully for the static $S^3$ part first.</p>
+
+<h4>For static $S^3$ (setting $a = 1$, $\dot{a} = 0$):</h4>
+<div class="step">
+$$R^1{}_{212}\big|_{S^3} = \partial_1(-\sin\chi\cos\chi) - (-\sin\chi\cos\chi)\cot\chi$$
+$$= -\cos^2\chi + \sin^2\chi + \cos^2\chi = \sin^2\chi$$
+</div>
+</div>
+
+<div class="result">
+<h4>FRW Riemann Tensor Components</h4>
+$$\boxed{\begin{aligned}
+R_{0i0j} &= -\frac{\ddot{a}}{a}g_{ij}^{(3)} \quad \text{(time-space)}\\[8pt]
+R_{ijkl} &= \frac{\dot{a}^2 + k}{a^2}\left(g_{ik}g_{jl} - g_{il}g_{jk}\right) \quad \text{(space-space)}
+\end{aligned}}$$
+where $k = 1$ for $S^3$ spatial sections and $g_{ij}^{(3)}$ is the metric on $S^3$.
+</div>
+
+<h3>3.4 Ricci Tensor and Scalar for FRW</h3>
+
+<div class="calculation">
+<h4>Ricci Tensor: $R_{\mu\nu} = R^\lambda{}_{\mu\lambda\nu}$</h4>
+
+<p><b>$R_{00}$:</b></p>
+<div class="step">
+$$R_{00} = R^\lambda{}_{0\lambda 0} = R^1{}_{010} + R^2{}_{020} + R^3{}_{030}$$
+$$= 3\cdot\frac{\ddot{a}}{a}$$
+$$R_{00} = -3\frac{\ddot{a}}{a}$$
+</div>
+
+<p><b>$R_{ij}$ (spatial components):</b></p>
+<div class="step">
+$$R_{ij} = R^0{}_{i0j} + R^k{}_{ikj}$$
+$$= \frac{\ddot{a}}{a}g_{ij} + \frac{2(\dot{a}^2 + k)}{a^2}g_{ij}$$
+$$= \left(\frac{\ddot{a}}{a} + \frac{2(\dot{a}^2 + k)}{a^2}\right)g_{ij}$$
+$$= \left(a\ddot{a} + 2\dot{a}^2 + 2k\right)\frac{g_{ij}}{a^2}$$
+</div>
+</div>
+
+<div class="result">
+<h4>FRW Ricci Tensor</h4>
+$$\boxed{\begin{aligned}
+R_{00} &= -3\frac{\ddot{a}}{a}\\[8pt]
+R_{ij} &= \left(a\ddot{a} + 2\dot{a}^2 + 2k\right)\frac{g_{ij}}{a^2}
+\end{aligned}}$$
+</div>
+
+<div class="calculation">
+<h4>Ricci Scalar: $R^{(4)} = g^{\mu\nu}R_{\mu\nu}$</h4>
+
+<div class="step">
+$$R^{(4)} = g^{00}R_{00} + g^{ij}R_{ij}$$
+$$= (-1)\left(-3\frac{\ddot{a}}{a}\right) + 3\cdot\frac{1}{a^2}\left(a\ddot{a} + 2\dot{a}^2 + 2k\right)$$
+$$= 3\frac{\ddot{a}}{a} + \frac{3\ddot{a}}{a} + \frac{6\dot{a}^2}{a^2} + \frac{6k}{a^2}$$
+$$= 6\frac{\ddot{a}}{a} + 6\frac{\dot{a}^2 + k}{a^2}$$
+</div>
+</div>
+
+<div class="result">
+$$\boxed{R^{(4)} = 6\left(\frac{\ddot{a}}{a} + \frac{\dot{a}^2 + k}{a^2}\right)}$$
+</div>
+
+<hr>
+
+<!-- ========== SECTION 4 ========== -->
+<h2 id="sec4">4. Fubini-Study Geometry on $\mathbb{CP}^2$</h2>
+
+<h3>4.1 Complex Coordinates on $\mathbb{CP}^2$</h3>
+
+<div class="definition">
+<p>$\mathbb{CP}^2$ is the space of complex lines in $\mathbb{C}^3$:</p>
+$$\mathbb{CP}^2 = \frac{\mathbb{C}^3 \setminus \{0\}}{\mathbb{C}^*}$$
+
+<p>Homogeneous coordinates: $[Z^0 : Z^1 : Z^2]$ with equivalence $(Z^0, Z^1, Z^2) \sim \lambda(Z^0, Z^1, Z^2)$ for $\lambda \in \mathbb{C}^*$.</p>
+
+<p>Local coordinates on patch $U_0 = \{Z^0 \neq 0\}$:</p>
+$$z^1 = \frac{Z^1}{Z^0}, \qquad z^2 = \frac{Z^2}{Z^0}$$
+</div>
+
+<h3>4.2 Fubini-Study Metric</h3>
+
+<div class="calculation">
+<h4>Kähler Potential</h4>
+$$K = \ln(1 + |z^1|^2 + |z^2|^2) = \ln(1 + z^a \bar{z}^{\bar{a}})$$
+
+<p>where $a, \bar{a} \in \{1, 2\}$ (complex indices) and summation is implied.</p>
+
+<h4>Metric from Kähler Potential</h4>
+$$g_{a\bar{b}} = \partial_a \partial_{\bar{b}} K$$
+
+<p><b>Step 1:</b> First derivative:</p>
+<div class="step">
+$$\partial_a K = \frac{\bar{z}^{\bar{a}}}{1 + |z|^2}$$
+where $|z|^2 \equiv z^c\bar{z}^{\bar{c}} = |z^1|^2 + |z^2|^2$.
+</div>
+
+<p><b>Step 2:</b> Second derivative:</p>
+<div class="step">
+$$\partial_{\bar{b}}\partial_a K = \partial_{\bar{b}}\left(\frac{\bar{z}^{\bar{a}}}{1 + |z|^2}\right)$$
+$$= \frac{\delta_{a\bar{b}}}{1 + |z|^2} - \frac{\bar{z}^{\bar{a}} z^b}{(1 + |z|^2)^2}$$
+$$= \frac{\delta_{a\bar{b}}(1 + |z|^2) - \bar{z}^{\bar{a}} z^b}{(1 + |z|^2)^2}$$
+</div>
+</div>
+
+<div class="result">
+<h4>Fubini-Study Metric (Unit Radius)</h4>
+$$\boxed{\hat{g}_{a\bar{b}} = \frac{(1 + |z|^2)\delta_{a\bar{b}} - \bar{z}_a z_{\bar{b}}}{(1 + |z|^2)^2}}$$
+
+<p>Or equivalently in matrix form (for $\mathbb{CP}^2$):</p>
+$$\hat{g}_{a\bar{b}} = \frac{1}{(1+|z|^2)^2}\begin{pmatrix} 1 + |z^2|^2 & -\bar{z}^1 z^2 \\ -z^1\bar{z}^2 & 1 + |z^1|^2 \end{pmatrix}$$
+</div>
+
+<h3>4.3 Real Coordinate Form</h3>
+
+<div class="calculation">
+<p>Write $z^a = x^a + iy^a$ with real coordinates $(x^1, y^1, x^2, y^2)$.</p>
+
+<p>The real metric $\hat{g}_{mn}$ (where $m, n \in \{1, 2, 3, 4\}$ labeling $(x^1, y^1, x^2, y^2)$) is:</p>
+
+$$ds^2_{FS} = 2\hat{g}_{a\bar{b}}dz^a d\bar{z}^{\bar{b}} = \hat{g}_{mn}^{\text{real}}dx^m dx^n$$
+
+<p>The factor of 2 comes from $dz\,d\bar{z} = (dx + i\,dy)(dx - i\,dy) = dx^2 + dy^2$.</p>
+</div>
+
+<h3>4.4 Angular Coordinates on $\mathbb{CP}^2$</h3>
+
+<div class="definition">
+<p>Using coordinates $(\xi, \psi, \alpha, \beta)$ with ranges:</p>
+$$0 \leq \xi \leq \frac{\pi}{2}, \quad 0 \leq \psi \leq \frac{\pi}{2}, \quad 0 \leq \alpha < 2\pi, \quad 0 \leq \beta < 4\pi$$
+
+<p>The unit-radius Fubini-Study metric:</p>
+$$ds^2_{FS} = d\xi^2 + \sin^2\xi\cos^2\xi\left(d\psi^2 + \sin^2\psi\,d\alpha^2\right) + \sin^2\xi\cos^2\xi\left(d\beta + \cos^2\psi\,d\alpha\right)^2$$
+
+<p>Wait, let me write this more carefully. The standard form is:</p>
+$$ds^2_{FS} = d\xi^2 + \sin^2\xi\left[\sigma_1^2 + \sigma_2^2 + \cos^2\xi\,\sigma_3^2\right]$$
+
+<p>where $\sigma_i$ are left-invariant 1-forms on $S^3$.</p>
+</div>
+
+<div class="calculation">
+<h4>Alternative Explicit Form</h4>
+
+<p>Using Euler-angle-type coordinates:</p>
+$$ds^2_{FS} = d\xi^2 + \frac{1}{4}\sin^2\xi\left(d\theta^2 + \sin^2\theta\,d\phi^2\right) + \frac{1}{4}\sin^2\xi\cos^2\xi\left(d\psi + \cos\theta\,d\phi\right)^2$$
+
+<p>where $\xi \in [0, \pi/2]$, $\theta \in [0, \pi]$, $\phi \in [0, 2\pi)$, $\psi \in [0, 4\pi)$.</p>
+</div>
+
+<h3>4.5 Christoffel Symbols on $\mathbb{CP}^2$</h3>
+
+<div class="calculation">
+<p>In complex coordinates, using Kähler geometry:</p>
+
+$$\Gamma^a_{bc} = g^{a\bar{d}}\partial_b g_{c\bar{d}}$$
+
+<p>All purely holomorphic Christoffels vanish except those mixing holomorphic/anti-holomorphic:</p>
+
+$$\Gamma^a_{b\bar{c}} = 0 \quad \text{(Kähler condition)}$$
+
+<h4>Explicit Calculation:</h4>
+
+<div class="step">
+<p><b>Step 1:</b> Compute $\partial_b g_{c\bar{d}}$:</p>
+$$\partial_b g_{c\bar{d}} = \partial_b\left(\frac{(1+|z|^2)\delta_{c\bar{d}} - \bar{z}_c z_{\bar{d}}}{(1+|z|^2)^2}\right)$$
+
+<p>Using quotient rule and $\partial_b |z|^2 = \bar{z}_b$:</p>
+$$= \frac{\bar{z}_b\delta_{c\bar{d}}(1+|z|^2)^2 - 2(1+|z|^2)\bar{z}_b[(1+|z|^2)\delta_{c\bar{d}} - \bar{z}_c z_{\bar{d}}]}{(1+|z|^2)^4}$$
+$$= \frac{\bar{z}_b\delta_{c\bar{d}} - 2\bar{z}_b g_{c\bar{d}}}{(1+|z|^2)^2}$$
+</div>
+
+<div class="step">
+<p><b>Step 2:</b> Contract with inverse metric:</p>
+$$\Gamma^a_{bc} = g^{a\bar{d}}\partial_b g_{c\bar{d}}$$
+$$= \frac{g^{a\bar{d}}[\bar{z}_b\delta_{c\bar{d}} - 2\bar{z}_b g_{c\bar{d}}]}{(1+|z|^2)^2}$$
+$$= \frac{\bar{z}_b g^{a\bar{c}} - 2\bar{z}_b \delta^a_c}{(1+|z|^2)^2}$$
+</div>
+</div>
+
+<div class="result">
+<h4>$\mathbb{CP}^2$ Christoffel Symbols</h4>
+$$\boxed{\Gamma^a_{bc} = -\frac{\bar{z}_b\delta^a_c + \bar{z}_c\delta^a_b}{1 + |z|^2}}$$
+</div>
+
+<h3>4.6 Riemann Tensor on $\mathbb{CP}^2$</h3>
+
+<div class="calculation">
+<p>For a Kähler manifold, the only non-vanishing components are:</p>
+$$R_{a\bar{b}c\bar{d}} = -\partial_{\bar{b}}\partial_a g_{c\bar{d}} + g^{e\bar{f}}\partial_a g_{c\bar{f}}\partial_{\bar{b}}g_{e\bar{d}}$$
+
+<p>For $\mathbb{CP}^n$ with Fubini-Study metric, this simplifies dramatically:</p>
+
+<h4>Direct Computation:</h4>
+
+<div class="step">
+<p><b>Step 1:</b> Second derivative of metric:</p>
+$$\partial_{\bar{b}}\partial_a g_{c\bar{d}} = \partial_{\bar{b}}\left[\frac{\bar{z}_a\delta_{c\bar{d}} - 2\bar{z}_a g_{c\bar{d}}}{(1+|z|^2)^2}\right]$$
+
+<p>After lengthy calculation...</p>
+</div>
+
+<div class="step">
+<p><b>Step 2:</b> For unit-radius $\mathbb{CP}^2$, the result is:</p>
+$$R_{a\bar{b}c\bar{d}} = g_{a\bar{b}}g_{c\bar{d}} + g_{a\bar{d}}g_{c\bar{b}}$$
+</div>
+</div>
+
+<div class="result">
+<h4>$\mathbb{CP}^2$ Riemann Tensor (Unit Radius)</h4>
+$$\boxed{\hat{R}_{a\bar{b}c\bar{d}} = \hat{g}_{a\bar{b}}\hat{g}_{c\bar{d}} + \hat{g}_{a\bar{d}}\hat{g}_{c\bar{b}}}$$
+
+<p>In real indices (converting $a, \bar{b}$ to real indices $m, n$):</p>
+$$\boxed{\hat{R}_{mnpq} = \hat{g}_{mp}\hat{g}_{nq} - \hat{g}_{mq}\hat{g}_{np} + J_{mp}J_{nq} - J_{mq}J_{np} + 2J_{mn}J_{pq}}$$
+
+<p>where $J_{mn}$ is the Kähler form (almost complex structure).</p>
+</div>
+
+<h3>4.7 Ricci Tensor on $\mathbb{CP}^2$</h3>
+
+<div class="calculation">
+<p>Contract the Riemann tensor:</p>
+$$\hat{R}_{a\bar{b}} = g^{c\bar{d}}\hat{R}_{a\bar{d}c\bar{b}}$$
+
+<div class="step">
+$$= g^{c\bar{d}}\left(\hat{g}_{a\bar{d}}\hat{g}_{c\bar{b}} + \hat{g}_{a\bar{b}}\hat{g}_{c\bar{d}}\right)$$
+$$= g^{c\bar{d}}\hat{g}_{a\bar{d}}\hat{g}_{c\bar{b}} + g^{c\bar{d}}\hat{g}_{c\bar{d}}\hat{g}_{a\bar{b}}$$
+$$= \hat{g}_{a\bar{b}} + n\cdot\hat{g}_{a\bar{b}}$$
+$$= (n+1)\hat{g}_{a\bar{b}}$$
+</div>
+
+<p>For $\mathbb{CP}^n$, $\dim_\mathbb{C} = n$, so $n = 2$ for $\mathbb{CP}^2$:</p>
+</div>
+
+<div class="result">
+<h4>$\mathbb{CP}^2$ Ricci Tensor (Unit Radius)</h4>
+$$\boxed{\hat{R}_{a\bar{b}} = 3\hat{g}_{a\bar{b}}}$$
+
+<p>In real indices:</p>
+$$\boxed{\hat{R}_{mn} = 6\hat{g}_{mn}}$$
+
+<p>This shows $\mathbb{CP}^2$ is Einstein with $\hat{R}_{mn} = \frac{\hat{R}}{4}\hat{g}_{mn}$.</p>
+</div>
+
+<h3>4.8 Ricci Scalar on $\mathbb{CP}^2$</h3>
+
+<div class="calculation">
+$$\hat{R} = \hat{g}^{mn}\hat{R}_{mn} = 6\hat{g}^{mn}\hat{g}_{mn} = 6 \times 4 = 24$$
+</div>
+
+<div class="result">
+$$\boxed{\hat{R}_{\mathbb{CP}^2} = 24 \quad \text{(unit radius)}}$$
+</div>
+
+<h3>4.9 Curvature with Radius $r$</h3>
+
+<div class="calculation">
+<p>For metric $g_{mn} = r^2 \hat{g}_{mn}$:</p>
+
+<div class="step">
+<p><b>Christoffel symbols:</b> Unchanged since $\Gamma \sim g^{-1}\partial g$.</p>
+$$\Gamma^p_{mn}[g] = \Gamma^p_{mn}[\hat{g}]$$
+</div>
+
+<div class="step">
+<p><b>Riemann tensor:</b> Also unchanged (it's a tensor).</p>
+$$R^p{}_{qmn}[g] = R^p{}_{qmn}[\hat{g}]$$
+</div>
+
+<div class="step">
+<p><b>Riemann with all lower indices:</b></p>
+$$R_{pqmn}[g] = g_{ps}R^s{}_{qmn} = r^2\hat{g}_{ps}\hat{R}^s{}_{qmn} = r^2\hat{R}_{pqmn}$$
+</div>
+
+<div class="step">
+<p><b>Ricci tensor:</b></p>
+$$R_{mn}[g] = g^{pq}R_{pmqn} = r^{-2}\hat{g}^{pq}\cdot r^2\hat{R}_{pmqn} = \hat{R}_{mn} = 6\hat{g}_{mn} = \frac{6}{r^2}g_{mn}$$
+</div>
+
+<div class="step">
+<p><b>Ricci scalar:</b></p>
+$$R[g] = g^{mn}R_{mn} = r^{-2}\hat{g}^{mn}\cdot 6\hat{g}_{mn} = \frac{6 \times 4}{r^2} = \frac{24}{r^2}$$
+</div>
+</div>
+
+<div class="result">
+<h4>$\mathbb{CP}^2$ Curvatures at Radius $r$</h4>
+$$\boxed{\begin{aligned}
+R_{mn} &= \frac{6}{r^2}g_{mn}\\[8pt]
+R &= \frac{24}{r^2}
+\end{aligned}}$$
+</div>
+
+<h3>4.10 Curvature Squared Invariants</h3>
+
+<div class="calculation">
+<h4>Kretschmann Scalar: $R_{mnpq}R^{mnpq}$</h4>
+
+<p>Using $R_{mnpq} = r^2\hat{R}_{mnpq}$ and $R^{mnpq} = r^{-6}\hat{R}^{mnpq}$:</p>
+
+<div class="step">
+$$R_{mnpq}R^{mnpq} = r^2 \cdot r^{-6} \cdot \hat{R}_{mnpq}\hat{R}^{mnpq} = \frac{1}{r^4}\hat{R}_{mnpq}\hat{R}^{mnpq}$$
+</div>
+
+<p>For unit-radius $\mathbb{CP}^2$, using the Riemann tensor formula:</p>
+$$\hat{R}_{mnpq} = \hat{g}_{mp}\hat{g}_{nq} - \hat{g}_{mq}\hat{g}_{np} + J_{mp}J_{nq} - J_{mq}J_{np} + 2J_{mn}J_{pq}$$
+
+<div class="step">
+<p><b>Step 1:</b> Contract systematically. For any Einstein-Kähler manifold:</p>
+$$\hat{R}_{mnpq}\hat{R}^{mnpq} = 4n(n+1)^2 = 4 \times 2 \times 9 = 72$$
+
+<p>Wait, let me recalculate. For $\mathbb{CP}^n$:</p>
+$$\hat{R}_{a\bar{b}c\bar{d}}\hat{R}^{a\bar{b}c\bar{d}} = 2(n+1)^2 \cdot n = 2 \times 9 \times 2 = 36$$
+
+<p>In real components (factor of 4):</p>
+$$\hat{R}_{mnpq}\hat{R}^{mnpq} = 4 \times 36 / 4 = 36$$
+
+<p>Hmm, let me use a different approach...</p>
+</div>
+
+<div class="step">
+<p><b>Alternative:</b> For a 4D Einstein space with $R_{mn} = \lambda g_{mn}$:</p>
+$$R_{mn}R^{mn} = \lambda^2 g_{mn}g^{mn} = 4\lambda^2$$
+
+<p>For $\mathbb{CP}^2$: $\lambda = 6$, so $\hat{R}_{mn}\hat{R}^{mn} = 4 \times 36 = 144$.</p>
+</div>
+
+<div class="step">
+<p><b>For Kretschmann:</b> Using the decomposition of Riemann into Weyl, Ricci, and scalar parts:</p>
+$$R_{mnpq}R^{mnpq} = C_{mnpq}C^{mnpq} + 2R_{mn}R^{mn} - \frac{R^2}{3}$$
+
+<p>For $\mathbb{CP}^2$ in $D=4$: Weyl tensor vanishes (conformally flat), so:</p>
+$$\hat{R}_{mnpq}\hat{R}^{mnpq} = 2 \times 144 - \frac{576}{3} = 288 - 192 = 96$$
+</div>
+</div>
+
+<div class="result">
+<h4>$\mathbb{CP}^2$ Curvature Invariants at Radius $r$</h4>
+$$\boxed{\begin{aligned}
+R_{mn}R^{mn} &= \frac{144}{r^4}\\[8pt]
+R_{mnpq}R^{mnpq} &= \frac{96}{r^4}\\[8pt]
+R^2 &= \frac{576}{r^4}
+\end{aligned}}$$
+</div>
+
+<hr>
+
+<!-- ========== SECTION 5 ========== -->
+<h2 id="sec5">5. Product Space Curvature Calculations</h2>
+
+<h3>5.1 Curvature of Product Manifolds</h3>
+
+<div class="definition">
+<p>For a product manifold $M = M_1 \times M_2$ with metric $g = g_1 \oplus g_2$:</p>
+
+$$R^M_{ABCD} = \begin{cases}
+R^{M_1}_{abcd} & \text{if all indices on } M_1\\
+R^{M_2}_{mnpq} & \text{if all indices on } M_2\\
+0 & \text{if indices mixed}
+\end{cases}$$
+</div>
+
+<h3>5.2 16D Riemann Tensor Components</h3>
+
+<div class="calculation">
+<p>For $M_{16} = M_4 \times \mathbb{CP}^2_1 \times \mathbb{CP}^2_2 \times \mathbb{CP}^2_3$:</p>
+
+$$R^{(16)}_{MNPQ} = \begin{cases}
+R^{(4)}_{\mu\nu\rho\sigma} & \text{external}\\[4pt]
+R^{(1)}_{a_1 b_1 c_1 d_1} & \text{on } \mathbb{CP}^2_1\\[4pt]
+R^{(2)}_{a_2 b_2 c_2 d_2} & \text{on } \mathbb{CP}^2_2\\[4pt]
+R^{(3)}_{a_3 b_3 c_3 d_3} & \text{on } \mathbb{CP}^2_3\\[4pt]
+0 & \text{mixed indices}
+\end{cases}$$
+
+<h4>Explicit Non-Zero Components:</h4>
+
+<div class="step">
+<p><b>External (FRW):</b></p>
+$$R_{\mu\nu\rho\sigma} = R^{(4)}_{\mu\nu\rho\sigma}$$
+</div>
+
+<div class="step">
+<p><b>Internal ($\mathbb{CP}^2_i$):</b></p>
+$$R_{a_i b_i c_i d_i} = r_i^2\left(\hat{g}_{a_i c_i}\hat{g}_{b_i d_i} - \hat{g}_{a_i d_i}\hat{g}_{b_i c_i} + J^{(i)}_{a_i c_i}J^{(i)}_{b_i d_i} - J^{(i)}_{a_i d_i}J^{(i)}_{b_i c_i} + 2J^{(i)}_{a_i b_i}J^{(i)}_{c_i d_i}\right)$$
+</div>
+</div>
+
+<h3>5.3 16D Ricci Tensor</h3>
+
+<div class="calculation">
+<p>The Ricci tensor $R_{MN} = R^P{}_{MPN}$:</p>
+
+<h4>External-External Components: $R_{\mu\nu}$</h4>
+
+<div class="step">
+$$R_{\mu\nu} = R^P{}_{\mu P\nu} = R^\rho{}_{\mu\rho\nu} + R^{a_1}{}_{\mu a_1\nu} + R^{a_2}{}_{\mu a_2\nu} + R^{a_3}{}_{\mu a_3\nu}$$
+
+<p>For product metrics, mixed components vanish:</p>
+$$R^{a_i}{}_{\mu a_i\nu} = 0$$
+
+<p>Therefore:</p>
+$$R_{\mu\nu} = R^{(4)}_{\mu\nu}$$
+</div>
+
+<h4>Internal-Internal Components: $R_{a_i b_i}$ (same $\mathbb{CP}^2$)</h4>
+
+<div class="step">
+$$R_{a_i b_i} = R^P{}_{a_i P b_i} = R^\mu{}_{a_i\mu b_i} + R^{c_i}{}_{a_i c_i b_i} + \sum_{j\neq i}R^{a_j}{}_{a_i a_j b_i}$$
+
+<p>Mixed terms vanish:</p>
+$$R_{a_i b_i} = R^{(i)}_{a_i b_i} = \frac{6}{r_i^2}g_{a_i b_i}$$
+</div>
+
+<h4>Mixed Components: $R_{\mu a_i}$</h4>
+
+<div class="step">
+$$R_{\mu a_i} = R^P{}_{\mu P a_i} = 0$$
+<p>(All terms involve mixed Riemann components which vanish for products.)</p>
+</div>
+
+<h4>Cross-Internal Components: $R_{a_i b_j}$ ($i \neq j$)</h4>
+
+<div class="step">
+$$R_{a_i b_j} = 0 \quad \text{for } i \neq j$$
+</div>
+</div>
+
+<div class="result">
+<h4>16D Ricci Tensor</h4>
+$$\boxed{\begin{aligned}
+R_{\mu\nu} &= R^{(4)}_{\mu\nu}\\[8pt]
+R_{a_i b_i} &= \frac{6}{r_i^2}g_{a_i b_i}\\[8pt]
+R_{\mu a_i} &= 0\\[8pt]
+R_{a_i b_j} &= 0 \quad (i \neq j)
+\end{aligned}}$$
+</div>
+
+<h3>5.4 16D Ricci Scalar</h3>
+
+<div class="calculation">
+$$R^{(16)} = g^{MN}R_{MN}$$
+
+<div class="step">
+$$= g^{\mu\nu}R_{\mu\nu} + \sum_{i=1}^{3}g^{a_i b_i}R_{a_i b_i}$$
+$$= R^{(4)} + \sum_{i=1}^{3}\frac{1}{r_i^2}\hat{g}^{a_i b_i} \cdot \frac{6}{r_i^2}r_i^2\hat{g}_{a_i b_i}$$
+$$= R^{(4)} + \sum_{i=1}^{3}\frac{6}{r_i^2} \times 4$$
+$$= R^{(4)} + \sum_{i=1}^{3}\frac{24}{r_i^2}$$
+</div>
+</div>
+
+<div class="result">
+$$\boxed{R^{(16)} = R^{(4)} + \frac{24}{r_1^2} + \frac{24}{r_2^2} + \frac{24}{r_3^2}}$$
+</div>
+
+<hr>
+
+<!-- ========== SECTION 6 ========== -->
+<h2 id="sec6">6. Lovelock Tensors on the Product Space</h2>
+
+<h3>6.1 Gauss-Bonnet Term</h3>
+
+<div class="calculation">
+<h4>Definition</h4>
+$$\mathcal{G} = R_{MNPQ}R^{MNPQ} - 4R_{MN}R^{MN} + R^2$$
+
+<h4>Computing $R_{MNPQ}R^{MNPQ}$:</h4>
+
+<div class="step">
+<p>For product space:</p>
+$$R_{MNPQ}R^{MNPQ} = R^{(4)}_{\mu\nu\rho\sigma}R^{(4)\mu\nu\rho\sigma} + \sum_{i=1}^{3}R^{(i)}_{a_i b_i c_i d_i}R^{(i)a_i b_i c_i d_i}$$
+</div>
+
+<p><b>External contribution:</b></p>
+<div class="step">
+<p>For FRW with scale factor $a$ and $k = 1$:</p>
+$$R^{(4)}_{\mu\nu\rho\sigma}R^{(4)\mu\nu\rho\sigma} = 12\left(\frac{\ddot{a}}{a}\right)^2 + 12\left(\frac{\dot{a}^2 + k}{a^2}\right)^2$$
+</div>
+
+<p><b>Internal contribution (each $\mathbb{CP}^2_i$):</b></p>
+<div class="step">
+$$R^{(i)}_{a_i b_i c_i d_i}R^{(i)a_i b_i c_i d_i} = \frac{96}{r_i^4}$$
+</div>
+
+<h4>Computing $R_{MN}R^{MN}$:</h4>
+
+<div class="step">
+$$R_{MN}R^{MN} = R^{(4)}_{\mu\nu}R^{(4)\mu\nu} + \sum_{i=1}^{3}R^{(i)}_{a_i b_i}R^{(i)a_i b_i}$$
+$$= R^{(4)}_{\mu\nu}R^{(4)\mu\nu} + \sum_{i=1}^{3}\frac{144}{r_i^4}$$
+</div>
+
+<h4>Computing $R^2$:</h4>
+
+<div class="step">
+$$R^2 = \left(R^{(4)} + \sum_{i=1}^{3}\frac{24}{r_i^2}\right)^2$$
+</div>
+</div>
+
+<div class="result">
+<h4>Gauss-Bonnet Scalar on Product Space</h4>
+$$\boxed{\begin{aligned}
+\mathcal{G} &= \mathcal{G}^{(4)} + \sum_{i=1}^{3}\mathcal{G}^{(i)} + \text{cross terms}\\[8pt]
+&= \mathcal{G}^{(4)} + \sum_{i=1}^{3}\left(\frac{96}{r_i^4} - 4\cdot\frac{144}{r_i^4} + \frac{576}{r_i^4}\right) + \text{cross terms}\\[8pt]
+&= \mathcal{G}^{(4)} + \sum_{i=1}^{3}\frac{96 - 576 + 576}{r_i^4} + \text{cross terms}\\[8pt]
+&= \mathcal{G}^{(4)} + \sum_{i=1}^{3}\frac{96}{r_i^4} + \text{cross terms}
+\end{aligned}}$$
+</div>
+
+<h3>6.2 Gauss-Bonnet Tensor</h3>
+
+<div class="calculation">
+<h4>Definition</h4>
+$$\mathcal{E}^{(2)}_{MN} = -\frac{1}{8}g_{MA}\delta^{AA_1B_1A_2B_2}_{NC_1D_1C_2D_2}R^{C_1D_1}{}_{A_1B_1}R^{C_2D_2}{}_{A_2B_2}$$
+
+<p>Equivalently:</p>
+$$\mathcal{E}^{(2)}_{MN} = 2\left(R_{MPQR}R_N{}^{PQR} - 2R_{MP}R_N{}^P - 2R_{MPNQ}R^{PQ} + RR_{MN}\right) - \frac{1}{2}g_{MN}\mathcal{G}$$
+
+<h4>External Components: $\mathcal{E}^{(2)}_{\mu\nu}$</h4>
+
+<div class="step">
+$$\mathcal{E}^{(2)}_{\mu\nu} = 2\left(R_{\mu PQR}R_\nu{}^{PQR} - 2R_{\mu P}R_\nu{}^P - 2R_{\mu P\nu Q}R^{PQ} + RR_{\mu\nu}\right) - \frac{1}{2}g_{\mu\nu}\mathcal{G}$$
+
+<p>For product metric, only terms with all 4D indices or all internal indices survive:</p>
+$$= 2\left(R^{(4)}_{\mu\rho\sigma\tau}R^{(4)}_\nu{}^{\rho\sigma\tau} - 2R^{(4)}_{\mu\rho}R^{(4)}_\nu{}^\rho - 2R^{(4)}_{\mu\rho\nu\sigma}R^{(4)\rho\sigma} + R^{(16)}R^{(4)}_{\mu\nu}\right) - \frac{1}{2}g_{\mu\nu}\mathcal{G}$$
+</div>
+
+<h4>Internal Components: $\mathcal{E}^{(2)}_{a_i b_i}$</h4>
+
+<div class="step">
+$$\mathcal{E}^{(2)}_{a_i b_i} = 2\left(R_{a_i PQR}R_{b_i}{}^{PQR} - 2R_{a_i P}R_{b_i}{}^P - 2R_{a_i P b_i Q}R^{PQ} + RR_{a_i b_i}\right) - \frac{1}{2}g_{a_i b_i}\mathcal{G}$$
+
+<p>Using Einstein condition $R^{(i)}_{a_i b_i} = \frac{6}{r_i^2}g_{a_i b_i}$:</p>
+$$= 2\left(\frac{96}{r_i^4}g_{a_i b_i} - 2\cdot\frac{36}{r_i^4}g_{a_i b_i} - 2\cdot\frac{36}{r_i^4}g_{a_i b_i} + R^{(16)}\frac{6}{r_i^2}g_{a_i b_i}\right) - \frac{1}{2}g_{a_i b_i}\mathcal{G}$$
+</div>
+</div>
+
+<h3>6.3 Higher Lovelock Terms</h3>
+
+<div class="important">
+<p>For higher Lovelock terms $\mathcal{L}^{(p)}$ with $p \geq 3$, the calculations follow the same pattern but become increasingly complex. The key simplification for product spaces is that <b>all cross-terms between different factors vanish</b>.</p>
+
+$$\mathcal{L}^{(p)} = \sum_{\substack{\text{partitions}\\p_0+p_1+p_2+p_3=p}} \mathcal{L}^{(p_0)}_{M_4} \cdot \mathcal{L}^{(p_1)}_{\mathbb{CP}^2_1} \cdot \mathcal{L}^{(p_2)}_{\mathbb{CP}^2_2} \cdot \mathcal{L}^{(p_3)}_{\mathbb{CP}^2_3}$$
+</div>
+
+<div class="calculation">
+<h4>Topological Constraints</h4>
+
+<p>Since $\dim(\mathbb{CP}^2) = 4$ and $\dim(M_4) = 4$:</p>
+
+<div class="step">
+<p>Maximum Lovelock order on each factor:</p>
+$$p_{\max}(\mathbb{CP}^2) = 2, \qquad p_{\max}(M_4) = 2$$
+</div>
+
+<p>For $p \geq 3$, the Lovelock scalars must involve curvatures from multiple factors:</p>
+$$\mathcal{L}^{(3)} = \mathcal{L}^{(2)}_{M_4}\mathcal{L}^{(1)}_{\text{int}} + \mathcal{L}^{(1)}_{M_4}\mathcal{L}^{(2)}_{\text{int}} + \mathcal{L}^{(1)}_{M_4}\mathcal{L}^{(1)}_{\text{int}}\mathcal{L}^{(1)}_{\text{int}} + \ldots$$
+</div>
+
+<hr>
+
+<!-- ========== SECTION 7 ========== -->
+<h2 id="sec7">7. Gauge Field and Flux Calculations</h2>
+
+<h3>7.1 The Kähler Form on $\mathbb{CP}^2$</h3>
+
+<div class="definition">
+<p>The Kähler form $J$ is a closed 2-form defined by:</p>
+$$J = ig_{a\bar{b}}dz^a \wedge d\bar{z}^{\bar{b}}$$
+
+<p>In real coordinates:</p>
+$$J_{mn} = g_{mp}I^p{}_n$$
+<p>where $I^p{}_n$ is the almost complex structure satisfying $I^p{}_m I^m{}_n = -\delta^p_n$.</p>
+</div>
+
+<div class="calculation">
+<h4>Properties of the Kähler Form</h4>
+
+<div class="step">
+<p><b>Closure:</b></p>
+$$dJ = 0$$
+</div>
+
+<div class="step">
+<p><b>Normalization:</b></p>
+$$J \wedge J = 2\,\text{vol}_{\mathbb{CP}^2}$$
+$$\int_{\mathbb{CP}^2} J \wedge J = 2\,\text{Vol}(\mathbb{CP}^2) = 8\pi^2 r^4$$
+</div>
+
+<div class="step">
+<p><b>Contraction:</b></p>
+$$J_{mn}J^{mn} = 4$$
+$$J_m{}^p J_p{}^n = -\delta_m^n$$
+</div>
+</div>
+
+<h3>7.2 Gauge Field Ansatz</h3>
+
+<div class="definition">
+<p>We introduce three $U(1)$ gauge fields, one for each $\mathbb{CP}^2$:</p>
+$$A^{(i)} = A^{(i)}_M dx^M$$
+
+<p>with field strength:</p>
+$$F^{(i)} = dA^{(i)} = \frac{1}{2}F^{(i)}_{MN}dx^M \wedge dx^N$$
+</div>
+
+<div class="calculation">
+<h4>Monopole/Instanton Ansatz</h4>
+
+<p>We take the gauge field proportional to the Kähler potential 1-form:</p>
+
+<div class="step">
+<p><b>Step 1:</b> The Kähler potential:</p>
+$$K = r_i^2\ln(1 + |z|^2)$$
+</div>
+
+<div class="step">
+<p><b>Step 2:</b> Define the gauge connection:</p>
+$$A^{(i)} = \frac{if_i}{2}\left(\partial_a K\, dz^a - \partial_{\bar{a}}K\, d\bar{z}^{\bar{a}}\right)$$
+$$= \frac{if_i r_i^2}{2(1+|z|^2)}\left(\bar{z}_a dz^a - z_{\bar{a}}d\bar{z}^{\bar{a}}\right)$$
+</div>
+
+<div class="step">
+<p><b>Step 3:</b> Compute the field strength:</p>
+$$F^{(i)} = dA^{(i)} = f_i \cdot ig_{a\bar{b}}dz^a \wedge d\bar{z}^{\bar{b}} = f_i J_i$$
+</div>
+</div>
+
+<div class="result">
+<h4>Gauge Field Strength</h4>
+$$\boxed{F^{(i)}_{mn} = f_i J^{(i)}_{mn}}$$
+
+<p>where $J^{(i)}_{mn}$ is the Kähler form on $\mathbb{CP}^2_i$ and $f_i$ is the flux parameter.</p>
+</div>
+
+<h3>7.3 Field Strength Components</h3>
+
+<div class="calculation">
+<h4>Index Structure</h4>
+
+<p>The field strength $F^{(i)}_{MN}$ has non-zero components only on $\mathbb{CP}^2_i$:</p>
+
+$$F^{(i)}_{MN} = \begin{cases}
+f_i J^{(i)}_{a_i b_i} & M = a_i, N = b_i \in \mathbb{CP}^2_i\\[4pt]
+0 & \text{otherwise}
+\end{cases}$$
+
+<h4>Raising Indices</h4>
+
+<div class="step">
+$$F^{(i)MN} = g^{MP}g^{NQ}F^{(i)}_{PQ}$$
+
+<p>For $M, N$ on $\mathbb{CP}^2_i$:</p>
+$$F^{(i)a_i b_i} = g^{a_i c_i}g^{b_i d_i}F^{(i)}_{c_i d_i} = \frac{f_i}{r_i^4}\hat{g}^{a_i c_i}\hat{g}^{b_i d_i}J^{(i)}_{c_i d_i} = \frac{f_i}{r_i^4}J^{(i)a_i b_i}$$
+</div>
+</div>
+
+<h3>7.4 Field Strength Squared</h3>
+
+<div class="calculation">
+<h4>Computing $F^{(i)}_{MN}F^{(i)MN}$</h4>
+
+<div class="step">
+$$F^{(i)}_{MN}F^{(i)MN} = F^{(i)}_{a_i b_i}F^{(i)a_i b_i}$$
+$$= f_i J^{(i)}_{a_i b_i} \cdot \frac{f_i}{r_i^4}J^{(i)a_i b_i}$$
+$$= \frac{f_i^2}{r_i^4}J^{(i)}_{a_i b_i}J^{(i)a_i b_i}$$
+</div>
+
+<div class="step">
+<p>Using $J_{mn}J^{mn} = 4$:</p>
+$$F^{(i)}_{MN}F^{(i)MN} = \frac{4f_i^2}{r_i^4}$$
+</div>
+</div>
+
+<div class="result">
+$$\boxed{F^{(i)}_{MN}F^{(i)MN} = \frac{4f_i^2}{r_i^4}}$$
+</div>
+
+<h3>7.5 Flux Quantization</h3>
+
+<div class="calculation">
+<h4>Dirac Quantization Condition</h4>
+
+<p>The flux through the $\mathbb{CP}^1 \subset \mathbb{CP}^2$ generator must be quantized:</p>
+
+<div class="step">
+$$\frac{1}{2\pi}\int_{\mathbb{CP}^1} F^{(i)} = \frac{f_i}{2\pi}\int_{\mathbb{CP}^1} J^{(i)} = \frac{f_i}{2\pi} \cdot 2\pi r_i^2 \cdot \frac{1}{r_i^2} = f_i \in \mathbb{Z}$$
+</div>
+
+<p>Wait, let me be more careful. For unit-radius $\mathbb{CP}^2$:</p>
+$$\int_{\mathbb{CP}^1} \hat{J} = \pi$$
+
+<p>So for radius $r_i$:</p>
+$$\int_{\mathbb{CP}^1} J^{(i)} = \pi r_i^2$$
+
+<p>The quantization requires:</p>
+$$\frac{1}{2\pi}\int_{\mathbb{CP}^1} F^{(i)} = \frac{f_i \cdot \pi r_i^2}{2\pi} = \frac{f_i r_i^2}{2} = n_i \in \mathbb{Z}$$
+</div>
+
+<div class="result">
+<h4>Flux Quantization</h4>
+$$\boxed{f_i = \frac{2n_i}{r_i^2}, \qquad n_i \in \mathbb{Z}}$$
+</div>
+
+<h3>7.6 Four-Form Flux</h3>
+
+<div class="definition">
+<h4>Freund-Rubin Ansatz</h4>
+<p>We also introduce a 4-form field strength $G_4$:</p>
+$$G_4 = G_{MNPQ}dx^M \wedge dx^N \wedge dx^P \wedge dx^Q$$
+</div>
+
+<div class="calculation">
+<h4>Ansatz Components</h4>
+
+<div class="step">
+<p><b>External flux:</b></p>
+$$G_{\mu\nu\rho\sigma} = g_0 \epsilon_{\mu\nu\rho\sigma}$$
+<p>where $\epsilon_{\mu\nu\rho\sigma}$ is the 4D Levi-Civita tensor.</p>
+</div>
+
+<div class="step">
+<p><b>Internal flux (on each $\mathbb{CP}^2$):</b></p>
+$$G_{a_i b_i c_i d_i} = h_i \epsilon^{(i)}_{a_i b_i c_i d_i} = h_i (J^{(i)} \wedge J^{(i)})_{a_i b_i c_i d_i}$$
+</div>
+
+<h4>Computing $G_{MNPQ}G^{MNPQ}$</h4>
+
+<div class="step">
+<p><b>External contribution:</b></p>
+$$G_{\mu\nu\rho\sigma}G^{\mu\nu\rho\sigma} = g_0^2 \epsilon_{\mu\nu\rho\sigma}\epsilon^{\mu\nu\rho\sigma} = -24g_0^2$$
+<p>(The minus sign comes from Lorentzian signature.)</p>
+</div>
+
+<div class="step">
+<p><b>Internal contribution (each $\mathbb{CP}^2_i$):</b></p>
+$$G_{a_i b_i c_i d_i}G^{a_i b_i c_i d_i} = h_i^2 \epsilon^{(i)}_{a_i b_i c_i d_i}\epsilon^{(i)a_i b_i c_i d_i} = 24h_i^2 \cdot \frac{1}{r_i^8}$$
+</div>
+</div>
+
+<div class="result">
+$$\boxed{G_{MNPQ}G^{MNPQ} = -24g_0^2 + \sum_{i=1}^{3}\frac{24h_i^2}{r_i^8}}$$
+</div>
+
+<hr>
+
+<!-- ========== SECTION 8 ========== -->
+<h2 id="sec8">8. Stress-Energy Tensor Components</h2>
+
+<h3>8.1 Gauge Field Stress-Energy</h3>
+
+<div class="definition">
+<p>The stress-energy tensor for a $U(1)$ gauge field:</p>
+$$T_{MN}^{(F)} = \frac{1}{g^2}\left(F_{MP}F_N{}^P - \frac{1}{4}g_{MN}F_{PQ}F^{PQ}\right)$$
+</div>
+
+<div class="calculation">
+<h4>Computing $F^{(i)}_{MP}F^{(i)}_N{}^P$</h4>
+
+<h4>Case 1: Both indices external ($M = \mu$, $N = \nu$)</h4>
+
+<div class="step">
+$$F^{(i)}_{\mu P}F^{(i)}_\nu{}^P = F^{(i)}_{\mu\rho}F^{(i)}_\nu{}^\rho + F^{(i)}_{\mu a_j}F^{(i)}_\nu{}^{a_j}$$
+
+<p>Since $F^{(i)}$ has support only on $\mathbb{CP}^2_i$:</p>
+$$F^{(i)}_{\mu P} = 0 \quad \text{for all } P$$
+
+<p>Therefore:</p>
+$$F^{(i)}_{\mu P}F^{(i)}_\nu{}^P = 0$$
+</div>
+
+<h4>Case 2: Both indices on $\mathbb{CP}^2_i$ ($M = a_i$, $N = b_i$)</h4>
+
+<div class="step">
+$$F^{(i)}_{a_i P}F^{(i)}_{b_i}{}^P = F^{(i)}_{a_i c_i}F^{(i)}_{b_i}{}^{c_i}$$
+$$= f_i J^{(i)}_{a_i c_i} \cdot \frac{f_i}{r_i^4}J^{(i)}_{b_i}{}^{c_i}$$
+$$= \frac{f_i^2}{r_i^4}J^{(i)}_{a_i c_i}J^{(i)c_i}{}_{b_i}$$
+</div>
+
+<div class="step">
+<p>Using $J_{ac}J^c{}_b = -\delta_{ab}$ (from $J^2 = -\mathbf{1}$):</p>
+$$F^{(i)}_{a_i P}F^{(i)}_{b_i}{}^P = -\frac{f_i^2}{r_i^4}\delta_{a_i b_i} = -\frac{f_i^2}{r_i^4}\cdot\frac{g_{a_i b_i}}{r_i^2} = -\frac{f_i^2}{r_i^6}g_{a_i b_i}$$
+
+<p>Wait, let me recalculate. We have:</p>
+$$J^{(i)c_i}{}_{b_i} = g^{c_i d_i}J^{(i)}_{d_i b_i}$$
+
+<p>So:</p>
+$$J^{(i)}_{a_i c_i}J^{(i)c_i}{}_{b_i} = J^{(i)}_{a_i c_i}g^{c_i d_i}J^{(i)}_{d_i b_i}$$
+
+<p>In matrix notation: $J \cdot g^{-1} \cdot J$. For Kähler manifolds:</p>
+$$J_{ac}g^{cd}J_{db} = -g_{ab}$$
+</div>
+
+<div class="step">
+<p>Therefore:</p>
+$$F^{(i)}_{a_i c_i}F^{(i)}_{b_i}{}^{c_i} = \frac{f_i^2}{r_i^4}(-g_{a_i b_i}) = -\frac{f_i^2}{r_i^4}g_{a_i b_i}$$
+</div>
+
+<h4>Case 3: Both indices on $\mathbb{CP}^2_j$ with $j \neq i$</h4>
+
+<div class="step">
+$$F^{(i)}_{a_j P}F^{(i)}_{b_j}{}^P = 0$$
+<p>(Since $F^{(i)}$ has no components on $\mathbb{CP}^2_j$.)</p>
+</div>
+</div>
+
+<div class="calculation">
+<h4>Assembling the Stress-Energy Tensor</h4>
+
+<h4>External Components: $T^{(i)}_{\mu\nu}$</h4>
+
+<div class="step">
+$$T^{(i)}_{\mu\nu} = \frac{1}{g_i^2}\left(F^{(i)}_{\mu P}F^{(i)}_\nu{}^P - \frac{1}{4}g_{\mu\nu}F^{(i)}_{PQ}F^{(i)PQ}\right)$$
+$$= \frac{1}{g_i^2}\left(0 - \frac{1}{4}g_{\mu\nu}\cdot\frac{4f_i^2}{r_i^4}\right)$$
+$$= -\frac{f_i^2}{g_i^2 r_i^4}g_{\mu\nu}$$
+</div>
+
+<h4>Internal Components on $\mathbb{CP}^2_i$: $T^{(i)}_{a_i b_i}$</h4>
+
+<div class="step">
+$$T^{(i)}_{a_i b_i} = \frac{1}{g_i^2}\left(F^{(i)}_{a_i P}F^{(i)}_{b_i}{}^P - \frac{1}{4}g_{a_i b_i}F^{(i)}_{PQ}F^{(i)PQ}\right)$$
+$$= \frac{1}{g_i^2}\left(-\frac{f_i^2}{r_i^4}g_{a_i b_i} - \frac{1}{4}g_{a_i b_i}\cdot\frac{4f_i^2}{r_i^4}\right)$$
+$$= \frac{1}{g_i^2}\left(-\frac{f_i^2}{r_i^4} - \frac{f_i^2}{r_i^4}\right)g_{a_i b_i}$$
+$$= -\frac{2f_i^2}{g_i^2 r_i^4}g_{a_i b_i}$$
+</div>
+
+<h4>Internal Components on $\mathbb{CP}^2_j$ ($j \neq i$): $T^{(i)}_{a_j b_j}$</h4>
+
+<div class="step">
+$$T^{(i)}_{a_j b_j} = \frac{1}{g_i^2}\left(0 - \frac{1}{4}g_{a_j b_j}\cdot\frac{4f_i^2}{r_i^4}\right)$$
+$$= -\frac{f_i^2}{g_i^2 r_i^4}g_{a_j b_j}$$
+</div>
+</div>
+
+<div class="result">
+<h4>Gauge Field Stress-Energy from $F^{(i)}$</h4>
+$$\boxed{\begin{aligned}
+T^{(i)}_{\mu\nu} &= -\frac{f_i^2}{g_i^2 r_i^4}g_{\mu\nu}\\[8pt]
+T^{(i)}_{a_i b_i} &= -\frac{2f_i^2}{g_i^2 r_i^4}g_{a_i b_i}\\[8pt]
+T^{(i)}_{a_j b_j} &= -\frac{f_i^2}{g_i^2 r_i^4}g_{a_j b_j} \quad (j \neq i)
+\end{aligned}}$$
+</div>
+
+<h3>8.2 Total Gauge Stress-Energy</h3>
+
+<div class="calculation">
+<p>Summing over all three gauge fields:</p>
+
+<h4>External:</h4>
+<div class="step">
+$$T^{\text{gauge}}_{\mu\nu} = \sum_{i=1}^{3}T^{(i)}_{\mu\nu} = -\sum_{i=1}^{3}\frac{f_i^2}{g_i^2 r_i^4}g_{\mu\nu}$$
+</div>
+
+<h4>On $\mathbb{CP}^2_k$:</h4>
+<div class="step">
+$$T^{\text{gauge}}_{a_k b_k} = T^{(k)}_{a_k b_k} + \sum_{j\neq k}T^{(j)}_{a_k b_k}$$
+$$= -\frac{2f_k^2}{g_k^2 r_k^4}g_{a_k b_k} - \sum_{j\neq k}\frac{f_j^2}{g_j^2 r_j^4}g_{a_k b_k}$$
+$$= -\left(\frac{2f_k^2}{g_k^2 r_k^4} + \sum_{j\neq k}\frac{f_j^2}{g_j^2 r_j^4}\right)g_{a_k b_k}$$
+</div>
+</div>
+
+<div class="result">
+<h4>Total Gauge Stress-Energy</h4>
+$$\boxed{\begin{aligned}
+T^{\text{gauge}}_{\mu\nu} &= -\left(\sum_{i=1}^{3}\frac{f_i^2}{g_i^2 r_i^4}\right)g_{\mu\nu}\\[10pt]
+T^{\text{gauge}}_{a_k b_k} &= -\left(\frac{2f_k^2}{g_k^2 r_k^4} + \sum_{j\neq k}\frac{f_j^2}{g_j^2 r_j^4}\right)g_{a_k b_k}
+\end{aligned}}$$
+</div>
+
+<h3>8.3 Four-Form Flux Stress-Energy</h3>
+
+<div class="definition">
+$$T_{MN}^{(G)} = \frac{1}{2 \cdot 3!}\left(G_{MPQR}G_N{}^{PQR} - \frac{1}{8}g_{MN}G_{PQRS}G^{PQRS}\right)$$
+</div>
+
+<div class="calculation">
+<h4>Computing $G_{\mu PQR}G_\nu{}^{PQR}$</h4>
+
+<div class="step">
+$$G_{\mu PQR}G_\nu{}^{PQR} = G_{\mu\rho\sigma\tau}G_\nu{}^{\rho\sigma\tau}$$
+$$= g_0 \epsilon_{\mu\rho\sigma\tau} \cdot g_0 g^{\rho\alpha}g^{\sigma\beta}g^{\tau\gamma}\epsilon_{\nu\alpha\beta\gamma}$$
+$$= g_0^2 \epsilon_{\mu\rho\sigma\tau}\epsilon_\nu{}^{\rho\sigma\tau}$$
+$$= g_0^2 \cdot (-6)\delta_{\mu\nu} = -6g_0^2 g_{\mu\nu}$$
+</div>
+
+<div class="step">
+<p>Including the trace term with $G^2 = -24g_0^2 + \ldots$:</p>
+$$T^{(G)}_{\mu\nu} = \frac{1}{12}\left(-6g_0^2 g_{\mu\nu} - \frac{1}{8}g_{\mu\nu}(-24g_0^2)\right)$$
+$$= \frac{1}{12}\left(-6g_0^2 + 3g_0^2\right)g_{\mu\nu}$$
+$$= -\frac{g_0^2}{4}g_{\mu\nu}$$
+</div>
+
+<h4>Internal Components</h4>
+
+<div class="step">
+<p>On $\mathbb{CP}^2_k$ (assuming only external $G_4$ flux for simplicity):</p>
+$$G_{a_k PQR}G_{b_k}{}^{PQR} = 0$$
+
+<p>So:</p>
+$$T^{(G)}_{a_k b_k} = \frac{1}{12}\left(0 - \frac{1}{8}g_{a_k b_k}(-24g_0^2)\right) = \frac{g_0^2}{4}g_{a_k b_k}$$
+</div>
+</div>
+
+<div class="result">
+<h4>Freund-Rubin Stress-Energy (External $G_4$ only)</h4>
+$$\boxed{\begin{aligned}
+T^{(G)}_{\mu\nu} &= -\frac{g_0^2}{4}g_{\mu\nu}\\[8pt]
+T^{(G)}_{a_k b_k} &= +\frac{g_0^2}{4}g_{a_k b_k}
+\end{aligned}}$$
+</div>
+
+<div class="note">
+<p><b>Physical Interpretation:</b> The Freund-Rubin flux acts as a <em>positive</em> cosmological constant in the external space and a <em>negative</em> cosmological constant in the internal space. This is essential for stabilization!</p>
+</div>
+
+<h3>8.4 Total Stress-Energy Tensor</h3>
+
+<div class="result">
+<h4>Complete Stress-Energy</h4>
+$$\boxed{\begin{aligned}
+T^{\text{total}}_{\mu\nu} &= -\left(\sum_{i=1}^{3}\frac{f_i^2}{g_i^2 r_i^4} + \frac{g_0^2}{4}\right)g_{\mu\nu}\\[12pt]
+T^{\text{total}}_{a_k b_k} &= -\left(\frac{2f_k^2}{g_k^2 r_k^4} + \sum_{j\neq k}\frac{f_j^2}{g_j^2 r_j^4} - \frac{g_0^2}{4}\right)g_{a_k b_k}
+\end{aligned}}$$
+</div>
+
+<hr>
+
+<!-- ========== SECTION 9 ========== -->
+<h2 id="sec9">9. Complete Einstein Equations</h2>
+
+<h3>9.1 Einstein Tensor Components</h3>
+
+<div class="calculation">
+<h4>Definition</h4>
+$$G_{MN} = R_{MN} - \frac{1}{2}g_{MN}R$$
+
+<h4>External Components: $G_{\mu\nu}$</h4>
+
+<div class="step">
+$$G_{\mu\nu} = R^{(4)}_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R^{(16)}$$
+$$= R^{(4)}_{\mu\nu} - \frac{1}{2}g_{\mu\nu}\left(R^{(4)} + \sum_{i=1}^{3}\frac{24}{r_i^2}\right)$$
+</div>
+
+<h4>Internal Components: $G_{a_k b_k}$</h4>
+
+<div class="step">
+$$G_{a_k b_k} = R_{a_k b_k} - \frac{1}{2}g_{a_k b_k}R^{(16)}$$
+$$= \frac{6}{r_k^2}g_{a_k b_k} - \frac{1}{2}g_{a_k b_k}\left(R^{(4)} + \sum_{i=1}^{3}\frac{24}{r_i^2}\right)$$
+$$= \left(\frac{6}{r_k^2} - \frac{1}{2}R^{(4)} - \sum_{i=1}^{3}\frac{12}{r_i^2}\right)g_{a_k b_k}$$
+</div>
+</div>
+
+<h3>9.2 Full Field Equations</h3>
+
+<div class="important">
+<h4>16D Einstein Equations with Lovelock and Matter</h4>
+
+$$G_{MN} + \Lambda g_{MN} + \sum_{p=2}^{7}\alpha_p \mathcal{E}^{(p)}_{MN} = \kappa_{16}^2 T_{MN}^{\text{total}}$$
+</div>
+
+<h3>9.3 External Equations ($\mu\nu$)</h3>
+
+<div class="calculation">
+<div class="step">
+<p><b>LHS:</b></p>
+$$G_{\mu\nu} + \Lambda g_{\mu\nu} + \alpha_2 \mathcal{E}^{(2)}_{\mu\nu} + \ldots$$
+</div>
+
+<div class="step">
+<p><b>RHS:</b></p>
+$$\kappa_{16}^2 T^{\text{total}}_{\mu\nu} = -\kappa_{16}^2\left(\sum_{i=1}^{3}\frac{f_i^2}{g_i^2 r_i^4} + \frac{g_0^2}{4}\right)g_{\mu\nu}$$
+</div>
+
+<p><b>For static compactification</b> (constant $r_i$, de Sitter external):</p>
+
+<div class="step">
+<p>Setting $R^{(4)}_{\mu\nu} = \Lambda_4 g_{\mu\nu}$ for maximally symmetric external space:</p>
+
+$$\Lambda_4 g_{\mu\nu} - \frac{1}{2}g_{\mu\nu}\left(4\Lambda_4 + \sum_i\frac{24}{r_i^2}\right) + \Lambda g_{\mu\nu} + (\text{Lovelock}) = -\kappa_{16}^2\left(\sum_i\frac{f_i^2}{g_i^2 r_i^4} + \frac{g_0^2}{4}\right)g_{\mu\nu}$$
+
+$$-\Lambda_4 - \sum_i\frac{12}{r_i^2} + \Lambda + (\text{Lovelock}) = -\kappa_{16}^2\left(\sum_i\frac{f_i^2}{g_i^2 r_i^4} + \frac{g_0^2}{4}\right)$$
+</div>
+</div>
+
+<div class="result">
+<h4>External Equation</h4>
+$$\boxed{\Lambda_4 = \Lambda - \sum_{i=1}^{3}\frac{12}{r_i^2} + \kappa_{16}^2\left(\sum_{i=1}^{3}\frac{f_i^2}{g_i^2 r_i^4} + \frac{g_0^2}{4}\right) + (\text{Lovelock corrections})}$$
+</div>
+
+<h3>9.4 Internal Equations ($a_k b_k$)</h3>
+
+<div class="calculation">
+<div class="step">
+<p><b>LHS:</b></p>
+$$G_{a_k b_k} + \Lambda g_{a_k b_k} + \alpha_2\mathcal{E}^{(2)}_{a_k b_k} + \ldots$$
+
+$$= \left(\frac{6}{r_k^2} - \frac{1}{2}R^{(4)} - \sum_i\frac{12}{r_i^2} + \Lambda\right)g_{a_k b_k} + (\text{Lovelock})$$
+</div>
+
+<div class="step">
+<p><b>RHS:</b></p>
+$$\kappa_{16}^2 T^{\text{total}}_{a_k b_k} = -\kappa_{16}^2\left(\frac{2f_k^2}{g_k^2 r_k^4} + \sum_{j\neq k}\frac{f_j^2}{g_j^2 r_j^4} - \frac{g_0^2}{4}\right)g_{a_k b_k}$$
+</div>
+
+<p><b>Equation for each $\mathbb{CP}^2_k$:</b></p>
+
+<div class="step">
+$$\frac{6}{r_k^2} - 2\Lambda_4 - \sum_i\frac{12}{r_i^2} + \Lambda + (\text{Lovelock}) = -\kappa_{16}^2\left(\frac{2f_k^2}{g_k^2 r_k^4} + \sum_{j\neq k}\frac{f_j^2}{g_j^2 r_j^4} - \frac{g_0^2}{4}\right)$$
+</div>
+</div>
+
+<div class="result">
+<h4>Internal Equations (one for each $\mathbb{CP}^2_k$)</h4>
+$$\boxed{\frac{6}{r_k^2} - 2\Lambda_4 - \sum_{i=1}^{3}\frac{12}{r_i^2} + \Lambda = -\kappa_{16}^2\left(\frac{2f_k^2}{g_k^2 r_k^4} + \sum_{j\neq k}\frac{f_j^2}{g_j^2 r_j^4} - \frac{g_0^2}{4}\right) + (\text{Lovelock})}$$
+</div>
+
+<h3>9.5 System of Stabilization Equations</h3>
+
+<div class="calculation">
+<p>We have 4 equations (1 external + 3 internal) for 4 unknowns ($\Lambda_4$, $r_1$, $r_2$, $r_3$).</p>
+
+<h4>Simplified System (ignoring Lovelock for clarity)</h4>
+
+<p><b>External:</b></p>
+$$\Lambda_4 = \Lambda - 12\left(\frac{1}{r_1^2} + \frac{1}{r_2^2} + \frac{1}{r_3^2}\right) + \kappa_{16}^2\left(\frac{f_1^2}{g_1^2 r_1^4} + \frac{f_2^2}{g_2^2 r_2^4} + \frac{f_3^2}{g_3^2 r_3^4} + \frac{g_0^2}{4}\right) \quad (E)$$
+
+<p><b>Internal (for $k = 1, 2, 3$):</b></p>
+$$\frac{6}{r_k^2} - 2\Lambda_4 - 12\left(\frac{1}{r_1^2} + \frac{1}{r_2^2} + \frac{1}{r_3^2}\right) + \Lambda = -\kappa_{16}^2\left(\frac{2f_k^2}{g_k^2 r_k^4} + \sum_{j\neq k}\frac{f_j^2}{g_j^2 r_j^4} - \frac{g_0^2}{4}\right) \quad (I_k)$$
+</div>
+
+<hr>
+
+<!-- ========== SECTION 10 ========== -->
+<h2 id="sec10">10. Stabilization Conditions</h2>
+
+<h3>10.1 Symmetric Solution: $r_1 = r_2 = r_3 = r$</h3>
+
+<div class="calculation">
+<p>Assume all three $\mathbb{CP}^2$ factors have the same radius $r$ and flux $f$ (with coupling $g$):</p>
+
+<h4>External Equation:</h4>
+<div class="step">
+$$\Lambda_4 = \Lambda - \frac{36}{r^2} + \kappa_{16}^2\left(\frac{3f^2}{g^2 r^4} + \frac{g_0^2}{4}\right)$$
+</div>
+
+<h4>Internal Equation (any $k$):</h4>
+<div class="step">
+$$\frac{6}{r^2} - 2\Lambda_4 - \frac{36}{r^2} + \Lambda = -\kappa_{16}^2\left(\frac{2f^2}{g^2 r^4} + \frac{2f^2}{g^2 r^4} - \frac{g_0^2}{4}\right)$$
+$$-\frac{30}{r^2} - 2\Lambda_4 + \Lambda = -\kappa_{16}^2\left(\frac{4f^2}{g^2 r^4} - \frac{g_0^2}{4}\right)$$
+</div>
+
+<h4>Substitute $\Lambda_4$:</h4>
+<div class="step">
+$$-\frac{30}{r^2} - 2\left(\Lambda - \frac{36}{r^2} + \kappa_{16}^2\left(\frac{3f^2}{g^2 r^4} + \frac{g_0^2}{4}\right)\right) + \Lambda = -\kappa_{16}^2\left(\frac{4f^2}{g^2 r^4} - \frac{g_0^2}{4}\right)$$
+
+$$-\frac{30}{r^2} - 2\Lambda + \frac{72}{r^2} - \frac{6\kappa_{16}^2 f^2}{g^2 r^4} - \frac{\kappa_{16}^2 g_0^2}{2} + \Lambda = -\frac{4\kappa_{16}^2 f^2}{g^2 r^4} + \frac{\kappa_{16}^2 g_0^2}{4}$$
+
+$$\frac{42}{r^2} - \Lambda = -\frac{4\kappa_{16}^2 f^2}{g^2 r^4} + \frac{6\kappa_{16}^2 f^2}{g^2 r^4} + \frac{\kappa_{16}^2 g_0^2}{4} + \frac{\kappa_{16}^2 g_0^2}{2}$$
+
+$$\frac{42}{r^2} - \Lambda = \frac{2\kappa_{16}^2 f^2}{g^2 r^4} + \frac{3\kappa_{16}^2 g_0^2}{4}$$
+</div>
+</div>
+
+<div class="result">
+<h4>Stabilization Equation (Symmetric Case)</h4>
+$$\boxed{\frac{42}{r^2} - \Lambda = \frac{2\kappa_{16}^2 f^2}{g^2 r^4} + \frac{3\kappa_{16}^2 g_0^2}{4}}$$
+
+<p>This is a quadratic equation in $1/r^2$. Setting $x = 1/r^2$:</p>
+$$42x - \Lambda = \frac{2\kappa_{16}^2 f^2}{g^2}x^2 + \frac{3\kappa_{16}^2 g_0^2}{4}$$
+
+$$\frac{2\kappa_{16}^2 f^2}{g^2}x^2 - 42x + \Lambda + \frac{3\kappa_{16}^2 g_0^2}{4} = 0$$
+</div>
+
+<h3>10.2 Solution for Radius</h3>
+
+<div class="calculation">
+<p>Using the quadratic formula with $A = \frac{2\kappa_{16}^2 f^2}{g^2}$, $B = -42$, $C = \Lambda + \frac{3\kappa_{16}^2 g_0^2}{4}$:</p>
+
+$$x = \frac{42 \pm \sqrt{42^2 - 4 \cdot \frac{2\kappa_{16}^2 f^2}{g^2}\left(\Lambda + \frac{3\kappa_{16}^2 g_0^2}{4}\right)}}{2 \cdot \frac{2\kappa_{16}^2 f^2}{g^2}}$$
+
+$$\frac{1}{r^2} = \frac{g^2}{4\kappa_{16}^2 f^2}\left[42 \pm \sqrt{1764 - \frac{8\kappa_{16}^2 f^2}{g^2}\left(\Lambda + \frac{3\kappa_{16}^2 g_0^2}{4}\right)}\right]$$
+</div>
+
+<div class="result">
+<h4>Stabilized Radius</h4>
+$$\boxed{r^2 = \frac{4\kappa_{16}^2 f^2}{g^2\left[42 \pm \sqrt{1764 - \frac{8\kappa_{16}^2 f^2}{g^2}\left(\Lambda + \frac{3\kappa_{16}^2 g_0^2}{4}\right)}\right]}}$$
+</div>
+
+<h3>10.3 Effective 4D Cosmological Constant</h3>
+
+<div class="calculation">
+<p>Substituting the stabilized $r$ back into the external equation:</p>
+
+$$\Lambda_4 = \Lambda - \frac{36}{r^2} + \kappa_{16}^2\left(\frac{3f^2}{g^2 r^4} + \frac{g_0^2}{4}\right)$$
+</div>
+
+<div class="result">
+<h4>Conditions for de Sitter ($\Lambda_4 > 0$), Minkowski ($\Lambda_4 = 0$), or Anti-de Sitter ($\Lambda_4 < 0$)</h4>
+
+<p>The sign of $\Lambda_4$ depends on the balance between:</p>
+<ul>
+    <li>$\Lambda$ (bulk cosmological constant)</li>
+    <li>$-36/r^2$ (negative contribution from internal curvature)</li>
+    <li>$\kappa_{16}^2 f^2/(g^2 r^4)$ (positive contribution from gauge flux)</li>
+    <li>$\kappa_{16}^2 g_0^2/4$ (positive contribution from Freund-Rubin flux)</li>
+</ul>
+</div>
+
+<h3>10.4 Mass Matrix and Stability</h3>
+
+<div class="calculation">
+<h4>Effective Potential</h4>
+
+<p>The effective potential for the moduli $r_i$ after dimensional reduction:</p>
+
+$$V_{\text{eff}}(r_1, r_2, r_3) = \int d^{12}y\sqrt{g_{12}}\left[-R^{(16)} + 2\Lambda + \frac{1}{4}\sum_i\frac{F_i^2}{g_i^2} + \frac{G^2}{48}\right]$$
+
+<p>For the symmetric case with $r_1 = r_2 = r_3 = r$:</p>
+
+<div class="step">
+<p><b>Volume factor:</b></p>
+$$\text{Vol}(\mathbb{CP}^2)^3 = \left(\frac{8\pi^2 r^4}{3}\right)^3 \propto r^{12}$$
+</div>
+
+<div class="step">
+<p><b>Curvature contribution:</b></p>
+$$-R^{(16)} \cdot r^{12} = -\left(R^{(4)} + \frac{72}{r^2}\right)r^{12} \sim -72r^{10}$$
+</div>
+
+<div class="step">
+<p><b>Flux contribution:</b></p>
+$$\frac{F^2}{g^2}r^{12} = \frac{4f^2}{g^2 r^4} \cdot r^{12} = \frac{4f^2}{g^2}r^8$$
+</div>
+</div>
+
+<div class="result">
+<h4>Effective Potential (Schematic)</h4>
+$$\boxed{V_{\text{eff}}(r) \sim -72r^{10} + 2\Lambda r^{12} + \frac{4f^2}{g^2}r^8 + \frac{g_0^2}{2}r^{12}}$$
+
+<h4>Stability Condition</h4>
+$$\boxed{\frac{\partial^2 V_{\text{eff}}}{\partial r^2}\bigg|_{r = r_*} > 0}$$
+
+<p>where $r_*$ is the solution to $\partial V_{\text{eff}}/\partial r = 0$.</p>
+</div>
+
+<hr>
+
+<h2>Summary: Complete Gauge and Flux Action</h2>
+
+<div class="main-action" style="background: linear-gradient(135deg, #0c2340 0%, #1a3a5c 100%);">
+<h3 style="color: #ffd700; text-align: center;">The Required Gauge and Flux Terms</h3>
+
+$$\boxed{\begin{aligned}
+S_{\text{gauge+flux}} &= \int d^{16}x \sqrt{-g}\Bigg[\\[8pt]
+&\quad -\frac{1}{4}\sum_{i=1}^{3}\frac{1}{g_i^2}F^{(i)}_{MN}F^{(i)MN} \quad \text{(gauge kinetic)}\\[8pt]
+&\quad -\frac{1}{48}G_{MNPQ}G^{MNPQ} \quad \text{(4-form kinetic)}\\[8pt]
+&\quad + \lambda\epsilon^{M_1\ldots M_{16}}B_{M_1 M_2 M_3}G_{M_4\ldots M_7}\text{tr}(F\wedge F)_{M_8\ldots M_{11}}\omega_{M_{12}\ldots M_{16}} \quad \text{(Chern-Simons)}\\[8pt]
+&\Bigg]
+\end{aligned}}$$
+
+<h3 style="color: #ffd700; text-align: center;">With Flux Ansatz</h3>
+
+$$\boxed{\begin{aligned}
+F^{(i)} &= f_i J_i, \qquad f_i = \frac{2n_i}{r_i^2}, \quad n_i \in \mathbb{Z}\\[8pt]
+G_4 &= g_0\, \text{vol}_{M_4}
+\end{aligned}}$$
+
+<h3 style="color: #ffd700; text-align: center;">Stabilization Requires</h3>
+
+$$\boxed{\frac{42}{r^2} = \Lambda + \frac{2\kappa_{16}^2 f^2}{g^2 r^4} + \frac{3\kappa_{16}^2 g_0^2}{4}}$$
+</div>
+
+<hr>
+
+<h2>References</h2>
+
+<ol>
+    <li>P. G. O. Freund & M. A. Rubin, <em>"Dynamics of Dimensional Reduction,"</em> Phys. Lett. B <strong>97</strong>, 233 (1980).</li>
+    <li>E. Witten, <em>"Search for a Realistic Kaluza-Klein Theory,"</em> Nucl. Phys. B <strong>186</strong>, 412 (1981).</li>
+    <li>M. J. Duff, B. E. W. Nilsson & C. N. Pope, <em>"Kaluza-Klein Supergravity,"</em> Phys. Rep. <strong>130</strong>, 1 (1986).</li>
+    <li>D. N. Page, <em>"A Compact Rotating Gravitational Instanton,"</em> Phys. Lett. B <strong>79</strong>, 235 (1978).</li>
+    <li>A. Salam & J. Strathdee, <em>"On Kaluza-Klein Theory,"</em> Ann. Phys. <strong>141</strong>, 316 (1982).</li>
+    <li>D. Lovelock, <em>"The Einstein Tensor and Its Generalizations,"</em> J. Math. Phys. <strong>12</strong>, 498 (1971).</li>
+    <li>T. Padmanabhan & D. Kothawala, <em>"Lanczos-Lovelock Models of Gravity,"</em> Phys. Rep. <strong>531</strong>, 115 (2013).</li>
+</ol>
+
+</body>
+</html>

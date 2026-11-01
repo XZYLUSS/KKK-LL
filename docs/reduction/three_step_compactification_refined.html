@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three-Step Compactification (Refined): Lovelock → G6 → YM/FR</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                tags: 'ams'
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg: #0a0d14;
+            --card: #0e1420;
+            --card2: #141c2d;
+            --border: rgba(80, 120, 200, 0.2);
+            --text: #e4e8f4;
+            --muted: #8090aa;
+            --step1: #4a9eff;
+            --step2: #50e890;
+            --step3: #ffa64a;
+            --accent: #7aa0ff;
+            --warn: #ffcc55;
+            --danger: #ff6666;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+            background: linear-gradient(180deg, var(--bg) 0%, #060810 100%);
+            color: var(--text);
+            line-height: 1.85;
+        }
+        
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 40px 35px 100px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 50px 20px 40px;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 2.4em;
+            margin: 0 0 20px;
+            background: linear-gradient(135deg, var(--step1) 0%, var(--step2) 50%, var(--step3) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.15em;
+            max-width: 900px;
+            margin: 0 auto 15px;
+        }
+        
+        /* Step indicators */
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin: 60px 0 30px;
+            padding: 25px 30px;
+            border-radius: 16px;
+            position: relative;
+        }
+        
+        .step-header.step1 {
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.15) 0%, rgba(74, 158, 255, 0.05) 100%);
+            border: 2px solid var(--step1);
+        }
+        
+        .step-header.step2 {
+            background: linear-gradient(135deg, rgba(80, 232, 144, 0.15) 0%, rgba(80, 232, 144, 0.05) 100%);
+            border: 2px solid var(--step2);
+        }
+        
+        .step-header.step3 {
+            background: linear-gradient(135deg, rgba(255, 166, 74, 0.15) 0%, rgba(255, 166, 74, 0.05) 100%);
+            border: 2px solid var(--step3);
+        }
+        
+        .step-number {
+            font-size: 3em;
+            font-weight: 700;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        
+        .step1 .step-number {
+            background: var(--step1);
+            color: #0a0d14;
+        }
+        
+        .step2 .step-number {
+            background: var(--step2);
+            color: #0a0d14;
+        }
+        
+        .step3 .step-number {
+            background: var(--step3);
+            color: #0a0d14;
+        }
+        
+        .step-title {
+            flex: 1;
+        }
+        
+        .step-title h2 {
+            margin: 0 0 8px;
+            font-size: 1.6em;
+        }
+        
+        .step1 .step-title h2 { color: var(--step1); }
+        .step2 .step-title h2 { color: var(--step2); }
+        .step3 .step-title h2 { color: var(--step3); }
+        
+        .step-title p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1em;
+        }
+        
+        h3 {
+            color: var(--accent);
+            font-size: 1.35em;
+            margin: 40px 0 18px;
+            padding-left: 15px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        h4 {
+            color: #aabbdd;
+            font-size: 1.15em;
+            margin: 28px 0 12px;
+        }
+        
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px 28px;
+            margin: 20px 0;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+        
+        .definition {
+            background: linear-gradient(135deg, rgba(122, 160, 255, 0.1) 0%, rgba(122, 160, 255, 0.03) 100%);
+            border-left: 4px solid var(--accent);
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .theorem {
+            background: linear-gradient(135deg, rgba(80, 232, 144, 0.1) 0%, rgba(80, 232, 144, 0.03) 100%);
+            border-left: 4px solid var(--step2);
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .result {
+            background: var(--card2);
+            border: 2px solid var(--step2);
+            padding: 25px 28px;
+            margin: 25px 0;
+            border-radius: 14px;
+        }
+        
+        .calculation {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(136, 153, 187, 0.2);
+            border-radius: 12px;
+            padding: 22px 26px;
+            margin: 20px 0;
+        }
+        
+        .step {
+            background: rgba(122, 160, 255, 0.06);
+            border-left: 3px solid rgba(122, 160, 255, 0.5);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, rgba(255, 102, 102, 0.12) 0%, rgba(255, 102, 102, 0.04) 100%);
+            border-left: 4px solid var(--danger);
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        .note {
+            background: rgba(255, 204, 85, 0.1);
+            border-left: 4px solid var(--warn);
+            padding: 15px 20px;
+            margin: 18px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .muted { color: var(--muted); }
+        .small { font-size: 0.92em; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid rgba(136, 153, 187, 0.25);
+            padding: 12px 16px;
+            text-align: center;
+        }
+        
+        th {
+            background: rgba(74, 158, 255, 0.15);
+            color: var(--step1);
+        }
+        
+        tr:nth-child(even) {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        details {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(136, 153, 187, 0.18);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin: 18px 0;
+        }
+        
+        summary {
+            cursor: pointer;
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--step1), var(--step2), var(--step3), transparent);
+            margin: 60px 0;
+            border: none;
+        }
+        
+        .hierarchy-box {
+            background: linear-gradient(135deg, var(--card) 0%, var(--card2) 100%);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 35px 0;
+        }
+        
+        .hierarchy-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .hierarchy-item:last-child {
+            border-bottom: none;
+        }
+        
+        .hierarchy-num {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3em;
+            flex-shrink: 0;
+        }
+        
+        .h1 { background: var(--step1); color: #0a0d14; }
+        .h2 { background: var(--step2); color: #0a0d14; }
+        .h3 { background: var(--step3); color: #0a0d14; }
+        
+        pre {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(136, 153, 187, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.88em;
+        }
+        
+        code {
+            font-family: 'Fira Code', 'Consolas', monospace;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        .toc {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px 35px;
+            margin: 35px 0;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            border: none;
+            padding: 0;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .toc li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(136, 153, 187, 0.1);
+        }
+        
+        .toc a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            color: var(--step2);
+        }
+        
+        .final-box {
+            background: linear-gradient(135deg, rgba(74, 158, 255, 0.1) 0%, rgba(80, 232, 144, 0.1) 50%, rgba(255, 166, 74, 0.1) 100%);
+            border: 2px solid var(--step2);
+            border-radius: 16px;
+            padding: 35px;
+            margin: 40px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+    <h1>Three-Step Compactification (Refined): Pure Lovelock Stabilization → Quantized $G_6$ Tuning → Optional YM/FR Flux</h1>
+    <p class="subtitle">
+        <strong>Step 1:</strong> Pure Lovelock Stabilization &nbsp;→&nbsp;
+        <strong>Step 2:</strong> $G_6$ Vacuum Tuning &nbsp;→&nbsp;
+        <strong>Step 3:</strong> YM/$G_4$ Phenomenology
+    </p>
+    <p class="subtitle muted">
+        Complete component-level derivation for $M_{16} = X_4 \times (\mathbb{CP}^2)^3$
+    </p>
+</header>
+
+<!-- ============ PHILOSOPHY ============ -->
+<div class="hierarchy-box">
+    <h3 style="margin-top: 0; border: none; padding: 0; color: var(--text);">The Logical Hierarchy</h3>
+    
+    <div class="hierarchy-item">
+        <div class="hierarchy-num h1">1</div>
+        <div>
+            <strong style="color: var(--step1); font-size: 1.15em;">Pure Lovelock Vacuum Stabilization</strong>
+            <p style="margin: 8px 0 0; color: var(--muted);">
+                Prove existence of a stabilized breathing mode $b_\star$ using <em>only</em> Lovelock gravity.
+                No fluxes. This establishes that the geometric compactification is self-consistent.
+            </p>
+        </div>
+    </div>
+    
+    <div class="hierarchy-item">
+        <div class="hierarchy-num h2">2</div>
+        <div>
+            <strong style="color: var(--step2); font-size: 1.15em;">Quantized Internal $G_6$ — Vacuum Energy Tuning</strong>
+            <p style="margin: 8px 0 0; color: var(--muted);">
+                Add quantized 6-form flux to tune $\Lambda_{\text{tot}}(b_\star)$ to the desired value (Minkowski/dS/AdS).
+                $G_6$ is "clean" because $\Lambda_{\text{flux}}$ is $b$-independent — it shifts the vacuum energy without destabilizing.
+            </p>
+        </div>
+    </div>
+    
+    <div class="hierarchy-item">
+        <div class="hierarchy-num h3">3</div>
+        <div>
+            <strong style="color: var(--step3); font-size: 1.15em;">Yang-Mills $F^{(i)}$ and Freund-Rubin $G_4$ — Phenomenology</strong>
+            <p style="margin: 8px 0 0; color: var(--muted);">
+                <em>Only after</em> Step 1+2 are established, add YM flux and/or $G_4$ to:
+                lift anisotropic moduli, break gauge symmetry, engineer Standard Model physics.
+                These fluxes create nontrivial internal pressures and complicate stabilization — handle with care.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+    <h3 style="color: var(--accent);">Contents</h3>
+    <ul>
+        <li><strong style="color: var(--step1);">STEP 1: Pure Lovelock Stabilization</strong></li>
+        <li style="padding-left: 25px;"><a href="#s1-1">§1.1 Geometric Setup and Conventions</a></li>
+        <li style="padding-left: 25px;"><a href="#s1-2">§1.2 Internal Geometry: $(\mathbb{CP}^2)^3$ with Breathing Mode $b$</a></li>
+        <li style="padding-left: 25px;"><a href="#s1-3">§1.3 Multinomial Coefficients $C_s(b)$ — Complete Derivation</a></li>
+        <li style="padding-left: 25px;"><a href="#s1-4">§1.4 4D Effective Potential — Pure Lovelock</a></li>
+        <li style="padding-left: 25px;"><a href="#s1-5">§1.5 Existence Proof: Stabilized $b_\star$ from Lovelock Alone</a></li>
+        <li style="padding-left: 25px;"><a href="#s1-6">§1.6 Stability Analysis and Mass Matrix</a></li>
+        <li><strong style="color: var(--step2);">STEP 2: Quantized $G_6$ Flux</strong></li>
+        <li style="padding-left: 25px;"><a href="#s2-1">§2.1 The 6-Form Field Strength</a></li>
+        <li style="padding-left: 25px;"><a href="#s2-2">§2.2 Flux Quantization — Period vs. $L^2$ Normalization</a></li>
+        <li style="padding-left: 25px;"><a href="#s2-3">§2.3 Why $G_6$ is "Clean": $b$-Independence of $\Lambda_{\text{flux}}$</a></li>
+        <li style="padding-left: 25px;"><a href="#s2-4">§2.4 Vacuum Energy Tuning: Minkowski/dS/AdS Targets</a></li>
+        <li style="padding-left: 25px;"><a href="#s2-5">§2.5 Concrete Solutions — Cubic and Quartic Truncations</a></li>
+        <li><strong style="color: var(--step3);">STEP 3: Yang-Mills and Freund-Rubin Fluxes</strong></li>
+        <li style="padding-left: 25px;"><a href="#s3-1">§3.1 Why These Fluxes Complicate Stabilization</a></li>
+        <li style="padding-left: 25px;"><a href="#s3-2">§3.2 Yang-Mills Flux $F^{(i)} = f_i \omega_i$ — Corrected Contractions</a></li>
+        <li style="padding-left: 25px;"><a href="#s3-3">§3.3 Freund-Rubin $G_4$ — External vs. Internal Threading</a></li>
+        <li style="padding-left: 25px;"><a href="#s3-4">§3.4 Anisotropic Moduli and Phenomenological Applications</a></li>
+        <li style="padding-left: 25px;"><a href="#s3-5">§3.5 Modified Field Equations with All Fluxes</a></li>
+        <li><a href="#summary">§Summary: Master Formulas and Algorithm</a></li>
+    </ul>
+</div>
+
+<hr class="divider">
+
+<!-- ================================================================== -->
+<!--                         STEP 1                                     -->
+<!-- ================================================================== -->
+
+<div class="step-header step1">
+    <div class="step-number">1</div>
+    <div class="step-title">
+        <h2>Pure Lovelock Vacuum Stabilization</h2>
+        <p>Existence proof for stabilized breathing mode — no fluxes required</p>
+    </div>
+</div>
+
+<!-- §1.1 -->
+<h3 id="s1-1">§1.1 Geometric Setup and Conventions</h3>
+
+<div class="card">
+    <h4>Manifold Structure</h4>
+    
+    <div class="definition">
+        $$M_{16} = X_4 \times Y_{12}, \qquad Y_{12} = \mathbb{CP}^2_1 \times \mathbb{CP}^2_2 \times \mathbb{CP}^2_3$$
+        
+        <p><strong>Dimensions:</strong> $\dim(X_4) = 4$, $\dim(\mathbb{CP}^2) = 4$, $\dim(Y_{12}) = 12$, $\dim(M_{16}) = 16$</p>
+    </div>
+    
+    <h4>Index Conventions</h4>
+    
+    <div class="definition">
+        $$\begin{aligned}
+        M, N, P, \ldots &\in \{0, 1, \ldots, 15\} &&\text{(16D)}\\[4pt]
+        \mu, \nu, \rho, \ldots &\in \{0, 1, 2, 3\} &&\text{(external)}\\[4pt]
+        m, n, p, \ldots &\in \{4, \ldots, 15\} &&\text{(internal)}\\[4pt]
+        a_i, b_i, \ldots &\in \{4i, 4i+1, 4i+2, 4i+3\} &&\text{(on }\mathbb{CP}^2_i\text{)}
+        \end{aligned}$$
+    </div>
+    
+    <h4>Single Breathing Mode Ansatz</h4>
+    
+    <div class="result">
+        <p>We use a <strong>single breathing mode</strong> $b > 0$ for all internal directions:</p>
+        
+        $$\boxed{g^{(16)}_{MN} = \begin{pmatrix}
+        g^{(4)}_{\mu\nu}(x) & 0 \\[4pt]
+        0 & b^2\,\hat{g}^{(12)}_{mn}(y)
+        \end{pmatrix}}$$
+        
+        <p>where $\hat{g}^{(12)} = \hat{g}^{(1)} \oplus \hat{g}^{(2)} \oplus \hat{g}^{(3)}$ is the unit-radius product FS metric.</p>
+    </div>
+    
+    <div class="note">
+        <strong>Key simplification:</strong> Taking $b$ constant on the background ensures all mixed Christoffel symbols vanish: $\Gamma^a{}_{\mu b} = \Gamma^\mu{}_{ab} = 0$.
+    </div>
+</div>
+
+<!-- §1.2 -->
+
+<h3 id="s1-2">§1.2 Intrinsic Invariants on $\mathbb{CP}^2$ (Fubini–Study, Cohomology-Normalized)</h3>
+
+<div class="card">
+    <h4>Normalization Choice (Fixed Once and For All)</h4>
+    <div class="definition">
+        <p>We use the standard cohomology normalization for the Kähler form $\omega$ on each $\mathbb{CP}^2$ factor:</p>
+        $$\boxed{\;\; \frac{\omega}{2\pi} \;=\; H \in H^2(\mathbb{CP}^2,\mathbb{Z}), \qquad \int_{\mathbb{CP}^1} H = 1 \;\;}$$
+        <p>Then $\int_{\mathbb{CP}^2} H^2 = 1$ and hence</p>
+        $$\boxed{\;\;\int_{\mathbb{CP}^2}\frac{\omega\wedge\omega}{2} \;=\; \frac{(2\pi)^2}{2}\int_{\mathbb{CP}^2}H^2 \;=\; 2\pi^2.\;\;}$$
+        <p class="muted">This fixes the overall volume convention and removes the common factor-of-$4$ ambiguity that appears when $\omega$ is rescaled.</p>
+    </div>
+
+    <h4>Metric Scaling and Curvature</h4>
+    <div class="calculation">
+        <p>On each factor we take the unit Fubini–Study metric $g_{\mathrm{FS}}$ satisfying:</p>
+        $$\boxed{\;\;\mathrm{Ric}(g_{\mathrm{FS}})=6\,g_{\mathrm{FS}},\qquad R(g_{\mathrm{FS}})=24.\;\;}$$
+        <p>With the breathing-mode scaling $g = b^2 g_{\mathrm{FS}}$ on each $\mathbb{CP}^2$, the scalar curvature scales as</p>
+        $$R(b^2g_{\mathrm{FS}})=\frac{24}{b^2}.$$
+    </div>
+
+    <h4>Integrated Invariants $I_0,I_1,I_2$</h4>
+
+    <div class="calculation">
+        <div class="step">
+            <p><strong>$I_0(b)$: Volume</strong></p>
+            $$\boxed{\;I_0(b)=\int_{\mathbb{CP}^2}\sqrt{g}\,d^4y=b^4\int_{\mathbb{CP}^2}\frac{\omega_{\mathrm{FS}}\wedge\omega_{\mathrm{FS}}}{2}
+            =b^4\cdot 2\pi^2=2\pi^2\,b^4.\;}$$
+        </div>
+
+        <div class="step">
+            <p><strong>$I_1(b)$: Integrated scalar curvature</strong></p>
+            $$\boxed{\;I_1(b)=\int_{\mathbb{CP}^2}\sqrt{g}\,R\,d^4y
+            =\left(\frac{24}{b^2}\right)\,I_0(b)
+            =\frac{24}{b^2}\cdot 2\pi^2 b^4
+            =48\pi^2\,b^2.\;}$$
+        </div>
+
+        <div class="step">
+            <p><strong>$I_2$: Integrated Gauss–Bonnet (topological)</strong></p>
+            <p>In real dimension 4, $\int\sqrt{g}\,\mathcal{G} = 32\pi^2\,\chi$.</p>
+            $$\boxed{\;I_2=\int_{\mathbb{CP}^2}\sqrt{g}\,\mathcal{G}\,d^4y
+            =32\pi^2\,\chi(\mathbb{CP}^2)=32\pi^2\cdot 3=96\pi^2.\;}$$
+            <p class="muted">Independent of $b$ (pure topology).</p>
+        </div>
+    </div>
+</div>
+
+<h3 id="s1-3">§1.3 Multinomial Coefficients $C_s(b)$ — Complete Derivation (with all combinatorics)</h3>
+
+<div class="card">
+    <h4>General Product Formula</h4>
+    <div class="definition">
+        <p>Because each $\mathbb{CP}^2$ factor supports only intrinsic Lovelock orders $r\in\{0,1,2\}$, the 12D intrinsic Lovelock integrals on $Y_{12}=(\mathbb{CP}^2)^3$ reduce to the multinomial sum:</p>
+        $$\boxed{\;
+        C_s(b)=\!\!\sum_{\substack{r_1+r_2+r_3=s\\ r_i\in\{0,1,2\}}}\!
+        \frac{s!}{r_1!\,r_2!\,r_3!}\;I_{r_1}(b)\,I_{r_2}(b)\,I_{r_3}(b),\qquad s=0,\ldots,6.
+        \;}$$
+        <p>Here $I_0,I_1,I_2$ are the single-factor integrals computed above.</p>
+    </div>
+
+    <h4>Explicit Coefficients (All Partitions)</h4>
+    <div class="calculation">
+
+        <div class="step">
+            <p><strong>$C_0$</strong> (only $(0,0,0)$)</p>
+            $$C_0=I_0^3=(2\pi^2 b^4)^3=8\pi^6\,b^{12}.$$
+        </div>
+
+        <div class="step">
+            <p><strong>$C_1$</strong> (triples $(1,0,0)$ and permutations)</p>
+            <p>There are 3 permutations; multinomial coefficient $1!/(1!0!0!)=1$.</p>
+            $$C_1=3\,I_1\,I_0^2
+            =3\,(48\pi^2 b^2)\,(2\pi^2 b^4)^2
+            =3\cdot 48\cdot 4\,\pi^6 b^{10}
+            =576\pi^6\,b^{10}.$$
+        </div>
+
+        <div class="step">
+            <p><strong>$C_2$</strong> (triples $(2,0,0)$ and $(1,1,0)$)</p>
+            <p><em>Type A:</em> $(2,0,0)$ has 3 permutations; coefficient $2!/(2!0!0!)=1$.</p>
+            $$C_2^{(A)}=3\,I_2\,I_0^2
+            =3\,(96\pi^2)\,(2\pi^2 b^4)^2
+            =3\cdot 96\cdot 4\,\pi^6 b^8
+            =1152\pi^6\,b^8.$$
+            <p><em>Type B:</em> $(1,1,0)$ has 3 permutations; coefficient $2!/(1!1!0!)=2$ so total factor $3\cdot 2=6$.</p>
+            $$C_2^{(B)}=6\,I_1^2\,I_0
+            =6\,(48\pi^2 b^2)^2\,(2\pi^2 b^4)
+            =6\cdot 2304\cdot 2\,\pi^6 b^8
+            =27648\pi^6\,b^8.$$
+            $$\boxed{C_2=C_2^{(A)}+C_2^{(B)}=(1152+27648)\pi^6 b^8=28800\pi^6\,b^8.}$$
+        </div>
+
+        <div class="step">
+            <p><strong>$C_3$</strong> (triples $(2,1,0)$ and $(1,1,1)$)</p>
+            <p><em>Type A:</em> $(2,1,0)$ has 6 permutations; coefficient $3!/(2!1!0!)=3$ so total factor $6\cdot 3=18$.</p>
+            $$C_3^{(A)}=18\,I_2 I_1 I_0
+            =18\,(96\pi^2)\,(48\pi^2 b^2)\,(2\pi^2 b^4)
+            =18\cdot 96\cdot 48\cdot 2\,\pi^6 b^6
+            =165888\pi^6\,b^6.$$
+            <p><em>Type B:</em> $(1,1,1)$ has 1 triple; coefficient $3!/(1!1!1!)=6$.</p>
+            $$C_3^{(B)}=6\,I_1^3
+            =6\,(48\pi^2 b^2)^3
+            =6\cdot 110592\,\pi^6 b^6
+            =663552\pi^6\,b^6.$$
+            $$\boxed{C_3=C_3^{(A)}+C_3^{(B)}=(165888+663552)\pi^6 b^6=829440\pi^6\,b^6.}$$
+        </div>
+
+        <div class="step">
+            <p><strong>$C_4$</strong> (triples $(2,2,0)$ and $(2,1,1)$)</p>
+            <p><em>Type A:</em> $(2,2,0)$ has 3 permutations; coefficient $4!/(2!2!0!)=6$ so total factor $3\cdot 6=18$.</p>
+            $$C_4^{(A)}=18\,I_2^2 I_0
+            =18\,(96\pi^2)^2\,(2\pi^2 b^4)
+            =18\cdot 9216\cdot 2\,\pi^6 b^4
+            =331776\pi^6\,b^4.$$
+            <p><em>Type B:</em> $(2,1,1)$ has 3 permutations; coefficient $4!/(2!1!1!)=12$ so total factor $3\cdot 12=36$.</p>
+            $$C_4^{(B)}=36\,I_2 I_1^2
+            =36\,(96\pi^2)\,(48\pi^2 b^2)^2
+            =36\cdot 96\cdot 2304\,\pi^6 b^4
+            =7962624\pi^6\,b^4.$$
+            $$\boxed{C_4=C_4^{(A)}+C_4^{(B)}=(331776+7962624)\pi^6 b^4=8294400\pi^6\,b^4.}$$
+        </div>
+
+        <div class="step">
+            <p><strong>$C_5$</strong> (only triples $(2,2,1)$ and permutations)</p>
+            <p>$(2,2,1)$ has 3 permutations; coefficient $5!/(2!2!1!)=30$ so total factor $3\cdot 30=90$.</p>
+            $$\boxed{C_5=90\,I_2^2 I_1
+            =90\,(96\pi^2)^2\,(48\pi^2 b^2)
+            =90\cdot 9216\cdot 48\,\pi^6 b^2
+            =39813120\pi^6\,b^2.}$$
+        </div>
+
+        <div class="step">
+            <p><strong>$C_6$</strong> (only triple $(2,2,2)$)</p>
+            <p>Coefficient $6!/(2!2!2!)=90$.</p>
+            $$\boxed{C_6=90\,I_2^3
+            =90\,(96\pi^2)^3
+            =79626240\pi^6.}$$
+        </div>
+
+        <div class="result">
+            <h4>Final List</h4>
+            $$\boxed{\begin{aligned}
+            C_0(b)&=8\pi^6 b^{12},\qquad
+            C_1(b)=576\pi^6 b^{10},\qquad
+            C_2(b)=28800\pi^6 b^{8},\\[3pt]
+            C_3(b)&=829440\pi^6 b^{6},\qquad
+            C_4(b)=8294400\pi^6 b^{4},\qquad
+            C_5(b)=39813120\pi^6 b^{2},\qquad
+            C_6(b)=79626240\pi^6.
+            \end{aligned}}$$
+        </div>
+    </div>
+</div>
+
+<!-- §1.4 -->
+<h3 id="s1-4">§1.4 4D Effective Action: $M_4^2(b)$ and $\Lambda_{\mathrm{grav}}(b)$</h3>
+
+<div class="card">
+    <h4>Jordan-Frame Reduction (No Warp, Single Radius)</h4>
+
+    <div class="definition">
+        <p>After integrating over $Y_{12}=(\mathbb{CP}^2)^3$ and discarding the 4D Gauss–Bonnet term (topological), the 4D Jordan-frame action is:</p>
+        $$S_{\mathrm{eff}}=\int d^4x\sqrt{-g_4}\left[\frac12\,M_4^2(b)\,R_4-\Lambda_{\mathrm{grav}}(b)\right].$$
+
+        <p>The breathing-mode dependent coefficients are:</p>
+        $$\boxed{\;M_4^2(b)=\sum_{k=1}^{7}k\,\alpha_k\,C_{k-1}(b),\qquad
+        \Lambda_{\mathrm{grav}}(b)=-\sum_{k=0}^{6}\alpha_k\,C_k(b).\;}$$
+    </div>
+
+    <h4>Rescaled Couplings (Convenient for Solving)</h4>
+    <div class="calculation">
+        <p>Set $\kappa_{16}^2=1$ and define</p>
+        $$\boxed{\;\alpha_k=\frac{A_k}{\pi^4}\quad (k=0,\ldots,7).\;}$$
+        <p>Using $C_s(b)=\pi^6\,\hat C_s(b)$ with $\hat C_s=C_s/\pi^6$ as above, one gets the compact form</p>
+        $$\boxed{\;M_4^2(b)=\pi^2\,\mathcal{M}(b),\qquad \Lambda_{\mathrm{grav}}(b)=-\pi^2\,\mathcal{L}(b),\;}$$
+        <p>where the dimensionless polynomials are</p>
+        $$\boxed{\;\begin{aligned}
+        \mathcal{L}(b)&=A_0\,\hat C_0(b)+A_1\,\hat C_1(b)+A_2\,\hat C_2(b)+A_3\,\hat C_3(b)+A_4\,\hat C_4(b)+A_5\,\hat C_5(b)+A_6\,\hat C_6(b)\\[4pt]
+        &=8A_0 b^{12}+576A_1 b^{10}+28800A_2 b^{8}+829440A_3 b^{6}+8294400A_4 b^{4}+39813120A_5 b^{2}+79626240A_6,\\[8pt]
+        \mathcal{M}(b)&=1A_1\,\hat C_0(b)+2A_2\,\hat C_1(b)+3A_3\,\hat C_2(b)+4A_4\,\hat C_3(b)+5A_5\,\hat C_4(b)+6A_6\,\hat C_5(b)+7A_7\,\hat C_6(b)\\[4pt]
+        &=8A_1 b^{12}+1152A_2 b^{10}+86400A_3 b^{8}+3317760A_4 b^{6}+41472000A_5 b^{4}+238878720A_6 b^{2}+557383680A_7.
+        \end{aligned}\;}$$
+    </div>
+</div>
+<h3 id="s1-5">§1.5 Existence Proof: Stabilized $b_\star$ from Lovelock Alone</h3>
+
+<div class="card">
+    <h4>Field Equations</h4>
+    
+    <div class="calculation">
+        <p><strong>External equation</strong> (variation w.r.t. $g_{\mu\nu}$):</p>
+        $$M_4^2(b)\,G_{\mu\nu} + \Lambda_{\text{grav}}(b)\,g_{\mu\nu} = 0$$
+        
+        <p><strong>Breathing mode equation</strong> (variation w.r.t. $b$):</p>
+        $$\frac{1}{2}M_4^{2\prime}(b)\,R_4 - \Lambda_{\text{grav}}'(b) = 0$$
+    </div>
+    
+    <h4>Einstein Frame Formulation</h4>
+    
+    <div class="definition">
+        <p>Define the Einstein frame potential:</p>
+        $$V_E(b) = \frac{\Lambda_{\text{grav}}(b)}{M_4^4(b)}$$
+        
+        <p>The extremum condition becomes:</p>
+        $$\frac{dV_E}{db} = 0 \quad \Longleftrightarrow \quad \Lambda_{\text{grav}}'(b)\,M_4^2(b) = 4\Lambda_{\text{grav}}(b)\,M_4^{2\prime}(b)$$
+    </div>
+    
+    <h4>Existence Theorem</h4>
+    
+    <div class="theorem">
+        <p><strong>Theorem (Pure Lovelock Stabilization):</strong></p>
+        <p>For generic Lovelock couplings $\{\alpha_k\}$, the Einstein frame potential $V_E(b)$ is a ratio of polynomials in $b^2$. If:</p>
+        <ol>
+            <li>$V_E(b) \to +\infty$ as $b \to 0^+$ (internal space collapse)</li>
+            <li>$V_E(b) \to +\infty$ as $b \to +\infty$ (decompactification)</li>
+            <li>$M_4^2(b) > 0$ in some interval $(b_{\min}, b_{\max})$</li>
+        </ol>
+        <p>then $V_E(b)$ has at least one minimum at some $b_\star \in (b_{\min}, b_{\max})$.</p>
+    </div>
+    
+    <div class="note">
+        <strong>Physical interpretation:</strong> The competition between different Lovelock terms (with different $b$-scalings) creates a potential well that stabilizes the breathing mode without requiring any flux.
+    </div>
+</div>
+
+<div class="card">
+    <h4>Example: Cubic Truncation Stabilization</h4>
+    
+    <div class="calculation">
+        <p>Consider $A_0, A_1, A_2, A_3 \neq 0$ with $A_{k\geq 4} = 0$.</p>
+        
+        <p>The potential is:</p>
+        $$\mathcal{L}(b) = \frac{A_0}{8}b^{12} + 9A_1 b^{10} + 504A_2 b^8 + 20736A_3 b^6$$
+        
+        <p>Extremum condition $\mathcal{L}'(b) = 0$:</p>
+        $$\frac{12A_0}{8}b^{11} + 90A_1 b^9 + 4032A_2 b^7 + 124416A_3 b^5 = 0$$
+        
+        <p>Dividing by $b^5$ (assuming $b > 0$):</p>
+        $$\frac{3A_0}{2}b^6 + 90A_1 b^4 + 4032A_2 b^2 + 124416A_3 = 0$$
+        
+        <p>This is a cubic in $x = b^2$:</p>
+        $$\frac{3A_0}{2}x^3 + 90A_1 x^2 + 4032A_2 x + 124416A_3 = 0$$
+    </div>
+    
+    <div class="result">
+        <p>For appropriate sign choices of $\{A_0, A_1, A_2, A_3\}$, this cubic has a real positive root $x_\star = b_\star^2 > 0$, giving a stabilized breathing mode.</p>
+    </div>
+</div>
+
+<!-- §1.6 -->
+<h3 id="s1-6">§1.6 Stability Analysis and Mass Matrix</h3>
+
+<div class="card">
+    <h4>Second Derivative Test</h4>
+    
+    <div class="calculation">
+        <p>At a critical point $b_\star$ where $V_E'(b_\star) = 0$:</p>
+        
+        $$V_E''(b_\star) = \frac{\Lambda_{\text{grav}}''(b_\star)}{M_4^4(b_\star)} - \frac{8\Lambda_{\text{grav}}'(b_\star)M_4^{2\prime}(b_\star)}{M_4^6(b_\star)} + \ldots$$
+        
+        <p>Using $\Lambda_{\text{grav}}'(b_\star) = 4\Lambda_{\text{grav}}(b_\star)M_4^{2\prime}(b_\star)/M_4^2(b_\star)$:</p>
+        
+        $$V_E''(b_\star) = \frac{1}{M_4^4(b_\star)}\left[\Lambda_{\text{grav}}''(b_\star) - \frac{32\Lambda_{\text{grav}}(b_\star)(M_4^{2\prime}(b_\star))^2}{M_4^4(b_\star)} + \ldots\right]$$
+    </div>
+    
+    <div class="result">
+        <h4>Stability Condition</h4>
+        $$\boxed{V_E''(b_\star) > 0 \quad \Longleftrightarrow \quad \text{minimum (stable)}}$$
+    </div>
+    
+    <h4>Modulus Mass</h4>
+    
+    <div class="result">
+        <p>The canonically normalized mass of the breathing mode fluctuation:</p>
+        
+        $$\boxed{m_b^2 = \frac{V_E''(b_\star)}{K(b_\star)}}$$
+        
+        <p>where $K(b_\star)$ is the kinetic term normalization from the dimensional reduction.</p>
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ================================================================== -->
+<!--                         STEP 2                                     -->
+<!-- ================================================================== -->
+
+<div class="step-header step2">
+    <div class="step-number">2</div>
+    <div class="step-title">
+        <h2>Quantized Internal $G_6$ — Vacuum Energy Tuning</h2>
+        <p>Clean mechanism to achieve Minkowski/dS/AdS without destabilizing $b_\star$</p>
+    </div>
+</div>
+
+<!-- §2.1 -->
+<h3 id="s2-1">§2.1 The 6-Form Field Strength</h3>
+
+<div class="card">
+    <h4>Action</h4>
+    
+    <div class="definition">
+        $$S_{G_6} = -\frac{1}{2 \cdot 6!}\int_{M_{16}}d^{16}x\sqrt{-g}\,G_{M_1 M_2 M_3 M_4 M_5 M_6}G^{M_1 M_2 M_3 M_4 M_5 M_6}$$
+    </div>
+    
+    <h4>Internal Flux Ansatz</h4>
+    
+    <div class="calculation">
+        <p>We take $G_6$ to thread internal 6-cycles in $Y_{12} = (\mathbb{CP}^2)^3$.</p>
+        
+        <p>A natural choice uses the product of Kähler forms:</p>
+        $$G_6 \propto \omega_i \wedge \omega_j \wedge \omega_k$$
+        
+        <p>where different choices of $(i, j, k)$ thread different 6-cycles.</p>
+    </div>
+</div>
+
+<!-- §2.2 -->
+
+<!-- §2.2 -->
+<h3 id="s2-2">§2.2 Flux Quantization — Period and $L^2$ Normalization (Correct Convention)</h3>
+
+<div class="card">
+    <h4>Topological (Period) Quantization</h4>
+
+    <div class="calculation">
+        <p>Pick $\Sigma_6\simeq \mathbb{CP}^1_c\times\mathbb{CP}^1_L\times\mathbb{CP}^1_R$ and define the integral class</p>
+        $$\alpha_6:=H_c\wedge H_L\wedge H_R,\qquad \int_{\Sigma_6}\alpha_6=1.$$
+        <p>Dirac quantization for a 6-form field strength takes the standard form</p>
+        $$\boxed{\;\int_{\Sigma_6}G_6 = 2\pi\,N,\qquad N\in\mathbb{Z}.\;}$$
+    </div>
+
+    <h4>$L^2$ Normalization (Energy Computation)</h4>
+
+    <div class="definition">
+        <p>For the kinetic term, it is convenient to also impose the <em>global</em> normalization on $Y_{12}$:</p>
+        $$\boxed{\;\int_{Y_{12}}\alpha_6\wedge\star\alpha_6=1.\;}$$
+        <p>Then set</p>
+        $$\boxed{\;G_6 = 2\pi N\,\alpha_6.\;}$$
+    </div>
+
+    <h4>Integrated 4D Vacuum Energy from $G_6$</h4>
+
+    <div class="calculation">
+        <p>With the 16D action</p>
+        $$S_{G_6}=-\frac{1}{2\cdot 6!}\int d^{16}x\sqrt{-g}\,G_6^2,$$
+        <p>the internal integral yields a <em>constant</em> Jordan-frame contribution</p>
+        $$\boxed{\;\Lambda_{\mathrm{flux}}=\frac{1}{2\cdot 6!}(2\pi N)^2
+        =\frac{4\pi^2N^2}{1440}=\frac{\pi^2}{360}\,N^2,\;}$$
+        <p class="muted">independent of $b$ at this stage (because $p=d/2$ with $p=6$, $d=12$).</p>
+    </div>
+
+    <div class="note">
+        <strong>Translation note:</strong> If you use a different normalization (e.g. absorb $(2\pi)^k$ factors into $\alpha_6$), all formulas are identical after redefining $N$ accordingly. The physical input is the quantized period and the $L^2$ norm used in the kinetic term.
+    </div>
+</div>
+<h3 id="s2-3">§2.3 Why $G_6$ is "Clean": $b$-Independence of $\Lambda_{\text{flux}}$</h3>
+
+<div class="card">
+    <div class="theorem">
+        <p><strong>Key Property:</strong> In the $L^2$-normalized convention, $\Lambda_{\text{flux}}$ is <em>independent</em> of the breathing mode $b$.</p>
+    </div>
+    
+    <div class="calculation">
+        <h4>Derivation</h4>
+        
+        <div class="step">
+            <p><strong>Step 1:</strong> The $G_6$ flux energy is:</p>
+            $$\rho_{G_6} = \frac{1}{2 \cdot 6!}|G_6|^2$$
+        </div>
+        
+        <div class="step">
+            <p><strong>Step 2:</strong> For $L^2$-normalized flux:</p>
+            $$|G_6|^2 = \frac{(2\pi N)^2}{\text{Vol}(Y_{12})} = \frac{(2\pi N)^2}{(\pi^6/8)b^{12}} \cdot b^{12} \cdot (\text{internal metric factors})$$
+            
+            <p>The $b$-dependence from the volume cancels with the $b$-dependence from raising indices.</p>
+        </div>
+        
+        <div class="step">
+            <p><strong>Step 3:</strong> After integrating over $Y_{12}$:</p>
+            $$\Lambda_{\text{flux}} = \frac{\pi^2 N^2}{360}$$
+            <p>No $b$-dependence!</p>
+        </div>
+    </div>
+    
+    <div class="result">
+        <h4>Consequences for Stabilization</h4>
+        
+        $$\boxed{\begin{aligned}
+        \Lambda_{\text{tot}}(b) &= \Lambda_{\text{grav}}(b) + \Lambda_{\text{flux}}\\[8pt]
+        \Lambda_{\text{tot}}'(b) &= \Lambda_{\text{grav}}'(b)\\[8pt]
+        \Lambda_{\text{tot}}''(b) &= \Lambda_{\text{grav}}''(b)
+        \end{aligned}}$$
+        
+        <p><strong>The $G_6$ flux does not affect the location of the extremum $b_\star$!</strong></p>
+        <p>It only shifts the value of the vacuum energy at that extremum.</p>
+    </div>
+    
+    <div class="note">
+        <strong>Physical intuition:</strong> The $G_6$ flux acts like a true cosmological constant — it contributes equally to all directions and doesn't create any pressure gradients that would push the internal space to expand or contract.
+    </div>
+</div>
+
+<!-- §2.4 -->
+
+<h3 id="s2-4">§2.4 Vacuum Energy Tuning: Minkowski/dS/AdS Targets (and when $b_\star$ shifts)</h3>
+
+<div class="card">
+    <h4>Total Jordan-Frame Cosmological Term</h4>
+
+    <div class="calculation">
+        <p>After Step 1, add the $G_6$ contribution:</p>
+        $$\Lambda_{\mathrm{tot}}(b)=\Lambda_{\mathrm{grav}}(b)+\Lambda_{\mathrm{flux}},\qquad
+        \Lambda_{\mathrm{flux}}=\frac{\pi^2}{360}N^2.$$
+
+        <p>The 4D Jordan-frame action is then</p>
+        $$S_{\mathrm{eff}}=\int d^4x\sqrt{-g_4}\left[\frac12\,M_4^2(b)\,R_4-\Lambda_{\mathrm{tot}}(b)\right].$$
+    </div>
+
+    <h4>Coupled Equations for Constant $b$ and Maximally Symmetric $X_4$</h4>
+    <div class="calculation">
+        <p>For a maximally symmetric $X_4$ one has $R_{\mu\nu}=\kappa_4 g_{\mu\nu}$, so $R_4=4\kappa_4$. The Einstein equation gives</p>
+        $$\boxed{\;\kappa_4=\frac{\Lambda_{\mathrm{tot}}(b)}{3\,M_4^2(b)}.\;}$$
+        <p>Varying the action w.r.t. $b$ (and then taking $b=\text{const}$) gives</p>
+        $$\boxed{\;\frac12\,M_4^{2\,\prime}(b)\,R_4-\Lambda_{\mathrm{tot}}'(b)=0.\;}$$
+        <p>Eliminating $R_4$ yields an equivalent Einstein-frame extremum condition for</p>
+        $$\boxed{\;V_E(b)=\frac{\Lambda_{\mathrm{tot}}(b)}{M_4^4(b)}.\;}$$
+        <p>Thus $b_\star$ is determined by $V_E'(b_\star)=0$ and stability by $V_E''(b_\star)>0$.</p>
+    </div>
+
+    <h4>When the “Step 2” Tuning Does (Not) Move $b_\star$</h4>
+    <div class="note">
+        <ul>
+            <li><strong>Minkowski target:</strong> If you enforce $\Lambda_{\mathrm{tot}}(b_\star)=0$, then $V_E'(b_\star)=0\iff \Lambda_{\mathrm{tot}}'(b_\star)=0$ and $V_E''(b_\star)>0\iff \Lambda_{\mathrm{tot}}''(b_\star)>0$. Since $\Lambda_{\mathrm{flux}}$ is constant, the derivative conditions are unaffected, so tuning $N$ to achieve $\Lambda_{\mathrm{tot}}(b_\star)=0$ does <em>not</em> spoil the stabilized $b_\star$.</li>
+            <li><strong>dS/AdS targets:</strong> If $\Lambda_{\mathrm{tot}}(b_\star)\neq 0$, the extremum equation depends on the absolute value of $\Lambda_{\mathrm{tot}}$ and a constant shift generally moves $b_\star$. In practice, if the Lovelock well is stiff (large $V_E''$), the shift can be parametrically small for moderate tuning.</li>
+        </ul>
+    </div>
+
+    <h4>Direct Tuning Formula at a Fixed $b_\star$</h4>
+    <div class="result">
+        <p>If (by design) you want to keep a chosen stabilized $b_\star$ and simply tune the 4D vacuum energy, solve:</p>
+        $$\boxed{\;\Lambda_{\mathrm{grav}}(b_\star)+\frac{\pi^2}{360}N^2=\Lambda_{\mathrm{target}}.\;}$$
+        <p>In particular, for Minkowski $\Lambda_{\mathrm{target}}=0$:</p>
+        $$\boxed{\;N^2=-\frac{360}{\pi^2}\,\Lambda_{\mathrm{grav}}(b_\star)\;\;\;\;(\text{requires }\Lambda_{\mathrm{grav}}(b_\star)\le 0).\;}$$
+    </div>
+</div>
+
+<!-- §2.5 -->
+<h3 id="s2-5">§2.5 Concrete Coupling Sets (Pure Lovelock AdS + Quantized $G_6$ Minkowski)</h3>
+
+<div class="card">
+    <h4>A. Pure Lovelock Existence Proof (No Flux)</h4>
+
+    <div class="calculation">
+        <p>A concrete “existence proof” coupling choice (dimensionful scales absorbed into units):</p>
+        $$\boxed{\begin{aligned}
+        &\alpha_0 = 0.5269162771,\quad \alpha_1 = 0.3312261225,\quad \alpha_2 = 5.459893197\times 10^{-3},\\
+        &\alpha_3 = -9.902670044\times 10^{-5},\quad \alpha_4 = 8.148373365\times 10^{-7},\\
+        &\alpha_5 = 4.982138978\times 10^{-9},\quad \alpha_6 = 3.683900922\times 10^{-11},\quad \alpha_7=0.
+        \end{aligned}}$$
+        <p>Solving $V_E'(b)=0$ gives two positive critical points; the <em>stable</em> one is</p>
+        $$\boxed{b_\star \approx 0.7336240236, \qquad M_4^2(b_\star)>0,\qquad V_E''(b_\star)>0.}$$
+        <p>The corresponding $\kappa_4=\Lambda_{\mathrm{grav}}(b_\star)/(3M_4^2(b_\star))<0$, so $X_4$ is AdS$_4$ (global topology $\mathbb{I}\times S^3$).</p>
+    </div>
+</div>
+
+<div class="card">
+    <h4>B. Explicit Stable Minkowski with Fixed Integer Flux $N=200$ (Matches All Constraints)</h4>
+
+    <div class="calculation">
+        <p>Choose $\alpha_k=A_k/\pi^4$ and fix $N=200$, $b_\star=1$. Take:</p>
+        $$\boxed{\begin{aligned}
+        &A_1=\frac{96125}{85536},\qquad
+        A_2=-\frac{39935}{684288},\qquad
+        A_3=\frac{51775}{36951552},\\
+        &A_4=0,\qquad A_5=0,\qquad
+        A_6=-\frac{6275}{28378791936},\qquad
+        A_0=0,\qquad A_7=0.
+        \end{aligned}}$$
+
+        <p>Then at $b_\star=1$:</p>
+        $$\boxed{\begin{aligned}
+        \Lambda_{\mathrm{grav}}(b_\star)&=-\frac{1000}{9}\pi^2,\qquad
+        \Lambda_{\mathrm{flux}}=\frac{1000}{9}\pi^2,\qquad
+        \Lambda_{\mathrm{tot}}(b_\star)=0,\\
+        \Lambda_{\mathrm{tot}}'(b_\star)&=0,\qquad
+        \Lambda_{\mathrm{tot}}''(b_\star)=1000\,\pi^2>0,\qquad
+        M_4^2(b_\star)=10\pi^2>0.
+        \end{aligned}}$$
+        <p>Hence the compactification is <strong>stable Minkowski</strong> with integer flux and positive Planck mass.</p>
+    </div>
+</div>
+
+<div class="card">
+    <h4>C. Optional: “Cubic” and “Quartic” Truncations at $b_\star=1$ (Illustrative Linear Solves)</h4>
+    <div class="note">
+        <p>These are <em>illustrations</em> of how easily one can solve for couplings once the target conditions are fixed. They are not unique, and one may prefer the explicit Minkowski set above because it already satisfies the full step-2 requirements with a fixed integer $N$.</p>
+    </div>
+
+    <div class="calculation">
+        <p><strong>Targets (with $N=200$):</strong></p>
+        $$\frac{\Lambda_{\mathrm{flux}}}{\pi^2}=\frac{N^2}{360}=\frac{1000}{9},\qquad
+        \mathcal{L}(1)=\frac{1000}{9},\quad \mathcal{L}'(1)=0,\quad \mathcal{L}''(1)=-1000,\quad \mathcal{M}(1)=10.$$
+    </div>
+
+    <h4>C.1 Cubic truncation ($A_{k\ge 4}=0$)</h4>
+    <div class="calculation">
+        <p>Unknowns $A_0,A_1,A_2,A_3$ solve the linear system:</p>
+        $$\begin{aligned}
+        8A_0+576A_1+28800A_2+829440A_3&=\frac{1000}{9}\\
+        96A_0+5760A_1+230400A_2+4976640A_3&=0\\
+        1056A_0+51840A_1+1612800A_2+24883200A_3&=-1000\\
+        8A_1+1152A_2+86400A_3&=10
+        \end{aligned}$$
+        <p>Solution:</p>
+        $$\boxed{\begin{aligned}
+        A_0&=\frac{156875}{744}\approx 210.8535,\\
+        A_1&=-\frac{210125}{26784}\approx -7.84517,\\
+        A_2&=\frac{13555}{107136}\approx 0.126521,\\
+        A_3&=-\frac{9775}{11570688}\approx -8.44807\times 10^{-4}.
+        \end{aligned}}$$
+    </div>
+
+    <h4>C.2 Quartic truncation with $A_0=0$ (solve $A_1,\ldots,A_4$)</h4>
+    <div class="calculation">
+        $$\begin{aligned}
+        576A_1+28800A_2+829440A_3+8294400A_4&=\frac{1000}{9}\\
+        5760A_1+230400A_2+4976640A_3+33177600A_4&=0\\
+        51840A_1+1612800A_2+24883200A_3+99532800A_4&=-1000\\
+        8A_1+1152A_2+86400A_3+3317760A_4&=10
+        \end{aligned}$$
+        <p>Solution:</p>
+        $$\boxed{\begin{aligned}
+        A_1&=\frac{801625}{602208}\approx 1.33114,\\
+        A_2&=-\frac{174965}{2408832}\approx -7.26348\times 10^{-2},\\
+        A_3&=\frac{521075}{260153856}\approx 2.00295\times 10^{-3},\\
+        A_4&=-\frac{6275}{231247872}\approx -2.71354\times 10^{-5}.
+        \end{aligned}}$$
+    </div>
+</div>
+<!-- ================================================================== -->
+<!--                         STEP 3                                     -->
+<!-- ================================================================== -->
+
+<div class="step-header step3">
+    <div class="step-number">3</div>
+    <div class="step-title">
+        <h2>Yang-Mills $F^{(i)}$ and Freund-Rubin $G_4$ — Phenomenology</h2>
+        <p>Optional additions after Steps 1+2 are established — handle with care</p>
+    </div>
+</div>
+
+<!-- §3.1 -->
+<h3 id="s3-1">§3.1 Why These Fluxes Complicate Stabilization</h3>
+
+<div class="card">
+    <div class="warning">
+        <h4>⚠️ Important Warning</h4>
+        <p>Unlike the $G_6$ flux, Yang-Mills fluxes $F^{(i)}$ and Freund-Rubin $G_4$ create <strong>anisotropic pressures</strong> that depend on $b$ and can destabilize the breathing mode or create new moduli.</p>
+    </div>
+    
+    <div class="calculation">
+        <h4>Key Differences from $G_6$</h4>
+        
+        <table>
+            <tr>
+                <th>Property</th>
+                <th>$G_6$ (Internal)</th>
+                <th>YM $F^{(i)}$</th>
+                <th>FR $G_4$</th>
+            </tr>
+            <tr>
+                <td>$b$-dependence of $\Lambda$</td>
+                <td>None</td>
+                <td>$\sim 1/b^4$</td>
+                <td>$\sim 1/b^{12}$ or $\sim b^0$</td>
+            </tr>
+            <tr>
+                <td>Affects extremum $b_\star$?</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Anisotropic pressure?</td>
+                <td>No</td>
+                <td>Yes</td>
+                <td>Depends on threading</td>
+            </tr>
+            <tr>
+                <td>New moduli?</td>
+                <td>No</td>
+                <td>Possibly</td>
+                <td>Possibly</td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="note">
+        <strong>Strategy:</strong> First establish a stable solution using Steps 1+2. Then treat YM/$G_4$ as perturbations and verify they don't destabilize the system.
+    </div>
+</div>
+
+<!-- §3.2 -->
+<h3 id="s3-2">§3.2 Yang-Mills Flux $F^{(i)} = f_i \omega_i$ — Corrected Contractions</h3>
+
+<div class="card">
+    <h4>The YM Action</h4>
+    
+    <div class="definition">
+        $$S_{\text{YM}} = -\frac{1}{4g_{16}^2}\int d^{16}x\sqrt{-g}\,\text{tr}(F_{MN}F^{MN})$$
+    </div>
+    
+    <h4>Kähler Flux Ansatz</h4>
+    
+    <div class="definition">
+        <p>A symmetry-preserving flux on each $\mathbb{CP}^2_i$:</p>
+        $$F^{(i)} = f_i\,\omega_i$$
+        <p>where $\omega_i$ is the Kähler form on $\mathbb{CP}^2_i$.</p>
+    </div>
+    
+    <h4>Critical Correction: Kähler Form Contraction</h4>
+    
+    <div class="warning">
+        <span class="tag" style="background: var(--danger); color: white;">IMPORTANT</span>
+        <p>A common sign error occurs in the literature. The correct identity is:</p>
+        
+        $$\boxed{\omega_{ac}\omega_b{}^c = +g_{ab}}$$
+        
+        <p><strong>NOT</strong> $-g_{ab}$!</p>
+    </div>
+    
+    <div class="calculation">
+        <h4>Derivation of Correct Identity</h4>
+        
+        <div class="step">
+            <p><strong>Step 1:</strong> In an orthonormal frame on a Kähler 4-manifold:</p>
+            $$\omega = e^1 \wedge e^2 + e^3 \wedge e^4$$
+            
+            <p>Components: $\omega_{12} = 1$, $\omega_{21} = -1$, $\omega_{34} = 1$, $\omega_{43} = -1$ (others zero).</p>
+        </div>
+        
+        <div class="step">
+            <p><strong>Step 2:</strong> Compute $\omega_{ac}\omega_b{}^c = \omega_{ac}\omega_{bc}$ (orthonormal frame):</p>
+            
+            <p>For $a = b = 1$:</p>
+            $$\omega_{1c}\omega_{1c} = \omega_{12}\omega_{12} = (1)(1) = 1 = g_{11}$$
+            
+            <p>For $a = b = 2$:</p>
+            $$\omega_{2c}\omega_{2c} = \omega_{21}\omega_{21} = (-1)(-1) = 1 = g_{22}$$
+            
+            <p>Similarly for $a = b = 3, 4$. Cross terms ($a \neq b$) vanish.</p>
+        </div>
+        
+        <div class="step">
+            <p><strong>Step 3:</strong> Therefore:</p>
+            $$\omega_{ac}\omega_b{}^c = +\delta_{ab} = +g_{ab} \quad \checkmark$$
+        </div>
+    </div>
+    
+    <div class="note">
+        <strong>Source of confusion:</strong> The almost complex structure $J$ satisfies $J^a{}_c J^c{}_b = -\delta^a_b$. But the Kähler form $\omega_{ab} = g_{ac}J^c{}_b$ gives $\omega_{ac}\omega_b{}^c = +g_{ab}$.
+    </div>
+</div>
+
+<div class="card">
+    <h4>Field Strength Squared</h4>
+    
+    <div class="calculation">
+        <p>For $F^{(i)} = f_i\omega_i$:</p>
+        
+        <div class="step">
+            <p><strong>Contraction (on $\mathbb{CP}^2_i$):</strong></p>
+            $$F^{(i)}_{ac}F^{(i)c}{}_b = f_i^2\omega_{ac}\omega_b{}^c = f_i^2\,g_{ab}$$
+        </div>
+        
+        <div class="step">
+            <p><strong>Trace:</strong></p>
+            $$F^{(i)}_{ab}F^{(i)ab} = f_i^2\omega_{ab}\omega^{ab} = f_i^2 \cdot 4 = 4f_i^2$$
+        </div>
+    </div>
+    
+    <div class="result">
+        $$\boxed{|F^{(i)}|^2 = F^{(i)}_{ab}F^{(i)ab} = 4f_i^2}$$
+    </div>
+</div>
+
+<div class="card">
+    <h4>Yang-Mills Stress-Energy Tensor</h4>
+    
+    <div class="calculation">
+        <h4>General Formula</h4>
+        $$T_{MN}^{(F)} = \frac{1}{g_{16}^2}\left(F_{MP}F_N{}^P - \frac{1}{4}g_{MN}F_{PQ}F^{PQ}\right)$$
+        
+        <h4>On the Supporting $\mathbb{CP}^2_i$ ("Self" Block)</h4>
+        
+        <div class="step">
+            $$T^{(i)}_{ab}\big|_{\mathbb{CP}^2_i} = \frac{1}{g_{16}^2}\left(F^{(i)}_{ac}F^{(i)c}{}_b - \frac{1}{4}g_{ab}|F^{(i)}|^2\right)$$
+            $$= \frac{1}{g_{16}^2}\left(f_i^2 g_{ab} - \frac{1}{4}g_{ab} \cdot 4f_i^2\right)$$
+            $$= \frac{f_i^2}{g_{16}^2}(g_{ab} - g_{ab}) = 0$$
+        </div>
+        
+        <h4>External Space</h4>
+        
+        <div class="step">
+            $$T^{(i)}_{\mu\nu} = \frac{1}{g_{16}^2}\left(0 - \frac{1}{4}g_{\mu\nu} \cdot 4f_i^2\right) = -\frac{f_i^2}{g_{16}^2}g_{\mu\nu}$$
+        </div>
+        
+        <h4>Other Internal Blocks ($\mathbb{CP}^2_j$, $j \neq i$)</h4>
+        
+        <div class="step">
+            $$T^{(i)}_{ab}\big|_{\mathbb{CP}^2_{j\neq i}} = -\frac{f_i^2}{g_{16}^2}g_{ab}$$
+        </div>
+    </div>
+    
+    <div class="result">
+        <h4>YM Stress-Energy Summary</h4>
+        $$\boxed{\begin{aligned}
+        T^{(i)}_{ab}\big|_{\mathbb{CP}^2_i} &= 0 &&\text{(self block)}\\[8pt]
+        T^{(i)}_{\mu\nu} &= -\frac{f_i^2}{g_{16}^2}g_{\mu\nu} &&\text{(external)}\\[8pt]
+        T^{(i)}_{ab}\big|_{\mathbb{CP}^2_{j\neq i}} &= -\frac{f_i^2}{g_{16}^2}g_{ab} &&\text{(other internal)}
+        \end{aligned}}$$
+    </div>
+    
+    <div class="note">
+        <strong>Key observation:</strong> The "self" block sees zero stress, but the external space and other internal blocks see negative pressure (effective cosmological constant). This creates <em>anisotropic</em> effects.
+    </div>
+</div>
+
+<div class="card">
+    <h4>Flux Quantization</h4>
+    
+    <div class="calculation">
+        <p>Dirac quantization on $\mathbb{CP}^1 \subset \mathbb{CP}^2_i$:</p>
+        $$\frac{1}{2\pi}\int_{\mathbb{CP}^1}F^{(i)} = \frac{f_i}{2\pi}\int_{\mathbb{CP}^1}\omega_i = \frac{f_i \cdot \pi}{2\pi} = \frac{f_i}{2} = n_i \in \mathbb{Z}$$
+    </div>
+    
+    <div class="result">
+        $$\boxed{f_i = 2n_i, \qquad n_i \in \mathbb{Z}}$$
+    </div>
+</div>
+
+<div class="card">
+    <h4>$b$-Dependence of YM Contribution</h4>
+    
+    <div class="calculation">
+        <p>For metric $g^{(i)}_{ab} = b^2\hat{g}^{(i)}_{ab}$:</p>
+        
+        $$|F^{(i)}|^2 = F^{(i)}_{ab}F^{(i)ab} = f_i^2\omega_{ab}g^{ac}g^{bd}\omega_{cd}$$
+        $$= f_i^2 \cdot b^{-4}\hat{\omega}_{ab}\hat{g}^{ac}\hat{g}^{bd}\hat{\omega}_{cd} = \frac{4f_i^2}{b^4}$$
+        
+        <p>The YM energy density scales as:</p>
+        $$\rho_{\text{YM}} \sim \frac{f_i^2}{b^4}$$
+    </div>
+    
+    <div class="result">
+        <h4>YM Contribution to Effective Potential</h4>
+        $$\boxed{\Lambda_{\text{YM}}(b) \sim \sum_{i=1}^{3}\frac{f_i^2}{g_{16}^2 b^4}}$$
+        
+        <p><strong>This is $b$-dependent and affects the location of $b_\star$!</strong></p>
+    </div>
+</div>
+
+<!-- §3.3 -->
+<h3 id="s3-3">§3.3 Freund-Rubin $G_4$ — External vs. Internal Threading</h3>
+
+<div class="card">
+    <h4>The 4-Form Action</h4>
+    
+    <div class="definition">
+        $$S_{G_4} = -\frac{1}{2 \cdot 4!}\int d^{16}x\sqrt{-g}\,G_{MNPQ}G^{MNPQ}$$
+    </div>
+    
+    <h4>Ansatz Options</h4>
+    
+    <div class="calculation">
+        <h4>Option A: External Threading</h4>
+        <p>$G_4$ fills the external $X_4$:</p>
+        $$G_4 = g_0\,\epsilon_{\mu\nu\rho\sigma}dx^\mu \wedge dx^\nu \wedge dx^\rho \wedge dx^\sigma = g_0\,\text{vol}_{X_4}$$
+        
+        <h4>Option B: Internal Threading</h4>
+        <p>$G_4$ fills a 4-cycle in $Y_{12}$ (e.g., one $\mathbb{CP}^2$):</p>
+        $$G_4 = h_i\,\omega_i \wedge \omega_i = h_i\,\text{vol}_{\mathbb{CP}^2_i}$$
+    </div>
+</div>
+
+<div class="card">
+    <h4>External $G_4$ (Freund-Rubin)</h4>
+    
+    <div class="calculation">
+        <h4>Field Strength Squared</h4>
+        
+        <div class="step">
+            $$G_{\mu\nu\rho\sigma}G^{\mu\nu\rho\sigma} = g_0^2\,\epsilon_{\mu\nu\rho\sigma}\epsilon^{\mu\nu\rho\sigma}$$
+            
+            <p>In Lorentzian signature:</p>
+            $$\epsilon_{\mu\nu\rho\sigma}\epsilon^{\mu\nu\rho\sigma} = -4! = -24$$
+            
+            $$|G_4|^2 = -24g_0^2$$
+        </div>
+        
+        <h4>Stress-Energy Tensor</h4>
+        
+        <div class="step">
+            $$T_{MN}^{(G_4)} = \frac{1}{2 \cdot 3!}\left(G_{MPQR}G_N{}^{PQR} - \frac{1}{8}g_{MN}|G_4|^2\right)$$
+        </div>
+        
+        <div class="step">
+            <p><strong>External components:</strong></p>
+            $$G_{\mu PQR}G_\nu{}^{PQR} = g_0^2\epsilon_{\mu\rho\sigma\tau}\epsilon_\nu{}^{\rho\sigma\tau} = -6g_0^2\,g_{\mu\nu}$$
+            
+            $$T^{(G_4)}_{\mu\nu} = \frac{1}{12}\left(-6g_0^2 g_{\mu\nu} - \frac{1}{8}g_{\mu\nu}(-24g_0^2)\right)$$
+            $$= \frac{1}{12}(-6g_0^2 + 3g_0^2)g_{\mu\nu} = -\frac{g_0^2}{4}g_{\mu\nu}$$
+        </div>
+        
+        <div class="step">
+            <p><strong>Internal components:</strong></p>
+            $$G_{m PQR}G_n{}^{PQR} = 0 \quad \text{(no internal legs)}$$
+            
+            $$T^{(G_4)}_{mn} = \frac{1}{12}\left(0 - \frac{1}{8}g_{mn}(-24g_0^2)\right) = +\frac{g_0^2}{4}g_{mn}$$
+        </div>
+    </div>
+    
+    <div class="result">
+        <h4>Freund-Rubin Stress-Energy</h4>
+        $$\boxed{\begin{aligned}
+        T^{(G_4)}_{\mu\nu} &= -\frac{g_0^2}{4}g_{\mu\nu} &&\text{(negative pressure externally)}\\[8pt]
+        T^{(G_4)}_{mn} &= +\frac{g_0^2}{4}g_{mn} &&\text{(positive pressure internally)}
+        \end{aligned}}$$
+    </div>
+    
+    <div class="note">
+        <strong>Physical effect:</strong> External $G_4$ acts like a positive cosmological constant in $X_4$ and a negative cosmological constant in $Y_{12}$. This tends to expand $X_4$ and contract $Y_{12}$ — useful for achieving AdS external space.
+    </div>
+</div>
+
+<!-- §3.4 -->
+<h3 id="s3-4">§3.4 Anisotropic Moduli and Phenomenological Applications</h3>
+
+<div class="card">
+    <h4>Breaking the Symmetric Ansatz</h4>
+    
+    <div class="calculation">
+        <p>So far we used a single breathing mode $b$ for all three $\mathbb{CP}^2$ factors. In reality, we can have:</p>
+        
+        $$g^{(i)}_{a_i b_i} = b_i^2\,\hat{g}^{(i)}_{a_i b_i}$$
+        
+        <p>with independent $b_1, b_2, b_3$.</p>
+        
+        <p>The YM fluxes $F^{(i)}$ naturally break this symmetry because they act differently on different factors.</p>
+    </div>
+    
+    <h4>Applications</h4>
+    
+    <div class="definition">
+        <ul>
+            <li><strong>Moduli stabilization:</strong> YM fluxes can stabilize anisotropic moduli $b_i/b_j$.</li>
+            <li><strong>Gauge symmetry breaking:</strong> Non-abelian gauge fields on $\mathbb{CP}^2$ can break to subgroups.</li>
+            <li><strong>Chiral fermions:</strong> The index theorem on $\mathbb{CP}^2$ with flux gives chiral zero modes.</li>
+            <li><strong>Generations:</strong> Multiple $\mathbb{CP}^2$ factors can give multiple fermion generations.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- §3.5 -->
+<h3 id="s3-5">§3.5 Modified Field Equations with All Fluxes</h3>
+
+<div class="card">
+    <h4>Complete Stress-Energy Tensor</h4>
+    
+    <div class="result">
+        $$T_{MN}^{\text{total}} = T_{MN}^{(G_6)} + \sum_{i=1}^{3}T_{MN}^{(F_i)} + T_{MN}^{(G_4)}$$
+    </div>
+    
+    <h4>External Equations</h4>
+    
+    <div class="calculation">
+        $$M_4^2(b)\,G_{\mu\nu} + \Lambda_{\text{tot}}(b)\,g_{\mu\nu} = \kappa_4^2\,T_{\mu\nu}^{\text{matter}}$$
+        
+        <p>where:</p>
+        $$\Lambda_{\text{tot}}(b) = \Lambda_{\text{grav}}(b) + \Lambda_{\text{flux}}^{(G_6)} + \Lambda_{\text{YM}}(b) + \Lambda_{G_4}$$
+    </div>
+    
+    <h4>Internal Equations</h4>
+    
+    <div class="calculation">
+        <p>For each $\mathbb{CP}^2_k$:</p>
+        
+        $$G_{a_k b_k}^{(\text{Lovelock})} + \Lambda\,g_{a_k b_k} = \kappa_{16}^2\left(\sum_{j \neq k}\frac{f_j^2}{g_{16}^2}g_{a_k b_k} + T^{(G_4)}_{a_k b_k} + \ldots\right)$$
+    </div>
+    
+    <div class="note">
+        <strong>Key point:</strong> The internal equations become more complicated with YM and $G_4$ fluxes. The symmetric $b_1 = b_2 = b_3 = b$ ansatz may no longer be consistent, requiring a more general analysis.
+    </div>
+</div>
+
+<hr class="divider">
+
+<!-- ================================================================== -->
+<!--                         SUMMARY                                    -->
+<!-- ================================================================== -->
+
+<h2 id="summary">§Summary: Master Formulas and Algorithm</h2>
+
+<div class="final-box">
+    <h3 style="margin-top: 0; color: var(--text);">The Three-Step Hierarchy</h3>
+    
+    <p style="font-size: 1.2em; margin: 25px 0;">
+        <span style="color: var(--step1); font-weight: 700;">STEP 1</span>: Pure Lovelock $\to$ stabilize $b_\star$<br>
+        <span style="color: var(--step2); font-weight: 700;">STEP 2</span>: Add $G_6$ $\to$ tune $\Lambda_{\text{tot}}(b_\star)$<br>
+        <span style="color: var(--step3); font-weight: 700;">STEP 3</span>: Add YM/$G_4$ $\to$ phenomenology
+    </p>
+</div>
+
+<div class="card">
+    <h3>Master Formulas</h3>
+    
+    <div class="result">
+        <h4>Multinomial Coefficients</h4>
+        $$\boxed{\begin{aligned}
+        C_0(b) &= \frac{\pi^6}{8}b^{12} & C_3(b) &= 20736\pi^6 b^6\\[4pt]
+        C_1(b) &= 9\pi^6 b^{10} & C_4(b) &= 580608\pi^6 b^4\\[4pt]
+        C_2(b) &= 504\pi^6 b^8 & C_5(b) &= 9953280\pi^6 b^2\\[4pt]
+        && C_6 &= 79626240\pi^6
+        \end{aligned}}$$
+    </div>
+    
+    <div class="result">
+        <h4>4D Effective Theory</h4>
+        $$\boxed{\begin{aligned}
+        M_4^2(b) &= \frac{1}{\kappa_{16}^2}\sum_{k=1}^{7}k\,\alpha_k\,C_{k-1}(b)\\[10pt]
+        \Lambda_{\text{grav}}(b) &= -\frac{1}{\kappa_{16}^2}\sum_{k=0}^{6}\alpha_k\,C_k(b)\\[10pt]
+        \Lambda_{\text{tot}}(b) &= \Lambda_{\text{grav}}(b) + \frac{\pi^2 N^2}{360}
+        \end{aligned}}$$
+    </div>
+    
+    <div class="result">
+        <h4>Flux Contributions</h4>
+        $$\boxed{\begin{aligned}
+        G_6: \quad &\Lambda_{\text{flux}} = \frac{\pi^2 N^2}{360} &&\text{($b$-independent)}\\[8pt]
+        F^{(i)}: \quad &\Lambda_{\text{YM}} \sim \frac{f_i^2}{b^4} &&\text{($b$-dependent)}\\[8pt]
+        G_4: \quad &T_{\mu\nu} = -\frac{g_0^2}{4}g_{\mu\nu},\; T_{mn} = +\frac{g_0^2}{4}g_{mn}
+        \end{aligned}}$$
+    </div>
+</div>
+
+<div class="card">
+    <h3>Algorithm</h3>
+    
+    <div class="theorem">
+        <ol>
+            <li><strong>Step 1 (Pure Lovelock):</strong>
+                <ul>
+                    <li>Choose Lovelock truncation order</li>
+                    <li>Solve $V_E'(b) = 0$ for extremum $b_\star$</li>
+                    <li>Verify $V_E''(b_\star) > 0$ (stability) and $M_4^2(b_\star) > 0$</li>
+                </ul>
+            </li>
+            <li><strong>Step 2 (Add $G_6$):</strong>
+                <ul>
+                    <li>Compute $\Lambda_{\text{grav}}(b_\star)$ from Step 1</li>
+                    <li>Choose $N$ to achieve target: $\Lambda_{\text{tot}}(b_\star) = \Lambda_{\text{grav}}(b_\star) + \pi^2 N^2/360$</li>
+                    <li>Or: fix $N$ and solve for couplings to hit target $\Lambda_{\text{tot}}$</li>
+                </ul>
+            </li>
+            <li><strong>Step 3 (Optional YM/$G_4$):</strong>
+                <ul>
+                    <li>Add YM flux for gauge symmetry breaking, chiral fermions</li>
+                    <li>Add $G_4$ for additional vacuum energy tuning</li>
+                    <li>Re-solve stabilization equations with new $b$-dependent terms</li>
+                    <li>Verify stability is maintained</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="card">
+    <h3>References</h3>
+    
+    <ol>
+        <li>D. Lovelock, <em>"The Einstein Tensor and Its Generalizations,"</em> J. Math. Phys. <strong>12</strong>, 498 (1971).</li>
+        <li>P. G. O. Freund & M. A. Rubin, <em>"Dynamics of Dimensional Reduction,"</em> Phys. Lett. B <strong>97</strong>, 233 (1980).</li>
+        <li>E. Witten, <em>"Search for a Realistic Kaluza-Klein Theory,"</em> Nucl. Phys. B <strong>186</strong>, 412 (1981).</li>
+        <li>M. J. Duff, B. E. W. Nilsson & C. N. Pope, <em>"Kaluza-Klein Supergravity,"</em> Phys. Rep. <strong>130</strong>, 1 (1986).</li>
+        <li>T. Padmanabhan & D. Kothawala, <em>"Lanczos-Lovelock Models of Gravity,"</em> Phys. Rep. <strong>531</strong>, 115 (2013).</li>
+        <li>J. Zanelli, <em>"Lecture Notes on Chern-Simons (Super-)Gravities,"</em> arXiv:hep-th/0502193.</li>
+    </ol>
+</div>
+
+</div><!-- end container -->
+
+</body>
+</html>
