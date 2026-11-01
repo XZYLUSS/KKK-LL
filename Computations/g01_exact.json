@@ -1,0 +1,28 @@
+{
+  "direct_product_orders": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "equal_radius_coefficients_over_pi6": [
+    "1/8",
+    "9",
+    "504",
+    "20736",
+    "580608",
+    "9953280",
+    "79626240"
+  ],
+  "euler_characteristic_y": 27,
+  "exact_checks": 69,
+  "single_factor_lovelock": [
+    "1",
+    "24",
+    "192"
+  ],
+  "status": "PASS"
+}

@@ -1,0 +1,41 @@
+{
+  "revision": "TOP00-G01-P01B2A.1.3",
+  "date": "2026-08-13",
+  "supersedes": "TOP00-G01-P01B2A-v1, TOP00-G01-P01B2A.1, TOP00-G01-P01B2A.1.1, and TOP00-G01-P01B2A.1.2 release envelopes (historical HOLD)",
+  "governing_roadmap": "KKK-LL Harmonised Master Roadmap - P01B.1 No-Go Revision v3",
+  "completed": [
+    "TOP00",
+    "G01",
+    "P01B.2-CURV Stage A exact reduction",
+    "P01B2A.1 trace normalization, exact linearization, and scope repair",
+    "P01B2A.1.1 release-envelope and ancestry reseal",
+    "P01B2A.1.2 transcript-semantic fail-closed hotfix",
+    "P01B2A.1.3 non-vacuous mutation and complete archive-namespace hotfix"
+  ],
+  "controlled_audit": {
+    "branch": "equal-internal-radius dS4 x (CP2)^3 with rho=H_star^2/y=1",
+    "verdict": "NO PASS FOUND IN DECLARED FINITE SAMPLE",
+    "samples": 4000000,
+    "necessary_condition_points_tested": 249573,
+    "stable_points_found": 0,
+    "scope": "finite deterministic rho=1 slice; not an all-coupling theorem, not the full equal-radius family, and not unequal radii",
+    "physical_ghost_verdict": "deferred to constraint- and gauge-reduced residues"
+  },
+  "authorized_next_calculation": "P01B.2-CURV arbitrary-rho equal-radius regression and unequal-radius continuation with physical tensor/radion/vector residues, determinant margins, and stability",
+  "blocked": ["P01C-CURV"],
+  "ancestor_chain": {
+    "active_p01b1_release": "provenance/ancestors/KKK_LL_P01B_1_3_Fully_Anisotropic_Homogeneous_Full_Rank_Regularity_No_Go_Release_Harness_Resealed.zip",
+    "active_p01b1_sha256": "d29c052f922164361317c1be3f1556f64da628903ab726aff9963c13929892be",
+    "historical_held_p01b1_release": "provenance/ancestors/historical_hold/KKK_LL_P01B_1_Fully_Anisotropic_Homogeneous_Full_Rank_Regularity_No_Go_Complete.zip",
+    "historical_held_p01b1_sha256": "036849552f35048fe88bc753850a3566801a30821f1e4bad1f24337cf30787f2",
+    "scientific_p01b1_theorem": "accepted for the scoped flat homogeneous branch",
+    "governing_release_disposition": "P01B.1.3 active; P01B.1, P01B.1.1, and P01B.1.2 release envelopes historical HOLD"
+  },
+  "freeze_transcript": "FREEZE_TRANSCRIPT.json",
+  "roadmap_authorities": [
+    "provenance/roadmap_v3/KKK_LL_Master_Roadmap_P01B1_NoGo_v3.svg",
+    "provenance/roadmap_v3/KKK_LL_Dependency_Registry_P01B1_NoGo_v3.json",
+    "provenance/roadmap_v3/KKK_LL_Dependency_Matrix_P01B1_NoGo_v3.md"
+  ],
+  "non_normative_visual": "provenance/roadmap_v3/KKK_LL_Master_Roadmap_P01B1_NoGo_v3.png"
+}

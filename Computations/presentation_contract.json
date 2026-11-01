@@ -1,0 +1,24 @@
+{
+  "combined_source_sha256": "2fdd985204d6a301fcf29bc131094f71af163e500e7998e0018ee8ac45e7caf8",
+  "html_sha256": "b00d69eb2df4777c559e73a0779d64d96f22e06e0900a0b0d98e1eeed31bd66c",
+  "offline_html": true,
+  "pdf_pages": 12,
+  "pdf_sha256": "3b85a63d534c99ead920ea2b1979385a665a6ab4bf38bdd5f2f9aa5718d59296",
+  "revision": "TOP00-G01-P01B2A.1.2",
+  "runtime": {
+    "pandoc": "pandoc 3.1.3",
+    "pdfinfo": "pdfinfo version 26.05.0",
+    "pdflatex": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+    "pdftoppm": "pdftoppm version 26.05.0",
+    "pypdf": "6.10.0",
+    "python": "3.12.13"
+  },
+  "sources": {
+    "G01_CP2_Cubed_Product_Geometry_Lock.md": "9a2a7fd16b732ce055e1656e8f78a60ed2488fd2d40c3b76dc0ec91d9acf5661",
+    "P01B2_CURV_Stage_A_Exact_Reduction.md": "c730b663290f74f9fe06b9fb520496f332e02d2a89aab28beb1d546093b12288",
+    "PROJECT_MEMORY_ROADMAP_v3_TOP00_G01_P01B2A_1_2.md": "c67c1854a4c1ca74e3f153363d7b640d4b43981baecb900d7623388a030d8214",
+    "TOP00_Topology_and_Scope_Lock.md": "3fc159df4d6df377ec22480811c07a05d24526a07636a59d5fd0324774845ba1"
+  },
+  "status": "PASS",
+  "visual_preflight": "rendered all pages at 160 dpi"
+}

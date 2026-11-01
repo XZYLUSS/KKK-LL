@@ -1,0 +1,167 @@
+{
+  "cases": [
+    {
+      "case": "order_1",
+      "full_rank": 120,
+      "maximum_absolute_multiset_error": 3.552713678800501e-15,
+      "maximum_relative_multiset_error": 2.5376526277146444e-16,
+      "nontrace_residues": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "trace_eigenvalues": [
+        -1.0,
+        -1.0,
+        -0.9999999999999994,
+        13.999999999999996
+      ]
+    },
+    {
+      "case": "order_2",
+      "full_rank": 120,
+      "maximum_absolute_multiset_error": 6.110667527536862e-13,
+      "maximum_relative_multiset_error": 3.758620657079382e-16,
+      "nontrace_residues": [
+        -144.0,
+        -124.0,
+        -124.0,
+        -108.0,
+        -100.0
+      ],
+      "trace_eigenvalues": [
+        -125.77394343517673,
+        -84.00000000000009,
+        -83.99999999999993,
+        1625.7739434351765
+      ]
+    },
+    {
+      "case": "order_3",
+      "full_rank": 120,
+      "maximum_absolute_multiset_error": 2.546585164964199e-11,
+      "maximum_relative_multiset_error": 2.341877041238595e-16,
+      "nontrace_residues": [
+        -12096.0,
+        -8928.0,
+        -8784.0,
+        -6624.0,
+        -5040.0
+      ],
+      "trace_eigenvalues": [
+        -8661.198624900317,
+        -3600.000000000006,
+        -3599.9999999999995,
+        108741.19862490031
+      ]
+    },
+    {
+      "case": "order_4",
+      "full_rank": 120,
+      "maximum_absolute_multiset_error": 1.9208528101444244e-09,
+      "maximum_relative_multiset_error": 4.092841858876378e-16,
+      "nontrace_residues": [
+        -663552.0,
+        -423936.0,
+        -396288.0,
+        -255744.0,
+        -119808.0
+      ],
+      "trace_eigenvalues": [
+        -352464.6570900413,
+        -55295.99999999999,
+        -55295.9999999998,
+        4693200.657090042
+      ]
+    },
+    {
+      "case": "order_5",
+      "full_rank": 111,
+      "maximum_absolute_multiset_error": 6.705522537231445e-08,
+      "maximum_relative_multiset_error": 5.263817138852507e-16,
+      "nontrace_residues": [
+        -23224320.0,
+        -13271040.0,
+        -11059200.0,
+        -5806080.0,
+        0.0
+      ],
+      "trace_eigenvalues": [
+        -7949611.925670397,
+        3317759.999999992,
+        3317759.9999999995,
+        127388971.92567039
+      ]
+    },
+    {
+      "case": "order_6",
+      "full_rank": 120,
+      "maximum_absolute_multiset_error": 7.152557373046875e-07,
+      "maximum_relative_multiset_error": 3.6290066442372263e-16,
+      "nontrace_residues": [
+        -477757440.0,
+        -252149760.0,
+        -172523520.0,
+        -59719680.0,
+        66355200.0
+      ],
+      "trace_eigenvalues": [
+        -99724191.53718114,
+        199065599.99999985,
+        199065600.00000003,
+        1970940831.5371814
+      ]
+    },
+    {
+      "case": "order_7",
+      "full_rank": 94,
+      "maximum_absolute_multiset_error": 7.036897834004161e-06,
+      "maximum_relative_multiset_error": 5.260363497130739e-16,
+      "nontrace_residues": [
+        -4459069440.0,
+        -2229534720.0,
+        -1114767360.0,
+        0.0,
+        1114767360.0
+      ],
+      "trace_eigenvalues": [
+        -1114767359.9999971,
+        3344302080.0,
+        3344302080.0,
+        13377208320.0
+      ]
+    },
+    {
+      "case": "generic_all_order_combination",
+      "full_rank": 120,
+      "maximum_absolute_multiset_error": 8.455458555545192e-13,
+      "maximum_relative_multiset_error": 5.140790170170568e-16,
+      "nontrace_residues": [
+        391.47948799999995,
+        201.1856640000001,
+        142.16755199999994,
+        57.58783999999997,
+        -62.57779199999999
+      ],
+      "trace_eigenvalues": [
+        -1644.7779963103699,
+        -109.44217600000003,
+        -109.442176,
+        61.32276431037019
+      ]
+    }
+  ],
+  "full_dimension": 120,
+  "multiplicity_sum": 116,
+  "nontrace_multiplicities": [
+    5,
+    18,
+    36,
+    48,
+    9
+  ],
+  "status": "PASS",
+  "trace_dimension": 4
+}

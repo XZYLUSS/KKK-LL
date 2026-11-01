@@ -1,0 +1,1056 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="kkk-ll-combined-source-sha256" content="2fdd985204d6a301fcf29bc131094f71af163e500e7998e0018ee8ac45e7caf8"/><title>KKK-LL TOP00 / G01 / P01B2A.1.2</title><style>
+:root{--ink:#18251f;--green:#173f32;--gold:#b07d12;--paper:#fffdf8;--soft:#f1eadb;--red:#8a2e26;}
+*{box-sizing:border-box}body{margin:0 auto;max-width:1120px;padding:42px 58px;background:var(--paper);color:var(--ink);font:16px/1.55 Georgia,'Times New Roman',serif}
+h1,h2,h3{font-family:Arial,Helvetica,sans-serif;color:var(--green);line-height:1.2}h1{font-size:34px;border-bottom:4px solid var(--gold);padding-bottom:12px}h2{font-size:25px;margin-top:38px;border-bottom:1px solid #c8b98e;padding-bottom:7px}h3{font-size:19px;margin-top:26px}
+code,pre{font-family:'Courier New',monospace}code{background:#eee8da;padding:1px 4px;border-radius:3px}pre{background:#16261f;color:#f8f2df;padding:16px;overflow:auto;border-radius:5px}
+table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}th,td{border:1px solid #b9aa82;padding:8px 10px;vertical-align:top}th{background:#e9dfc8;color:#173f32;text-align:left}
+.title{background:var(--green);color:#fff;padding:30px 36px;margin:-42px -58px 34px}.title h1{color:#fff;border:0;margin:0}.title p{color:#e9dfc8;margin:8px 0 0;font-family:Arial,Helvetica,sans-serif}
+.status{border-left:6px solid var(--gold);background:var(--soft);padding:14px 18px;margin:20px 0}.status strong{color:var(--red)}
+math{font-size:1.04em}a{color:#235e82}footer{margin-top:50px;border-top:1px solid #c8b98e;padding-top:12px;color:#6a665c;font-size:12px}.pagebreak{page-break-before:always}
+</style></head><body><div class="title"><h1>KKK-LL Curved-Branch Entry</h1><p>TOP00 topology lock - G01 product geometry - frozen P01B2A.1.2</p></div><div class="status"><strong>Disposition:</strong> exact Stage A passed; the corrected equal-internal-radius rho=1 finite sample has no joint stability pass; the full equal-radius and unequal-radius branches remain open; P01C-CURV remains blocked.</div><h1 id="kkk-ll-top00---cauchy-topology-and-branch-scope-lock">KKK-LL
+TOP00 - Cauchy-Topology and Branch-Scope Lock</h1>
+<p><strong>Canonical ID:</strong> TOP00<br />
+<strong>Roadmap:</strong> KKK-LL Harmonised Master Roadmap - P01B.1
+No-Go Revision v3<br />
+<strong>Date:</strong> 10 August 2026<br />
+<strong>Status in this document:</strong> COMPLETE / FROZEN FOR DECLARED
+GOVERNANCE SCOPE<br />
+<strong>Direct prerequisites:</strong> C00 and P01B.1-FLAT<br />
+<strong>Downstream handoffs:</strong> P01B.2-CURV, P01B.3-GEN,
+P01B.M-FULL</p>
+<h2 id="purpose">1. Purpose</h2>
+<p>P01B.1-FLAT closes the following branch:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">flat</mtext><mo>+</mo><mtext mathvariant="normal">diagonal</mtext><mo>+</mo><mtext mathvariant="normal">homogeneous</mtext><mo>+</mo><mrow><mtext mathvariant="normal">metric-only </mtext><mspace width="0.333em"></mspace></mrow><mi>D</mi><mo>=</mo><mn>16</mn><mo>+</mo><mrow><mtext mathvariant="normal">persistent finite </mtext><mspace width="0.333em"></mspace></mrow><mn>3</mn><mo>+</mo><mn>12</mn><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> Hubble gap</mtext></mrow><mo>+</mo><mtext mathvariant="normal">full G6 rank</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\text{flat}+\text{diagonal}+\text{homogeneous}+\text{metric-only }D=16
++\text{persistent finite }3+12\text{ Hubble gap}
++\text{full G6 rank}.
+</annotation></semantics></math></p>
+<p>TOP00 prevents the revised programme from evading that result by
+silently changing the differentiable manifold, importing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>3</mn></msup><annotation encoding="application/x-tex">(\mathbb{CP}^{2})^{3}</annotation></semantics></math>
+after the fact, or confusing stabilization on a prescribed product with
+dynamical creation of a product topology.</p>
+<h2 id="global-hyperbolicity-input">2. Global-hyperbolicity input</h2>
+<p>The classical branches governed by TOP00 assume a connected, smooth,
+time-oriented, globally hyperbolic Lorentzian spacetime
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>M</mi><mn>16</mn></msup><mo>,</mo><mi>g</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(M^{16},g)</annotation></semantics></math>.
+The Bernal-Sanchez splitting theorem then gives a smooth spacelike
+Cauchy hypersurface
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>Σ</mi><mn>15</mn></msup><annotation encoding="application/x-tex">\Sigma^{15}</annotation></semantics></math>
+and a global diffeomorphism</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>M</mi><mn>16</mn></msup><mo>≅</mo><mi>I</mi><mo>×</mo><msup><mi>Σ</mi><mn>15</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><mi>g</mi><mo>=</mo><mo>−</mo><mi>β</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>,</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>d</mi><msup><mi>t</mi><mn>2</mn></msup><mo>+</mo><msub><mi>g</mi><mi>t</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+M^{16}\cong I\times\Sigma^{15},
+\qquad
+g=-\beta(t,x)dt^{2}+g_t,
+</annotation></semantics></math></p>
+<p>for an interval
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mo>⊆</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">I\subseteq\mathbb R</annotation></semantics></math>.
+All Cauchy hypersurfaces in this class are diffeomorphic. Therefore
+smooth globally hyperbolic metric evolution changes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>g</mi><mi>t</mi></msub><annotation encoding="application/x-tex">g_t</annotation></semantics></math>,
+not the diffeomorphism type of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>Σ</mi><mn>15</mn></msup><annotation encoding="application/x-tex">\Sigma^{15}</annotation></semantics></math>.</p>
+<p>Consequently, a transition</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>ℝ</mi><mn>15</mn></msup><mspace width="0.222em"></mspace><mo>→</mo><mspace width="0.222em"></mspace><msup><mi>𝒳</mi><mn>3</mn></msup><mo>×</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">
+\mathbb R^{15}\ \longrightarrow\
+\mathcal X^{3}\times(\mathbb{CP}^{2})^{3}
+</annotation></semantics></math></p>
+<p>is <strong>not</strong> part of P01B.2-CURV. A topology-changing
+history would require a separately declared singular,
+non-globally-hyperbolic, cobordism, boundary, or quantum process and
+belongs to neither the present Cauchy problem nor the claims authorized
+by this lock.</p>
+<h2 id="fixed-topology-for-the-curved-product-branch">3. Fixed topology
+for the curved product branch</h2>
+<p>Every P01B.2-CURV run must choose, before initial data are specified,
+one member of the following fixed-topology family:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>Σ</mi><mrow><mi>κ</mi><mo>,</mo><mi>Γ</mi></mrow><mn>15</mn></msubsup><mo>=</mo><msubsup><mi>𝒳</mi><mrow><mi>κ</mi><mo>,</mo><mi>Γ</mi></mrow><mn>3</mn></msubsup><mo>×</mo><msup><mi>Y</mi><mn>12</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><msup><mi>Y</mi><mn>12</mn></msup><mo>=</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>c</mi><mn>2</mn></msubsup><mo>×</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>L</mi><mn>2</mn></msubsup><mo>×</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>R</mi><mn>2</mn></msubsup><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\Sigma^{15}_{\kappa,\Gamma}
+=\mathcal X^{3}_{\kappa,\Gamma}\times Y^{12},
+\qquad
+Y^{12}=\mathbb{CP}^{2}_{c}\times\mathbb{CP}^{2}_{L}
+\times\mathbb{CP}^{2}_{R}.
+}
+</annotation></semantics></math></p>
+<p>Here
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>𝒳</mi><mrow><mi>κ</mi><mo>,</mo><mi>Γ</mi></mrow><mn>3</mn></msubsup><mo>=</mo><msubsup><mover><mi>𝒳</mi><mo accent="true">̃</mo></mover><mi>κ</mi><mn>3</mn></msubsup><mi>/</mi><mi>Γ</mi></mrow><annotation encoding="application/x-tex">\mathcal X^{3}_{\kappa,\Gamma}=\widetilde{\mathcal X}^{3}_{\kappa}/\Gamma</annotation></semantics></math>
+is a chosen complete orientable constant-sectional-curvature
+three-manifold, with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mo>−</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo>,</mo><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\kappa\in\{-1,0,+1\}</annotation></semantics></math>
+after normalization. The topology and quotient group
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Γ</mi><annotation encoding="application/x-tex">\Gamma</annotation></semantics></math>
+are held fixed during a run. Different choices of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>κ</mi><mo>,</mo><mi>Γ</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(\kappa,\Gamma)</annotation></semantics></math>
+are different branches; no solution is interpreted as evolving from one
+branch to another.</p>
+<p>The three projective factors are already distinguished by the input
+labels
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">c,L,R</annotation></semantics></math>.
+When their radii and couplings coincide the equations must retain the
+permutation symmetry
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝔖</mi><mn>3</mn></msub><annotation encoding="application/x-tex">\mathfrak S_3</annotation></semantics></math>,
+but the labels are not claimed to emerge dynamically.</p>
+<h2 id="metric-ansatz-and-dynamical-content">4. Metric ansatz and
+dynamical content</h2>
+<p>P01B.2-CURV uses the multiply warped homogeneous product metric</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>d</mi><msubsup><mi>s</mi><mn>16</mn><mn>2</mn></msubsup><mo>=</mo><mo>−</mo><mi>N</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><msup><mi>t</mi><mn>2</mn></msup><mo>+</mo><mi>a</mi><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><msubsup><mi>Σ</mi><mrow><mn>3</mn><mo>,</mo><mi>κ</mi></mrow><mn>2</mn></msubsup><mo>+</mo><munder><mo>∑</mo><mrow><mi>A</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>c</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">}</mo></mrow></munder><msub><mi>b</mi><mi>A</mi></msub><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mi>d</mi><msubsup><mi>s</mi><mrow><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>A</mi><mn>2</mn></msubsup><mo>,</mo><mrow><mi mathvariant="normal">F</mi><mi mathvariant="normal">S</mi></mrow><mo>,</mo><mspace width="0.167em"></mspace><mi>b</mi><mo>=</mo><mn>1</mn></mrow><mn>2</mn></msubsup><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+ds_{16}^{2}=-N(t)^{2}dt^{2}
++a(t)^{2}d\Sigma^{2}_{3,\kappa}
++\sum_{A\in\{c,L,R\}}b_A(t)^{2}ds^{2}_{\mathbb{CP}^{2}_{A},\mathrm{FS},\,b=1}.
+}
+</annotation></semantics></math></p>
+<p>The lapse
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>,
+external scale factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>,
+and three internal radii
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>c</mi></msub><mo>,</mo><msub><mi>b</mi><mi>L</mi></msub><mo>,</mo><msub><mi>b</mi><mi>R</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">b_c,b_L,b_R&gt;0</annotation></semantics></math>
+are dynamical. The Hubble/radion rates are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><msup><mi>N</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mfrac><mover><mi>a</mi><mo accent="true">̇</mo></mover><mi>a</mi></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>A</mi></msub><mo>=</mo><msup><mi>N</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mfrac><msub><mover><mi>b</mi><mo accent="true">̇</mo></mover><mi>A</mi></msub><msub><mi>b</mi><mi>A</mi></msub></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+H=N^{-1}\frac{\dot a}{a},
+\qquad
+h_A=N^{-1}\frac{\dot b_A}{b_A}.
+</annotation></semantics></math></p>
+<p>The ansatz fixes an orthogonal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">3+4+4+4</annotation></semantics></math>
+product distribution at the outset. It therefore tests:</p>
+<ol type="1">
+<li>existence of curvature-supported expanding/static-radius
+solutions;</li>
+<li>stabilization and the relative selection of the three metric
+radii;</li>
+<li>constraint propagation and full kinetic/principal-symbol
+health;</li>
+<li>the basin of attraction, only after a P01B.2 pass.</li>
+</ol>
+<p>It does <strong>not</strong> test:</p>
+<ol type="1">
+<li>creation of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>3</mn></msup><annotation encoding="application/x-tex">(\mathbb{CP}^{2})^{3}</annotation></semantics></math>
+topology;</li>
+<li>discovery of a
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">3+12</annotation></semantics></math>
+split from fifteen unlabeled flat directions;</li>
+<li>derivation of the labels
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>R</mi></mrow><annotation encoding="application/x-tex">c,L,R</annotation></semantics></math>;</li>
+<li>emergence of the Fubini-Study conformal class from a generic
+metric.</li>
+</ol>
+<p>Those stronger questions belong to P01B.3-GEN and its later P02-P04
+gates.</p>
+<h2 id="action-and-sector-firewall">5. Action and sector firewall</h2>
+<p>The P01B.2-CURV branch is metric-only maximal Lovelock gravity:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mrow><mi mathvariant="normal">C</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">V</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>g</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><msubsup><mi>κ</mi><mn>16</mn><mn>2</mn></msubsup></mrow></mfrac><msub><mo>∫</mo><msup><mi>M</mi><mn>16</mn></msup></msub><mspace width="-0.167em"></mspace><msup><mi>d</mi><mn>16</mn></msup><mi>x</mi><msqrt><mrow><mo>−</mo><mi>g</mi></mrow></msqrt><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mn>8</mn></munderover><msub><mi>α</mi><mi>k</mi></msub><msub><mi>ℒ</mi><mi>k</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+S_{\mathrm{CURV}}[g]
+=\frac{1}{2\kappa_{16}^{2}}
+\int_{M^{16}}\!d^{16}x\sqrt{-g}
+\sum_{k=0}^{8}\alpha_k\mathcal L_k.
+</annotation></semantics></math></p>
+<p>All local orders
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>α</mi><mn>7</mn></msub></mrow><annotation encoding="application/x-tex">\alpha_0,\ldots,\alpha_7</annotation></semantics></math>
+must be retained. The order
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">k=8</annotation></semantics></math>
+density is the sixteen-dimensional Euler density. Its bulk Lovelock
+tensor vanishes identically, but its reduced action must be exhibited as
+a boundary/transgression term and retained in the action-level
+ledger.</p>
+<p>No Yang-Mills field, fermion,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>G</mi><mn>6</mn></msub><annotation encoding="application/x-tex">G_6</annotation></semantics></math>
+flux, abelian internal flux, or externally prescribed stress tensor is
+permitted in P01B.2-CURV. Turning on any such sector defines P01B.M-FULL
+and changes the scientific claim.</p>
+<h2 id="topological-data-fixed-at-entry">6. Topological data fixed at
+entry</h2>
+<p>For each projective factor,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>dim</mo><mi>ℝ</mi></msub><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo>=</mo><mn>4</mn><mo>,</mo><mspace width="1.0em"></mspace><msub><mi>π</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="1.0em"></mspace><msup><mi>H</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo>;</mo><mi>ℤ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>ℤ</mi><mrow><mo stretchy="true" form="prefix">[</mo><mi>H</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>H</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="1.0em"></mspace><mi>χ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>3</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\dim_{\mathbb R}\mathbb{CP}^{2}=4,
+\quad
+\pi_1(\mathbb{CP}^{2})=0,
+\quad
+H^{*}(\mathbb{CP}^{2};\mathbb Z)
+=\mathbb Z[H]/(H^{3}),
+\quad
+\chi(\mathbb{CP}^{2})=3.
+</annotation></semantics></math></p>
+<p>Thus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>H</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo>;</mo><mi>ℤ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>ℤ</mi><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>H</mi><mi>c</mi></msub><mo>,</mo><msub><mi>H</mi><mi>L</mi></msub><mo>,</mo><msub><mi>H</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>H</mi><mi>c</mi><mn>3</mn></msubsup><mo>,</mo><msubsup><mi>H</mi><mi>L</mi><mn>3</mn></msubsup><mo>,</mo><msubsup><mi>H</mi><mi>R</mi><mn>3</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mi>χ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>27</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>π</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+H^{*}(Y;\mathbb Z)
+=\frac{\mathbb Z[H_c,H_L,H_R]}
+{(H_c^{3},H_L^{3},H_R^{3})},
+\qquad
+\chi(Y)=27,
+\qquad
+\pi_1(Y)=0.
+</annotation></semantics></math></p>
+<p>The product is naturally
+Spin<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow></mrow><mi>c</mi></msup><annotation encoding="application/x-tex">{}^{c}</annotation></semantics></math>,
+while an ordinary spin structure is not silently assumed. These are
+immutable topological inputs. Continuous variables such as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>b</mi><mi>A</mi></msub><annotation encoding="application/x-tex">b_A</annotation></semantics></math>,
+volumes, curvature scales, and scale hierarchies are metric data and
+remain dynamical.</p>
+<h2 id="claim-boundary-by-branch">7. Claim boundary by branch</h2>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Branch</th>
+<th>Fixed input</th>
+<th>Dynamical question</th>
+<th>Claim explicitly forbidden</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P01B.2-CURV</td>
+<td>product topology and homogeneous product conformal classes</td>
+<td>four scale factors, stabilization, full-rank health</td>
+<td>topology or unlabelled split emergence</td>
+</tr>
+<tr class="even">
+<td>P01B.3-GEN</td>
+<td>compatible topology only</td>
+<td>whether a generic metric develops a covariant
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">3+12</annotation></semantics></math>
+distribution</td>
+<td>importing a product metric or labels</td>
+</tr>
+<tr class="odd">
+<td>P01B.M-FULL</td>
+<td>topology plus complete matter/flux sector conventions</td>
+<td>coupled compactification of the full action</td>
+<td>calling success pure Lovelock</td>
+</tr>
+<tr class="even">
+<td>P01B.D-DAE</td>
+<td>flat characteristic endpoint</td>
+<td>reduced constraints/gauge/strong-coupling classification</td>
+<td>automatic reopening of P01C-FLAT</td>
+</tr>
+</tbody>
+</table>
+<h2 id="p01b.2-curv-pass-contract">8. P01B.2-CURV pass contract</h2>
+<p>P01B.2-CURV may authorize P01C-CURV only if it supplies all of the
+following:</p>
+<ol type="1">
+<li>the exact lapse constraint and four independent scale-factor
+equations with arbitrary
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>α</mi><mn>7</mn></msub></mrow><annotation encoding="application/x-tex">\alpha_0,\ldots,\alpha_7</annotation></semantics></math>;</li>
+<li>the explicit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mn>8</mn></msub><annotation encoding="application/x-tex">\alpha_8</annotation></semantics></math>
+boundary identity;</li>
+<li>at least one finite-radius fixed point with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>H</mi><mo>⋆</mo></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">H_{\star}&gt;0</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mrow><mi>A</mi><mo>⋆</mo></mrow></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">h_{A\star}=0</annotation></semantics></math>;</li>
+<li>the complete homogeneous tensor/radion acceleration matrix inherited
+from G6, not merely the four-dimensional minisuperspace block;</li>
+<li>a nonzero branch determinant and quantitative distance from every
+characteristic surface;</li>
+<li>positive four-dimensional graviton, physical radion, and relevant
+vector residues after constraint/gauge reduction;</li>
+<li>a stability analysis with the same declared numerical tolerance
+throughout;</li>
+<li>exact symbolic regression against Einstein, EGB, equal-radius,
+single-factor, flat-curvature, and topological limits.</li>
+</ol>
+<p>Failure of any one item blocks P01C-CURV. Fixed-point existence alone
+is not a pass.</p>
+<h2 id="governing-disposition">9. Governing disposition</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">A</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">G</mi><mn mathvariant="normal">6.1</mn><mn mathvariant="normal">.1</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">F</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">Z</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">N</mi></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">B</mi><mn mathvariant="normal">.1</mn><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">F</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">T</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">C</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">T</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">D</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">N</mi><mi mathvariant="normal">O</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">G</mi><mi mathvariant="normal">O</mi></mrow><mo>↛</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">C</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">F</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">T</mi></mrow><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\mathrm{P01A\!-\!G6.1.1\ FROZEN}
+\longrightarrow
+\mathrm{P01B.1\!-\!FLAT\ COMPLETE/SCOPED\ NO\!-\!GO}
+\not\longrightarrow
+\mathrm{P01C\!-\!FLAT}.
+}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">P</mi><mn mathvariant="normal">00</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">G</mi><mn mathvariant="normal">01</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">B</mi><mn mathvariant="normal">.2</mn><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">C</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">V</mi></mrow></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\mathrm{TOP00}
+\longrightarrow
+\mathrm{G01}
+\longrightarrow
+\mathrm{P01B.2\!-\!CURV}
+}
+</annotation></semantics></math></p>
+<p>TOP00 changes no Lovelock equation and rescues no flat solution. It
+only fixes the admissible manifold class and prevents overstatement of
+what the curved product calculation can establish.</p>
+<h2 id="references">10. References</h2>
+<ol type="1">
+<li>A. N. Bernal and M. Sanchez, <em>On smooth Cauchy hypersurfaces and
+Geroch’s splitting theorem</em>, Commun. Math. Phys.
+<strong>243</strong> (2003) 461-470, arXiv:gr-qc/0306108.</li>
+<li>A. N. Bernal and M. Sanchez, <em>Smoothness of time functions and
+the metric splitting of globally hyperbolic spacetimes</em>, Commun.
+Math. Phys. <strong>257</strong>
+<ol start="2005" type="1">
+<li>43-50, arXiv:gr-qc/0401112.</li>
+</ol></li>
+<li>D. Lovelock, <em>The Einstein tensor and its generalizations</em>,
+J. Math. Phys. <strong>12</strong> (1971) 498-501.</li>
+<li>R. C. Myers, <em>Higher-derivative gravity, surface terms and string
+theory</em>, Phys. Rev. D <strong>36</strong> (1987) 392.</li>
+<li>D. Chirkov, A. Giacomini and A. Toporensky, <em>Dynamic
+compactification with stabilized extra dimensions in cubic Lovelock
+gravity</em>, Gen. Rel. Grav. <strong>50</strong> (2018) 98,
+arXiv:1804.02193.</li>
+<li>K. Ohashi, <em>Ghost-Free Stable Minkowski Vacua in Lovelock
+Compactifications on Irreducible Symmetric Spaces</em>, arXiv:2601.09256
+[hep-th].</li>
+</ol>
+<h1 id="kkk-ll-g01---exact-product-geometry-of-mathbbcp23">KKK-LL G01 -
+Exact Product Geometry of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>3</mn></msup><annotation encoding="application/x-tex">(\mathbb{CP}^{2})^{3}</annotation></semantics></math></h1>
+<p><strong>Canonical ID:</strong> G01<br />
+<strong>Role:</strong> direct prerequisite for P01B.2-CURV<br />
+<strong>Input convention:</strong> frozen G00 single-factor Fubini-Study
+normalization<br />
+<strong>Status in this document:</strong> COMPLETE / FROZEN FOR P01B.2
+PREREQUISITE SCOPE</p>
+<h2 id="single-factor-data">1. Single-factor data</h2>
+<p>For each factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>X</mi><mi>A</mi></msub><mo>=</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>A</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">X_A=\mathbb{CP}^{2}_{A}</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mi>c</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>R</mi><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">A\in\{c,L,R\}</annotation></semantics></math>,
+with radius
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>A</mi></msub><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">b_A&gt;0</annotation></semantics></math>,
+the G00 convention is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mrow><mi>a</mi><mover><mi>b</mi><mo accent="true">‾</mo></mover><mi>c</mi><mover><mi>d</mi><mo accent="true">‾</mo></mover></mrow></msub><mo>=</mo><mfrac><mn>2</mn><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>g</mi><mrow><mi>a</mi><mover><mi>b</mi><mo accent="true">‾</mo></mover></mrow></msub><msub><mi>g</mi><mrow><mi>c</mi><mover><mi>d</mi><mo accent="true">‾</mo></mover></mrow></msub><mo>+</mo><msub><mi>g</mi><mrow><mi>a</mi><mover><mi>d</mi><mo accent="true">‾</mo></mover></mrow></msub><msub><mi>g</mi><mrow><mi>c</mi><mover><mi>b</mi><mo accent="true">‾</mo></mover></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mo>Ric</mo><mo>=</mo><mfrac><mn>6</mn><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup></mfrac><msub><mi>g</mi><mi>A</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+R_{a\bar b c\bar d}
+=\frac{2}{b_A^2}
+\left(g_{a\bar b}g_{c\bar d}+g_{a\bar d}g_{c\bar b}\right),
+\qquad
+\operatorname{Ric}=\frac{6}{b_A^2}g_A.
+</annotation></semantics></math></p>
+<p>Consequently,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>R</mi><mi>A</mi></msub><mo>=</mo><mfrac><mn>24</mn><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mo>Vol</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>X</mi><mi>A</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><msup><mi>π</mi><mn>2</mn></msup><msubsup><mi>b</mi><mi>A</mi><mn>4</mn></msubsup></mrow><mn>2</mn></mfrac><mo>,</mo></mrow><annotation encoding="application/x-tex">
+R_A=\frac{24}{b_A^2},
+\qquad
+\operatorname{Vol}(X_A)=\frac{\pi^2b_A^4}{2},
+</annotation></semantics></math></p>
+<p>and, pointwise,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">|</mo><msub><mo>Riem</mo><mi>A</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mo>=</mo><mfrac><mn>192</mn><msubsup><mi>b</mi><mi>A</mi><mn>4</mn></msubsup></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msup><mrow><mo stretchy="true" form="prefix">|</mo><msub><mi>W</mi><mi>A</mi></msub><mo stretchy="true" form="postfix">|</mo></mrow><mn>2</mn></msup><mo>=</mo><mfrac><mn>96</mn><msubsup><mi>b</mi><mi>A</mi><mn>4</mn></msubsup></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>ℒ</mi><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>X</mi><mi>A</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mfrac><mn>192</mn><msubsup><mi>b</mi><mi>A</mi><mn>4</mn></msubsup></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">
+|\operatorname{Riem}_A|^2=\frac{192}{b_A^4},
+\qquad
+|W_A|^2=\frac{96}{b_A^4},
+\qquad
+\mathcal L_2[X_A]=\frac{192}{b_A^4}.
+</annotation></semantics></math></p>
+<p>The integrated Lovelock densities are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>I</mi><mn>0</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><mfrac><mrow><msup><mi>π</mi><mn>2</mn></msup><msubsup><mi>b</mi><mi>A</mi><mn>4</mn></msubsup></mrow><mn>2</mn></mfrac><mo>,</mo><mspace width="2.0em"></mspace><msubsup><mi>I</mi><mn>1</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><mn>12</mn><msup><mi>π</mi><mn>2</mn></msup><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup><mo>,</mo><mspace width="2.0em"></mspace><msubsup><mi>I</mi><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><mn>96</mn><msup><mi>π</mi><mn>2</mn></msup><mo>,</mo><mspace width="2.0em"></mspace><msubsup><mi>I</mi><mrow><mi>p</mi><mo>≥</mo><mn>3</mn></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><mn>0</mn><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+I_0^{(A)}=\frac{\pi^2b_A^4}{2},
+\qquad
+I_1^{(A)}=12\pi^2b_A^2,
+\qquad
+I_2^{(A)}=96\pi^2,
+\qquad
+I_{p\ge3}^{(A)}=0.
+}
+</annotation></semantics></math></p>
+<p>The last equality is dimensional: a four-manifold has no nonzero
+Lovelock density above order two. The value of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>I</mi><mn>2</mn></msub><annotation encoding="application/x-tex">I_2</annotation></semantics></math>
+also follows from
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>I</mi><mn>2</mn></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mn>2</mn><mi>!</mi><mspace width="0.167em"></mspace><mi>χ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">I_2=(4\pi)^2 2!\,\chi(\mathbb{CP}^{2})</annotation></semantics></math>.</p>
+<h2 id="product-curvature">2. Product curvature</h2>
+<p>For</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Y</mi><mn>12</mn></msup><mo>=</mo><msub><mi>X</mi><mi>c</mi></msub><mo>×</mo><msub><mi>X</mi><mi>L</mi></msub><mo>×</mo><msub><mi>X</mi><mi>R</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>g</mi><mi>Y</mi></msub><mo>=</mo><msub><mi>g</mi><mi>c</mi></msub><mo>⊕</mo><msub><mi>g</mi><mi>L</mi></msub><mo>⊕</mo><msub><mi>g</mi><mi>R</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+Y^{12}=X_c\times X_L\times X_R,
+\qquad
+g_Y=g_c\oplus g_L\oplus g_R,
+</annotation></semantics></math></p>
+<p>the Levi-Civita connection and Riemann tensor split
+block-diagonally:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>∇</mi><mi>Y</mi></msup><mo>=</mo><msup><mi>∇</mi><mi>c</mi></msup><mo>⊕</mo><msup><mi>∇</mi><mi>L</mi></msup><mo>⊕</mo><msup><mi>∇</mi><mi>R</mi></msup><mo>,</mo><mspace width="2.0em"></mspace><msub><mo>Riem</mo><mi>Y</mi></msub><mo>=</mo><msub><mo>Riem</mo><mi>c</mi></msub><mo>⊕</mo><msub><mo>Riem</mo><mi>L</mi></msub><mo>⊕</mo><msub><mo>Riem</mo><mi>R</mi></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\nabla^Y=\nabla^c\oplus\nabla^L\oplus\nabla^R,
+\qquad
+\operatorname{Riem}_Y
+=\operatorname{Riem}_c\oplus\operatorname{Riem}_L
+\oplus\operatorname{Riem}_R,
+</annotation></semantics></math></p>
+<p>with all mixed curvature components zero. Hence</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>Ric</mo><mi>Y</mi></msub><mo>=</mo><msub><mo>⨁</mo><mi>A</mi></msub><mfrac><mn>6</mn><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup></mfrac><msub><mi>g</mi><mi>A</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>R</mi><mi>Y</mi></msub><mo>=</mo><mn>24</mn><munder><mo>∑</mo><mi>A</mi></munder><mfrac><mn>1</mn><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup></mfrac><mo>,</mo><mspace width="2.0em"></mspace><mo>Vol</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><msup><mi>π</mi><mn>6</mn></msup><mn>8</mn></mfrac><msubsup><mi>b</mi><mi>c</mi><mn>4</mn></msubsup><msubsup><mi>b</mi><mi>L</mi><mn>4</mn></msubsup><msubsup><mi>b</mi><mi>R</mi><mn>4</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{Ric}_Y
+=\bigoplus_A\frac{6}{b_A^2}g_A,
+\qquad
+R_Y=24\sum_A\frac1{b_A^2},
+\qquad
+\operatorname{Vol}(Y)=\frac{\pi^6}{8}b_c^4b_L^4b_R^4.
+</annotation></semantics></math></p>
+<p>The product is Einstein if and only if</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>c</mi></msub><mo>=</mo><msub><mi>b</mi><mi>L</mi></msub><mo>=</mo><msub><mi>b</mi><mi>R</mi></msub><mi>.</mi></mrow><annotation encoding="application/x-tex">
+b_c=b_L=b_R.
+</annotation></semantics></math></p>
+<p>Thus unequal radii are genuine shape moduli rather than a coordinate
+artifact.</p>
+<h2 id="exact-product-lovelock-formula">3. Exact product Lovelock
+formula</h2>
+<p>The canonical Lovelock double-form product rule gives</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>C</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>b</mi><mi>c</mi></msub><mo>,</mo><msub><mi>b</mi><mi>L</mi></msub><mo>,</mo><msub><mi>b</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mo>∫</mo><mi>Y</mi></msub><msub><mi>ℒ</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>g</mi><mi>Y</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mspace width="0.167em"></mspace><msub><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">l</mi></mrow><mi>Y</mi></msub><mo>=</mo><munder><mo>∑</mo><mrow><mi>p</mi><mo>+</mo><mi>q</mi><mo>+</mo><mi>r</mi><mo>=</mo><mi>s</mi></mrow></munder><mfrac><mrow><mi>s</mi><mi>!</mi></mrow><mrow><mi>p</mi><mi>!</mi><mi>q</mi><mi>!</mi><mi>r</mi><mi>!</mi></mrow></mfrac><msubsup><mi>I</mi><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><msubsup><mi>I</mi><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><msubsup><mi>I</mi><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+C_s(b_c,b_L,b_R)
+=\int_Y\mathcal L_s[g_Y]\,\mathrm{vol}_Y
+=\sum_{p+q+r=s}\frac{s!}{p!q!r!}
+I_p^{(c)}I_q^{(L)}I_r^{(R)}.
+}
+</annotation></semantics></math></p>
+<p>Only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>,</mo><mi>q</mi><mo>,</mo><mi>r</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">p,q,r\in\{0,1,2\}</annotation></semantics></math>
+contribute, so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mi>s</mi></msub><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">C_s=0</annotation></semantics></math>
+for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>&gt;</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">s&gt;6</annotation></semantics></math>.
+Writing
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>A</mi></msub><mo>=</mo><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">x_A=b_A^2</annotation></semantics></math>,
+the complete unequal-radius panel is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msub><mi>C</mi><mn>0</mn></msub><msup><mi>π</mi><mn>6</mn></msup></mfrac><mo>=</mo><mfrac><mn>1</mn><mn>8</mn></mfrac><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\frac{C_0}{\pi^6}=\frac18x_c^2x_L^2x_R^2,
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msub><mi>C</mi><mn>1</mn></msub><msup><mi>π</mi><mn>6</mn></msup></mfrac><mo>=</mo><mn>3</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>c</mi></msub><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>L</mi></msub><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\frac{C_1}{\pi^6}
+=3\left(x_cx_L^2x_R^2+x_c^2x_Lx_R^2+x_c^2x_L^2x_R\right),
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mfrac><msub><mi>C</mi><mn>2</mn></msub><msup><mi>π</mi><mn>6</mn></msup></mfrac><mo>=</mo><mrow></mrow></mtd><mtd columnalign="left" style="text-align: left"><mn>24</mn><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>+</mo><mn>144</mn><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>L</mi></msub><msub><mi>x</mi><mi>R</mi></msub><mo>+</mo><msub><mi>x</mi><mi>c</mi></msub><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>R</mi></msub><mo>+</mo><msub><mi>x</mi><mi>c</mi></msub><msub><mi>x</mi><mi>L</mi></msub><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\frac{C_2}{\pi^6}={}&amp;24\left(x_c^2x_L^2+x_c^2x_R^2+x_L^2x_R^2\right)\\
+&amp;+144\left(x_c^2x_Lx_R+x_cx_L^2x_R+x_cx_Lx_R^2\right),
+\end{aligned}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd columnalign="right" style="text-align: right"><mfrac><msub><mi>C</mi><mn>3</mn></msub><msup><mi>π</mi><mn>6</mn></msup></mfrac><mo>=</mo><mrow></mrow></mtd><mtd columnalign="left" style="text-align: left"><mn>1728</mn><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>L</mi></msub><mo>+</mo><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>R</mi></msub><mo>+</mo><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>c</mi></msub><mo>+</mo><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>R</mi></msub><mo>+</mo><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>c</mi></msub><mo>+</mo><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><msub><mi>x</mi><mi>L</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mo>+</mo><mn>10368</mn><msub><mi>x</mi><mi>c</mi></msub><msub><mi>x</mi><mi>L</mi></msub><msub><mi>x</mi><mi>R</mi></msub><mo>,</mo></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\frac{C_3}{\pi^6}={}&amp;1728\left(
+x_c^2x_L+x_c^2x_R+x_L^2x_c+x_L^2x_R+x_R^2x_c+x_R^2x_L
+\right)\\
+&amp;+10368x_cx_Lx_R,
+\end{aligned}
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msub><mi>C</mi><mn>4</mn></msub><msup><mi>π</mi><mn>6</mn></msup></mfrac><mo>=</mo><mn>27648</mn><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>x</mi><mi>c</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mi>L</mi><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mi>R</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>165888</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>c</mi></msub><msub><mi>x</mi><mi>L</mi></msub><mo>+</mo><msub><mi>x</mi><mi>c</mi></msub><msub><mi>x</mi><mi>R</mi></msub><mo>+</mo><msub><mi>x</mi><mi>L</mi></msub><msub><mi>x</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\frac{C_4}{\pi^6}
+=27648(x_c^2+x_L^2+x_R^2)
++165888(x_cx_L+x_cx_R+x_Lx_R),
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><msub><mi>C</mi><mn>5</mn></msub><msup><mi>π</mi><mn>6</mn></msup></mfrac><mo>=</mo><mn>3317760</mn><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>c</mi></msub><mo>+</mo><msub><mi>x</mi><mi>L</mi></msub><mo>+</mo><msub><mi>x</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mfrac><msub><mi>C</mi><mn>6</mn></msub><msup><mi>π</mi><mn>6</mn></msup></mfrac><mo>=</mo><mn>79626240</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\frac{C_5}{\pi^6}=3317760(x_c+x_L+x_R),
+\qquad
+\frac{C_6}{\pi^6}=79626240.
+</annotation></semantics></math></p>
+<p>Each expression is exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝔖</mi><mn>3</mn></msub><annotation encoding="application/x-tex">\mathfrak S_3</annotation></semantics></math>-invariant.</p>
+<h2 id="equal-radius-regression">4. Equal-radius regression</h2>
+<p>For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mi>c</mi></msub><mo>=</mo><msub><mi>b</mi><mi>L</mi></msub><mo>=</mo><msub><mi>b</mi><mi>R</mi></msub><mo>=</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">b_c=b_L=b_R=b</annotation></semantics></math>,
+the panel reduces to the frozen C00 values:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>s</mi></mtd><mtd columnalign="center" style="text-align: center"><msub><mi>C</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><msup><mi>π</mi><mn>6</mn></msup><msup><mi>b</mi><mn>12</mn></msup><mi>/</mi><mn>8</mn></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>9</mn><msup><mi>π</mi><mn>6</mn></msup><msup><mi>b</mi><mn>10</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>2</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>504</mn><msup><mi>π</mi><mn>6</mn></msup><msup><mi>b</mi><mn>8</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>3</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>20736</mn><msup><mi>π</mi><mn>6</mn></msup><msup><mi>b</mi><mn>6</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>4</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>580608</mn><msup><mi>π</mi><mn>6</mn></msup><msup><mi>b</mi><mn>4</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>5</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>9953280</mn><msup><mi>π</mi><mn>6</mn></msup><msup><mi>b</mi><mn>2</mn></msup></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>6</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>79626240</mn><msup><mi>π</mi><mn>6</mn></msup></mtd></mtr></mtable></menclose><annotation encoding="application/x-tex">
+\boxed{
+\begin{array}{c|c}
+s&amp;C_s(b)\\ \hline
+0&amp;\pi^6b^{12}/8\\
+1&amp;9\pi^6b^{10}\\
+2&amp;504\pi^6b^8\\
+3&amp;20736\pi^6b^6\\
+4&amp;580608\pi^6b^4\\
+5&amp;9953280\pi^6b^2\\
+6&amp;79626240\pi^6
+\end{array}}
+</annotation></semantics></math></p>
+<p>At top order,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>6</mn></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>6</mn></msup><mn>6</mn><mi>!</mi><mspace width="0.167em"></mspace><mi>χ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>6</mn></msup><mn>6</mn><mi>!</mi><mo>⋅</mo><mn>27</mn><mo>=</mo><mn>79626240</mn><msup><mi>π</mi><mn>6</mn></msup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+C_6=(4\pi)^6 6!\,\chi(Y)
+=(4\pi)^6 6!\cdot27
+=79626240\pi^6,
+</annotation></semantics></math></p>
+<p>which is an independent Chern-Gauss-Bonnet check.</p>
+<h2 id="pointwise-generating-data-for-p01b.2-curv">5. Pointwise
+generating data for P01B.2-CURV</h2>
+<p>Because every factor is homogeneous, define the pointwise Lovelock
+data</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mo>ℓ</mo><mn>0</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>,</mo><msubsup><mo>ℓ</mo><mn>1</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>,</mo><msubsup><mo>ℓ</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mfrac><mn>24</mn><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup></mfrac><mo>,</mo><mfrac><mn>192</mn><msubsup><mi>b</mi><mi>A</mi><mn>4</mn></msubsup></mfrac><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+(\ell_0^{(A)},\ell_1^{(A)},\ell_2^{(A)})
+=\left(1,\frac{24}{b_A^2},\frac{192}{b_A^4}\right)
+</annotation></semantics></math></p>
+<p>and distinguish them from the exponential generating polynomial</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>A</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>p</mi><mo>=</mo><mn>0</mn></mrow><mn>2</mn></munderover><mfrac><msubsup><mo>ℓ</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mrow><mi>p</mi><mi>!</mi></mrow></mfrac><msup><mi>z</mi><mi>p</mi></msup><mo>=</mo><mn>1</mn><mo>+</mo><mfrac><mn>24</mn><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup></mfrac><mi>z</mi><mo>+</mo><mfrac><mn>96</mn><msubsup><mi>b</mi><mi>A</mi><mn>4</mn></msubsup></mfrac><msup><mi>z</mi><mn>2</mn></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+P_A(z)=\sum_{p=0}^{2}\frac{\ell_p^{(A)}}{p!}z^p
+=1+\frac{24}{b_A^2}z+\frac{96}{b_A^4}z^2.
+</annotation></semantics></math></p>
+<p>The pointwise product Lovelock densities then obey</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><munderover><mo>∑</mo><mrow><mi>s</mi><mo>=</mo><mn>0</mn></mrow><mn>6</mn></munderover><mfrac><mrow><msub><mi>ℒ</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>Y</mi><mo stretchy="true" form="postfix">]</mo></mrow></mrow><mrow><mi>s</mi><mi>!</mi></mrow></mfrac><msup><mi>z</mi><mi>s</mi></msup><mo>=</mo><munder><mo>∏</mo><mrow><mi>A</mi><mo>=</mo><mi>c</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>R</mi></mrow></munder><msub><mi>P</mi><mi>A</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\sum_{s=0}^{6}\frac{\mathcal L_s[Y]}{s!}z^s
+=\prod_{A=c,L,R}P_A(z),
+</annotation></semantics></math></p>
+<p>where the coefficient convention includes the ordinary multinomial
+factor: equivalently,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℒ</mi><mi>s</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>Y</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><munder><mo>∑</mo><mrow><mi>p</mi><mo>+</mo><mi>q</mi><mo>+</mo><mi>r</mi><mo>=</mo><mi>s</mi></mrow></munder><mfrac><mrow><mi>s</mi><mi>!</mi></mrow><mrow><mi>p</mi><mi>!</mi><mi>q</mi><mi>!</mi><mi>r</mi><mi>!</mi></mrow></mfrac><msubsup><mo>ℓ</mo><mi>p</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>c</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><msubsup><mo>ℓ</mo><mi>q</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><msubsup><mo>ℓ</mo><mi>r</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>R</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>,</mo><mspace width="1.0em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msub><mo>ℓ</mo><mn>0</mn></msub><mo>,</mo><msub><mo>ℓ</mo><mn>1</mn></msub><mo>,</mo><msub><mo>ℓ</mo><mn>2</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mfrac><mn>24</mn><msup><mi>b</mi><mn>2</mn></msup></mfrac><mo>,</mo><mfrac><mn>192</mn><msup><mi>b</mi><mn>4</mn></msup></mfrac><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal L_s[Y]
+=\sum_{p+q+r=s}\frac{s!}{p!q!r!}
+\ell_p^{(c)}\ell_q^{(L)}\ell_r^{(R)},
+\quad
+(\ell_0,\ell_1,\ell_2)
+=\left(1,\frac{24}{b^2},\frac{192}{b^4}\right).
+</annotation></semantics></math></p>
+<p>Thus the factor
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>96</mn><annotation encoding="application/x-tex">96</annotation></semantics></math>
+belongs to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>P</mi><mi>A</mi></msub><annotation encoding="application/x-tex">P_A</annotation></semantics></math>
+because it is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>ℓ</mo><mn>2</mn><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mi>/</mi><mn>2</mn><mi>!</mi></mrow><annotation encoding="application/x-tex">\ell_2^{(A)}/2!</annotation></semantics></math>;
+it is not a change of the Lovelock normalization.</p>
+<h2 id="scope-boundary">6. Scope boundary</h2>
+<p>G01 certifies the product tensors, topology, radii, and Lovelock
+invariants of the prescribed geometry. It does not establish that pure
+Lovelock dynamics selects this topology, this product conformal class,
+equal radii, a stable vacuum, a four-dimensional Planck sign, a gauge
+kinetic sign, chirality, or a consistent finite Kaluza-Klein truncation.
+Those are downstream gates.</p>
+<h2 id="symbolic-verification-contract">7. Symbolic verification
+contract</h2>
+<p>The companion exact Python engine verifies, without floating-point
+arithmetic:</p>
+<ol type="1">
+<li>the real orthonormal Fubini-Study curvature tensor has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>Ric</mo><mo>=</mo><mn>6</mn><mi>g</mi><mi>/</mi><msup><mi>b</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\operatorname{Ric}=6g/b^2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mo>=</mo><mn>24</mn><mi>/</mi><msup><mi>b</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">R=24/b^2</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℒ</mi><mn>2</mn></msub><mo>=</mo><mn>192</mn><mi>/</mi><msup><mi>b</mi><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">\mathcal L_2=192/b^4</annotation></semantics></math>;</li>
+<li>the double-form wedge calculation on the twelve-dimensional product
+agrees with the multinomial formula at every order
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>0</mn><mo>,</mo><mi>…</mi><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">s=0,\ldots,6</annotation></semantics></math>;</li>
+<li>the unequal-radius panel is permutation invariant;</li>
+<li>the equal-radius panel reproduces C00;</li>
+<li>the order-six coefficient reproduces
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>χ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>Y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>27</mn></mrow><annotation encoding="application/x-tex">\chi(Y)=27</annotation></semantics></math>;</li>
+<li>orders
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>&gt;</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">s&gt;6</annotation></semantics></math>
+vanish dimensionally.</li>
+</ol>
+<h1
+id="p01b.2-curv---stage-a-exact-curved-homogeneous-reduction">P01B.2-CURV
+- Stage A: Exact Curved Homogeneous Reduction</h1>
+<p><strong>Status:</strong> calculation in progress; this stage derives
+and cross-locks the exact equations but does not yet certify a healthy
+branch.<br />
+<strong>Prerequisites used:</strong> P01A-G6.1.1, TOP00, G00, G01.</p>
+<h2 id="four-scale-geometry">1. Four-scale geometry</h2>
+<p>For</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><msubsup><mi>s</mi><mn>16</mn><mn>2</mn></msubsup><mo>=</mo><mo>−</mo><msup><mi>N</mi><mn>2</mn></msup><mi>d</mi><msup><mi>t</mi><mn>2</mn></msup><mo>+</mo><msup><mi>a</mi><mn>2</mn></msup><mi>d</mi><msubsup><mi>Σ</mi><mrow><mn>3</mn><mo>,</mo><mi>κ</mi></mrow><mn>2</mn></msubsup><mo>+</mo><munder><mo>∑</mo><mrow><mi>A</mi><mo>=</mo><mi>c</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>R</mi></mrow></munder><msubsup><mi>b</mi><mi>A</mi><mn>2</mn></msubsup><mi>d</mi><msubsup><mi>s</mi><mrow><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>A</mi><mn>2</mn></msubsup><mo>,</mo><mrow><mi mathvariant="normal">F</mi><mi mathvariant="normal">S</mi></mrow><mo>,</mo><mn>1</mn></mrow><mn>2</mn></msubsup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+ds_{16}^{2}=-N^{2}dt^{2}+a^{2}d\Sigma_{3,\kappa}^{2}
++\sum_{A=c,L,R}b_A^{2}ds_{\mathbb{CP}^{2}_{A},\mathrm{FS},1}^{2},
+</annotation></semantics></math></p>
+<p>define</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><msup><mi>N</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mover><mi>a</mi><mo accent="true">̇</mo></mover><mi>/</mi><mi>a</mi><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>A</mi></msub><mo>=</mo><msup><mi>N</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msub><mover><mi>b</mi><mo accent="true">̇</mo></mover><mi>A</mi></msub><mi>/</mi><msub><mi>b</mi><mi>A</mi></msub><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>Ψ</mi><mi>I</mi></msub><mo>=</mo><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>N</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><msub><mover><mi>H</mi><mo accent="true">̇</mo></mover><mi>I</mi></msub><mo>+</mo><msubsup><mi>H</mi><mi>I</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+H=N^{-1}\dot a/a,
+\qquad
+h_A=N^{-1}\dot b_A/b_A,
+\qquad
+\Psi_I=-\left(N^{-1}\dot H_I+H_I^2\right).
+</annotation></semantics></math></p>
+<p>The spatial second fundamental form is block diagonal with
+multiplicities</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>d</mi><mn>0</mn></msub><mo>,</mo><msub><mi>d</mi><mi>c</mi></msub><mo>,</mo><msub><mi>d</mi><mi>L</mi></msub><mo>,</mo><msub><mi>d</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+(d_0,d_c,d_L,d_R)=(3,4,4,4).
+</annotation></semantics></math></p>
+<p>The Gauss curvature double form is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>Ω</mi><mo>=</mo><msup><mrow></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>15</mn><mo stretchy="true" form="postfix">)</mo></mrow></msup><mspace width="-0.167em"></mspace><mi>R</mi><mo>+</mo><mi>K</mi><mrow><mo>∧</mo><mspace width="-0.167em"></mspace><mo>∧</mo></mrow><mi>K</mi><mo>,</mo></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\Omega={}^{(15)}\!R+K\mathbin{\wedge\!\wedge}K,
+}
+</annotation></semantics></math></p>
+<p>with external intrinsic sectional curvature
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>κ</mi><mi>/</mi><msup><mi>a</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\kappa/a^2</annotation></semantics></math>,
+Fubini-Study curvatures
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>b</mi><mi>A</mi><mrow><mo>−</mo><mn>2</mn></mrow></msubsup><msub><mi>ℛ</mi><mrow><mrow><mi mathvariant="normal">F</mi><mi mathvariant="normal">S</mi></mrow><mo>,</mo><mi>A</mi></mrow></msub></mrow><annotation encoding="application/x-tex">b_A^{-2}\mathcal R_{\mathrm{FS},A}</annotation></semantics></math>,
+and cross-block entries
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Ω</mi><mrow><mi>i</mi><mi>j</mi></mrow></msup><msub><mrow></mrow><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>=</mo><msub><mi>H</mi><mi>I</mi></msub><msub><mi>H</mi><mi>J</mi></msub></mrow><annotation encoding="application/x-tex">\Omega^{ij}{}_{ij}=H_IH_J</annotation></semantics></math>.</p>
+<h2 id="exact-double-form-normalization">2. Exact double-form
+normalization</h2>
+<p>Let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>Ω</mi><mrow><mo>∧</mo><mi>k</mi></mrow></msup><annotation encoding="application/x-tex">\Omega^{\wedge k}</annotation></semantics></math>
+be the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mi>k</mi><mo>,</mo><mn>2</mn><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(2k,2k)</annotation></semantics></math>
+double-form exterior power, and let
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mo>tr</mo><mi>Δ</mi></msub><annotation encoding="application/x-tex">\operatorname{tr}_{\Delta}</annotation></semantics></math>
+denote the sum of equal upper/lower mask components. The canonical
+Lovelock density on the slice is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℒ</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>Ω</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><msup><mn>2</mn><mi>k</mi></msup><msub><mo>tr</mo><mi>Δ</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>Ω</mi><mrow><mo>∧</mo><mi>k</mi></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\mathcal L_k[\Omega]
+=2^k\operatorname{tr}_{\Delta}(\Omega^{\wedge k}).
+</annotation></semantics></math></p>
+<p>This normalization reproduces</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℒ</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>K</mi><mspace width="0.167em"></mspace><msubsup><mi>δ</mi><mrow><mi>k</mi><mi>l</mi></mrow><mrow><mi>i</mi><mi>j</mi></mrow></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mfrac><mrow><mi>d</mi><mi>!</mi></mrow><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>d</mi><mo>−</mo><mn>2</mn><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>!</mi></mrow></mfrac><msup><mi>K</mi><mi>k</mi></msup></mrow><annotation encoding="application/x-tex">
+\mathcal L_k(K\,\delta^{ij}_{kl})
+=\frac{d!}{(d-2k)!}K^k
+</annotation></semantics></math></p>
+<p>in dimension
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>d</mi><annotation encoding="application/x-tex">d</annotation></semantics></math>,
+and reproduces the frozen G00 values
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℒ</mi><mn>1</mn></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>24</mn><mi>/</mi><msup><mi>b</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\mathcal L_1[\mathbb{CP}^{2}]=24/b^2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℒ</mi><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>192</mn><mi>/</mi><msup><mi>b</mi><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">\mathcal L_2[\mathbb{CP}^{2}]=192/b^4</annotation></semantics></math>.</p>
+<h2 id="lapse-constraint">3. Lapse constraint</h2>
+<p>The exact lapse equation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>ℋ</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mn>7</mn></munderover><msub><mi>α</mi><mi>k</mi></msub><msub><mi>ℒ</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><mi>Ω</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>ℒ</mi><mn>0</mn></msub><mo>=</mo><mn>1</mn><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\mathscr H
+=\frac12\sum_{k=0}^{7}\alpha_k\mathcal L_k[\Omega]
+=0,
+\qquad \mathcal L_0=1.
+}
+</annotation></semantics></math></p>
+<p>This equation contains arbitrary
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>α</mi><mn>7</mn></msub></mrow><annotation encoding="application/x-tex">\alpha_0,\ldots,\alpha_7</annotation></semantics></math>,
+no normal acceleration, and no local
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mn>8</mn></msub><annotation encoding="application/x-tex">\alpha_8</annotation></semantics></math>
+term.</p>
+<h2 id="four-evolution-equations">4. Four evolution equations</h2>
+<p>For a representative spatial index
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>i</mi><mi>I</mi></msub><annotation encoding="application/x-tex">i_I</annotation></semantics></math>
+in block
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>I</mi><annotation encoding="application/x-tex">I</annotation></semantics></math>,
+the exact equation is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>𝒮</mi><mi>I</mi></msub><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mn>7</mn></munderover><msub><mi>α</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">[</mo><msup><mi>𝒬</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><msub><mi>i</mi><mi>I</mi></msub></mrow></msup><msub><mrow></mrow><msub><mi>i</mi><mi>I</mi></msub></msub><mo>+</mo><munder><mo>∑</mo><mrow><mi>J</mi><mo>=</mo><mn>0</mn><mo>,</mo><mi>c</mi><mo>,</mo><mi>L</mi><mo>,</mo><mi>R</mi></mrow></munder><msubsup><mi>ℳ</mi><mrow><mi>I</mi><mi>J</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><msub><mi>Ψ</mi><mi>J</mi></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\mathscr S_I
+=\sum_{k=0}^{7}\alpha_k
+\left[
+\mathscr Q^{(k)i_I}{}_{i_I}
++\sum_{J=0,c,L,R}\mathcal M_{IJ}^{(k)}\Psi_J
+\right]=0,
+}
+</annotation></semantics></math></p>
+<p>where</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝒬</mi><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>i</mi></mrow></msup><msub><mrow></mrow><mi>j</mi></msub><mo>=</mo><mo>−</mo><mfrac><mn>1</mn><msup><mn>2</mn><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msup></mfrac><msubsup><mi>δ</mi><mrow><mi>j</mi><msub><mi>c</mi><mn>1</mn></msub><msub><mi>d</mi><mn>1</mn></msub><mi>⋯</mi><msub><mi>c</mi><mi>k</mi></msub><msub><mi>d</mi><mi>k</mi></msub></mrow><mrow><mi>i</mi><msub><mi>a</mi><mn>1</mn></msub><msub><mi>b</mi><mn>1</mn></msub><mi>⋯</mi><msub><mi>a</mi><mi>k</mi></msub><msub><mi>b</mi><mi>k</mi></msub></mrow></msubsup><munderover><mo>∏</mo><mrow><mi>r</mi><mo>=</mo><mn>1</mn></mrow><mi>k</mi></munderover><msup><mi>Ω</mi><mrow><msub><mi>c</mi><mi>r</mi></msub><msub><mi>d</mi><mi>r</mi></msub></mrow></msup><msub><mrow></mrow><mrow><msub><mi>a</mi><mi>r</mi></msub><msub><mi>b</mi><mi>r</mi></msub></mrow></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathscr Q^{(k)i}{}_{j}
+=-\frac1{2^{k+1}}
+\delta^{i a_1b_1\cdots a_kb_k}_{j c_1d_1\cdots c_kd_k}
+\prod_{r=1}^{k}\Omega^{c_rd_r}{}_{a_rb_r},
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>𝒜</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mi>i</mi><mi>a</mi></mrow></msubsup><msub><mrow></mrow><mrow><mi>j</mi><mi>b</mi></mrow></msub><mo>=</mo><mfrac><mi>k</mi><msup><mn>2</mn><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msup></mfrac><msubsup><mi>δ</mi><mrow><mi>j</mi><mi>b</mi><msub><mi>c</mi><mn>2</mn></msub><msub><mi>d</mi><mn>2</mn></msub><mi>⋯</mi><msub><mi>c</mi><mi>k</mi></msub><msub><mi>d</mi><mi>k</mi></msub></mrow><mrow><mi>i</mi><mi>a</mi><msub><mi>a</mi><mn>2</mn></msub><msub><mi>b</mi><mn>2</mn></msub><mi>⋯</mi><msub><mi>a</mi><mi>k</mi></msub><msub><mi>b</mi><mi>k</mi></msub></mrow></msubsup><munderover><mo>∏</mo><mrow><mi>r</mi><mo>=</mo><mn>2</mn></mrow><mi>k</mi></munderover><msup><mi>Ω</mi><mrow><msub><mi>c</mi><mi>r</mi></msub><msub><mi>d</mi><mi>r</mi></msub></mrow></msup><msub><mrow></mrow><mrow><msub><mi>a</mi><mi>r</mi></msub><msub><mi>b</mi><mi>r</mi></msub></mrow></msub><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\mathcal A_{(k)}^{ia}{}_{jb}
+=\frac{k}{2^{k-1}}
+\delta^{i a a_2b_2\cdots a_kb_k}_{j b c_2d_2\cdots c_kd_k}
+\prod_{r=2}^{k}\Omega^{c_rd_r}{}_{a_rb_r},
+</annotation></semantics></math></p>
+<p>and the four-scale acceleration block is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msubsup><mi>ℳ</mi><mrow><mi>I</mi><mi>J</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow></msubsup><mo>=</mo><munder><mo>∑</mo><mrow><mi>a</mi><mo>∈</mo><mrow><mtext mathvariant="normal">block </mtext><mspace width="0.333em"></mspace></mrow><mi>J</mi></mrow></munder><msubsup><mi>𝒜</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><msub><mi>i</mi><mi>I</mi></msub><mi>a</mi></mrow></msubsup><msub><mrow></mrow><mrow><msub><mi>i</mi><mi>I</mi></msub><mi>a</mi></mrow></msub><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\mathcal M^{(k)}_{IJ}
+=\sum_{a\in\text{block }J}
+\mathcal A_{(k)}^{i_Ia}{}_{i_Ia}.
+}
+</annotation></semantics></math></p>
+<p>These coefficient-extraction formulas are the explicit exact
+equations: the companion engine expands them with integer/rational
+arithmetic for any symbolic order or exact rational witness. They retain
+the full Fubini-Study Riemann tensor, not a constant-sectional-curvature
+replacement for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><annotation encoding="application/x-tex">\mathbb{CP}^{2}</annotation></semantics></math>.</p>
+<h2 id="complete-homogeneous-acceleration-map">5. Complete homogeneous
+acceleration map</h2>
+<p>The physical regularity test is not
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>det</mo><mi>ℳ</mi><mo>≠</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\det\mathcal M\ne0</annotation></semantics></math>
+alone. The inherited G6 map is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>𝒜</mi><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mn>7</mn></munderover><msub><mi>α</mi><mi>k</mi></msub><msub><mi>𝒜</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo stretchy="true" form="postfix">)</mo></mrow></msub><mo>:</mo><msup><mo>Sym</mo><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>T</mi><mo>*</mo></msup><msup><mi>Σ</mi><mn>15</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>→</mo><msup><mo>Sym</mo><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>T</mi><mo>*</mo></msup><msup><mi>Σ</mi><mn>15</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mo>dim</mo><mo>=</mo><mn>120</mn><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\mathcal A
+=\sum_{k=1}^{7}\alpha_k\mathcal A_{(k)}:
+\operatorname{Sym}^{2}(T^{*}\Sigma^{15})
+\longrightarrow
+\operatorname{Sym}^{2}(T^{*}\Sigma^{15}),
+\qquad \dim=120.
+}
+</annotation></semantics></math></p>
+<p>The exact engine constructs every component
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝒜</mi><mrow><mi>i</mi><mi>a</mi></mrow></msup><msub><mrow></mrow><mrow><mi>j</mi><mi>b</mi></mrow></msub></mrow><annotation encoding="application/x-tex">\mathcal A^{ia}{}_{jb}</annotation></semantics></math>
+and its
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>120</mn><mo>×</mo><mn>120</mn></mrow><annotation encoding="application/x-tex">120\times120</annotation></semantics></math>
+component-basis matrix. P01B.2 may pass only if this complete map, after
+the appropriate gauge/constraint interpretation, has no forbidden
+characteristic direction on the candidate branch.</p>
+<h2 id="fixed-point-coefficient-system">6. Fixed-point coefficient
+system</h2>
+<p>At a static-radius de Sitter product,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><msub><mi>H</mi><mo>⋆</mo></msub><mo>&gt;</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>h</mi><mi>A</mi></msub><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>x</mi><mo>=</mo><msubsup><mi>H</mi><mo>⋆</mo><mn>2</mn></msubsup><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>y</mi><mi>A</mi></msub><mo>=</mo><msubsup><mi>b</mi><mrow><mi>A</mi><mo>⋆</mo></mrow><mrow><mo>−</mo><mn>2</mn></mrow></msubsup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+H=H_\star&gt;0,
+\qquad h_A=0,
+\qquad x=H_\star^2,
+\qquad y_A=b_{A\star}^{-2},
+</annotation></semantics></math></p>
+<p>the four equations are linear in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>α</mi><mn>7</mn></msub></mrow><annotation encoding="application/x-tex">\alpha_0,\ldots,\alpha_7</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mn>7</mn></munderover><msub><mi>α</mi><mi>k</mi></msub><msub><mi>E</mi><mrow><mi>I</mi><mo>,</mo><mi>k</mi></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><msub><mi>y</mi><mi>c</mi></msub><mo>,</mo><msub><mi>y</mi><mi>L</mi></msub><mo>,</mo><msub><mi>y</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\sum_{k=0}^{7}\alpha_k E_{I,k}(x,y_c,y_L,y_R)=0.
+}
+</annotation></semantics></math></p>
+<p>Their exact coefficients are ordinary-multinomial products of</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>ℓ</mo><msub><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">S</mi></mrow><mn>4</mn></msub></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>12</mn><mi>x</mi><mo>,</mo><mn>24</mn><msup><mi>x</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mo>ℓ</mo><mrow><msub><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">S</mi></mrow><mn>3</mn></msub><mo>⊥</mo></mrow></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>6</mn><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+\ell_{\mathrm{dS}_4}=(1,12x,24x^2),
+\qquad
+\ell_{\mathrm{dS}_3\perp}=(1,6x),
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mo>ℓ</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>A</mi><mn>2</mn></msubsup></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>24</mn><msub><mi>y</mi><mi>A</mi></msub><mo>,</mo><mn>192</mn><msubsup><mi>y</mi><mi>A</mi><mn>2</mn></msubsup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mo>ℓ</mo><mrow><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>A</mi><mn>2</mn></msubsup><mo>⊥</mo></mrow></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>,</mo><mn>12</mn><msub><mi>y</mi><mi>A</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\ell_{\mathbb{CP}^{2}_A}=(1,24y_A,192y_A^2),
+\qquad
+\ell_{\mathbb{CP}^{2}_A\perp}=(1,12y_A).
+</annotation></semantics></math></p>
+<p>For the external equation, the factors are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">S</mi></mrow><mn>3</mn></msub><mo>×</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">\mathrm{dS}_3\times(\mathbb{CP}^{2})^3</annotation></semantics></math>;
+for the internal
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>
+equation, they are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">S</mi></mrow><mn>4</mn></msub><mo>×</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mrow><mi>A</mi><mo>⊥</mo></mrow><mn>2</mn></msubsup><mo>×</mo><msub><mo>∏</mo><mrow><mi>B</mi><mo>≠</mo><mi>A</mi></mrow></msub><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>B</mi><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\mathrm{dS}_4\times\mathbb{CP}^{2}_{A\perp}\times \prod_{B\ne A}\mathbb{CP}^{2}_B</annotation></semantics></math>.
+The common coefficient is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">-1/2</annotation></semantics></math>.</p>
+<p>The double-form dynamic equations and these compact fixed-point
+products agree order by order exactly in the companion regression.</p>
+<h2 id="p01b2a.1.2-frozen-rho1-controlled-slice-audit">7. P01B2A.1.2
+frozen
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\rho=1</annotation></semantics></math>
+controlled-slice audit</h2>
+<p>The numerical audit fixes</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>H</mi><mo>⋆</mo><mn>2</mn></msubsup><mo>=</mo><msub><mi>y</mi><mi>c</mi></msub><mo>=</mo><msub><mi>y</mi><mi>L</mi></msub><mo>=</mo><msub><mi>y</mi><mi>R</mi></msub><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>y</mi><mi>A</mi></msub><mo>=</mo><msubsup><mi>b</mi><mrow><mi>A</mi><mo>⋆</mo></mrow><mrow><mo>−</mo><mn>2</mn></mrow></msubsup><mo>,</mo></mrow><annotation encoding="application/x-tex">
+H_\star^2=y_c=y_L=y_R=1,
+\qquad y_A=b_{A\star}^{-2},
+</annotation></semantics></math></p>
+<p>and therefore fixes the independent dimensionless ratio</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mi>ρ</mi><mo>=</mo><mfrac><msubsup><mi>H</mi><mo>⋆</mo><mn>2</mn></msubsup><mi>y</mi></mfrac><mo>=</mo><mn>1</mn><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{\rho=\frac{H_\star^2}{y}=1.}
+</annotation></semantics></math></p>
+<p>It is an equal-internal-radius, unit-curvature-ratio slice, not the
+complete equal-radius branch. In the four block-value basis the
+acceleration matrix
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>M</mi><annotation encoding="application/x-tex">M</annotation></semantics></math>
+is self-adjoint with respect to</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mo>diag</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>D</mi><mi>M</mi><mo>=</mo><msup><mi>M</mi><mi>T</mi></msup><mi>D</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+D=\operatorname{diag}(3,4,4,4),
+\qquad DM=M^TD.
+</annotation></semantics></math></p>
+<p>The correct Euclidean symmetric representative and trace-sector
+spectrum are</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><menclose notation="box"><mrow><mi>B</mi><mo>=</mo><msup><mi>D</mi><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup><mi>M</mi><msup><mi>D</mi><mrow><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup><mo>=</mo><msup><mi>B</mi><mi>T</mi></msup><mo>,</mo></mrow></menclose><mspace width="2.0em"></mspace><mo>spec</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>B</mi><mrow><mi mathvariant="normal">E</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mo>−</mo><mn>1</mn><mo>,</mo><mo>−</mo><mn>1</mn><mo>,</mo><mo>−</mo><mn>1</mn><mo>,</mo><mn>14</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\boxed{B=D^{1/2}MD^{-1/2}=B^T,}
+\qquad \operatorname{spec}(B_{\mathrm{Einstein}})=\{-1,-1,-1,14\}.
+</annotation></semantics></math></p>
+<p>P01B2A.1.2 uses
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>eigvalsh</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>B</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{eigvalsh}(B)</annotation></semantics></math>,
+never
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>eigvalsh</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>M</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{eigvalsh}(M)</annotation></semantics></math>.
+The first derivatives are constructed exactly before the final numerical
+spectrum by</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>∂</mi><mi>v</mi></msub><mspace width="-0.167em"></mspace><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>Ω</mi><mrow><mo>∧</mo><mi>k</mi></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>k</mi><mspace width="0.167em"></mspace><msup><mi>Ω</mi><mrow><mo>∧</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>k</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow></msup><mrow><mo>∧</mo><mspace width="-0.167em"></mspace><mo>∧</mo></mrow><msub><mi>∂</mi><mi>v</mi></msub><mi>Ω</mi><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\partial_v\!\left(\Omega^{\wedge k}\right)
+=k\,\Omega^{\wedge(k-1)}\mathbin{\wedge\!\wedge}\partial_v\Omega.
+}
+</annotation></semantics></math></p>
+<p>The calculation enforces a nonzero constraint-gradient norm, a
+maximum four-scale condition number, and a maximum constraint-tangent
+leakage. Its necessary homogeneous kinetic-sign diagnostic is the
+Einstein acceleration inertia
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mo>,</mo><mn>119</mn><mo>−</mo><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1+,119-)</annotation></semantics></math>;
+a physical ghost verdict is deferred until the constraint- and
+gauge-reduced tensor, radion, and vector residues are known.</p>
+<p>The corrected deterministic sample contains</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>,</mo><mn>000</mn><mo>,</mo><mn>000</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">coupling vectors</mtext><mo>,</mo><mspace width="2.0em"></mspace><mn>249</mn><mo>,</mo><mn>706</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">nontrace-inertia feasible points</mtext><mo>,</mo></mrow><annotation encoding="application/x-tex">
+4{,}000{,}000\ \text{coupling vectors},\qquad
+249{,}706\ \text{nontrace-inertia feasible points},
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>249</mn><mo>,</mo><mn>573</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">points passing all enforced necessary conditions</mtext><mo>,</mo><mspace width="2.0em"></mspace><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">stable points</mtext><mi>.</mi></mrow><annotation encoding="application/x-tex">
+249{,}573\ \text{points passing all enforced necessary conditions},
+\qquad 0\ \text{stable points}.
+</annotation></semantics></math></p>
+<p>The invalid v1 trace operation omitted 27 legitimate trace-inertia
+passes; exact constraint-tangent differentiation shows that all 27 are
+unstable. The best sampled growth exponent remains positive,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mo>max</mo></msub><mo>=</mo><mn>0.644082166066</mn><mi>…</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\lambda_{\max}=0.644082166066\ldots&gt;0.
+</annotation></semantics></math></p>
+<p>This is a finite-sample no-pass statement on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\rho=1</annotation></semantics></math>,
+not a no-go theorem.</p>
+<h2 id="explicit-topological-order">8. Explicit topological order</h2>
+<p>For the order-eight Euler density, define on each time boundary the
+second fundamental-form one-form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>𝒦</mi><mi>a</mi></msup><mo>=</mo><mo>−</mo><msup><mi>K</mi><mi>a</mi></msup><msub><mrow></mrow><mi>b</mi></msub><msup><mi>e</mi><mi>b</mi></msup></mrow><annotation encoding="application/x-tex">\mathcal K^a=-K^a{}_b e^b</annotation></semantics></math>,
+with the sign chosen to match the frozen G6 positive-expansion
+convention. The Euler transgression is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>Q</mi><mn>15</mn></msub><mo>=</mo><mn>16</mn><msubsup><mo>∫</mo><mn>0</mn><mn>1</mn></msubsup><mspace width="-0.167em"></mspace><mi>d</mi><mi>s</mi><mspace width="0.167em"></mspace><msub><mi>ε</mi><mrow><msub><mi>a</mi><mn>1</mn></msub><mi>⋯</mi><msub><mi>a</mi><mn>15</mn></msub></mrow></msub><mspace width="0.167em"></mspace><msup><mi>𝒦</mi><msub><mi>a</mi><mn>1</mn></msub></msup><mo>∧</mo><munderover><mo>∏</mo><mrow><mi>r</mi><mo>=</mo><mn>1</mn></mrow><mn>7</mn></munderover><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>15</mn><mo stretchy="true" form="postfix">)</mo></mrow></msup><msup><mi>R</mi><mrow><msub><mi>a</mi><mrow><mn>2</mn><mi>r</mi></mrow></msub><msub><mi>a</mi><mrow><mn>2</mn><mi>r</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow></msup><mo>−</mo><msup><mi>s</mi><mn>2</mn></msup><msup><mi>𝒦</mi><msub><mi>a</mi><mrow><mn>2</mn><mi>r</mi></mrow></msub></msup><mo>∧</mo><msup><mi>𝒦</mi><msub><mi>a</mi><mrow><mn>2</mn><mi>r</mi><mo>+</mo><mn>1</mn></mrow></msub></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+Q_{15}
+=16\int_0^1\!ds\,
+\varepsilon_{a_1\cdots a_{15}}\,
+\mathcal K^{a_1}\wedge
+\prod_{r=1}^{7}
+\left(
+{}^{(15)}R^{a_{2r}a_{2r+1}}
+-s^2\mathcal K^{a_{2r}}\wedge\mathcal K^{a_{2r+1}}
+\right),
+}
+</annotation></semantics></math></p>
+<p>and</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><msub><mi>ℒ</mi><mn>8</mn></msub><mspace width="0.167em"></mspace><msub><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">l</mi></mrow><mn>16</mn></msub><mo>=</mo><mi>d</mi><msub><mi>Q</mi><mn>15</mn></msub><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\mathcal L_8\,\mathrm{vol}_{16}=dQ_{15}.
+}
+</annotation></semantics></math></p>
+<p>Thus</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>S</mi><mn>8</mn></msub><mo>=</mo><mfrac><msub><mi>α</mi><mn>8</mn></msub><mrow><mn>2</mn><msubsup><mi>κ</mi><mn>16</mn><mn>2</mn></msubsup></mrow></mfrac><mrow><mo stretchy="true" form="prefix">[</mo><msub><mo>∫</mo><msub><mi>Σ</mi><msub><mi>t</mi><mn>2</mn></msub></msub></msub><msub><mi>Q</mi><mn>15</mn></msub><mo>−</mo><msub><mo>∫</mo><msub><mi>Σ</mi><msub><mi>t</mi><mn>1</mn></msub></msub></msub><msub><mi>Q</mi><mn>15</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+S_8=\frac{\alpha_8}{2\kappa_{16}^{2}}
+\left[
+\int_{\Sigma_{t_2}}Q_{15}-\int_{\Sigma_{t_1}}Q_{15}
+\right]
+</annotation></semantics></math></p>
+<p>up to spatial/asymptotic boundary pieces. In the flat Bianchi-I
+limit,</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>Q</mi><mn>15</mn></msub><mo>=</mo><mn>16</mn><mspace width="0.167em"></mspace><mn>14</mn><mi>!</mi><mspace width="0.167em"></mspace><mi>V</mi><msub><mi>e</mi><mn>15</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>ℒ</mi><mn>8</mn></msub><mo>=</mo><mfrac><mrow><mn>16</mn><mspace width="0.167em"></mspace><mn>14</mn><mi>!</mi></mrow><mi>V</mi></mfrac><mfrac><mi>d</mi><mrow><mi>d</mi><mi>τ</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><mi>V</mi><msub><mi>e</mi><mn>15</mn></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">
+Q_{15}=16\,14!\,V e_{15}(H),
+\qquad
+\mathcal L_8
+=\frac{16\,14!}{V}\frac{d}{d\tau}\left(Ve_{15}\right),
+</annotation></semantics></math></p>
+<p>reproducing the independent P01B.1 audit identity. Therefore
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mn>8</mn></msub><annotation encoding="application/x-tex">\alpha_8</annotation></semantics></math>
+is retained at action level but cannot alter the four bulk equations or
+the G6 acceleration matrix. The companion exact engine now executes this
+identity and the isotropic oracle
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16</mn><mspace width="0.167em"></mspace><mn>14</mn><mi>!</mi><mspace width="0.167em"></mspace><mn>15</mn><msup><mi>H</mi><mn>16</mn></msup><mo>=</mo><mn>16</mn><mi>!</mi><msup><mi>H</mi><mn>16</mn></msup></mrow><annotation encoding="application/x-tex">16\,14!\,15H^{16}=16!H^{16}</annotation></semantics></math>
+as mandatory regressions.</p>
+<h2 id="stage-a-verification-and-remaining-gate">9. Stage-A verification
+and remaining gate</h2>
+<p>The exact engine checks:</p>
+<ol type="1">
+<li>all seven local orders against the flat P01B symmetric-polynomial
+equations;</li>
+<li>all four fixed-point equations against independent product
+formulas;</li>
+<li>construction of the complete
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>120</mn><mo>×</mo><mn>120</mn></mrow><annotation encoding="application/x-tex">120\times120</annotation></semantics></math>
+map;</li>
+<li>the Einstein limit
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>𝒜</mi><mi>Ψ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>i</mi></msup><msub><mrow></mrow><mi>j</mi></msub><mo>=</mo><msubsup><mi>δ</mi><mi>j</mi><mi>i</mi></msubsup><mo>tr</mo><mi>Ψ</mi><mo>−</mo><msup><mi>Ψ</mi><mi>i</mi></msup><msub><mrow></mrow><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">(\mathcal A\Psi)^i{}_j=\delta^i_j\operatorname{tr}\Psi-\Psi^i{}_j</annotation></semantics></math>.</li>
+</ol>
+<p>Stage A does <strong>not</strong> yet authorize P01C-CURV. The
+remaining P01B.2 work is a general-ratio/equal-radius regression
+followed by an unequal-radius full-order branch search, complete
+determinant margins, reduced physical residues, and stability tests. No
+branch will be called physically ghost-free from the four fixed-point
+equations or homogeneous acceleration inertia alone.</p>
+<h1
+id="kkk-ll-canonical-project-memory---roadmap-v3-after-p01b2a.1.2">KKK-LL
+Canonical Project Memory - Roadmap v3 after P01B2A.1.2</h1>
+<p><strong>Governing roadmap:</strong> KKK-LL Harmonised Master Roadmap
+- P01B.1 No-Go Revision v3<br />
+<strong>Effective date:</strong> 10 August 2026<br />
+<strong>Supersedes:</strong> P01B2A v1, P01B2A.1, P01B2A.1.1, and
+<code>PROJECT_MEMORY_ROADMAP_v3_TOP00_G01_P01B2A_1.md</code> for forward
+dependency and immutable-parent decisions.</p>
+<p><strong>Roadmap authority lock:</strong> the supplied v3 SVG, JSON
+dependency registry, and Markdown dependency matrix are canonical. The
+supplied PNG is visual-only because its byte hash does not match the
+accompanying checksum ledger.</p>
+<h2 id="frozen-scientific-ancestry-and-release-disposition">Frozen
+scientific ancestry and release disposition</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mrow><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">A</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">G</mi><mn mathvariant="normal">6.1</mn><mn mathvariant="normal">.1</mn><mspace width="0.222em"></mspace><mi mathvariant="normal">F</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">Z</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">N</mi></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">B</mi><mn mathvariant="normal">.1</mn><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">F</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">T</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">C</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">M</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">T</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">/</mi><mi mathvariant="normal">S</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">D</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">N</mi><mi mathvariant="normal">O</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">G</mi><mi mathvariant="normal">O</mi></mrow><mo>↛</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">C</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">F</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">T</mi></mrow><mi>.</mi></mrow></menclose><annotation encoding="application/x-tex">
+\boxed{
+\mathrm{P01A\!-\!G6.1.1\ FROZEN}
+\longrightarrow
+\mathrm{P01B.1\!-\!FLAT\ COMPLETE/SCOPED\ NO\!-\!GO}
+\not\longrightarrow
+\mathrm{P01C\!-\!FLAT}.
+}
+</annotation></semantics></math></p>
+<p>P01B.1 is the all-local-order theorem for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>α</mi><mn>7</mn></msub></mrow><annotation encoding="application/x-tex">\alpha_0,\ldots,\alpha_7</annotation></semantics></math>;
+its displayed fixed point and trajectory are EGB regressions. The
+topological
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>8</mn></msub><msub><mi>ℒ</mi><mn>8</mn></msub></mrow><annotation encoding="application/x-tex">\alpha_8\mathcal L_8</annotation></semantics></math>
+term has no bulk field tensor in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">D=16</annotation></semantics></math>.</p>
+<p>The theorem is scientifically accepted for that scope, but original
+archive SHA-256 <code>036849...30787f2</code> is not
+release-freeze-grade because its verifier was manifest-optional and
+ignored generated bytecode residue. P01B.1.1 closed those defects but
+remained transcript-semantically fail-open. P01B.1.2 reseals the
+unchanged scientific calculation with mandatory manifest authentication,
+pre-import bytecode suppression, exact-tree checks, a pinned runtime,
+archive-level replay, and exact nested transcript-semantic
+authentication. Its active ancestor SHA-256 is
+<code>02c716bddc7ca0b08c220bd16104b7337a1e5df261360281405c4de61e952084</code>.</p>
+<h2 id="completed-curved-branch-prerequisites">Completed curved-branch
+prerequisites</h2>
+<h3 id="top00---completed">TOP00 - completed</h3>
+<p>The Cauchy topology for P01B.2-CURV is fixed before initial data:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Σ</mi><mn>15</mn></msup><mo>=</mo><msubsup><mi>𝒳</mi><mrow><mi>κ</mi><mo>,</mo><mi>Γ</mi></mrow><mn>3</mn></msubsup><mo>×</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>c</mi><mn>2</mn></msubsup><mo>×</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>L</mi><mn>2</mn></msubsup><mo>×</mo><msubsup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mi>R</mi><mn>2</mn></msubsup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\Sigma^{15}=\mathcal X^3_{\kappa,\Gamma}
+\times\mathbb{CP}^{2}_c\times\mathbb{CP}^{2}_L\times\mathbb{CP}^{2}_R.
+</annotation></semantics></math></p>
+<p>Classical smooth globally hyperbolic evolution changes the metric,
+not this diffeomorphism type. P01B.2-CURV tests stabilization on a
+prescribed topology and homogeneous product ansatz; it does not claim
+topology creation or an unlabelled
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">3+12</annotation></semantics></math>
+emergence.</p>
+<h3 id="g01---completed-for-the-p01b.2-prerequisite-scope">G01 -
+completed for the P01B.2 prerequisite scope</h3>
+<p>The unequal-radius product tensors and integrated Lovelock panel
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>C</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">C_0,\ldots,C_6</annotation></semantics></math>
+are exact and reproduce the equal-radius C00 values. The top internal
+coefficient satisfies</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>C</mi><mn>6</mn></msub><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mn>4</mn><mi>π</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>6</mn></msup><mn>6</mn><mi>!</mi><mspace width="0.167em"></mspace><mi>χ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>χ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>27</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+C_6=(4\pi)^6 6!\,\chi((\mathbb{CP}^{2})^3),
+\qquad \chi((\mathbb{CP}^{2})^3)=27.
+</annotation></semantics></math></p>
+<h2 id="p01b.2-curv-state-after-p01b2a.1.2">P01B.2-CURV state after
+P01B2A.1.2</h2>
+<h3
+id="exact-stage-a-reduction---passed-and-unchanged-scientifically">Exact
+Stage-A reduction - passed and unchanged scientifically</h3>
+<p>Completed:</p>
+<ol type="1">
+<li>exact lapse constraint for all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>α</mi><mn>0</mn></msub><mo>,</mo><mi>…</mi><mo>,</mo><msub><mi>α</mi><mn>7</mn></msub></mrow><annotation encoding="application/x-tex">\alpha_0,\ldots,\alpha_7</annotation></semantics></math>;</li>
+<li>four exact homogeneous block equations in G6 double-form coefficient
+form;</li>
+<li>complete
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>120</mn><mo>×</mo><mn>120</mn></mrow><annotation encoding="application/x-tex">120\times120</annotation></semantics></math>
+homogeneous acceleration map;</li>
+<li>fixed-point coefficient equations for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">d</mi><mi mathvariant="normal">S</mi></mrow><mn>4</mn></msub><mo>×</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mrow><mi>ℂ</mi><mi>ℙ</mi></mrow><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">\mathrm{dS}_4\times(\mathbb{CP}^{2})^3</annotation></semantics></math>;</li>
+<li>order-eight Euler transgression
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ℒ</mi><mn>8</mn></msub><mrow><mi mathvariant="normal">v</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">l</mi></mrow><mo>=</mo><mi>d</mi><msub><mi>Q</mi><mn>15</mn></msub></mrow><annotation encoding="application/x-tex">\mathcal L_8\mathrm{vol}=dQ_{15}</annotation></semantics></math>,
+now connected to an executable total-derivative and isotropic
+regression;</li>
+<li>exact flat-P01B, compact-product, Einstein, and all-order
+regressions.</li>
+</ol>
+<h3 id="p01b2a-v1---held-and-superseded">P01B2A v1 - held and
+superseded</h3>
+<p>The v1 numerical trace audit used <code>eigvalsh(M)</code> on a
+nonsymmetric block-value matrix. The block dimensions are
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(3,4,4,4)</annotation></semantics></math>,
+so</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mo>=</mo><mo>diag</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>4</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>D</mi><mi>M</mi><mo>=</mo><msup><mi>M</mi><mi>T</mi></msup><mi>D</mi><mo>,</mo><mspace width="2.0em"></mspace><mi>B</mi><mo>=</mo><msup><mi>D</mi><mrow><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup><mi>M</mi><msup><mi>D</mi><mrow><mo>−</mo><mn>1</mn><mi>/</mi><mn>2</mn></mrow></msup><mo>=</mo><msup><mi>B</mi><mi>T</mi></msup><mi>.</mi></mrow><annotation encoding="application/x-tex">
+D=\operatorname{diag}(3,4,4,4),
+\qquad DM=M^TD,
+\qquad B=D^{1/2}MD^{-1/2}=B^T.
+</annotation></semantics></math></p>
+<p>P01B2A.1 corrected the scientific trace operation by using
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>eigvalsh</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>B</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\operatorname{eigvalsh}(B)</annotation></semantics></math>
+and enforcing the Einstein oracle</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>spec</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>B</mi><mi>E</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo stretchy="false" form="prefix">{</mo><mo>−</mo><mn>1</mn><mo>,</mo><mo>−</mo><mn>1</mn><mo>,</mo><mo>−</mo><mn>1</mn><mo>,</mo><mn>14</mn><mo stretchy="false" form="postfix">}</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">
+\operatorname{spec}(B_E)=\{-1,-1,-1,14\}.
+</annotation></semantics></math></p>
+<p>The v1 release is historical evidence only and is not an immutable
+parent. P01B2A.1 is scientifically accepted but its archive is also
+historical HOLD provenance because of active-text, transcript, and
+ancestor-envelope defects. P01B2A.1.1 closed the earlier release defects
+without altering the scientific values, but its stored transcript did
+not semantically enforce nested stage statuses, counts, byte identities,
+or archive cross-locks. P01B2A.1.2 closes that final release defect and
+is the only authorized immutable parent for the next calculation.</p>
+<h3
+id="equal-internal-radius-rho1-controlled-slice---corrected-no-pass">Equal-internal-radius,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\rho=1</annotation></semantics></math>
+controlled slice - corrected no pass</h3>
+<p>The audited point is</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>H</mi><mo>⋆</mo><mn>2</mn></msubsup><mo>=</mo><msub><mi>y</mi><mi>c</mi></msub><mo>=</mo><msub><mi>y</mi><mi>L</mi></msub><mo>=</mo><msub><mi>y</mi><mi>R</mi></msub><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="2.0em"></mspace><msub><mi>y</mi><mi>A</mi></msub><mo>=</mo><msubsup><mi>b</mi><mrow><mi>A</mi><mo>⋆</mo></mrow><mrow><mo>−</mo><mn>2</mn></mrow></msubsup><mo>,</mo><mspace width="2.0em"></mspace><mi>ρ</mi><mo>=</mo><mfrac><msubsup><mi>H</mi><mo>⋆</mo><mn>2</mn></msubsup><mi>y</mi></mfrac><mo>=</mo><mn>1</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+H_\star^2=y_c=y_L=y_R=1,
+\qquad y_A=b_{A\star}^{-2},
+\qquad \rho=\frac{H_\star^2}{y}=1.
+</annotation></semantics></math></p>
+<p>This is one unit-curvature-ratio slice of the equal-radius branch. It
+is not the complete equal-radius family. Two exact on-shell
+nonzero-all-order witnesses, combined with exact first derivatives of
+the reduced equations, show:</p>
+<ol type="1">
+<li>one constraint-tangent stable witness is full rank and has positive
+external Planck coefficient but fails the necessary Einstein-sign
+acceleration-inertia condition;</li>
+<li>one full-rank witness passes the homogeneous
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><mo>,</mo><mn>119</mn><mo>−</mo><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(1+,119-)</annotation></semantics></math>
+Einstein-inertia condition and has positive Planck coefficient but has
+growing constraint-tangent radion modes.</li>
+</ol>
+<p>These are necessary homogeneous kinetic-sign diagnostics. A physical
+ghost verdict is deferred to the constraint- and gauge-reduced tensor,
+radion, and vector residues.</p>
+<p>The corrected deterministic scan of 4,000,000 coupling vectors
+found:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>249</mn><mo>,</mo><mn>706</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">nontrace-inertia feasible points</mtext><mo>,</mo><mspace width="2.0em"></mspace><mn>249</mn><mo>,</mo><mn>573</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">points passing all enforced necessary conditions</mtext><mo>,</mo></mrow><annotation encoding="application/x-tex">
+249{,}706\ \text{nontrace-inertia feasible points},
+\qquad
+249{,}573\ \text{points passing all enforced necessary conditions},
+</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mspace width="0.222em"></mspace><mtext mathvariant="normal">stable joint points</mtext><mo>,</mo><mspace width="2.0em"></mspace><msubsup><mi>λ</mi><mo>max</mo><mrow><mi mathvariant="normal">b</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi></mrow></msubsup><mo>=</mo><mn>0.644082166066</mn><mi>…</mi><mo>&gt;</mo><mn>0</mn><mi>.</mi></mrow><annotation encoding="application/x-tex">
+0\ \text{stable joint points},
+\qquad
+\lambda_{\max}^{\mathrm{best}}=0.644082166066\ldots&gt;0.
+</annotation></semantics></math></p>
+<p>The invalid v1 trace operation omitted 27 genuine trace-inertia
+passes. Exact constraint-tangent differentiation includes all 27 and
+finds them all unstable, with</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.6151308423</mn><mi>…</mi><mo>≤</mo><msub><mi>λ</mi><mo>max</mo></msub><mo>≤</mo><mn>1.8686083466</mn><mi>…</mi><mi>.</mi></mrow><annotation encoding="application/x-tex">
+1.6151308423\ldots\le \lambda_{\max}\le1.8686083466\ldots.
+</annotation></semantics></math></p>
+<p>This is a finite-sample no-pass result on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ρ</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\rho=1</annotation></semantics></math>.
+It is not an all-coupling no-go theorem, does not cover arbitrary
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ρ</mi><annotation encoding="application/x-tex">\rho</annotation></semantics></math>,
+and does not cover unequal radii.</p>
+<h2 id="authorized-next-work">Authorized next work</h2>
+<p>The next calculation remains inside P01B.2-CURV:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtable><mtr><mtd columnalign="right" style="text-align: right"><mtext mathvariant="normal">arbitrary-</mtext><mi>ρ</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> equal-radius regression</mtext></mrow><mo>→</mo><mtext mathvariant="normal">unequal-radius continuation</mtext></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"><mrow></mrow><mo>→</mo><mtext mathvariant="normal">reduced residues, determinant margins, and stability</mtext></mtd></mtr></mtable></menclose><annotation encoding="application/x-tex">
+\boxed{
+\begin{aligned}
+\text{arbitrary-}\rho\text{ equal-radius regression}
+\longrightarrow
+\text{unequal-radius continuation}\\
+{}
+\longrightarrow
+\text{reduced residues, determinant margins, and stability}
+\end{aligned}
+}
+</annotation></semantics></math></p>
+<p>It must vary
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><msubsup><mi>H</mi><mo>⋆</mo><mn>2</mn></msubsup><mo>,</mo><msub><mi>y</mi><mi>c</mi></msub><mo>,</mo><msub><mi>y</mi><mi>L</mi></msub><mo>,</mo><msub><mi>y</mi><mi>R</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(H_\star^2,y_c,y_L,y_R)</annotation></semantics></math>,
+or independent ratios
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>ρ</mi><mi>A</mi></msub><mo>=</mo><msubsup><mi>H</mi><mo>⋆</mo><mn>2</mn></msubsup><mi>/</mi><msub><mi>y</mi><mi>A</mi></msub></mrow><annotation encoding="application/x-tex">\rho_A=H_\star^2/y_A</annotation></semantics></math>,
+without fixing all four scales to unity. It must retain all local
+Lovelock orders, the action-level
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>α</mi><mn>8</mn></msub><annotation encoding="application/x-tex">\alpha_8</annotation></semantics></math>
+ledger, weighted trace normalization, exact first derivatives, the
+complete
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>120</mn><annotation encoding="application/x-tex">120</annotation></semantics></math>-mode
+map, and physical residue reduction.</p>
+<p>P01C-CURV remains blocked until one branch passes every P01B.2 health
+gate. If no such branch exists, the roadmap handoff is P01B.3-GEN or
+P01B.M-FULL, not P01C-CURV.</p>
+<h2 id="canonical-branch-map">Canonical branch map</h2>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><menclose notation="box"><mtable><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">P</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">M</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">Y</mi><mo mathvariant="normal">:</mo></mrow></mtd><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">P</mi><mn mathvariant="normal">00</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">G</mi><mn mathvariant="normal">01</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">B</mi><mn mathvariant="normal">.2</mn><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">C</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">V</mi></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">C</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">C</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">V</mi></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">05</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">06</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">07</mn></mrow><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">S</mi><mi mathvariant="normal">T</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">N</mi><mi mathvariant="normal">G</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">E</mi><mi mathvariant="normal">M</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">G</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">N</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">E</mi><mo mathvariant="normal">:</mo></mrow></mtd><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">P</mi><mn mathvariant="normal">00</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">B</mi><mn mathvariant="normal">.3</mn><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">G</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">N</mi></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">C</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">G</mi><mi mathvariant="normal">E</mi><mi mathvariant="normal">N</mi></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">02</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">03</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">04</mn></mrow><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">F</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">L</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">A</mi><mi mathvariant="normal">C</mi><mi mathvariant="normal">T</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">N</mi><mo mathvariant="normal">:</mo></mrow></mtd><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">T</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">P</mi><mn mathvariant="normal">00</mn></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">B</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">M</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">F</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">L</mi></mrow><mo>→</mo><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">C</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">F</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">L</mi><mi mathvariant="normal">L</mi></mrow><mo>,</mo></mtd></mtr><mtr><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">O</mi><mi mathvariant="normal">P</mi><mi mathvariant="normal">T</mi><mi mathvariant="normal">I</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">N</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">L</mi><mspace width="0.222em"></mspace><mi mathvariant="normal">B</mi><mi mathvariant="normal">O</mi><mi mathvariant="normal">U</mi><mi mathvariant="normal">N</mi><mi mathvariant="normal">D</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">R</mi><mi mathvariant="normal">Y</mi><mo mathvariant="normal">:</mo></mrow></mtd><mtd columnalign="right" style="text-align: right"></mtd><mtd columnalign="left" style="text-align: left"><mrow><mi mathvariant="normal">P</mi><mn mathvariant="normal">01</mn><mi mathvariant="normal">B</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">D</mi><mspace width="-0.167em"></mspace><mo mathvariant="normal">−</mo><mspace width="-0.167em"></mspace><mi mathvariant="normal">D</mi><mi mathvariant="normal">A</mi><mi mathvariant="normal">E</mi></mrow><mi>.</mi></mtd></mtr></mtable></menclose><annotation encoding="application/x-tex">
+\boxed{
+\begin{aligned}
+&amp;\mathrm{PRIMARY:}&amp;&amp;
+\mathrm{TOP00}\to\mathrm{G01}\to\mathrm{P01B.2\!-\!CURV}
+\to\mathrm{P01C\!-\!CURV}\to\mathrm{P05}\to\mathrm{P06}\to\mathrm{P07},\\
+&amp;\mathrm{STRONG\ EMERGENCE:}&amp;&amp;
+\mathrm{TOP00}\to\mathrm{P01B.3\!-\!GEN}\to\mathrm{P01C\!-\!GEN}
+\to\mathrm{P02}\to\mathrm{P03}\to\mathrm{P04},\\
+&amp;\mathrm{FULL\ ACTION:}&amp;&amp;
+\mathrm{TOP00}\to\mathrm{P01B.M\!-\!FULL}\to\mathrm{P01C\!-\!FULL},\\
+&amp;\mathrm{OPTIONAL\ BOUNDARY:}&amp;&amp;\mathrm{P01B.D\!-\!DAE}.
+\end{aligned}
+}
+</annotation></semantics></math></p>
+<p>No downstream matter, chirality, global lift, four-dimensional EFT,
+cosmology, bag, or Zeptometry claim is authorized before a healthy P07
+branch. Z00 may continue only as a symbolic interface.</p>
+<footer>Generated from four authenticated Markdown sources. Combined SHA-256: 2fdd985204d6a301fcf29bc131094f71af163e500e7998e0018ee8ac45e7caf8</footer></body></html>

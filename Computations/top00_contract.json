@@ -1,0 +1,22 @@
+{
+  "canonical_id": "TOP00",
+  "date": "2026-08-10",
+  "governing_roadmap": "KKK-LL Harmonised Master Roadmap - P01B.1 No-Go Revision v3",
+  "prerequisites": ["C00", "P01B.1-FLAT"],
+  "fixed_cauchy_topology": "X^3_{kappa,Gamma} x CP2_c x CP2_L x CP2_R",
+  "topology_policy": "fixed branch input under smooth globally hyperbolic evolution",
+  "curv_branch_metric_policy": "homogeneous orthogonal 3+4+4+4 product ansatz imposed at entry",
+  "dynamical_variables": ["N", "a", "b_c", "b_L", "b_R"],
+  "local_lovelock_orders": [0, 1, 2, 3, 4, 5, 6, 7],
+  "topological_lovelock_order": 8,
+  "excluded_curv_sectors": ["Yang-Mills", "fermions", "G6 flux", "abelian internal flux", "matter stress tensor"],
+  "forbidden_claims": [
+    "classical topology creation",
+    "unlabelled 3+12 emergence",
+    "dynamical derivation of CP2^3 topology",
+    "pure-Lovelock claim after adding matter or flux"
+  ],
+  "handoffs": ["P01B.2-CURV", "P01B.3-GEN", "P01B.M-FULL"],
+  "status": "COMPLETE"
+}
+
