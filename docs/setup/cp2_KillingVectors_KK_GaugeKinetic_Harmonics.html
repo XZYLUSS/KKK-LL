@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CP^2: Killing vectors, KK gauge kinetic term, and SU(3) harmonics</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.45; margin: 2rem; max-width: 1050px;}
+    h1,h2,h3 { line-height: 1.2; }
+    code, pre { background: #f6f8fa; padding: .15rem .35rem; border-radius: 6px; }
+    pre { padding: 1rem; overflow-x: auto; }
+    .box { border: 1px solid #ddd; border-radius: 10px; padding: 1rem; margin: 1rem 0; background: #fafafa;}
+    .eq { margin: .6rem 0; }
+    .small { font-size: .95rem; color: #333; }
+    table { border-collapse: collapse; width: 100%; }
+    td, th { border: 1px solid #ddd; padding: .55rem; vertical-align: top; }
+    th { background: #f1f3f5; text-align: left; }
+  </style>
+</head>
+<body>
+
+<h1>Explicit SU(3) Killing vectors on $(\\mathbb{CP}^2,g_{FS})$, KK gauge kinetic matrix, and $(p,q)$ harmonics</h1>
+
+<div class="box">
+  <div class="small">
+    Conventions used here match the “unit” Fubini–Study normalization with holomorphic sectional curvature $4$:
+    $$\\mathrm{Ric}(\\hat g)=6\\,\\hat g,\\qquad \\hat R=24.$$
+    In the affine patch $Z^0\\neq 0$ we set $z^1=Z^1/Z^0$, $z^2=Z^2/Z^0$ and
+    $$\\rho = 1+|z^1|^2+|z^2|^2,\\qquad K=\\log\\rho.$$
+    The FS metric is $g_{a\\bar b}=\\partial_a\\partial_{\\bar b}K$.
+  </div>
+</div>
+
+<h2>0. Geometry setup on the affine patch</h2>
+
+<p>On $U_0=\\{Z^0\\neq 0\\}$, define</p>
+<div class="eq">$$z^1=\\frac{Z^1}{Z^0},\\qquad z^2=\\frac{Z^2}{Z^0},\\qquad \\rho = 1+|z^1|^2+|z^2|^2.$$</div>
+
+<p>The FS Kähler potential is $K=\\log\\rho$, hence</p>
+<div class="eq">
+$$g_{a\\bar b}=\\partial_a\\partial_{\\bar b}\\log\\rho
+=\\frac{\\rho\\,\\delta_{a\\bar b}-\\bar z^{\\bar a}z^b}{\\rho^2},
+\\qquad a,b\\in\\{1,2\\}.$$
+</div>
+
+<p>Equivalently, in matrix form</p>
+<div class="eq">
+$$g_{a\\bar b}=\\frac1{\\rho^2}
+\\begin{pmatrix}
+1+|z^2|^2 & -\\bar z^{\\bar 1}z^2\\\\
+-\\bar z^{\\bar 2}z^1 & 1+|z^1|^2
+\\end{pmatrix},
+\\qquad
+\\det(g_{a\\bar b})=\\frac1{\\rho^3}.$$
+</div>
+
+<hr/>
+
+<h2>1. The 8 Killing vectors $K_A$ generating $\\mathfrak{su}(3)$</h2>
+
+<h3>1.1 Induced vector fields from the projective SU(3) action</h3>
+
+<p>Let $T_A=\\lambda_A/2$ be the fundamental SU(3) generators (Gell–Mann matrices $\\lambda_A$),
+normalized by</p>
+<div class="eq">$$\\mathrm{Tr}(T_A T_B)=\\frac12\\delta_{AB}.$$</div>
+
+<p>SU(3) acts linearly on homogeneous coordinates $Z=(Z^0,Z^1,Z^2)^T$ via</p>
+<div class="eq">$$\\delta Z = i\\,\\varepsilon^A T_A Z.$$</div>
+
+<p>On the affine patch $Z^0=1$ (so $Z=(1,z^1,z^2)^T$), the induced infinitesimal transformation of
+$(z^1,z^2)$ is obtained from
+$$z^\\alpha=\\frac{Z^\\alpha}{Z^0},\\qquad \\alpha=1,2,$$
+so</p>
+
+<div class="eq">
+$$\\delta z^\\alpha = \\frac{\\delta Z^\\alpha}{Z^0}-z^\\alpha\\frac{\\delta Z^0}{Z^0}
+= i\\varepsilon^A\\Big((T_A Z)^\\alpha - z^\\alpha (T_A Z)^0\\Big).$$
+</div>
+
+<p>This defines <b>holomorphic</b> vector fields</p>
+<div class="eq">$$k_A = k_A^1(z)\\,\\partial_{z^1}+k_A^2(z)\\,\\partial_{z^2},\\qquad \\delta z^\\alpha=\\varepsilon^A k_A^\\alpha(z).$$</div>
+
+<p>The associated <b>real Killing vectors</b> on $\\mathbb{CP}^2$ are</p>
+<div class="eq">$$K_A = k_A^\\alpha\\partial_{z^\\alpha}+\\bar k_A^{\\bar\\alpha}\\partial_{\\bar z^{\\bar\\alpha}}.$$</div>
+
+<h3>1.2 Explicit formulae (all 8)</h3>
+
+<p>In the patch $Z^0=1$, the holomorphic parts $k_A^\\alpha$ are:</p>
+
+<table>
+<thead>
+<tr><th>$A$</th><th>$k_A^1(z)$</th><th>$k_A^2(z)$</th></tr>
+</thead>
+<tbody>
+<tr>
+  <td>1</td>
+  <td>$\\displaystyle \\frac{i}{2}(1-(z^1)^2)$</td>
+  <td>$\\displaystyle -\\frac{i}{2}z^1 z^2$</td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>$\\displaystyle -\\frac12(1+(z^1)^2)$</td>
+  <td>$\\displaystyle -\\frac12 z^1 z^2$</td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>$\\displaystyle -i z^1$</td>
+  <td>$\\displaystyle -\\frac{i}{2} z^2$</td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>$\\displaystyle -\\frac{i}{2} z^1 z^2$</td>
+  <td>$\\displaystyle \\frac{i}{2}(1-(z^2)^2)$</td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>$\\displaystyle -\\frac12 z^1 z^2$</td>
+  <td>$\\displaystyle -\\frac12(1+(z^2)^2)$</td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>$\\displaystyle \\frac{i}{2} z^2$</td>
+  <td>$\\displaystyle \\frac{i}{2} z^1$</td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>$\\displaystyle \\frac12 z^2$</td>
+  <td>$\\displaystyle -\\frac12 z^1$</td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>$\\displaystyle 0$</td>
+  <td>$\\displaystyle -\\frac{i\\sqrt{3}}{2} z^2$</td>
+</tr>
+</tbody>
+</table>
+
+<div class="box">
+  <b>Claim (Killing property):</b> Each $K_A$ satisfies $\\mathcal{L}_{K_A}g_{FS}=0$.
+  <div class="small">
+    Reason: the FS metric is SU(3)-invariant because it is induced from the invariant Hermitian form
+    on $\\mathbb{C}^3$ via projectivization; the induced fundamental vector fields for the group action are therefore isometries.
+  </div>
+</div>
+
+<hr/>
+
+<h2>2. Reduction of the Einstein term and the exact gauge kinetic matrix</h2>
+
+<h3>2.1 KK metric ansatz on $M_4\\times \\mathbb{CP}^2$</h3>
+
+<p>Let $\\hat g_{mn}(y)$ be the unit FS metric on $\\mathbb{CP}^2$ and introduce a breathing radius $b$:</p>
+<div class="eq">$$g_{mn}(y)=b^2\\hat g_{mn}(y).$$</div>
+
+<p>Use the standard “isometry gauging” ansatz</p>
+<div class="eq">
+$$ds^2 = g_{\\mu\\nu}(x)dx^\\mu dx^\\nu
++ b^2\\hat g_{mn}(y)\\big(dy^m + K_A^m(y)A^A_\\mu(x)dx^\\mu\\big)
+\\big(dy^n + K_B^n(y)A^B_\\nu(x)dx^\\nu\\big).$$
+</div>
+
+<p>The higher-dimensional Einstein–Hilbert action is</p>
+<div class="eq">$$S_{EH}=\\frac{1}{2\\kappa_D^2}\\int d^4x\\,d^4y\\,\\sqrt{-G}\\,R[G],\\qquad D=8.$$</div>
+
+<h3>2.2 Extracting the $F^2$ term</h3>
+
+<p>Expanding $R[G]$ to quadratic order in $A$ (equivalently in $F=dA+AA$) gives a universal Yang–Mills term</p>
+<div class="eq">
+$$S_{EH}\\supset -\\frac14\\int d^4x\\,\\sqrt{-g_4}\\;
+\\Big(\\frac{1}{g_4^2}\\,\\delta_{AB}\\Big)
+F^A_{\\mu\\nu}F^{B\\mu\\nu},$$
+</div>
+
+<p>with gauge kinetic matrix</p>
+<div class="eq">
+$$\\boxed{
+\\frac{1}{g_4^2}\\,\\delta_{AB}
+=\\frac{b^{6}}{2\\kappa_8^2}
+\\int_{\\mathbb{CP}^2} d^4y\\,\\sqrt{\\hat g}\\;\\hat g_{mn}\\,K_A^mK_B^n
+}\\qquad (\\text{for }M_4\\times \\mathbb{CP}^2).$$
+</div>
+
+<div class="small">
+Here $\\sqrt{-G}=\\sqrt{-g_4}\\;b^4\\sqrt{\\hat g}$ and $\\hat g_{mn}$ is dimensionless.
+The factor $b^6=b^{4+2}$ is the standard $b^n$ from the measure times $b^2$ from $g_{mn}$ in $K_A\\cdot K_B$.
+</div>
+
+<h3>2.3 Evaluation of the internal integral: $\\int \\sqrt{\\hat g}\\,\\hat g_{mn}K_A^mK_B^n$</h3>
+
+<p>By SU(3)-invariance, the integral must be proportional to $\\delta_{AB}$:</p>
+<div class="eq">$$\\int\\sqrt{\\hat g}\\,\\hat g_{mn}K_A^mK_B^n=C\\,\\delta_{AB}.$$</div>
+
+<p>We compute $C$ using Killing potentials (“moment maps”) $\\mu_A$ defined by</p>
+<div class="eq">$$\\iota_{K_A}\\omega = d\\mu_A,$$</div>
+<p>where $\\omega$ is the FS Kähler form. On a Kähler manifold this implies</p>
+<div class="eq">
+$$K_A^m = J^{mn}\\partial_n\\mu_A,
+\\qquad
+\\hat g_{mn}K_A^mK_B^n = \\hat g^{mn}\\partial_m\\mu_A\\partial_n\\mu_B.$$
+</div>
+
+<p>Integrating by parts gives</p>
+<div class="eq">
+$$\\int\\sqrt{\\hat g}\\;\\hat g_{mn}K_A^mK_B^n
+=\\int\\sqrt{\\hat g}\\;\\partial_m\\mu_A\\partial^m\\mu_B
+= -\\int\\sqrt{\\hat g}\\;\\mu_A\\,\\hat\\Delta\\mu_B.$$
+</div>
+
+<p>For $\\mathbb{CP}^2$ with our FS normalization, the moment maps $\\mu_A$ are scalar harmonics in the adjoint representation, i.e. the $k=1$ family, and satisfy the Laplacian eigenvalue equation</p>
+<div class="eq">$$\\hat\\Delta\\mu_A = 12\\,\\mu_A.$$</div>
+
+<p>Hence</p>
+<div class="eq">
+$$\\int\\sqrt{\\hat g}\\;\\hat g_{mn}K_A^mK_B^n
+=12\\int\\sqrt{\\hat g}\\;\\mu_A\\mu_B.$$
+</div>
+
+<p>Now compute $\\int \\mu_A\\mu_B$ purely by SU(3)-invariance. Represent points of $\\mathbb{CP}^2$ by rank-1 projectors</p>
+<div class="eq">$$P=\\frac{ZZ^{\\dagger}}{Z^{\\dagger}Z},\\qquad P^2=P,\\qquad \\mathrm{Tr}(P)=1.$$</div>
+
+<p>Define</p>
+<div class="eq">$$\\mu_A = \\mathrm{Tr}(T_A P).$$</div>
+
+<p>Using the Haar-induced (FS) invariant measure on $\\mathbb{CP}^2$, one has the universal second-moment identity for $d=3$:</p>
+<div class="eq">
+$$\\int_{\\mathbb{CP}^2}\\! d\\mathrm{vol}\\; P_{ij}P_{kl}
+= \\frac{\\mathrm{Vol}(\\mathbb{CP}^2)}{3\\cdot 4}\\Big(\\delta_{ij}\\delta_{kl}+\\delta_{il}\\delta_{kj}\\Big)
+=\\frac{\\mathrm{Vol}}{12}(\\delta_{ij}\\delta_{kl}+\\delta_{il}\\delta_{kj}).$$
+</div>
+
+<p>Contracting with $(T_A)_{ji}(T_B)_{lk}$ gives</p>
+<div class="eq">
+$$\\int \\mu_A\\mu_B
+=\\frac{\\mathrm{Vol}}{12}\\,\\mathrm{Tr}(T_AT_B)
+=\\frac{\\mathrm{Vol}}{24}\\,\\delta_{AB}.$$
+</div>
+
+<p>Therefore</p>
+<div class="eq">
+$$\\boxed{
+\\int_{\\mathbb{CP}^2}\\!\\sqrt{\\hat g}\\;\\hat g_{mn}K_A^mK_B^n
+=12\\cdot\\frac{\\mathrm{Vol}}{24}\\,\\delta_{AB}
+=\\frac{\\mathrm{Vol}(\\mathbb{CP}^2)}{2}\\,\\delta_{AB}.
+}$$
+</div>
+
+<div class="box">
+  <b>Final gauge kinetic matrix (exact):</b>
+  $$\\boxed{
+  \\frac{1}{g_4^2}\\,\\delta_{AB}
+  =\\frac{b^6}{2\\kappa_8^2}\\cdot\\frac{\\mathrm{Vol}(\\mathbb{CP}^2)}{2}\\,\\delta_{AB}
+  =\\frac{b^6\\,\\mathrm{Vol}(\\mathbb{CP}^2)}{4\\kappa_8^2}\\,\\delta_{AB}.}$$
+</div>
+
+<hr/>
+
+<h2>3. KK harmonics as $(p,q)$ SU(3) representations</h2>
+
+<h3>3.1 The coset viewpoint and representation theory</h3>
+
+<p>As a homogeneous space,</p>
+<div class="eq">$$\\mathbb{CP}^2 \\cong \\frac{\\mathrm{SU}(3)}{\\mathrm{U}(2)}.$$
+</div>
+
+<p>The scalar KK harmonics are functions on the coset: $\\mathcal{H}=L^2(\\mathrm{SU}(3)/\\mathrm{U}(2))$.
+By Peter–Weyl / harmonic analysis on cosets, $\\mathcal{H}$ decomposes under the left action of SU(3) into irreducibles
+$V_{(p,q)}$ with multiplicity equal to the number of $\\mathrm{U}(2)$-singlets inside $V_{(p,q)}$.</p>
+
+<p><b>Key fact:</b> an SU(3) irrep $V_{(p,q)}$ contains a U(2) singlet iff $p=q=k$.
+Therefore the scalar harmonics furnish precisely the family</p>
+<div class="eq">$$\\boxed{\\text{scalar harmonics on }\\mathbb{CP}^2:\\quad (p,q)=(k,k),\\qquad k=0,1,2,\\dots}$$</div>
+
+<p>The dimension of an SU(3) irrep is</p>
+<div class="eq">$$\\dim(p,q)=\\frac12(p+1)(q+1)(p+q+2),$$</div>
+<p>hence for $(k,k)$:</p>
+<div class="eq">$$\\boxed{\\dim(k,k)=(k+1)^3.}$$</div>
+
+<h3>3.2 Explicit construction by homogeneous polynomials (fully concrete)</h3>
+
+<p>Let $Z^i$ ($i=0,1,2$) be homogeneous coordinates on $\\mathbb{CP}^2$.
+A scalar function on $\\mathbb{CP}^2$ must be invariant under $Z\\sim\\lambda Z$, $\\lambda\\in\\mathbb{C}^*$.
+Hence a natural basis of SU(3)-covariant functions is built from equal-degree polynomials in $Z$ and $\\bar Z$:</p>
+
+<div class="eq">
+$$\\widetilde Y^{(k)}{}_{i_1\\cdots i_k}{}^{\\bar j_1\\cdots \\bar j_k}(Z,\\bar Z)
+\\;\\propto\\;
+\\frac{Z^{i_1}\\cdots Z^{i_k}\\,\\bar Z^{\\bar j_1}\\cdots\\bar Z^{\\bar j_k}}{(Z^{\\dagger}Z)^k}.$$
+</div>
+
+<p>Project onto the irreducible, symmetric-traceless part in the indices $(i_1\\cdots i_k)$ and $(\\bar j_1\\cdots\\bar j_k)$.
+This gives an SU(3) irrep with Dynkin labels $(k,k)$.</p>
+
+<div class="box">
+  <b>Check at $k=1$:</b> $(1,1)$ has dimension $8$ and is the adjoint of SU(3).
+  The corresponding $k=1$ scalars are precisely the moment maps $\\mu_A$ (Killing potentials).
+</div>
+
+<h3>3.3 Laplacian eigenvalues via SU(3) Casimir (explicit)</h3>
+
+<p>On a compact symmetric space $G/H$, the scalar Laplacian eigenvalues on harmonics in irrep $V_{(p,q)}$ are proportional to the quadratic Casimir $C_2(p,q)$.
+For SU(3),</p>
+<div class="eq">
+$$C_2(p,q)=\\frac13\\Big(p^2+q^2+pq+3p+3q\\Big).$$
+</div>
+
+<p>For scalars on $\\mathbb{CP}^2$ we have $(p,q)=(k,k)$, hence</p>
+<div class="eq">
+$$C_2(k,k)=\\frac13(3k^2+6k)=k(k+2).$$
+</div>
+
+<p>With FS normalization (holomorphic sectional curvature $4$), the Laplacian eigenvalue is</p>
+<div class="eq">
+$$\\boxed{\\lambda_k = 4\\,C_2(k,k)=4k(k+2).}$$
+</div>
+
+<p>So the KK masses for a breathing radius $b$ are</p>
+<div class="eq">
+$$m_k^2 \\sim \\frac{\\lambda_k}{b^2} = \\frac{4k(k+2)}{b^2},\\qquad k=0,1,2,\\dots$$
+</div>
+
+<hr/>
+
+<h2>References (standard)</h2>
+<ul>
+  <li>M. J. Duff, B. E. W. Nilsson, C. N. Pope, <i>Kaluza–Klein Supergravity</i>, Phys. Rept. 130 (1986) 1.</li>
+  <li>T. Appelquist, A. Chodos, P. Freund (eds.), <i>Modern Kaluza–Klein Theories</i>, Addison–Wesley (1987).</li>
+  <li>A. L. Besse, <i>Einstein Manifolds</i>, Springer (1987).</li>
+  <li>S. Kobayashi, K. Nomizu, <i>Foundations of Differential Geometry</i>, Vol. II, Wiley (1969).</li>
+  <li>J.-P. Bourguignon, H. B. Lawson, <i>Stability and isolation phenomena for Yang–Mills fields</i>, Comm. Math. Phys. 79 (1981) 189–230 (background on moment maps / Killing potentials on Kähler manifolds).</li>
+</ul>
+
+</body>
+</html>

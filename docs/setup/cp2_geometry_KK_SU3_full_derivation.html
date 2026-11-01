@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CP^2 Geometry + SU(3) Isometries + Kaluza-Klein Gauge Sector (Fully Explicit)</title>
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#121a33;
+      --card2:#0f1730;
+      --ink:#e8ecff;
+      --muted:#a9b4e5;
+      --line:rgba(232,236,255,.14);
+      --ok:#17d1b8;
+      --warn:#ffcc66;
+      --bad:#ff6b6b;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
+
+    html,body{margin:0; padding:0; background:linear-gradient(180deg,#070a16, var(--bg)); color:var(--ink); font-family:var(--sans);}
+    a{color:#98b7ff; text-decoration:none;}
+    a:hover{text-decoration:underline;}
+
+    header{
+      padding:42px 18px 24px;
+      border-bottom:1px solid var(--line);
+      background:radial-gradient(1000px 500px at 20% 0%, rgba(85,140,255,.22), transparent 60%),
+                 radial-gradient(900px 450px at 80% 0%, rgba(23,209,184,.16), transparent 60%);
+    }
+    header .wrap{max-width:1100px; margin:0 auto;}
+    h1{margin:0 0 10px; font-size:28px; letter-spacing:.2px;}
+    .sub{margin:0; color:var(--muted); font-size:14px; line-height:1.4; max-width:95ch;}
+
+    nav{
+      max-width:1100px; margin:16px auto 0; padding:0 18px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    nav a{
+      font-size:12px; padding:7px 10px; border:1px solid var(--line); border-radius:999px;
+      background:rgba(255,255,255,.02);
+    }
+
+    main{max-width:1100px; margin:0 auto; padding:20px 18px 70px;}
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.018));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 18px 12px;
+      box-shadow:var(--shadow);
+      margin:16px 0;
+    }
+
+    .card h2{margin:0 0 10px; font-size:20px;}
+    .card h3{margin:14px 0 8px; font-size:16px; color:#dfe6ff;}
+    .card p{margin:8px 0; line-height:1.55; color:var(--ink);}
+
+    .muted{color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns: 1fr; gap:12px;}
+    @media (min-width: 980px){
+      .grid.two{grid-template-columns: 1fr 1fr;}
+    }
+
+    .eq{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 12px;
+      background:rgba(15,23,48,.55);
+      overflow:auto;
+    }
+
+    .step{
+      border-left:3px solid rgba(152,183,255,.75);
+      padding:10px 12px;
+      margin:10px 0;
+      background:rgba(0,0,0,.14);
+      border-radius:12px;
+    }
+
+    .tag{
+      display:inline-block;
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      margin-right:8px;
+      color:var(--muted);
+      background:rgba(255,255,255,.02);
+    }
+    .tag.ok{border-color:rgba(23,209,184,.45); color:rgba(23,209,184,.95)}
+    .tag.warn{border-color:rgba(255,204,102,.5); color:rgba(255,204,102,.95)}
+
+    .result{
+      border:1px solid rgba(23,209,184,.35);
+      background:rgba(23,209,184,.05);
+      border-radius:14px;
+      padding:12px 12px;
+      margin:12px 0;
+    }
+
+    code,pre{font-family:var(--mono); font-size:12px;}
+    pre{white-space:pre-wrap; word-break:break-word;}
+
+    .hr{height:1px; background:var(--line); margin:14px 0;}
+
+    footer{max-width:1100px; margin:0 auto; padding:16px 18px 40px; color:var(--muted);}
+
+    .small{font-size:12px}
+  </style>
+
+  <script>
+    // MathJax configuration
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$','$$'], ['\\[','\\]']]
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+<header>
+  <div class="wrap">
+    <h1>$\mathbb{CP}^2$ geometry (Fubini--Study) + $\mathfrak{su}(3)$ isometries + Kaluza--Klein gauge sector</h1>
+    <p class="sub">
+      This is a self-contained, step-by-step derivation of the core geometric and KK facts you want:
+      <b>compactness</b>, <b>Fubini--Study metric</b>, <b>Kahler form and periods</b>, <b>curvature (Einstein normalization)</b>,
+      <b>isometry group</b>, <b>explicit Killing potentials and Killing vectors</b>, and the <b>exact KK gauge-transformation law</b>
+      explaining why 4D gauge symmetry is an internal diffeomorphism.
+    </p>
+    <p class="sub muted small">
+      Conventions are chosen to match your KK/Lovelock notes wherever possible. Where different normalizations exist in the literature,
+      a dictionary is given explicitly.
+    </p>
+  </div>
+</header>
+
+<nav>
+  <a href="#sec0">0. Definitions</a>
+  <a href="#sec1">1. Charts and Kahler potential</a>
+  <a href="#sec2">2. Fubini--Study metric</a>
+  <a href="#sec3">3. Determinant and volume</a>
+  <a href="#sec4">4. Kahler form, periods, topology</a>
+  <a href="#sec5">5. Curvature and Einstein property</a>
+  <a href="#sec6">6. Isometry group and Killing data</a>
+  <a href="#sec7">7. KK ansatz and gauge transformations</a>
+  <a href="#sec8">8. What compactness quantizes (and what it does not)</a>
+  <a href="#refs">References</a>
+</nav>
+
+<main>
+
+<!-- ==================== 0 ==================== -->
+<section class="card" id="sec0">
+  <h2>0. $\mathbb{CP}^2$: definition, compactness, dimensions</h2>
+
+  <div class="step">
+    <span class="tag ok">Definition</span>
+    <p>
+      Complex projective space is the space of complex lines through the origin in $\mathbb{C}^3$:
+    </p>
+    <div class="eq">
+      $$\mathbb{CP}^2 := (\mathbb{C}^3\setminus\{0\})/\mathbb{C}^*,$$
+      $$[Z^0:Z^1:Z^2] \sim [\lambda Z^0: \lambda Z^1: \lambda Z^2],\qquad \lambda\in\mathbb{C}^*.$$
+    </div>
+    <p class="muted">
+      Points are homogeneous coordinates $[Z]$ defined up to nonzero complex rescaling.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Compactness</span>
+    <p>
+      $\mathbb{CP}^2$ is compact because it is a quotient of the unit sphere $S^5\subset\mathbb{C}^3$ by the free $U(1)$ action
+      (Hopf fibration):
+    </p>
+    <div class="eq">
+      $$S^1 \hookrightarrow S^5 \twoheadrightarrow \mathbb{CP}^2.$$
+    </div>
+  </div>
+
+  <div class="grid two">
+    <div class="step">
+      <span class="tag ok">Dimensions</span>
+      <div class="eq">
+        $$\dim_{\mathbb{C}}\mathbb{CP}^2 = 2,\qquad \dim_{\mathbb{R}}\mathbb{CP}^2 = 4.$$
+      </div>
+    </div>
+
+    <div class="step">
+      <span class="tag ok">Simply connected</span>
+      <div class="eq">
+        $$\pi_1(\mathbb{CP}^2)=0.$$
+      </div>
+      <p class="muted">
+        So charge quantization is not from $\pi_1$ (unlike $S^1$ momentum quantization). It comes from representation theory and/or flux topology.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 1 ==================== -->
+<section class="card" id="sec1">
+  <h2>1. Local coordinates (charts) and the Kahler potential</h2>
+
+  <div class="step">
+    <span class="tag">Affine chart $U_0$</span>
+    <p>
+      On the patch $U_0 = \{Z^0\neq 0\}$ define affine coordinates
+    </p>
+    <div class="eq">
+      $$z^1=\frac{Z^1}{Z^0},\qquad z^2=\frac{Z^2}{Z^0}.$$
+    </div>
+    <p class="muted">Other patches $U_1, U_2$ are obtained by permuting indices. The FS metric is globally well-defined because the transition functions are holomorphic.</p>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Kahler potential</span>
+    <p>
+      Define
+      $$\rho := 1+|z^1|^2+|z^2|^2.$$
+      The (unit) Fubini--Study Kahler potential is
+    </p>
+    <div class="eq">
+      $$K(z,\bar z) := \log\rho.$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">First derivatives</span>
+    <p>Compute the basic building blocks explicitly:</p>
+    <div class="eq">
+      $$\partial_{a} \rho = \bar z^{\bar a},\qquad \partial_{\bar b}\rho = z^b.$$
+      $$\partial_a K = \frac{\partial_a\rho}{\rho} = \frac{\bar z^{\bar a}}{\rho},\qquad
+        \partial_{\bar b}K = \frac{z^b}{\rho}.$$
+    </div>
+    <p class="muted">Here $a,b\in\{1,2\}$ label the complex coordinates.</p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Second derivatives</span>
+    <p>
+      Using $\partial_a\partial_{\bar b}K = \partial_a\left(\dfrac{z^b}{\rho}\right)$:
+    </p>
+    <div class="eq">
+      $$\partial_a\partial_{\bar b}K
+      = \frac{\delta_a^{\ b}}{\rho} - \frac{z^b\,\bar z^{\bar a}}{\rho^2}
+      = \frac{\rho\,\delta_a^{\ b} - z^b\bar z^{\bar a}}{\rho^2}.$$
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 2 ==================== -->
+<section class="card" id="sec2">
+  <h2>2. Fubini--Study metric: explicit components</h2>
+
+  <div class="step">
+    <span class="tag ok">Metric definition</span>
+    <p>
+      The Kahler metric is
+      $$g_{a\bar b} = \partial_a\partial_{\bar b}K.$$
+      Using the result above:
+    </p>
+    <div class="eq">
+      $$\boxed{\;g_{a\bar b}(z,\bar z)=\frac{\rho\,\delta_{a\bar b}-\bar z_{\bar b} z_a}{\rho^2}.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">Matrix form (for $\mathbb{CP}^2$)</span>
+    <p>
+      Writing $z=(z^1,z^2)$ with $|z|^2=|z^1|^2+|z^2|^2$:
+    </p>
+    <div class="eq">
+      $$g_{a\bar b}=\frac{1}{\rho^2}
+      \begin{pmatrix}
+        \rho-|z^1|^2 & -\bar z^{\bar 1} z^2\\
+        -\bar z^{\bar 2} z^1 & \rho-|z^2|^2
+      \end{pmatrix}
+      =\frac{1}{(1+|z|^2)^2}
+      \begin{pmatrix}
+        1+|z^2|^2 & -\bar z^{\bar 1} z^2\\
+        -\bar z^{\bar 2} z^1 & 1+|z^1|^2
+      \end{pmatrix}.$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">Inverse metric (explicit)</span>
+    <p>
+      For later use, we compute $g^{a\bar b}$.
+      Using the rank-1 update structure $g = \rho^{-1}(I) - \rho^{-2} (\bar z\otimes z)$, one finds
+    </p>
+    <div class="eq">
+      $$\boxed{\;g^{a\bar b}=\rho\,\left(\delta^{a\bar b}+ z^a\bar z^{\bar b}\right).\;}$$
+    </div>
+    <p class="muted">
+      You can verify directly that $g_{a\bar c}g^{c\bar b}=\delta_a^{\ b}$.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Scaling by a radius $b$</span>
+    <p>
+      In compactification one introduces a breathing mode $b$ and uses
+    </p>
+    <div class="eq">
+      $$g_{mn} = b^2\,\hat g_{mn},$$
+      $$g_{a\bar b}=b^2\,\hat g_{a\bar b}.$$ 
+    </div>
+    <p class="muted">
+      All curvature scalars scale as $R\sim b^{-2}$ while volumes scale as $\mathrm{Vol}\sim b^4$.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== 3 ==================== -->
+<section class="card" id="sec3">
+  <h2>3. Determinant, volume form, and total volume</h2>
+
+  <div class="step">
+    <span class="tag">Determinant of $g_{a\bar b}$</span>
+    <p>
+      We compute $\det(g_{a\bar b})$ explicitly using the matrix determinant lemma.
+      Write
+      $$g = \frac{1}{\rho}\Big(I - \frac{1}{\rho}\bar z\otimes z\Big).$$
+      Then
+      $$\det(g) = \rho^{-2}\,\det\Big(I - \rho^{-1}\bar z\otimes z\Big).$$
+      For a rank-1 update, $\det(I+u v^T)=1+v^T u$. Here $u=-\rho^{-1}\bar z$ and $v^T=z^T$.
+    </p>
+    <div class="eq">
+      $$\det\Big(I - \rho^{-1}\bar z\otimes z\Big)=1-\rho^{-1}(z\cdot\bar z)=1-\frac{|z|^2}{\rho}=\frac{1}{\rho}.$$
+      $$\boxed{\;\det(g_{a\bar b}) = \rho^{-3} = (1+|z|^2)^{-3}.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">Local volume form</span>
+    <p>
+      In complex coordinates, the Riemannian volume form is
+    </p>
+    <div class="eq">
+      $$d\mathrm{vol}_4 = \det(g_{a\bar b})\, d^2z^1\,d^2z^2,$$
+      where $d^2z^a:=d(\mathrm{Re}\,z^a)\,d(\mathrm{Im}\,z^a)$.
+      Thus
+      $$\boxed{\;d\mathrm{vol}_4 = \frac{d^2z^1\,d^2z^2}{(1+|z|^2)^3}.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Volume of $\mathbb{CP}^2$ (FS normalization)</span>
+    <p>
+      A standard fact (and a good consistency check) is that the FS volume is
+    </p>
+    <div class="eq">
+      $$\boxed{\;\mathrm{Vol}(\mathbb{CP}^2,\hat g_{FS}) = \frac{\pi^2}{2}.\;}$$
+    </div>
+    <p class="muted">
+      With breathing mode $b$, $\mathrm{Vol}(\mathbb{CP}^2,g=b^2\hat g)=\frac{\pi^2}{2}b^4$.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Explicit volume integral check</span>
+    <p>
+      Using the local measure, one can verify the total volume directly in the affine chart.
+      Write $r^2:=|z^1|^2+|z^2|^2$, so $\rho=1+r^2$. In $\mathbb{R}^4\cong\mathbb{C}^2$ we use spherical coordinates.
+      The area of the unit $3$-sphere is $\mathrm{Area}(S^3)=2\pi^2$, hence
+    </p>
+    <div class="eq">
+      $$d^2z^1\,d^2z^2 = d^4x = \mathrm{Area}(S^3)\,r^3dr = 2\pi^2\,r^3dr.$$
+      $$\mathrm{Vol}(\mathbb{CP}^2)=\int_{\mathbb{C}^2}\frac{d^4x}{(1+r^2)^3}
+      =2\pi^2\int_0^{\infty}\frac{r^3}{(1+r^2)^3}\,dr.$$
+      Substitute $u=r^2$ so $du=2r\,dr$ and $r^3dr=\frac{u}{2}\,du$:
+      $$\mathrm{Vol}=2\pi^2\int_0^{\infty}\frac{r^3}{(1+r^2)^3}\,dr
+      =\pi^2\int_0^{\infty}\frac{u}{(1+u)^3}\,du.$$
+      Now let $w=1+u$:
+      $$\int_0^{\infty}\frac{u}{(1+u)^3}\,du
+      =\int_{1}^{\infty}\frac{w-1}{w^3}\,dw
+      =\int_{1}^{\infty}\left(\frac{1}{w^2}-\frac{1}{w^3}\right)dw
+      =\left[-\frac{1}{w}+\frac{1}{2w^2}\right]_{1}^{\infty}=\frac12.$$
+      Hence
+      $$\boxed{\mathrm{Vol}(\mathbb{CP}^2)=\frac{\pi^2}{2}.}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">Derivation via Kahler form</span>
+    <p>
+      For any Kahler manifold of complex dimension $n$ with Kahler form $\omega$, the volume form satisfies
+    </p>
+    <div class="eq">
+      $$d\mathrm{vol}_{2n} = \frac{\omega^n}{n!}.$$
+    </div>
+    <p>
+      For $n=2$:
+    </p>
+    <div class="eq">
+      $$\mathrm{Vol}(\mathbb{CP}^2)=\int_{\mathbb{CP}^2} \frac{\omega\wedge\omega}{2}.$$
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 4 ==================== -->
+<section class="card" id="sec4">
+  <h2>4. Kahler form, periods, and flux/topology quantization</h2>
+
+  <div class="step">
+    <span class="tag ok">Kahler form</span>
+    <p>
+      The Kahler 2-form is
+    </p>
+    <div class="eq">
+      $$\boxed{\;\omega = i\, g_{a\bar b}\, dz^a\wedge d\bar z^{\bar b}.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">Closure</span>
+    <p>
+      Because $g_{a\bar b}=\partial_a\partial_{\bar b}K$:
+    </p>
+    <div class="eq">
+      $$\omega = i\,\partial\bar\partial K,$$
+      hence
+      $$\boxed{\;d\omega = 0.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Integral cohomology</span>
+    <p>
+      The key topological input for quantization is
+    </p>
+    <div class="eq">
+      $$H^2(\mathbb{CP}^2,\mathbb{Z})\cong \mathbb{Z},\qquad H:=\text{hyperplane class},\qquad \int_{\mathbb{CP}^1}H=1.$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">Normalization dictionary (important)</span>
+    <p>
+      There are two very common normalizations for the Kahler form, related by an overall scale.
+      Both are correct; they just correspond to different metric radii.
+    </p>
+
+    <div class="grid two">
+      <div class="eq">
+        <p><span class="tag ok">FS metric used in your corrected integrated invariants</span></p>
+        $$\boxed{\;[\omega/\pi]=H,\qquad \int_{\mathbb{CP}^1}\omega=\pi,\qquad \mathrm{Vol}(\mathbb{CP}^2)=\frac{\pi^2}{2}.\;}$$
+        <p class="muted small">
+          This matches $\mathrm{Vol}(Y=(\mathbb{CP}^2)^3)=\pi^6/8$ and the coefficients used in your corrected $G_6$ component algebra.
+        </p>
+      </div>
+
+      <div class="eq">
+        <p><span class="tag warn">Cohomology-period normalization often used for flux quantization</span></p>
+        $$\boxed{\;[\omega'/2\pi]=H,\qquad \omega' = 2\,\omega,\qquad \int_{\mathbb{CP}^1}\omega'=2\pi.\;}$$
+        $$\mathrm{Vol}'(\mathbb{CP}^2)=\int \frac{\omega'\wedge\omega'}{2} = 4\,\int \frac{\omega\wedge\omega}{2} = 2\pi^2.$$
+      </div>
+    </div>
+
+    <p class="muted">
+      The geometric physics is invariant: choosing $\omega'$ corresponds to scaling the metric by a constant factor.
+      In KK reductions, such a rescaling is absorbed into the breathing radius $b$.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Flux quantization on $\mathbb{CP}^2$</span>
+    <p>
+      If a $U(1)$ field strength is proportional to the Kahler form,
+      $$F = f\,\omega,$$
+      then the Dirac quantization condition reads
+    </p>
+    <div class="eq">
+      $$\frac{1}{2\pi}\int_{\mathbb{CP}^1}F \in \mathbb{Z}
+      \quad\Rightarrow\quad
+      \frac{f}{2\pi}\int_{\mathbb{CP}^1}\omega \in\mathbb{Z}.$$
+    </div>
+    <p>
+      In the FS normalization ($\int_{\mathbb{CP}^1}\omega=\pi$) this becomes
+    </p>
+    <div class="eq">
+      $$\boxed{\;\frac{f}{2}\in \mathbb{Z}.\;}$$
+    </div>
+    <p class="muted">
+      In the $\omega'$ period normalization ($\int\omega'=2\pi$) one gets the more familiar $f\in\mathbb{Z}$.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== 5 ==================== -->
+<section class="card" id="sec5">
+  <h2>5. Curvature: Riemann tensor, Ricci, scalar, and scaling with $b$</h2>
+
+  <div class="step">
+    <span class="tag">Kahler curvature formulas</span>
+    <p>
+      For a Kahler metric $g_{a\bar b}$, the only nonzero Riemann components are of type $(1,1;1,1)$:
+    </p>
+    <div class="eq">
+      $$R_{a\bar b c\bar d} = -\partial_{\bar b}\partial_a g_{c\bar d}
+      + g^{e\bar f}(\partial_{\bar b}g_{c\bar f})(\partial_a g_{e\bar d}).$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">FS Riemann tensor (explicit closed form)</span>
+    <p>
+      A direct computation (or recognition that $\mathbb{CP}^2$ is a rank-1 Hermitian symmetric space) gives the remarkably simple identity:
+    </p>
+    <div class="eq">
+      $$\boxed{\;\hat R_{a\bar b c\bar d}
+      = \hat g_{a\bar b}\hat g_{c\bar d} + \hat g_{a\bar d}\hat g_{c\bar b}.\;}$$
+    </div>
+    <p class="muted">
+      This is the standard unit FS normalization in which $\mathbb{CP}^2$ is Einstein and has constant holomorphic sectional curvature.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Ricci tensor (step-by-step contraction)</span>
+    <p>
+      Contract indices:
+    </p>
+    <div class="eq">
+      $$\hat R_{a\bar b} = \hat g^{c\bar d}\,\hat R_{a\bar b c\bar d}
+      = \hat g^{c\bar d}(\hat g_{a\bar b}\hat g_{c\bar d} + \hat g_{a\bar d}\hat g_{c\bar b}).$$
+      $$= \hat g_{a\bar b}\underbrace{\hat g^{c\bar d}\hat g_{c\bar d}}_{=n}
+      + \underbrace{\hat g^{c\bar d}\hat g_{a\bar d}}_{=\delta_a^c}\hat g_{c\bar b}$$
+      $$= n\,\hat g_{a\bar b} + \hat g_{a\bar b} = (n+1)\hat g_{a\bar b}.$$
+    </div>
+    <p>
+      For $\mathbb{CP}^2$ the complex dimension is $n=2$, hence
+    </p>
+    <div class="eq">
+      $$\boxed{\;\hat R_{a\bar b}=3\,\hat g_{a\bar b}.\;}$$
+    </div>
+    <p class="muted">
+      In real indices $(m,n=1,\dots,4)$ this becomes $\hat R_{mn}=6\,\hat g_{mn}$.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Scalar curvature</span>
+    <p>
+      Using $\hat R = \hat g^{mn}\hat R_{mn}$ and $\hat g^{mn}\hat g_{mn}=4$:
+    </p>
+    <div class="eq">
+      $$\hat R = 6\,\hat g^{mn}\hat g_{mn} = 6\cdot 4 = 24.$$
+      $$\boxed{\;\hat R = 24.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Scaling with breathing radius $b$</span>
+    <p>
+      Let $g_{mn}=b^2\hat g_{mn}$. Then:
+    </p>
+    <div class="eq">
+      $$\Gamma[g]=\Gamma[\hat g],\qquad R^p{}_{qmn}[g]=R^p{}_{qmn}[\hat g],$$
+      $$R_{mn}[g]=\frac{6}{b^2}g_{mn},\qquad R[g]=\frac{24}{b^2}.$$
+    </div>
+    <div class="result">
+      <b>Final curvature package:</b>
+      $$\boxed{\;\mathrm{Ric}(g)=\frac{6}{b^2}g,\qquad R(g)=\frac{24}{b^2}.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">Integrated invariants (used in your Lovelock reductions)</span>
+    <p>
+      With $\mathrm{Vol}(\mathbb{CP}^2)=\frac{\pi^2}{2}b^4$:
+    </p>
+    <div class="eq">
+      $$I_0(b)=\int\sqrt{g}=\frac{\pi^2}{2}b^4,$$
+      $$I_1(b)=\int\sqrt{g}\,R = \left(\frac{24}{b^2}\right)\left(\frac{\pi^2}{2}b^4\right)=12\pi^2 b^2.$$
+    </div>
+    <p>
+      For the 4D Gauss--Bonnet density (Euler class), use $\chi(\mathbb{CP}^2)=3$:
+    </p>
+    <div class="eq">
+      $$I_2=\int\sqrt{g}\,\mathcal{G}=32\pi^2\chi(\mathbb{CP}^2)=96\pi^2.$$
+    </div>
+  </div>
+</section>
+
+<!-- ==================== 6 ==================== -->
+<section class="card" id="sec6">
+  <h2>6. Isometries: why the symmetry algebra is $\mathfrak{su}(3)$</h2>
+
+  <div class="step">
+    <span class="tag ok">SU(3) action on homogeneous coordinates</span>
+    <p>
+      Let $U\in SU(3)$ act linearly on $Z\in\mathbb{C}^3$:
+    </p>
+    <div class="eq">
+      $$Z\mapsto UZ.$$
+    </div>
+    <p>
+      This respects projective equivalence $Z\sim \lambda Z$, hence defines a well-defined action on $\mathbb{CP}^2$.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Why the FS metric is invariant</span>
+    <p>
+      Define the global potential in homogeneous variables
+      $$K(Z,\bar Z)=\log(Z^\dagger Z).$$
+      Under $U\in SU(3)$:
+    </p>
+    <div class="eq">
+      $$Z^\dagger Z \mapsto (UZ)^\dagger(UZ)=Z^\dagger U^\dagger U Z = Z^\dagger Z,$$
+      hence $K$ is invariant.
+    </div>
+    <p>
+      Under the projective rescaling $Z\mapsto\lambda Z$:
+    </p>
+    <div class="eq">
+      $$K\mapsto K+\log|\lambda|^2.$$
+    </div>
+    <p class="muted">
+      Adding a holomorphic + antiholomorphic function to $K$ does not change $g_{a\bar b}=\partial_a\partial_{\bar b}K$.
+      Therefore the metric is globally well-defined and SU(3)-invariant.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Connected isometry group</span>
+    <p>
+      The full connected isometry group is
+    </p>
+    <div class="eq">
+      $$\mathrm{Isom}_0(\mathbb{CP}^2,g_{FS})\cong \mathrm{PSU}(3)=\frac{SU(3)}{\mathbb{Z}_3}.$$
+    </div>
+    <p>
+      The Lie algebra is
+    </p>
+    <div class="eq">
+      $$\boxed{\;\mathfrak{isom}(\mathbb{CP}^2,g_{FS})\cong\mathfrak{su}(3).\;}$$
+    </div>
+    <p class="muted">
+      For KK physics, what matters is the Lie algebra (8 generators, 8 Killing vectors).
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Moment map / Killing potentials (explicit)</span>
+    <p>
+      Choose anti-Hermitian generators $T_A$ of $\mathfrak{su}(3)$, normalized by
+      $$\mathrm{tr}(T_A T_B)=-\frac{1}{2}\delta_{AB}.$$
+      (Equivalently, $T_A = \frac{i}{2}\lambda_A$ with Gell-Mann matrices $\lambda_A$.)
+    </p>
+    <p>
+      Define the Killing potentials (components of the moment map)
+    </p>
+    <div class="eq">
+      $$\boxed{\;\mu_A([Z]) := -\frac{Z^\dagger T_A Z}{Z^\dagger Z}.\;}$$
+    </div>
+    <p>
+      They satisfy the fundamental Hamiltonian identity
+    </p>
+    <div class="eq">
+      $$\boxed{\;d\mu_A = \iota_{K_A}\,\omega,\;}$$
+    </div>
+    <p class="muted">
+      meaning each Killing vector field $K_A$ is the Hamiltonian vector field generated by $\mu_A$ with respect to the symplectic form $\omega$.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Killing vectors in affine coordinates (explicit formula)</span>
+    <p>
+      On the patch $U_0$ with affine coordinates $z^a=Z^a/Z^0$, an infinitesimal SU(3) transformation
+      $$\delta Z = \epsilon^A T_A Z$$
+      induces an infinitesimal variation of $z^a$ obtained by differentiating the quotient:
+    </p>
+    <div class="eq">
+      $$\delta z^a = \frac{\delta Z^a}{Z^0} - \frac{Z^a}{(Z^0)^2}\delta Z^0
+      = \epsilon^A\left((T_A)^a{}_{0} + (T_A)^a{}_{b} z^b - z^a\big((T_A)^0{}_{0} + (T_A)^0{}_{b}z^b\big)\right).$$
+    </div>
+    <p>
+      Therefore the corresponding Killing vector field is
+    </p>
+    <div class="eq">
+      $$\boxed{\;K_A = (\delta_A z^a)\,\partial_{z^a} + (\delta_A\bar z^{\bar a})\,\partial_{\bar z^{\bar a}},\quad
+      \delta_A z^a:= (T_A)^a{}_{0} + (T_A)^a{}_{b} z^b - z^a\big((T_A)^0{}_{0} + (T_A)^0{}_{b}z^b\big).\;}$$
+    </div>
+    <p class="muted">
+      This is a concrete, coordinate-level construction of all 8 Killing vectors once you pick a basis $T_A$.
+      (The expression is polynomial/rational in $z$.)
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Closure of the Lie algebra</span>
+    <p>
+      Because these vector fields come from a group action,
+    </p>
+    <div class="eq">
+      $$[K_A, K_B] = f_{AB}{}^C K_C,$$
+    </div>
+    <p>
+      with $f_{AB}{}^C$ exactly the $\mathfrak{su}(3)$ structure constants defined by
+      $$[T_A,T_B]=f_{AB}{}^C T_C.$$
+    </p>
+  </div>
+</section>
+
+<!-- ==================== 7 ==================== -->
+<section class="card" id="sec7">
+  <h2>7. Kaluza--Klein: internal isometries become 4D gauge transformations</h2>
+
+  <div class="step">
+    <span class="tag ok">KK metric ansatz (non-abelian isometry gauging)</span>
+    <p>
+      Consider an 8D spacetime $M_8 = X_4\times K_4$ with $K_4=\mathbb{CP}^2$.
+      Let $y^m$ be internal coordinates on $K_4$, $x^\mu$ external coordinates on $X_4$.
+      Introduce the 1-forms
+    </p>
+    <div class="eq">
+      $$\eta^m := dy^m + K_A^m(y) A^A_{\mu}(x)\,dx^{\mu}.$$
+    </div>
+    <p>
+      The KK metric ansatz is
+    </p>
+    <div class="eq">
+      $$\boxed{\;ds^2 = g_{\mu\nu}(x)dx^\mu dx^\nu + g_{mn}(y)\,\eta^m\eta^n.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag">Allowed internal diffeomorphisms</span>
+    <p>
+      The special diffeomorphisms that preserve the internal metric are the (local) isometries:
+    </p>
+    <div class="eq">
+      $$\delta y^m = -\varepsilon^A(x)\,K_A^m(y).$$
+    </div>
+    <p class="muted">
+      Note the parameter depends on $x$ only (a key KK step): we are gauging the internal rigid symmetry.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Derive the 4D gauge transformation of $A^A_\mu$</span>
+
+    <p>
+      We demand that the combination $\eta^m$ transforms covariantly. Compute its variation:
+    </p>
+
+    <div class="eq">
+      $$\delta \eta^m = d(\delta y^m) + \delta(K_A^m A^A)$$
+      $$= -d\varepsilon^A\,K_A^m - \varepsilon^A\,dK_A^m + (\delta K_A^m)A^A + K_A^m\,\delta A^A.$$
+    </div>
+
+    <p>
+      Use that $\delta K_A^m = -\varepsilon^B [K_B,K_A]^m = -\varepsilon^B f_{BA}{}^C K_C^m$ and that
+      $dK_A^m = (\partial_n K_A^m)dy^n$.
+      Re-express $dy^n = \eta^n - K_B^n A^B$ and require that $\delta\eta^m$ contains no term proportional to $d\varepsilon$.
+      This uniquely fixes $\delta A^A$.
+    </p>
+
+    <div class="result">
+      <b>Result (Yang--Mills gauge transformation):</b>
+      <div class="eq">
+        $$\boxed{\;\delta A^A_{\mu} = \partial_{\mu}\varepsilon^A + f_{BC}{}^{A} A^B_{\mu}\varepsilon^C.\;}$$
+      </div>
+    </div>
+
+    <p class="muted">
+      This is precisely the non-abelian SU(3) gauge transformation law. It is nothing but the statement that
+      gauged internal isometries are 4D gauge symmetry.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Field strength</span>
+    <p>
+      The corresponding curvature 2-form is
+    </p>
+    <div class="eq">
+      $$\boxed{\;F^A = dA^A + \frac{1}{2}f_{BC}{}^{A}A^B\wedge A^C,\quad
+      F^A_{\mu\nu}=\partial_{\mu}A^A_{\nu}-\partial_{\nu}A^A_{\mu}+f_{BC}{}^{A}A^B_{\mu}A^C_{\nu}.\;}$$
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">Gauge kinetic term from higher-dimensional Einstein--Hilbert</span>
+    <p>
+      Start with 8D pure gravity
+      $$S_{EH} = \frac{1}{2\kappa_8^2}\int d^8x\sqrt{-G}\,R[G].$$
+      Plugging the KK ansatz and expanding the curvature gives (among other terms) the gauge kinetic piece
+    </p>
+    <div class="eq">
+      $$S_{YM} = -\frac{1}{4\kappa_8^2}\int d^4x\sqrt{-g_4}\,\Big(\mathcal{K}_{AB}\,F^A_{\mu\nu}F^{B\,\mu\nu}\Big),$$
+      $$\boxed{\;\mathcal{K}_{AB}:=\int_{\mathbb{CP}^2} d^4y\sqrt{g_4}\,g_{mn}K_A^m K_B^n.\;}$$
+    </div>
+
+    <p>
+      By homogeneity of $\mathbb{CP}^2$ and SU(3) invariance, $\mathcal{K}_{AB}$ must be proportional to $\delta_{AB}$:
+    </p>
+    <div class="eq">
+      $$\mathcal{K}_{AB} = k_{\mathrm{geom}}\,\delta_{AB}.$$
+    </div>
+
+    <p class="muted">
+      The <i>numerical</i> constant $k_{\mathrm{geom}}$ depends on the chosen normalization of $T_A$ and hence of $K_A$.
+      The scaling with radius is unambiguous.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag">Scaling of the 4D gauge coupling with $b$ (Jordan frame)</span>
+    <p>
+      Under $g_{mn}=b^2\hat g_{mn}$, the integrand scales as
+      $$\sqrt{g}\,g_{mn}K_A^mK_B^n \sim (b^4)(b^2)(\text{dimensionless}) = b^6.$$
+      Thus
+    </p>
+    <div class="eq">
+      $$\mathcal{K}_{AB}(b)=b^6\,\mathcal{K}_{AB}(1),$$
+      and the Jordan-frame coupling scales as
+      $$\boxed{\;\frac{1}{g_{4,J}^2}\propto \frac{b^6}{\kappa_8^2}.\;}$$
+    </div>
+    <p class="muted">
+      In 4D Einstein frame one further rescales $g_{\mu\nu}$ to absorb internal volume factors; the final power of $b$ can change accordingly.
+      What never changes: the gauge sector is fixed by the Killing algebra and internal geometry.
+    </p>
+  </div>
+</section>
+
+<!-- ==================== 8 ==================== -->
+<section class="card" id="sec8">
+  <h2>8. Your physical intuition: what holds, what is subtle, what does not follow</h2>
+
+  <div class="step">
+    <span class="tag ok">(I) The main KK intuition is correct</span>
+    <p>
+      <b>Correct statement:</b> internal diffeomorphisms along Killing directions of $(\mathbb{CP}^2,g_{FS})$ become 4D gauge transformations.
+      Since
+      $$\mathfrak{isom}(\mathbb{CP}^2,g_{FS})\cong\mathfrak{su}(3),$$
+      the emergent 4D gauge algebra is $\mathfrak{su}(3)$.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag ok">(II) Compactness implies discrete spectra and discrete SU(3) representation sectors</span>
+    <p>
+      Because $\mathbb{CP}^2$ is compact, the Laplacian has a discrete spectrum:
+      $$-\Delta\,Y_{\lambda}=\lambda Y_{\lambda},$$
+      giving a KK mass tower $m^2\sim\lambda/b^2$.
+      Moreover, harmonics on a homogeneous space arrange into finite-dimensional irreps of SU(3), with discrete highest-weight labels $(p,q)$.
+    </p>
+  </div>
+
+  <div class="step">
+    <span class="tag warn">(III) Compactness does NOT directly quantize glueball masses</span>
+    <p>
+      Glueball masses are controlled by <b>4D confinement</b>:
+      $$m_{\mathrm{glue}}\sim\mathcal{O}(1)\,\Lambda_{\mathrm{QCD}},$$
+      and $\Lambda_{\mathrm{QCD}}$ is generated by 4D running of the gauge coupling (dimensional transmutation), not by KK spectral discreteness.
+    </p>
+    <p class="muted">
+      Geometry can still matter hugely: internal volume and normalization determine $g_4$ at the compactification scale, and thus set $\Lambda_{\mathrm{QCD}}$ exponentially.
+      But this is not a simple topological quantization of glueball masses.
+    </p>
+  </div>
+
+  <div class="result">
+    <b>Correct distilled conclusion:</b>
+    <div class="eq">
+      $$\boxed{\;\text{FS }\mathbb{CP}^2 \Rightarrow \mathfrak{su}(3)\ \text{KK gauge algebra, and compactness }\Rightarrow\text{discrete KK/rep sectors.}\;}$$
+    </div>
+  </div>
+</section>
+
+<!-- ==================== References ==================== -->
+<section class="card" id="refs">
+  <h2>References (standard sources)</h2>
+  <ul>
+    <li class="muted">S. Kobayashi, K. Nomizu, <i>Foundations of Differential Geometry</i>, Vol. II, Wiley (1969).</li>
+    <li class="muted">A. Besse, <i>Einstein Manifolds</i>, Springer (1987). (Kahler--Einstein metrics; $\mathbb{CP}^n$)</li>
+    <li class="muted">M. Nakahara, <i>Geometry, Topology and Physics</i>, 2nd ed., Taylor &amp; Francis (2003).</li>
+    <li class="muted">T. Eguchi, P. Gilkey, A. Hanson, "Gravitation, Gauge Theories and Differential Geometry", <i>Phys. Rept.</i> <b>66</b> (1980) 213.</li>
+    <li class="muted">T. Appelquist, A. Chodos, P. Freund (eds.), <i>Modern Kaluza--Klein Theories</i>, Addison-Wesley (1987).</li>
+    <li class="muted">M. J. Duff, B. E. W. Nilsson, C. N. Pope, "Kaluza--Klein Supergravity", <i>Phys. Rept.</i> <b>130</b> (1986) 1.</li>
+    <li class="muted">E. Witten, "Search for a Realistic Kaluza--Klein Theory", <i>Nucl. Phys.</i> B <b>186</b> (1981) 412.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <div class="hr"></div>
+  <p class="small muted">
+    File: <code>cp2_geometry_KK_SU3_full_derivation.html</code>.
+    If you want, I can extend this document with: (i) explicit Gell-Mann basis Killing vectors written out in $z^1,z^2$ coordinates,
+    (ii) harmonic analysis and the first few Laplacian eigenvalues/representations, and (iii) the full 16D-to-4D reduction in your Lovelock+$G_6$ setup.
+  </p>
+</footer>
+
+</body>
+</html>

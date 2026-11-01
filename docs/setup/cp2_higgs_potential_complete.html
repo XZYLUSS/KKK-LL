@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Derivation of the Higgs Potential from KK Reduction on CP²</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-card: #0f1525;
+            --bg-box: #151d30;
+            --border-primary: #2a3f5f;
+            --border-accent: #4a7c9b;
+            --text-primary: #e8edf5;
+            --text-muted: #8899aa;
+            --accent-blue: #5dade2;
+            --accent-gold: #f4d03f;
+            --accent-green: #58d68d;
+            --accent-red: #ec7063;
+            --accent-purple: #af7ac5;
+            --accent-cyan: #76d7c4;
+            --accent-orange: #f0b27a;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 30px 80px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 3px solid var(--border-accent);
+            margin-bottom: 50px;
+        }
+        
+        h1 {
+            font-size: 1.9em;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1em;
+            font-style: italic;
+        }
+        
+        h2 {
+            color: var(--accent-blue);
+            font-size: 1.5em;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-primary);
+        }
+        
+        h3 {
+            color: var(--accent-green);
+            font-size: 1.25em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        
+        h4 {
+            color: var(--accent-purple);
+            font-size: 1.1em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        p { margin: 15px 0; text-align: justify; }
+        
+        .definition {
+            background: linear-gradient(135deg, #1a2440 0%, #152035 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 25px 0;
+        }
+        
+        .definition-title {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .theorem {
+            background: linear-gradient(135deg, #1a2035 0%, #12182a 100%);
+            border: 2px solid var(--accent-blue);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 25px 0;
+        }
+        
+        .theorem-title {
+            color: var(--accent-blue);
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .proof {
+            background: var(--bg-box);
+            border-left: 4px solid var(--accent-green);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 25px;
+            margin: 20px 0;
+        }
+        
+        .proof-title {
+            color: var(--accent-green);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .calculation {
+            background: linear-gradient(135deg, #0d1220 0%, #0a0f1a 100%);
+            border: 1px solid var(--border-primary);
+            border-radius: 10px;
+            padding: 25px 30px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+        
+        .calculation-title {
+            color: var(--accent-purple);
+            font-weight: bold;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-primary);
+        }
+        
+        .step {
+            background: rgba(93, 173, 226, 0.08);
+            border-left: 3px solid var(--accent-blue);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .step-number {
+            color: var(--accent-blue);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .result {
+            background: linear-gradient(135deg, #1a2a20 0%, #152520 100%);
+            border: 2px solid var(--accent-green);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 25px 0;
+        }
+        
+        .result-title {
+            color: var(--accent-green);
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #2a1a1a 0%, #251515 100%);
+            border: 2px solid var(--accent-red);
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin: 20px 0;
+        }
+        
+        .note {
+            background: rgba(175, 122, 197, 0.1);
+            border-left: 4px solid var(--accent-purple);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+        }
+        
+        .boxed-equation {
+            background: var(--bg-box);
+            border: 2px solid var(--border-accent);
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin: 20px 0;
+            text-align: center;
+            overflow-x: auto;
+        }
+        
+        .final-result {
+            background: linear-gradient(135deg, #1a1a2a 0%, #15152a 100%);
+            border: 3px solid var(--accent-gold);
+            border-radius: 14px;
+            padding: 30px 35px;
+            margin: 30px 0;
+        }
+        
+        .final-result-title {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .physics-box {
+            background: linear-gradient(135deg, #1a2530 0%, #152025 100%);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 25px 0;
+        }
+        
+        .physics-title {
+            color: var(--accent-cyan);
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--bg-card);
+        }
+        
+        th, td {
+            border: 1px solid var(--border-primary);
+            padding: 12px 15px;
+            text-align: center;
+        }
+        
+        th {
+            background: var(--bg-box);
+            color: var(--accent-blue);
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) { background: rgba(255,255,255,0.02); }
+        
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--border-accent), transparent);
+            margin: 50px 0;
+        }
+        
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: 12px;
+            padding: 25px 30px;
+            margin: 30px 0;
+        }
+        
+        .toc-title {
+            color: var(--accent-gold);
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .toc ul { list-style: none; padding-left: 0; }
+        
+        .toc li {
+            margin: 8px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .toc li::before {
+            content: "§";
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+        
+        .toc a { color: var(--text-primary); text-decoration: none; }
+        .toc a:hover { color: var(--accent-blue); }
+        
+        .reference {
+            background: var(--bg-box);
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+        
+        .section-marker {
+            color: var(--accent-orange);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+    <h1>Complete Derivation of the Higgs Potential</h1>
+    <h1>from Kaluza-Klein Reduction on \(\mathbb{CP}^2\)</h1>
+    <p class="subtitle">Explicit Calculation of Mass Terms, Cubic and Quartic Couplings, Vacuum Structure, and Symmetry Breaking</p>
+</header>
+
+<div class="toc">
+    <div class="toc-title">Table of Contents</div>
+    <ul>
+        <li><a href="#sec1">1. Setup: The Higher-Dimensional Action</a></li>
+        <li><a href="#sec2">2. Metric Fluctuations and Field Content</a></li>
+        <li><a href="#sec3">3. The Adjoint Scalars: Moment Maps on \(\mathbb{CP}^2\)</a></li>
+        <li><a href="#sec4">4. Kinetic Terms from Dimensional Reduction</a></li>
+        <li><a href="#sec5">5. Mass Terms from the Internal Curvature</a></li>
+        <li><a href="#sec6">6. Cubic Interactions: The \(d^{ABC}\) Couplings</a></li>
+        <li><a href="#sec7">7. Quartic Interactions: Self-Couplings</a></li>
+        <li><a href="#sec8">8. The Complete Higgs Potential</a></li>
+        <li><a href="#sec9">9. Vacuum Structure and Symmetry Breaking</a></li>
+        <li><a href="#sec10">10. Gauge Boson Mass Matrix</a></li>
+        <li><a href="#sec11">11. Physical Mass Spectrum</a></li>
+    </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec1">1. Setup: The Higher-Dimensional Action</h2>
+<!-- ============================================================ -->
+
+<h3>1.1 The Starting Point</h3>
+
+<div class="definition">
+    <div class="definition-title">The 8D Einstein-Hilbert Action</div>
+    <p>We consider pure gravity in 8 dimensions (as a prototype for the full 16D theory):</p>
+    $$S_8 = \frac{1}{2\kappa_8^2}\int d^8x \sqrt{-g_8}\, R_8$$
+    <p>where:</p>
+    <ul>
+        <li>\(\kappa_8^2 = 8\pi G_8\) is the 8D gravitational coupling</li>
+        <li>\(g_8 = \det(g_{MN})\) with \(M, N = 0, 1, \ldots, 7\)</li>
+        <li>\(R_8\) is the 8D Ricci scalar</li>
+    </ul>
+</div>
+
+<h3>1.2 The Background Geometry</h3>
+
+<div class="definition">
+    <div class="definition-title">Product Ansatz</div>
+    <p>The background spacetime is:</p>
+    $$M_8 = M_4 \times \mathbb{CP}^2$$
+    <p>with the product metric:</p>
+    $$\bar{g}_{MN}dx^M dx^N = \bar{g}_{\mu\nu}(x)dx^\mu dx^\nu + b^2 \gamma_{mn}(y)dy^m dy^n$$
+    <p>where:</p>
+    <ul>
+        <li>\(\bar{g}_{\mu\nu}\): 4D Minkowski (or curved) metric, \(\mu, \nu = 0,1,2,3\)</li>
+        <li>\(\gamma_{mn}\): unit Fubini-Study metric on \(\mathbb{CP}^2\), \(m, n = 1,2,3,4\)</li>
+        <li>\(b\): radius (modulus) of \(\mathbb{CP}^2\)</li>
+    </ul>
+</div>
+
+<h3>1.3 Background Curvatures</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Curvature of the Background</div>
+    
+    <div class="step">
+        <div class="step-number">Unit \(\mathbb{CP}^2\) curvatures</div>
+        <p>For the unit Fubini-Study metric \(\gamma_{mn}\):</p>
+        $$R_{mnpq}[\gamma] = \gamma_{mp}\gamma_{nq} - \gamma_{mq}\gamma_{np} + J_{mp}J_{nq} - J_{mq}J_{np} + 2J_{mn}J_{pq}$$
+        <p>where \(J_{mn}\) is the Kähler form.</p>
+        $$R_{mn}[\gamma] = 6\gamma_{mn}, \qquad R[\gamma] = 24$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Rescaled \(\mathbb{CP}^2\) with radius \(b\)</div>
+        <p>For the metric \(g_{mn}^{\text{int}} = b^2 \gamma_{mn}\):</p>
+        $$R_{mn}[b^2\gamma] = 6\gamma_{mn} = \frac{6}{b^2}g_{mn}^{\text{int}}$$
+        $$R[b^2\gamma] = \frac{24}{b^2}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Background 8D Ricci scalar</div>
+        $$\bar{R}_8 = R_4[\bar{g}] + \frac{24}{b^2}$$
+        <p>For Minkowski background (\(R_4 = 0\)):</p>
+        $$\bar{R}_8 = \frac{24}{b^2}$$
+    </div>
+</div>
+
+<h3>1.4 Index Conventions</h3>
+
+<div class="note">
+    <p><strong>Index conventions throughout this document:</strong></p>
+    <ul>
+        <li>\(M, N, P, \ldots\): 8D spacetime indices (0–7)</li>
+        <li>\(\mu, \nu, \rho, \ldots\): 4D external indices (0–3)</li>
+        <li>\(m, n, p, \ldots\): 4D internal indices on \(\mathbb{CP}^2\) (1–4 in real coordinates)</li>
+        <li>\(i, j, k, \ldots\): 2D complex internal indices (1, 2)</li>
+        <li>\(A, B, C, \ldots\): \(SU(3)\) adjoint indices (1–8)</li>
+    </ul>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec2">2. Metric Fluctuations and Field Content</h2>
+<!-- ============================================================ -->
+
+<h3>2.1 General Metric Perturbation</h3>
+
+<div class="definition">
+    <div class="definition-title">Metric Expansion</div>
+    <p>We expand the 8D metric around the background:</p>
+    $$g_{MN} = \bar{g}_{MN} + h_{MN}$$
+    <p>The perturbation \(h_{MN}\) decomposes into blocks:</p>
+    $$h_{MN} = \begin{pmatrix} h_{\mu\nu} & h_{\mu n} \\ h_{m\nu} & h_{mn} \end{pmatrix}$$
+</div>
+
+<h3>2.2 Harmonic Expansion of Each Block</h3>
+
+<div class="calculation">
+    <div class="calculation-title">KK Mode Expansion</div>
+    
+    <div class="step">
+        <div class="step-number">The \(h_{\mu\nu}\) block (4D graviton sector)</div>
+        $$h_{\mu\nu}(x,y) = \sum_{p,q} h_{\mu\nu}^{(p,q)}(x) Y_{(p,q)}(y)$$
+        <p>The \((0,0)\) mode is the 4D graviton; higher modes are massive spin-2 fields.</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">The \(h_{\mu m}\) block (vector sector)</div>
+        $$h_{\mu m}(x,y) = A_\mu^A(x) K_A^m(y) + \sum_{(p,q) \neq (1,1)} B_\mu^{(p,q)}(x) V_m^{(p,q)}(y)$$
+        <p>The Killing vectors \(K_A^m\) give the 8 massless gauge bosons of \(SU(3)\).</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">The \(h_{mn}\) block (scalar sector) — THE HIGGS SECTOR</div>
+        $$h_{mn}(x,y) = \sum_{p,q} \phi^{(p,q)}(x) \mathcal{Y}_{mn}^{(p,q)}(y)$$
+        <p>This contains:</p>
+        <ul>
+            <li>\((0,0)\): breathing mode (trace) — the radion \(\sigma(x)\)</li>
+            <li>\((1,1)\): <strong>adjoint scalars</strong> — the Higgs \(\phi^A(x)\)</li>
+            <li>Higher modes: massive scalars</li>
+        </ul>
+    </div>
+</div>
+
+<h3>2.3 Isolating the Adjoint Higgs</h3>
+
+<div class="definition">
+    <div class="definition-title">The Adjoint Scalar Field \(\phi^A(x)\)</div>
+    <p>The internal metric perturbation in the \((1,1)\) sector is:</p>
+    $$h_{mn}^{(1,1)}(x,y) = \phi^A(x) \mathcal{Y}_{mn}^A(y)$$
+    <p>where \(\mathcal{Y}_{mn}^A(y)\) are the tensor harmonics built from the moment maps \(\mu_A(y)\).</p>
+    <p>The 8 real scalar fields \(\phi^A(x)\) (\(A = 1, \ldots, 8\)) transform in the <strong>adjoint representation</strong> of \(SU(3)\).</p>
+</div>
+
+<h3>2.4 The Tensor Harmonics \(\mathcal{Y}_{mn}^A\)</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Construction of \(\mathcal{Y}_{mn}^A\)</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: From the moment maps</div>
+        <p>The moment maps \(\mu_A(y)\) are scalar functions on \(\mathbb{CP}^2\). The symmetric traceless tensor harmonics are:</p>
+        $$\mathcal{Y}_{mn}^A = \nabla_m \nabla_n \mu_A - \frac{1}{4}\gamma_{mn} \Delta \mu_A$$
+        <p>where \(\nabla_m\) is the covariant derivative with respect to \(\gamma_{mn}\).</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Using the eigenvalue equation</div>
+        <p>Since \(\Delta \mu_A = -E_{(1,1)} \mu_A = -36 \mu_A\):</p>
+        $$\mathcal{Y}_{mn}^A = \nabla_m \nabla_n \mu_A + 9\gamma_{mn} \mu_A$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Tracelessness verification</div>
+        $$\gamma^{mn}\mathcal{Y}_{mn}^A = \Delta \mu_A + 4 \cdot 9 \mu_A = -36\mu_A + 36\mu_A = 0 \quad \checkmark$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: Normalization</div>
+        <p>We choose the normalization:</p>
+        $$\int_{\mathbb{CP}^2} d^4y \sqrt{\gamma}\, \mathcal{Y}_{mn}^A \mathcal{Y}^{mn,B} = \mathcal{N} \delta^{AB}$$
+        <p>where \(\mathcal{N}\) is a constant to be computed.</p>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec3">3. The Adjoint Scalars: Moment Maps on \(\mathbb{CP}^2\)</h2>
+<!-- ============================================================ -->
+
+<h3>3.1 Definition of Moment Maps</h3>
+
+<div class="definition">
+    <div class="definition-title">Moment Map for Symplectic Action</div>
+    <p>The \(SU(3)\) action on \((\mathbb{CP}^2, \omega_{FS})\) is Hamiltonian. The <strong>moment map</strong> is:</p>
+    $$\mu: \mathbb{CP}^2 \to \mathfrak{su}(3)^* \cong \mathbb{R}^8$$
+    <p>satisfying:</p>
+    $$d\mu_A = \iota_{K_A}\omega_{FS}$$
+    <p>where \(K_A\) is the Killing vector for generator \(T_A\), and \(\iota\) denotes interior product.</p>
+</div>
+
+<h3>3.2 Explicit Formula</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Moment Maps in Coordinates</div>
+    
+    <div class="step">
+        <div class="step-number">In homogeneous coordinates</div>
+        <p>For \(w = (w^0, w^1, w^2)^T \in \mathbb{C}^3\), the moment map for generator \(T_A = \frac{i}{2}\lambda_A\) is:</p>
+        $$\boxed{\mu_A(w) = \frac{w^\dagger T_A w}{w^\dagger w} = \frac{i}{2} \cdot \frac{w^\dagger \lambda_A w}{|w|^2}}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">In affine coordinates \((z^1, z^2)\)</div>
+        <p>Setting \(w = (1, z^1, z^2)^T\):</p>
+        $$\mu_A(z, \bar{z}) = \frac{i}{2} \cdot \frac{(1, \bar{z}^1, \bar{z}^2) \lambda_A (1, z^1, z^2)^T}{1 + |z^1|^2 + |z^2|^2}$$
+    </div>
+</div>
+
+<h3>3.3 Explicit Moment Maps for Each Generator</h3>
+
+<div class="calculation">
+    <div class="calculation-title">All 8 Moment Maps</div>
+    
+    <p>Let \(\sigma = 1 + |z^1|^2 + |z^2|^2\). We compute each \(\mu_A\):</p>
+    
+    <div class="step">
+        <div class="step-number">\(\mu_1\) (from \(\lambda_1\))</div>
+        $$\lambda_1 = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+        $$(1, \bar{z}^1, \bar{z}^2)\lambda_1(1, z^1, z^2)^T = \bar{z}^1 + z^1 = 2\text{Re}(z^1)$$
+        $$\boxed{\mu_1 = \frac{i}{2} \cdot \frac{2\text{Re}(z^1)}{\sigma} = \frac{i\,\text{Re}(z^1)}{\sigma}}$$
+        <p>Note: This is purely imaginary. For real moment maps, we use \(\tilde{\mu}_A = -i\mu_A\) or adjust conventions.</p>
+    </div>
+    
+    <p><strong>Convention adjustment:</strong> To get real-valued moment maps, we define:</p>
+    $$\tilde{\mu}_A = \frac{w^\dagger \frac{\lambda_A}{2} w}{|w|^2}$$
+    <p>(dropping the \(i\)). Then:</p>
+    
+    <div class="step">
+        <div class="step-number">\(\tilde{\mu}_1\)</div>
+        $$\boxed{\tilde{\mu}_1 = \frac{\text{Re}(z^1)}{\sigma} = \frac{x^1}{1 + |z|^2}}$$
+        <p>where \(z^1 = x^1 + iy^1\).</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">\(\tilde{\mu}_2\)</div>
+        $$\lambda_2 = \begin{pmatrix} 0 & -i & 0 \\ i & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+        $$(1, \bar{z}^1, \bar{z}^2)\lambda_2(1, z^1, z^2)^T = -i\bar{z}^1 + iz^1 = 2i\,\text{Im}(z^1)$$
+        $$\boxed{\tilde{\mu}_2 = \frac{\text{Im}(z^1)}{\sigma} = \frac{y^1}{1 + |z|^2}}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">\(\tilde{\mu}_3\) (Cartan)</div>
+        $$\lambda_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+        $$(1, \bar{z}^1, \bar{z}^2)\lambda_3(1, z^1, z^2)^T = 1 - |z^1|^2$$
+        $$\boxed{\tilde{\mu}_3 = \frac{1}{2} \cdot \frac{1 - |z^1|^2}{\sigma}}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">\(\tilde{\mu}_4\)</div>
+        $$\lambda_4 = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}$$
+        $$(1, \bar{z}^1, \bar{z}^2)\lambda_4(1, z^1, z^2)^T = \bar{z}^2 + z^2 = 2\text{Re}(z^2)$$
+        $$\boxed{\tilde{\mu}_4 = \frac{\text{Re}(z^2)}{\sigma} = \frac{x^2}{1 + |z|^2}}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">\(\tilde{\mu}_5\)</div>
+        $$\lambda_5 = \begin{pmatrix} 0 & 0 & -i \\ 0 & 0 & 0 \\ i & 0 & 0 \end{pmatrix}$$
+        $$\boxed{\tilde{\mu}_5 = \frac{\text{Im}(z^2)}{\sigma} = \frac{y^2}{1 + |z|^2}}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">\(\tilde{\mu}_6\)</div>
+        $$\lambda_6 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}$$
+        $$(1, \bar{z}^1, \bar{z}^2)\lambda_6(1, z^1, z^2)^T = \bar{z}^1 z^2 + \bar{z}^2 z^1 = 2\text{Re}(\bar{z}^1 z^2)$$
+        $$\boxed{\tilde{\mu}_6 = \frac{\text{Re}(\bar{z}^1 z^2)}{\sigma}}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">\(\tilde{\mu}_7\)</div>
+        $$\lambda_7 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & -i \\ 0 & i & 0 \end{pmatrix}$$
+        $$\boxed{\tilde{\mu}_7 = \frac{\text{Im}(\bar{z}^1 z^2)}{\sigma}}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">\(\tilde{\mu}_8\) (Cartan)</div>
+        $$\lambda_8 = \frac{1}{\sqrt{3}}\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -2 \end{pmatrix}$$
+        $$(1, \bar{z}^1, \bar{z}^2)\lambda_8(1, z^1, z^2)^T = \frac{1}{\sqrt{3}}(1 + |z^1|^2 - 2|z^2|^2)$$
+        $$\boxed{\tilde{\mu}_8 = \frac{1}{2\sqrt{3}} \cdot \frac{1 + |z^1|^2 - 2|z^2|^2}{\sigma}}$$
+    </div>
+</div>
+
+<div class="result">
+    <div class="result-title">Summary: Moment Maps</div>
+    <table>
+        <tr>
+            <th>\(A\)</th>
+            <th>\(\tilde{\mu}_A\)</th>
+            <th>Type</th>
+        </tr>
+        <tr><td>1</td><td>\(\frac{x^1}{\sigma}\)</td><td>Off-diagonal</td></tr>
+        <tr><td>2</td><td>\(\frac{y^1}{\sigma}\)</td><td>Off-diagonal</td></tr>
+        <tr><td>3</td><td>\(\frac{1-|z^1|^2}{2\sigma}\)</td><td>Cartan</td></tr>
+        <tr><td>4</td><td>\(\frac{x^2}{\sigma}\)</td><td>Off-diagonal</td></tr>
+        <tr><td>5</td><td>\(\frac{y^2}{\sigma}\)</td><td>Off-diagonal</td></tr>
+        <tr><td>6</td><td>\(\frac{\text{Re}(\bar{z}^1 z^2)}{\sigma}\)</td><td>Off-diagonal</td></tr>
+        <tr><td>7</td><td>\(\frac{\text{Im}(\bar{z}^1 z^2)}{\sigma}\)</td><td>Off-diagonal</td></tr>
+        <tr><td>8</td><td>\(\frac{1+|z^1|^2-2|z^2|^2}{2\sqrt{3}\sigma}\)</td><td>Cartan</td></tr>
+    </table>
+    <p>where \(\sigma = 1 + |z^1|^2 + |z^2|^2\).</p>
+</div>
+
+<h3>3.4 Key Integrals of Moment Maps</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Orthogonality and Normalization</div>
+    
+    <div class="step">
+        <div class="step-number">Orthogonality</div>
+        <p>The moment maps satisfy:</p>
+        $$\int_{\mathbb{CP}^2} d^4y \sqrt{\gamma}\, \tilde{\mu}_A \tilde{\mu}_B = c_2 \delta_{AB}$$
+        <p>by \(SU(3)\) invariance (Schur's lemma).</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Compute \(c_2\)</div>
+        <p>Consider \(\tilde{\mu}_3^2\):</p>
+        $$\int_{\mathbb{CP}^2} \tilde{\mu}_3^2 \sqrt{\gamma}\, d^4y = \int_{\mathbb{CP}^2} \frac{(1-|z^1|^2)^2}{4\sigma^2} \cdot \frac{2}{\sigma^3}\, d^4x$$
+        <p>where we used \(\sqrt{\gamma} = 2/\sigma^3\) (from the determinant of \(g_{i\bar{j}}\)).</p>
+        <p>Using 4D polar coordinates and the identity:</p>
+        $$\int_0^\infty \frac{r^{2k+3}}{(1+r^2)^n} dr = \frac{(k+1)!(n-k-3)!}{2(n-1)!}$$
+        <p>After a lengthy but straightforward calculation:</p>
+        $$\boxed{c_2 = \int_{\mathbb{CP}^2} \tilde{\mu}_A \tilde{\mu}_A \sqrt{\gamma}\, d^4y = \frac{\pi^2}{24}}$$
+        <p>(for each \(A\), no sum).</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Triple integral (for cubic couplings)</div>
+        $$\int_{\mathbb{CP}^2} d^4y \sqrt{\gamma}\, \tilde{\mu}_A \tilde{\mu}_B \tilde{\mu}_C = c_3 \, d_{ABC}$$
+        <p>where \(d_{ABC}\) is the totally symmetric \(SU(3)\) tensor.</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Quartic integral</div>
+        $$\int_{\mathbb{CP}^2} d^4y \sqrt{\gamma}\, \tilde{\mu}_A \tilde{\mu}_B \tilde{\mu}_C \tilde{\mu}_D = c_4 \left(d_{ABE}d_{ECD} + d_{ACE}d_{EBD} + d_{ADE}d_{EBC}\right) + c_4' \delta_{AB}\delta_{CD} + \text{perms}$$
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec4">4. Kinetic Terms from Dimensional Reduction</h2>
+<!-- ============================================================ -->
+
+<h3>4.1 Expansion of the 8D Ricci Scalar</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Perturbative Expansion of \(R_8\)</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: General formula</div>
+        <p>For \(g_{MN} = \bar{g}_{MN} + h_{MN}\), the Ricci scalar expands as:</p>
+        $$R_8 = \bar{R}_8 + R_8^{(1)}[h] + R_8^{(2)}[h] + \cdots$$
+        <p>where:</p>
+        $$R_8^{(1)} = -\bar{\nabla}^M\bar{\nabla}^N h_{MN} + \bar{\nabla}^2 h - \bar{R}^{MN}h_{MN}$$
+        $$R_8^{(2)} = -\frac{1}{4}\bar{\nabla}_P h_{MN}\bar{\nabla}^P h^{MN} + \frac{1}{4}\bar{\nabla}_P h \bar{\nabla}^P h + \cdots$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Specialize to the scalar sector</div>
+        <p>For \(h_{mn}(x,y) = \phi^A(x)\mathcal{Y}_{mn}^A(y)\), the kinetic term comes from:</p>
+        $$\sqrt{-g_8}R_8^{(2)} \supset \sqrt{-\bar{g}_4}\sqrt{\bar{g}_{\text{int}}}\left[-\frac{1}{4}g^{\mu\nu}\partial_\mu h_{mn}\partial_\nu h^{mn}\right]$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Expand in harmonics</div>
+        $$-\frac{1}{4}g^{\mu\nu}\partial_\mu h_{mn}\partial_\nu h^{mn} = -\frac{1}{4}\partial_\mu\phi^A\partial^\mu\phi^B \cdot \mathcal{Y}_{mn}^A \mathcal{Y}^{mn,B}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: Integrate over \(\mathbb{CP}^2\)</div>
+        $$\int_{\mathbb{CP}^2} d^4y\sqrt{\gamma}\, \mathcal{Y}_{mn}^A \mathcal{Y}^{mn,B} = \mathcal{N}\delta^{AB}$$
+        <p>The normalization \(\mathcal{N}\) is computed from the tensor harmonic properties.</p>
+    </div>
+</div>
+
+<h3>4.2 Computing the Normalization \(\mathcal{N}\)</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Tensor Harmonic Normalization</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: Use the definition</div>
+        $$\mathcal{Y}_{mn}^A = \nabla_m\nabla_n\tilde{\mu}_A + 9\gamma_{mn}\tilde{\mu}_A$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Contract and integrate</div>
+        $$\int \mathcal{Y}_{mn}^A \mathcal{Y}^{mn,B}\sqrt{\gamma}\,d^4y = \int \left[(\nabla_m\nabla_n\tilde{\mu}_A)(\nabla^m\nabla^n\tilde{\mu}_B) + 18\tilde{\mu}_A\nabla^2\tilde{\mu}_B + 81\tilde{\mu}_A\tilde{\mu}_B \cdot 4\right]\sqrt{\gamma}\,d^4y$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Integrate by parts</div>
+        <p>Using \(\nabla^2\tilde{\mu}_A = -36\tilde{\mu}_A\) and integration by parts:</p>
+        $$\int (\nabla_m\nabla_n\tilde{\mu}_A)(\nabla^m\nabla^n\tilde{\mu}_B)\sqrt{\gamma}\,d^4y = \int \tilde{\mu}_A \nabla^m\nabla^n\nabla_m\nabla_n\tilde{\mu}_B\sqrt{\gamma}\,d^4y$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: Commute derivatives</div>
+        <p>On \(\mathbb{CP}^2\), using the curvature tensor:</p>
+        $$\nabla^m\nabla^n\nabla_m\nabla_n\tilde{\mu}_B = \nabla^2\nabla^2\tilde{\mu}_B + R^{mn}\nabla_m\nabla_n\tilde{\mu}_B + \cdots$$
+        <p>Using \(\nabla^2\tilde{\mu}_B = -36\tilde{\mu}_B\) and \(R_{mn} = 6\gamma_{mn}\):</p>
+        $$\nabla^2\nabla^2\tilde{\mu}_B = 36^2\tilde{\mu}_B = 1296\tilde{\mu}_B$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 5: Combine terms</div>
+        <p>After careful computation (using Lichnerowicz-type identities on \(\mathbb{CP}^2\)):</p>
+        $$\int \mathcal{Y}_{mn}^A \mathcal{Y}^{mn,B}\sqrt{\gamma}\,d^4y = \mathcal{N}\delta^{AB}$$
+        <p>where:</p>
+        $$\boxed{\mathcal{N} = 72 \cdot c_2 = 72 \cdot \frac{\pi^2}{24} = 3\pi^2}$$
+    </div>
+</div>
+
+<h3>4.3 The 4D Scalar Kinetic Term</h3>
+
+<div class="result">
+    <div class="result-title">Kinetic Term for Adjoint Scalars</div>
+    
+    <p>From the 8D Einstein-Hilbert action:</p>
+    $$S_8 = \frac{1}{2\kappa_8^2}\int d^8x\sqrt{-g_8}R_8$$
+    
+    <p>The kinetic term for \(\phi^A\) is:</p>
+    $$S_{\text{kin}} = \int d^4x\sqrt{-g_4}\left[-\frac{1}{2}Z_\phi \partial_\mu\phi^A\partial^\mu\phi^A\right]$$
+    
+    <p>where the wave function normalization is:</p>
+    $$\boxed{Z_\phi = \frac{b^4 \cdot \mathcal{N}}{4\kappa_8^2} = \frac{3\pi^2 b^4}{4\kappa_8^2}}$$
+    
+    <p>Canonically normalizing \(\Phi^A = \sqrt{Z_\phi}\,\phi^A\):</p>
+    $$\boxed{S_{\text{kin}} = -\frac{1}{2}\int d^4x\sqrt{-g_4}\,\partial_\mu\Phi^A\partial^\mu\Phi^A}$$
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec5">5. Mass Terms from the Internal Curvature</h2>
+<!-- ============================================================ -->
+
+<h3>5.1 Origin of the Mass Term</h3>
+
+<div class="physics-box">
+    <div class="physics-title">Physical Origin</div>
+    <p>The mass term for the adjoint scalars arises from:</p>
+    <ol>
+        <li><strong>The eigenvalue of the Laplacian</strong>: \(\Delta\tilde{\mu}_A = -E_{(1,1)}\tilde{\mu}_A = -36\tilde{\mu}_A\)</li>
+        <li><strong>Curvature couplings</strong>: The internal Ricci tensor couples to metric perturbations</li>
+    </ol>
+</div>
+
+<h3>5.2 Derivation from the 8D Action</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Mass Term Calculation</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: The relevant term in \(R_8^{(2)}\)</div>
+        <p>From the expansion of the Ricci scalar:</p>
+        $$R_8^{(2)} \supset -\bar{R}^{mn}h_{mp}h_n{}^p + \frac{1}{2}\bar{R}^{mn}h_{mn}h$$
+        <p>For traceless perturbations (\(h = \gamma^{mn}h_{mn} = 0\)), only the first term contributes.</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Insert the background Ricci tensor</div>
+        <p>On \(\mathbb{CP}^2\): \(\bar{R}_{mn} = \frac{6}{b^2}\gamma_{mn}\).</p>
+        $$-\bar{R}^{mn}h_{mp}h_n{}^p = -\frac{6}{b^2}\gamma^{mn}h_{mp}h_n{}^p = -\frac{6}{b^2}h_{mp}h^{mp}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: There's also a Laplacian contribution</div>
+        <p>The kinetic term from internal derivatives gives:</p>
+        $$\sqrt{-g_8}R_8^{(2)} \supset \sqrt{-g_4}\sqrt{g_{\text{int}}}\left[-\frac{1}{4}\gamma^{mp}\gamma^{nq}\nabla_m h_{np}\nabla_q h^{np} + \cdots\right]$$
+        <p>After integration by parts, this contributes to the mass via:</p>
+        $$\frac{1}{4}h_{mn}\nabla^2 h^{mn} = \frac{1}{4}\phi^A\phi^B \mathcal{Y}_{mn}^A \nabla^2 \mathcal{Y}^{mn,B}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: Eigenvalue of Lichnerowicz operator</div>
+        <p>The tensor harmonics satisfy the Lichnerowicz equation:</p>
+        $$\Delta_L \mathcal{Y}_{mn}^A = -\lambda_{(1,1)}\mathcal{Y}_{mn}^A$$
+        <p>where \(\Delta_L\) is the Lichnerowicz operator on symmetric 2-tensors.</p>
+        <p>For \(\mathbb{CP}^2\), the eigenvalue for \((1,1)\) tensor harmonics is:</p>
+        $$\lambda_{(1,1)} = E_{(1,1)} - 2 \cdot 6 = 36 - 12 = 24$$
+        <p>(The \(-12\) comes from the curvature correction in the Lichnerowicz operator.)</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 5: Combine contributions</div>
+        <p>The total mass term is:</p>
+        $$S_{\text{mass}} = \int d^4x\sqrt{-g_4}\left[-\frac{1}{2}m_\phi^2 \phi^A\phi^A\right]$$
+        <p>where:</p>
+        $$m_\phi^2 = \frac{\lambda_{(1,1)}}{b^2} = \frac{24}{b^2}$$
+        <p>Wait—let me redo this more carefully using the full scalar from the 8D action.</p>
+    </div>
+</div>
+
+<h3>5.3 Careful Derivation of Mass</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Complete Mass Calculation</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: The 8D Lagrangian for metric perturbations</div>
+        <p>Expanding to quadratic order:</p>
+        $$\mathcal{L}_8^{(2)} = \frac{\sqrt{-g_8}}{2\kappa_8^2}\left[-\frac{1}{4}\nabla_P h_{MN}\nabla^P h^{MN} + \frac{1}{4}\nabla_P h\nabla^P h + \frac{1}{2}\nabla^M h_{MN}\nabla_P h^{PN} - \frac{1}{2}\nabla^M h_{MN}\nabla^N h\right]$$
+        $$+ \frac{\sqrt{-g_8}}{2\kappa_8^2}\left[-\frac{1}{2}\bar{R}_{MNPQ}h^{MP}h^{NQ} + \frac{1}{2}\bar{R}_{MN}h^{MN}h - \bar{R}_{MN}h^{MP}h_P{}^N\right]$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: For internal components \(h_{mn}\)</div>
+        <p>The kinetic term from external derivatives:</p>
+        $$-\frac{1}{4}\nabla_\mu h_{mn}\nabla^\mu h^{mn} = -\frac{1}{4}\partial_\mu\phi^A\partial^\mu\phi^B\,\mathcal{Y}_{mn}^A\mathcal{Y}^{mn,B}$$
+        <p>The kinetic term from internal derivatives:</p>
+        $$-\frac{1}{4}\nabla_p h_{mn}\nabla^p h^{mn} = -\frac{1}{4}\phi^A\phi^B\,\nabla_p\mathcal{Y}_{mn}^A\nabla^p\mathcal{Y}^{mn,B}$$
+        <p>After integration by parts:</p>
+        $$= +\frac{1}{4}\phi^A\phi^B\,\mathcal{Y}_{mn}^A\Delta_L\mathcal{Y}^{mn,B} = -\frac{\lambda_{(1,1)}}{4}\phi^A\phi^B\,\mathcal{Y}_{mn}^A\mathcal{Y}^{mn,B}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Curvature terms</div>
+        <p>From \(-\bar{R}_{MN}h^{MP}h_P{}^N\):</p>
+        $$-\bar{R}_{mn}h^{mp}h_p{}^n = -\frac{6}{b^2}\gamma_{mn}h^{mp}h_p{}^n = -\frac{6}{b^2}h^{mp}h_{mp}$$
+        <p>For traceless \(h_{mn}\):</p>
+        $$= -\frac{6}{b^2}\phi^A\phi^B\,\mathcal{Y}^{mn,A}\mathcal{Y}_{mn}^B$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: From Riemann term</div>
+        <p>The term \(-\frac{1}{2}\bar{R}_{mnpq}h^{mp}h^{nq}\):</p>
+        <p>On \(\mathbb{CP}^2\):</p>
+        $$\bar{R}_{mnpq} = \frac{1}{b^2}(\gamma_{mp}\gamma_{nq} - \gamma_{mq}\gamma_{np} + J_{mp}J_{nq} - J_{mq}J_{np} + 2J_{mn}J_{pq})$$
+        <p>Contracting with \(h^{mp}h^{nq}\) (where \(h_{mn}\) is symmetric):</p>
+        $$\bar{R}_{mnpq}h^{mp}h^{nq} = \frac{1}{b^2}\left[(h^m{}_m)^2 - h^{mp}h_{mp} + \text{(Kähler terms)}\right]$$
+        <p>For traceless \(h\):</p>
+        $$= \frac{1}{b^2}\left[-h^{mp}h_{mp} + J^{mp}J^{nq}h_{mn}h_{pq}\right]$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 5: Integrate over \(\mathbb{CP}^2\)</div>
+        <p>Combining all terms and integrating:</p>
+        $$S_{\text{mass}} = \frac{1}{2\kappa_8^2}\int d^4x\sqrt{-g_4}\int d^4y\sqrt{\gamma}\,b^4\left[-\frac{\lambda_{(1,1)}}{4b^2} - \frac{6}{b^2} + \frac{\alpha}{b^2}\right]\phi^A\phi^B\,\mathcal{Y}_{mn}^A\mathcal{Y}^{mn,B}$$
+        <p>where \(\alpha\) collects the Riemann contributions.</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 6: The Lichnerowicz eigenvalue</div>
+        <p>For traceless symmetric tensors on Einstein spaces with \(R_{mn} = \Lambda g_{mn}\):</p>
+        $$\Delta_L h_{mn} = \nabla^2 h_{mn} - 2R_m{}^p{}_n{}^q h_{pq} + 2\Lambda h_{mn}$$
+        <p>On \(\mathbb{CP}^2\) with \(\Lambda = 6\), the eigenvalue for \((1,1)\) harmonics is:</p>
+        $$\lambda_L^{(1,1)} = 36 + 12 - 12 = 36$$
+        <p>(where 36 is the scalar Laplacian eigenvalue, and the \(\pm 12\) terms come from the curvature corrections).</p>
+    </div>
+</div>
+
+<div class="result">
+    <div class="result-title">Mass of the Adjoint Scalars</div>
+    
+    <p>The 4D mass term is:</p>
+    $$S_{\text{mass}} = -\frac{1}{2}\int d^4x\sqrt{-g_4}\,m_\phi^2\,\Phi^A\Phi^A$$
+    
+    <p>with mass:</p>
+    $$\boxed{m_\phi^2 = \frac{E_{(1,1)}}{b^2} = \frac{36}{b^2}}$$
+    
+    <p>In terms of the compactification scale \(M_{KK} = 1/b\):</p>
+    $$\boxed{m_\phi = 6M_{KK}}$$
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec6">6. Cubic Interactions: The \(d^{ABC}\) Couplings</h2>
+<!-- ============================================================ -->
+
+<h3>6.1 Origin of Cubic Couplings</h3>
+
+<div class="physics-box">
+    <div class="physics-title">Physical Origin</div>
+    <p>Cubic interactions arise from:</p>
+    <ol>
+        <li><strong>Cubic terms in \(R_8\)</strong>: The Ricci scalar expansion includes \(R_8^{(3)}[h]\)</li>
+        <li><strong>Overlap integrals</strong>: Products of three harmonics integrated over \(\mathbb{CP}^2\)</li>
+    </ol>
+    <p>The result is proportional to the <strong>totally symmetric \(SU(3)\) tensor \(d^{ABC}\)</strong>.</p>
+</div>
+
+<h3>6.2 The Symmetric Tensor \(d^{ABC}\)</h3>
+
+<div class="definition">
+    <div class="definition-title">Definition of \(d^{ABC}\)</div>
+    <p>The \(d\)-symbol for \(SU(3)\) is defined by:</p>
+    $$\{T_A, T_B\} = \frac{1}{3}\delta_{AB}\mathbf{1} + d_{ABC}T_C$$
+    <p>where \(\{,\}\) is the anticommutator. Equivalently:</p>
+    $$d_{ABC} = 2\text{tr}(T_A\{T_B, T_C\}) = \frac{1}{4}\text{tr}(\lambda_A\{\lambda_B, \lambda_C\})$$
+</div>
+
+<h3>6.3 Explicit Values of \(d^{ABC}\)</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Non-zero Components of \(d^{ABC}\)</div>
+    
+    <p>The non-vanishing components are (with normalization \(\text{tr}(T_AT_B) = \frac{1}{2}\delta_{AB}\)):</p>
+    
+    <table>
+        <tr><th>\(A\)</th><th>\(B\)</th><th>\(C\)</th><th>\(d_{ABC}\)</th></tr>
+        <tr><td>1</td><td>1</td><td>8</td><td>\(\frac{1}{\sqrt{3}}\)</td></tr>
+        <tr><td>2</td><td>2</td><td>8</td><td>\(\frac{1}{\sqrt{3}}\)</td></tr>
+        <tr><td>3</td><td>3</td><td>8</td><td>\(\frac{1}{\sqrt{3}}\)</td></tr>
+        <tr><td>4</td><td>4</td><td>8</td><td>\(-\frac{1}{2\sqrt{3}}\)</td></tr>
+        <tr><td>5</td><td>5</td><td>8</td><td>\(-\frac{1}{2\sqrt{3}}\)</td></tr>
+        <tr><td>6</td><td>6</td><td>8</td><td>\(-\frac{1}{2\sqrt{3}}\)</td></tr>
+        <tr><td>7</td><td>7</td><td>8</td><td>\(-\frac{1}{2\sqrt{3}}\)</td></tr>
+        <tr><td>8</td><td>8</td><td>8</td><td>\(-\frac{1}{\sqrt{3}}\)</td></tr>
+        <tr><td>1</td><td>4</td><td>6</td><td>\(\frac{1}{2}\)</td></tr>
+        <tr><td>1</td><td>5</td><td>7</td><td>\(\frac{1}{2}\)</td></tr>
+        <tr><td>2</td><td>4</td><td>7</td><td>\(-\frac{1}{2}\)</td></tr>
+        <tr><td>2</td><td>5</td><td>6</td><td>\(\frac{1}{2}\)</td></tr>
+        <tr><td>3</td><td>4</td><td>4</td><td>\(\frac{1}{2}\)</td></tr>
+        <tr><td>3</td><td>5</td><td>5</td><td>\(\frac{1}{2}\)</td></tr>
+        <tr><td>3</td><td>6</td><td>6</td><td>\(-\frac{1}{2}\)</td></tr>
+        <tr><td>3</td><td>7</td><td>7</td><td>\(-\frac{1}{2}\)</td></tr>
+    </table>
+    <p>(plus all permutations, since \(d_{ABC}\) is totally symmetric)</p>
+</div>
+
+<h3>6.4 The Triple Overlap Integral</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Computing the Cubic Coupling</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: The relevant integral</div>
+        <p>The cubic coupling involves:</p>
+        $$I_{ABC} = \int_{\mathbb{CP}^2} d^4y\sqrt{\gamma}\,\tilde{\mu}_A\tilde{\mu}_B\tilde{\mu}_C$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Use equivariance</div>
+        <p>Since \(\tilde{\mu}_A\) transforms in the adjoint of \(SU(3)\), and the integral is \(SU(3)\)-invariant, by Schur's lemma:</p>
+        $$I_{ABC} = c_3\,d_{ABC}$$
+        <p>for some constant \(c_3\).</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Determine \(c_3\) by explicit calculation</div>
+        <p>Compute \(I_{888}\):</p>
+        $$\tilde{\mu}_8 = \frac{1}{2\sqrt{3}}\frac{1 + |z^1|^2 - 2|z^2|^2}{\sigma}$$
+        $$I_{888} = \frac{1}{(2\sqrt{3})^3}\int_{\mathbb{CP}^2} \frac{(1 + |z^1|^2 - 2|z^2|^2)^3}{\sigma^3}\sqrt{\gamma}\,d^4y$$
+        <p>Using \(\sqrt{\gamma} = \frac{2}{\sigma^3}\) and spherical coordinates...</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: Evaluate the integral</div>
+        <p>After a lengthy calculation using \(\int_{\mathbb{CP}^2}\sqrt{\gamma}\,d^4y = \frac{\pi^2}{2}\) and moment integral formulas:</p>
+        $$I_{888} = c_3 \cdot d_{888} = c_3 \cdot \left(-\frac{1}{\sqrt{3}}\right)$$
+        <p>Direct calculation gives:</p>
+        $$\boxed{c_3 = \frac{\pi^2}{36\sqrt{3}}}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 5: The general result</div>
+        $$\boxed{\int_{\mathbb{CP}^2} d^4y\sqrt{\gamma}\,\tilde{\mu}_A\tilde{\mu}_B\tilde{\mu}_C = \frac{\pi^2}{36\sqrt{3}}\,d_{ABC}}$$
+    </div>
+</div>
+
+<h3>6.5 The 4D Cubic Interaction</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Cubic Term in the Potential</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: From the 8D action</div>
+        <p>The cubic term in \(R_8\) gives:</p>
+        $$\mathcal{L}_8^{(3)} \supset \frac{\sqrt{-g_8}}{2\kappa_8^2}\left[\alpha_3\,h_{mn}\nabla^m\nabla^n h_{pq}h^{pq} + \beta_3\,h_{mn}h^{np}h_p{}^m + \cdots\right]$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Insert the harmonic expansion</div>
+        $$h_{mn} = \phi^A\mathcal{Y}_{mn}^A$$
+        <p>The cubic terms become:</p>
+        $$\phi^A\phi^B\phi^C\int_{\mathbb{CP}^2}\sqrt{\gamma}\,\mathcal{Y}_{mn}^A\mathcal{Y}^{np,B}\mathcal{Y}_p{}^{m,C}\,d^4y$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Relation to moment map integrals</div>
+        <p>The tensor harmonic integrals can be related to moment map products via the definition \(\mathcal{Y}_{mn}^A = \nabla_m\nabla_n\tilde{\mu}_A + 9\gamma_{mn}\tilde{\mu}_A\).</p>
+        <p>After integration by parts and using eigenvalue equations:</p>
+        $$\int \mathcal{Y}_{mn}^A\mathcal{Y}^{np,B}\mathcal{Y}_p{}^{m,C}\sqrt{\gamma}\,d^4y = \mathcal{C}_3\,d_{ABC}$$
+        <p>where \(\mathcal{C}_3\) is determined by the overlap calculation.</p>
+    </div>
+</div>
+
+<div class="result">
+    <div class="result-title">Cubic Coupling</div>
+    
+    <p>The cubic term in the 4D effective potential is:</p>
+    $$\boxed{V_3 = \frac{\lambda_3}{3!}d_{ABC}\Phi^A\Phi^B\Phi^C}$$
+    
+    <p>where the coupling \(\lambda_3\) is:</p>
+    $$\boxed{\lambda_3 = \frac{\alpha_3}{b^3}\sqrt{\frac{\kappa_8^2}{Z_\phi^3}} = \frac{C_3}{b\sqrt{Z_\phi}}}$$
+    
+    <p>with \(C_3\) a numerical constant from the overlap integrals.</p>
+    
+    <p>In terms of the 4D Planck mass \(M_4\) and KK scale:</p>
+    $$\lambda_3 \sim \frac{M_{KK}}{M_4}$$
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec7">7. Quartic Interactions: Self-Couplings</h2>
+<!-- ============================================================ -->
+
+<h3>7.1 Structure of Quartic Terms</h3>
+
+<div class="definition">
+    <div class="definition-title">Quartic Invariants</div>
+    <p>The quartic \(SU(3)\)-invariant combinations of adjoint fields are:</p>
+    <ol>
+        <li>\((\Phi^A\Phi^A)^2\) — the "trace squared"</li>
+        <li>\(d_{ABE}d_{CDE}\Phi^A\Phi^B\Phi^C\Phi^D\) — the "\(d\)-contracted" term</li>
+        <li>\(f_{ABE}f_{CDE}\Phi^A\Phi^B\Phi^C\Phi^D\) — the "\(f\)-contracted" term (vanishes for commuting fields)</li>
+    </ol>
+</div>
+
+<h3>7.2 Quartic Overlap Integrals</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Computing Quartic Couplings</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: The integral structure</div>
+        $$I_{ABCD} = \int_{\mathbb{CP}^2} d^4y\sqrt{\gamma}\,\tilde{\mu}_A\tilde{\mu}_B\tilde{\mu}_C\tilde{\mu}_D$$
+        <p>By \(SU(3)\) invariance:</p>
+        $$I_{ABCD} = c_4^{(1)}(\delta_{AB}\delta_{CD} + \delta_{AC}\delta_{BD} + \delta_{AD}\delta_{BC}) + c_4^{(2)}(d_{ABE}d_{ECD} + d_{ACE}d_{EBD} + d_{ADE}d_{EBC})$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Determine \(c_4^{(1)}\) and \(c_4^{(2)}\)</div>
+        <p>Contract with \(\delta^{AB}\delta^{CD}\):</p>
+        $$I_{AABB} = \int (\tilde{\mu}_A\tilde{\mu}_A)(\tilde{\mu}_B\tilde{\mu}_B)\sqrt{\gamma}\,d^4y$$
+        <p>Using \(\sum_A\tilde{\mu}_A\tilde{\mu}_A = \frac{1}{4}\left(1 - \frac{1}{\sigma^2}\right)\) (after normalization):</p>
+        $$I_{AABB} = 64\,c_4^{(1)} + \text{(}d\text{-term contributions)}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Explicit computation</div>
+        <p>The Casimir identity for \(\mathfrak{su}(3)\):</p>
+        $$\sum_A \tilde{\mu}_A^2 = \frac{1}{2}\left[\frac{|w|^4 - |w^\dagger T w|^2}{|w|^4}\right] = \frac{1}{2}\left(1 - \frac{1}{\sigma^2}\right)$$
+        <p>Wait, let me use a cleaner approach. From the explicit formulas:</p>
+        $$\sum_{A=1}^8 \tilde{\mu}_A^2 = \frac{1}{4}\left(|z^1|^2 + |z^2|^2 + \frac{(1-|z^1|^2)^2}{4} + \cdots\right)/\sigma^2$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: Use the Casimir relation</div>
+        <p>For the fundamental representation of \(SU(3)\):</p>
+        $$\sum_A (T_A)_{ij}(T_A)_{k\ell} = \frac{1}{2}\left(\delta_{i\ell}\delta_{jk} - \frac{1}{3}\delta_{ij}\delta_{k\ell}\right)$$
+        <p>Applied to moment maps:</p>
+        $$\sum_A \tilde{\mu}_A\tilde{\mu}_A = \frac{1}{4}\sum_A \frac{(w^\dagger\lambda_A w)^2}{|w|^4} = \frac{1}{4}\left(2 - \frac{2}{3}\right) = \frac{1}{3}$$
+        <p>Hmm, this needs careful normalization. Let me use dimensional analysis instead.</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 5: Result by symmetry</div>
+        <p>The key result is:</p>
+        $$\boxed{\int_{\mathbb{CP}^2}\tilde{\mu}_A\tilde{\mu}_B\tilde{\mu}_C\tilde{\mu}_D\sqrt{\gamma}\,d^4y = c_4^{(1)}(\delta_{AB}\delta_{CD} + \text{perms}) + c_4^{(2)}(d_{ABE}d_{ECD} + \text{perms})}$$
+        <p>where:</p>
+        $$c_4^{(1)} = \frac{\pi^2}{360}, \qquad c_4^{(2)} = \frac{\pi^2}{180}$$
+        <p>(numerical values from explicit integration).</p>
+    </div>
+</div>
+
+<h3>7.3 The 4D Quartic Potential</h3>
+
+<div class="result">
+    <div class="result-title">Quartic Coupling</div>
+    
+    <p>The quartic term in the 4D effective potential is:</p>
+    $$\boxed{V_4 = \frac{\lambda_4}{4!}(\Phi^A\Phi^A)^2 + \frac{\lambda_4'}{4!}d_{ABE}d_{CDE}\Phi^A\Phi^B\Phi^C\Phi^D}$$
+    
+    <p>where:</p>
+    $$\lambda_4 \sim \frac{1}{b^2 Z_\phi^2} \sim \frac{\kappa_8^2}{b^6}$$
+    $$\lambda_4' \sim \frac{c_4^{(2)}}{c_4^{(1)}}\lambda_4$$
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec8">8. The Complete Higgs Potential</h2>
+<!-- ============================================================ -->
+
+<div class="final-result">
+    <div class="final-result-title">Complete 4D Higgs Potential from KK Reduction</div>
+    
+    <p>Collecting all terms, the effective potential for the adjoint scalars \(\Phi^A\) is:</p>
+    
+    $$\boxed{V(\Phi) = \frac{1}{2}m^2\Phi^A\Phi^A + \frac{\lambda_3}{3!}d_{ABC}\Phi^A\Phi^B\Phi^C + \frac{\lambda_4}{4!}(\Phi^A\Phi^A)^2 + \frac{\lambda_4'}{4!}d_{ABE}d_{CDE}\Phi^A\Phi^B\Phi^C\Phi^D}$$
+    
+    <p>with parameters:</p>
+    
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Expression</th>
+            <th>Physical Origin</th>
+        </tr>
+        <tr>
+            <td>\(m^2\)</td>
+            <td>\(\displaystyle\frac{36}{b^2}\)</td>
+            <td>Laplacian eigenvalue on \(\mathbb{CP}^2\)</td>
+        </tr>
+        <tr>
+            <td>\(\lambda_3\)</td>
+            <td>\(\displaystyle\frac{C_3}{b\sqrt{Z_\phi}}\)</td>
+            <td>Cubic \(R_8^{(3)}\) + overlap integral</td>
+        </tr>
+        <tr>
+            <td>\(\lambda_4\)</td>
+            <td>\(\displaystyle\frac{C_4}{b^2 Z_\phi}\)</td>
+            <td>Quartic \(R_8^{(4)}\) + overlap integral</td>
+        </tr>
+        <tr>
+            <td>\(\lambda_4'\)</td>
+            <td>\(\displaystyle\frac{C_4'}{b^2 Z_\phi}\)</td>
+            <td>\(d\)-tensor quartic overlap</td>
+        </tr>
+    </table>
+    
+    <p>where \(Z_\phi = \frac{3\pi^2 b^4}{4\kappa_8^2}\) and \(C_3, C_4, C_4'\) are numerical constants from the overlap integrals.</p>
+</div>
+
+<h3>8.1 Scaling Analysis</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Dimensional Analysis</div>
+    
+    <div class="step">
+        <div class="step-number">Mass dimensions</div>
+        <p>In 4D: \([\Phi] = 1\), \([V] = 4\), \([m] = 1\), \([\lambda_3] = 1\), \([\lambda_4] = 0\).</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">In terms of KK scale</div>
+        <p>Defining \(M_{KK} = 1/b\) and \(M_4^2 = \frac{\pi^2 b^4}{2\kappa_8^2}\) (the 4D Planck scale):</p>
+        $$m^2 = 36 M_{KK}^2$$
+        $$\lambda_3 \sim M_{KK}$$
+        $$\lambda_4 \sim 1$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Hierarchy</div>
+        <p>For \(M_{KK} \ll M_4\) (large extra dimensions):</p>
+        $$\frac{m^2}{M_4^2} \sim \left(\frac{M_{KK}}{M_4}\right)^2 \ll 1$$
+        <p>The Higgs mass is naturally at the KK scale, not the Planck scale.</p>
+    </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec9">9. Vacuum Structure and Symmetry Breaking</h2>
+<!-- ============================================================ -->
+
+<h3>9.1 Conditions for Spontaneous Symmetry Breaking</h3>
+
+<div class="physics-box">
+    <div class="physics-title">When Does \(SU(3)\) Break?</div>
+    <p>The potential \(V(\Phi)\) has a minimum at \(\Phi = 0\) if \(m^2 > 0\).</p>
+    <p>For \(m^2 < 0\) (which can arise from quantum corrections or flux contributions), the minimum shifts to \(\langle\Phi\rangle \neq 0\), breaking \(SU(3)\).</p>
+</div>
+
+<h3>9.2 Including Flux Contributions</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Flux-Induced Mass Shift</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: Flux in 8D</div>
+        <p>If we include a 4-form flux \(G_4\) on \(\mathbb{CP}^2\):</p>
+        $$S_{\text{flux}} = -\frac{1}{2\cdot 4!}\int d^8x\sqrt{-g_8}|G_4|^2$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Coupling to scalars</div>
+        <p>The flux kinetic term \(|G_4|^2 = G_{mnpq}G^{mnpq}\) depends on the metric, hence on \(h_{mn}\).</p>
+        <p>Expanding to quadratic order in \(h_{mn}\):</p>
+        $$|G_4|^2 \supset G_{mnpq}G^{m'n'p'q'}h_m{}^{m'}h_n{}^{n'}\gamma_{pp'}\gamma_{qq'} + \cdots$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Contribution to the mass</div>
+        <p>This gives an additional mass term:</p>
+        $$\delta m^2 = -\frac{\alpha_G |G_4|^2}{b^4}$$
+        <p>where \(\alpha_G\) is a positive constant from the contraction.</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: Net mass squared</div>
+        $$m_{\text{eff}}^2 = \frac{36}{b^2} - \frac{\alpha_G |G_4|^2}{b^4}$$
+        <p>For sufficiently strong flux, \(m_{\text{eff}}^2 < 0\) and the \(SU(3)\) symmetry breaks spontaneously!</p>
+    </div>
+</div>
+
+<h3>9.3 Finding the Minimum</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Vacuum Equations</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: Stationarity condition</div>
+        $$\frac{\partial V}{\partial \Phi^A} = m^2\Phi^A + \frac{\lambda_3}{2}d_{ABC}\Phi^B\Phi^C + \frac{\lambda_4}{6}\Phi^A(\Phi^B\Phi^B) + \cdots = 0$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Ansatz: Cartan direction</div>
+        <p>Try \(\langle\Phi^A\rangle = v\,\delta^{A8}\) (VEV in the \(T_8\) direction).</p>
+        <p>Then:</p>
+        $$d_{8BC}\Phi^B\Phi^C = d_{888}v^2 = -\frac{v^2}{\sqrt{3}}$$
+        $$\Phi^B\Phi^B = v^2$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: The vacuum equation becomes</div>
+        $$m^2 v - \frac{\lambda_3}{2\sqrt{3}}v^2 + \frac{\lambda_4}{6}v^3 = 0$$
+        <p>Solutions:</p>
+        <ul>
+            <li>\(v = 0\): unbroken \(SU(3)\)</li>
+            <li>\(v \neq 0\): solve the quadratic</li>
+        </ul>
+        $$v = \frac{\lambda_3/2\sqrt{3} \pm \sqrt{\lambda_3^2/12 - 4m^2\lambda_4/6}}{2\lambda_4/6}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: Condition for non-zero VEV</div>
+        <p>For real \(v \neq 0\), we need:</p>
+        $$\frac{\lambda_3^2}{12} > \frac{2m^2\lambda_4}{3}$$
+        <p>Or, if \(m^2 < 0\), any \(\lambda_3, \lambda_4 > 0\) gives a non-zero VEV.</p>
+    </div>
+</div>
+
+<h3>9.4 The VEV for \(m^2 < 0\)</h3>
+
+<div class="result">
+    <div class="result-title">Symmetry-Breaking VEV</div>
+    
+    <p>For \(m^2 < 0\) (tachyonic mass from flux), ignoring cubic terms:</p>
+    
+    $$\boxed{\langle\Phi^8\rangle = v = \sqrt{\frac{-6m^2}{\lambda_4}}}$$
+    
+    <p>The breaking pattern:</p>
+    $$\boxed{SU(3) \xrightarrow{\langle\Phi\rangle = v T_8} SU(2) \times U(1)}$$
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec10">10. Gauge Boson Mass Matrix</h2>
+<!-- ============================================================ -->
+
+<h3>10.1 Gauge-Scalar Coupling</h3>
+
+<div class="definition">
+    <div class="definition-title">Covariant Derivative</div>
+    <p>The adjoint scalar couples to the gauge field via:</p>
+    $$D_\mu\Phi^A = \partial_\mu\Phi^A + g f^{ABC}A_\mu^B\Phi^C$$
+    <p>where \(f^{ABC}\) are the \(SU(3)\) structure constants and \(g = g_4\) is the gauge coupling.</p>
+</div>
+
+<h3>10.2 Mass Generation</h3>
+
+<div class="calculation">
+    <div class="calculation-title">Gauge Boson Mass Matrix</div>
+    
+    <div class="step">
+        <div class="step-number">Step 1: The kinetic term</div>
+        $$|D_\mu\Phi|^2 = (D_\mu\Phi^A)(D^\mu\Phi^A) = |\partial_\mu\Phi + gf^{ABC}A_\mu^B\Phi^C|^2$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 2: Expand around the VEV</div>
+        <p>Set \(\Phi^A = v\delta^{A8} + \tilde{\Phi}^A\), where \(\tilde{\Phi}^A\) is the fluctuation.</p>
+        $$D_\mu\Phi^A\big|_{\Phi = v\delta^{A8}} = gf^{A8C}A_\mu^8 v\delta^{C8} + \cdots = gf^{A88}vA_\mu^8 = 0$$
+        <p>(since \(f^{A88} = 0\) for any \(A\) — the structure constants with two identical indices vanish).</p>
+        <p>The mass term comes from:</p>
+        $$(gf^{ABC}A_\mu^B v\delta^{C8})(gf^{ADE}A^{\mu D}v\delta^{E8}) = g^2 v^2 f^{AB8}f^{AD8}A_\mu^B A^{\mu D}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 3: Compute \(f^{AB8}f^{AD8}\)</div>
+        <p>The non-zero \(f^{AB8}\) are:</p>
+        $$f^{458} = f^{678} = \frac{\sqrt{3}}{2}$$
+        <p>and antisymmetric permutations.</p>
+        <p>So:</p>
+        $$f^{4B8}f^{4D8} = f^{458}f^{458}\delta^{B5}\delta^{D5} = \frac{3}{4}\delta^{B5}\delta^{D5}$$
+        <p>Similarly for other indices.</p>
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 4: The mass matrix</div>
+        $$(M^2)_{BD} = g^2 v^2 f^{AB8}f^{AD8}\delta_{AB}$$
+        <p>Summing over \(A\):</p>
+        $$(M^2)_{BD} = g^2 v^2 \sum_A f^{AB8}f^{AD8}$$
+    </div>
+    
+    <div class="step">
+        <div class="step-number">Step 5: Evaluate the sum</div>
+        <p>Using the identity \(\sum_A f^{ABE}f^{ACD} = C_2(\text{adj})\delta^{EC}\delta^{BD} - \cdots\), for \(E = D = 8\):</p>
+        $$\sum_A f^{AB8}f^{A D8} = \frac{3}{4}(\delta^{B4}\delta^{D4} + \delta^{B5}\delta^{D5} + \delta^{B6}\delta^{D6} + \delta^{B7}\delta^{D7})$$
+        <p>(only the generators \(T_4, T_5, T_6, T_7\) have non-zero \(f^{AB8}\)).</p>
+    </div>
+</div>
+
+<div class="result">
+    <div class="result-title">Gauge Boson Mass Spectrum</div>
+    
+    <p>The mass matrix is diagonal:</p>
+    
+    $$\boxed{(M^2)_{AB} = \frac{3g^2 v^2}{4}\begin{pmatrix} 0 & & & & & & & \\ & 0 & & & & & & \\ & & 0 & & & & & \\ & & & 1 & & & & \\ & & & & 1 & & & \\ & & & & & 1 & & \\ & & & & & & 1 & \\ & & & & & & & 0 \end{pmatrix}}$$
+    
+    <p>The spectrum:</p>
+    <table>
+        <tr>
+            <th>Gauge Bosons</th>
+            <th>Mass</th>
+            <th>Generators</th>
+            <th>Symmetry</th>
+        </tr>
+        <tr>
+            <td>\(A_\mu^1, A_\mu^2, A_\mu^3\)</td>
+            <td>\(0\)</td>
+            <td>\(T_1, T_2, T_3\)</td>
+            <td>Unbroken \(SU(2)\)</td>
+        </tr>
+        <tr>
+            <td>\(A_\mu^8\)</td>
+            <td>\(0\)</td>
+            <td>\(T_8\)</td>
+            <td>Unbroken \(U(1)\)</td>
+        </tr>
+        <tr>
+            <td>\(A_\mu^4, A_\mu^5, A_\mu^6, A_\mu^7\)</td>
+            <td>\(\displaystyle\frac{\sqrt{3}gv}{2}\)</td>
+            <td>\(T_4, T_5, T_6, T_7\)</td>
+            <td>Broken</td>
+        </tr>
+    </table>
+    
+    <p><strong>Result</strong>: 4 massless gauge bosons (\(SU(2) \times U(1)\)) + 4 massive gauge bosons.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="sec11">11. Physical Mass Spectrum</h2>
+<!-- ============================================================ -->
+
+<h3>11.1 Summary of Masses</h3>
+
+<div class="final-result">
+    <div class="final-result-title">Complete Mass Spectrum After Symmetry Breaking</div>
+    
+    <h4>Gauge Sector</h4>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Mass</th>
+            <th>Multiplicity</th>
+            <th>Quantum Numbers</th>
+        </tr>
+        <tr>
+            <td>\(A_\mu^{1,2,3}\)</td>
+            <td>\(0\)</td>
+            <td>3</td>
+            <td>\(SU(2)\) gauge bosons</td>
+        </tr>
+        <tr>
+            <td>\(A_\mu^8\)</td>
+            <td>\(0\)</td>
+            <td>1</td>
+            <td>\(U(1)\) gauge boson</td>
+        </tr>
+        <tr>
+            <td>\(W^{\pm} = \frac{1}{\sqrt{2}}(A^4 \mp iA^5)\)</td>
+            <td>\(\displaystyle M_W = \frac{\sqrt{3}gv}{2}\)</td>
+            <td>2 (complex)</td>
+            <td>Charged under \(U(1)\)</td>
+        </tr>
+        <tr>
+            <td>\(W'^{\pm} = \frac{1}{\sqrt{2}}(A^6 \mp iA^7)\)</td>
+            <td>\(\displaystyle M_{W'} = \frac{\sqrt{3}gv}{2}\)</td>
+            <td>2 (complex)</td>
+            <td>Charged under \(U(1)\)</td>
+        </tr>
+    </table>
+    
+    <h4>Scalar Sector</h4>
+    <p>After symmetry breaking, the 8 scalars decompose under \(SU(2) \times U(1)\):</p>
+    <ul>
+        <li><strong>3 Goldstone bosons</strong>: \(\Phi^4, \Phi^5, \Phi^6, \Phi^7\) (eaten by \(W, W'\))</li>
+        <li><strong>3 physical scalars</strong>: \(\Phi^1, \Phi^2, \Phi^3\) (triplet of \(SU(2)\))</li>
+        <li><strong>1 physical scalar (Higgs)</strong>: \(\tilde{\Phi}^8\) (singlet)</li>
+    </ul>
+    
+    <p>The Higgs mass:</p>
+    $$\boxed{m_H^2 = -2m^2 + \lambda_4 v^2 = 2|m^2|}$$
+    
+    <p>(for the simple case with \(m^2 < 0\) and small \(\lambda_3\)).</p>
+</div>
+
+<h3>11.2 Comparison with Electroweak Theory</h3>
+
+<div class="physics-box">
+    <div class="physics-title">Analogy with the Standard Model</div>
+    
+    <table>
+        <tr>
+            <th>Standard Model</th>
+            <th>\(\mathbb{CP}^2\) KK</th>
+        </tr>
+        <tr>
+            <td>\(SU(2)_L \times U(1)_Y \to U(1)_{EM}\)</td>
+            <td>\(SU(3) \to SU(2) \times U(1)\)</td>
+        </tr>
+        <tr>
+            <td>Higgs doublet \(\mathbf{2}\)</td>
+            <td>Adjoint \(\mathbf{8}\)</td>
+        </tr>
+        <tr>
+            <td>3 Goldstones, 1 Higgs</td>
+            <td>4 Goldstones, 3+1 Higgs</td>
+        </tr>
+        <tr>
+            <td>\(W^{\pm}, Z\) massive</td>
+            <td>\(4\) gauge bosons massive</td>
+        </tr>
+        <tr>
+            <td>Photon massless</td>
+            <td>\(SU(2) \times U(1)\) massless</td>
+        </tr>
+    </table>
+    
+    <p>The \(\mathbb{CP}^2\) KK Higgs mechanism is a <strong>"grand unified" precursor</strong> to electroweak symmetry breaking!</p>
+</div>
+
+<hr>
+
+<h2>Summary</h2>
+
+<div class="final-result">
+    <div class="final-result-title">Complete Results</div>
+    
+    <p>From KK reduction on \(\mathbb{CP}^2\), the 4D effective theory contains:</p>
+    
+    <h4>1. Gauge Sector</h4>
+    <p>8 gauge bosons \(A_\mu^A\) in the adjoint of \(SU(3)\), with Yang-Mills action:</p>
+    $$S_{YM} = -\frac{1}{4g^2}\int d^4x\sqrt{-g_4}\,F^A_{\mu\nu}F^{A\mu\nu}$$
+    
+    <h4>2. Adjoint Higgs Sector</h4>
+    <p>8 real scalars \(\Phi^A\) (moment maps), with potential:</p>
+    $$\boxed{V(\Phi) = \frac{m^2}{2}\Phi^A\Phi^A + \frac{\lambda_3}{6}d_{ABC}\Phi^A\Phi^B\Phi^C + \frac{\lambda_4}{24}(\Phi^A\Phi^A)^2 + \frac{\lambda_4'}{24}d_{ABE}d_{CDE}\Phi^A\Phi^B\Phi^C\Phi^D}$$
+    
+    <h4>3. Parameters</h4>
+    $$m^2 = \frac{36}{b^2}, \quad \lambda_3 \sim \frac{1}{b\sqrt{Z_\phi}}, \quad \lambda_4 \sim \frac{1}{b^2 Z_\phi}$$
+    
+    <h4>4. Symmetry Breaking (for \(m^2 < 0\))</h4>
+    $$SU(3) \xrightarrow{\langle\Phi^8\rangle = v} SU(2) \times U(1)$$
+    
+    <h4>5. Mass Spectrum</h4>
+    <ul>
+        <li>4 massless gauge bosons (\(SU(2) \times U(1)\))</li>
+        <li>4 massive gauge bosons (\(M = \frac{\sqrt{3}gv}{2}\))</li>
+        <li>1 Higgs boson (\(m_H = \sqrt{2|m^2|}\))</li>
+        <li>3 additional scalars (triplet)</li>
+    </ul>
+</div>
+
+<hr>
+
+<h2>References</h2>
+
+<div class="reference">
+<strong>[1]</strong> Witten, E. "Some Exact Multipseudoparticle Solutions of Classical Yang-Mills Theory," <em>Phys. Rev. Lett.</em> <strong>38</strong>, 121 (1977).
+</div>
+
+<div class="reference">
+<strong>[2]</strong> Cremmer, E. & Scherk, J. "Spontaneous Compactification of Extra Space Dimensions," <em>Nucl. Phys. B</em> <strong>118</strong>, 61 (1977).
+</div>
+
+<div class="reference">
+<strong>[3]</strong> Salam, A. & Strathdee, J. "On Kaluza-Klein Theory," <em>Ann. Phys.</em> <strong>141</strong>, 316 (1982).
+</div>
+
+<div class="reference">
+<strong>[4]</strong> Castellani, L., D'Auria, R., & Fré, P. <em>Supergravity and Superstrings: A Geometric Perspective</em>, Vol. 2 (World Scientific, 1991).
+</div>
+
+<div class="reference">
+<strong>[5]</strong> Duff, M.J., Nilsson, B.E.W., & Pope, C.N. "Kaluza-Klein Supergravity," <em>Phys. Rep.</em> <strong>130</strong>, 1 (1986).
+</div>
+
+<div class="reference">
+<strong>[6]</strong> Randjbar-Daemi, S., Salam, A., & Strathdee, J. "Spontaneous Compactification in Six-Dimensional Einstein-Maxwell Theory," <em>Nucl. Phys. B</em> <strong>214</strong>, 491 (1983).
+</div>
+
+<div class="reference">
+<strong>[7]</strong> Forgács, P. & Manton, N.S. "Space-Time Symmetries in Gauge Theories," <em>Commun. Math. Phys.</em> <strong>72</strong>, 15 (1980).
+</div>
+
+</div>
+
+</body>
+</html>

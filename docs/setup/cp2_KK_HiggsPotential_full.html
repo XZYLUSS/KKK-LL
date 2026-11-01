@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KK Reduction on CP^2: Fully worked Higgs potential (adjoint) and SU(3)->SU(2)xU(1)</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.55; margin: 2rem; max-width: 1100px;}
+    h1,h2,h3,h4 { line-height: 1.25; margin-top: 1.4rem; }
+    code, pre { background: #f6f8fa; padding: .15rem .35rem; border-radius: 6px; }
+    pre { padding: 1rem; overflow-x: auto; }
+    .box { border: 1px solid #ddd; border-radius: 12px; padding: 1rem 1.1rem; margin: 1rem 0; background: #fafafa;}
+    .small { font-size: .95rem; color: #333; }
+    .eq { margin: .7rem 0; }
+    table { border-collapse: collapse; width: 100%; margin: .7rem 0;}
+    td, th { border: 1px solid #ddd; padding: .55rem; vertical-align: top; }
+    th { background: #f1f3f5; text-align: left; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  </style>
+</head>
+<body>
+
+<h1>KK reduction on $(\mathbb{CP}^2,g_{FS})$: fully worked adjoint Higgs potential and $SU(3)\to SU(2)\times U(1)$</h1>
+
+<div class="box">
+  <div class="small">
+    <b>Goal.</b> Starting from a higher-dimensional action on $M_4\times \mathbb{CP}^2$ with the SU(3) isometry gauge fields
+    and a real higher-dimensional scalar $\varphi(x,y)$, we perform a fully explicit KK reduction to obtain a 4D
+    adjoint Higgs multiplet $\Phi^A(x)$ with a completely derived potential
+    $$V(\Phi)=\frac12 m_{\rm eff}^2\,\Phi^A\Phi^A+\frac{\kappa}{3}\,d_{ABC}\Phi^A\Phi^B\Phi^C+\frac{\lambda}{4}\,(\Phi^A\Phi^A)^2,$$
+    and we then show in explicit algebra that a vacuum $\langle\Phi\rangle\propto T_8$ breaks
+    $$SU(3)\ \longrightarrow\ SU(2)\times U(1).$$
+    <br/><br/>
+    <b>Important modeling assumption (explicit).</b> We treat $\varphi(x,y)$ as a “proxy” higher-dimensional field whose $k=1$
+    KK modes on $\mathbb{CP}^2$ furnish the adjoint $\mathbf{8}$ of SU(3). In a full gravity-only model,
+    such scalars can arise from specific metric/p-form fluctuations; the reduction steps below are completely explicit once
+    a scalar sector exists.
+  </div>
+</div>
+
+<hr/>
+
+<h2>1. Geometry and normalization on $(\mathbb{CP}^2,g_{FS})$</h2>
+
+<h3>1.1 Affine patch and Fubini–Study metric</h3>
+
+<p>On the affine patch $Z^0\neq 0$, define</p>
+<div class="eq">$$z^1=\frac{Z^1}{Z^0},\qquad z^2=\frac{Z^2}{Z^0},\qquad
+\rho:=1+|z^1|^2+|z^2|^2.$$</div>
+
+<p>The Fubini–Study Kähler potential is</p>
+<div class="eq">$$K=\log \rho.$$</div>
+
+<p>Then the Kähler metric is</p>
+<div class="eq">
+$$g_{a\bar b}=\partial_a\partial_{\bar b}K
+=\frac{\rho\,\delta_{a\bar b}-\bar z^{\bar a}z^b}{\rho^2},\qquad a,b\in\{1,2\}.$$
+</div>
+
+<p>Its determinant is</p>
+<div class="eq">$$\det(g_{a\bar b})=\frac{1}{\rho^3}.$$</div>
+
+<div class="box">
+  <b>Unit FS normalization used throughout.</b>
+  The “unit” FS metric $\hat g$ is normalized so that
+  $$\mathrm{Ric}(\hat g)=6\,\hat g,\qquad \hat R=24.$$
+  A breathing radius $b$ means $g_{mn}=b^2\hat g_{mn}$.
+</div>
+
+<h3>1.2 Volume of $\mathbb{CP}^2$</h3>
+<p>In this normalization the total volume is</p>
+<div class="eq">$$\boxed{\ \mathrm{Vol}(\mathbb{CP}^2)=\frac{\pi^2}{2}\ }$$</div>
+<p class="small">(This matches the standard convention $\int_{\mathbb{CP}^2}\frac{\omega^2}{2}=\frac{\pi^2}{2}$ for the FS Kähler form.)</p>
+
+<hr/>
+
+<h2>2. SU(3) isometry gauging: gauge bosons from Killing vectors</h2>
+
+<h3>2.1 Isometry algebra</h3>
+<p>The connected isometry group of $(\mathbb{CP}^2,g_{FS})$ is $\mathrm{PSU}(3)=SU(3)/\mathbb{Z}_3$, and</p>
+<div class="eq">$$\mathfrak{isom}(\mathbb{CP}^2,g_{FS})\cong \mathfrak{su}(3).$$</div>
+
+<p>Let $K_A^m(y)$ ($A=1,\dots,8$) be the eight real Killing vectors satisfying</p>
+<div class="eq">$$[K_A,K_B]=f_{AB}{}^C\,K_C.$$</div>
+
+<h3>2.2 KK ansatz</h3>
+<p>With breathing radius $b$ and 4D gauge fields $A_\mu^A(x)$, the standard KK ansatz is</p>
+<div class="eq">
+$$ds^2=g_{\mu\nu}(x)\,dx^\mu dx^\nu
++b^2\hat g_{mn}(y)\big(dy^m+K_A^m(y)A_\mu^A(x)\,dx^\mu\big)\big(dy^n+K_B^n(y)A_\nu^B(x)\,dx^\nu\big).$$
+</div>
+
+<p>The corresponding gauge transformation comes from $x$-dependent internal isometries
+$\delta y^m=-\varepsilon^A(x)K_A^m(y)$ and yields</p>
+<div class="eq">$$\boxed{\ \delta A_\mu^A=\partial_\mu\varepsilon^A+f_{BC}{}^A A_\mu^B\varepsilon^C\ }$$</div>
+
+<hr/>
+
+<h2>3. The Higgs field from KK modes: choice of the adjoint scalar basis</h2>
+
+<h3>3.1 Fundamental SU(3) generators and conventions</h3>
+<p>Let $T_A=\lambda_A/2$ be the Gell–Mann generators in the fundamental representation, normalized by</p>
+<div class="eq">$$\mathrm{Tr}(T_A T_B)=\frac12\,\delta_{AB}.$$</div>
+
+<p>Define the symmetric $d$-symbols by the anticommutator identity</p>
+<div class="eq">
+$$\{T_A,T_B\}=\frac{1}{3}\delta_{AB}\,\mathbf{1}+d_{ABC}\,T_C.$$
+</div>
+
+<p>Equivalently, multiplying by $T_C$ and tracing gives the explicit formula</p>
+<div class="eq">$$\boxed{\ d_{ABC}=2\,\mathrm{Tr}\big(\{T_A,T_B\}T_C\big)\ }$$</div>
+
+<h3>3.2 The $k=1$ scalar harmonics (moment maps) $\mu_A(y)$</h3>
+
+<p>A point in $\mathbb{CP}^2$ can be represented by a rank-1 projector</p>
+<div class="eq">$$P(y)=\frac{Z Z^\dagger}{Z^\dagger Z},\qquad P^2=P,\qquad \mathrm{Tr}(P)=1.$$</div>
+
+<p>Define the eight real functions (“Killing potentials / moment maps”)</p>
+<div class="eq">$$\boxed{\ \mu_A(y):=\mathrm{Tr}\big(T_A\,P(y)\big)\ }$$</div>
+
+<p>These functions transform in the adjoint under SU(3) isometries:</p>
+<div class="eq">$$K_A(\mu_B)=f_{AB}{}^{C}\,\mu_C.$$</div>
+
+<p>They satisfy the scalar Laplacian eigenvalue equation (unit FS normalization)</p>
+<div class="eq">$$\boxed{\ \hat\Delta\,\mu_A = 12\,\mu_A\ }$$</div>
+
+<div class="box">
+  <b>KK truncation defining the 4D adjoint Higgs multiplet.</b>
+  We expand a real higher-dimensional scalar field $\varphi(x,y)$ into the $k=1$ modes:
+  $$\boxed{\ \varphi(x,y)=\phi^A(x)\,\mu_A(y)\ }$$
+  so the 4D fields $\phi^A(x)$ transform as an SU(3) adjoint $\mathbf{8}$.
+</div>
+
+<hr/>
+
+<h2>4. The higher-dimensional action and its reduction</h2>
+
+<h3>4.1 Starting action in $D=8$</h3>
+
+<p>Take the 8D action (gravity + scalar) on $M_4\times\mathbb{CP}^2$:</p>
+<div class="eq">
+$$S=\int d^8X\,\sqrt{-G}\left[\frac{1}{2\kappa_8^2}R[G]\;-\;\frac12\,G^{MN}\partial_M\varphi\,\partial_N\varphi\;-\;U_8(\varphi)\right].$$
+</div>
+
+<p>We choose a general cubic+quartic local potential in 8D:</p>
+<div class="eq">
+$$\boxed{\ U_8(\varphi)= -\frac{\mu_8^2}{2}\,\varphi^2+\frac{g_8}{3}\,\varphi^3+\frac{\lambda_8}{4}\,\varphi^4\ }$$
+</div>
+
+<div class="small">
+  All symbols here are explicit: $\mu_8$ has dimension of mass, $g_8$ has mass dimension $1$, and $\lambda_8$ has mass dimension $0$ in $D=8$
+  for a scalar with canonical kinetic term.
+</div>
+
+<h3>4.2 Metric factors and measure</h3>
+
+<p>With $g_{mn}=b^2\hat g_{mn}$ we have</p>
+<div class="eq">$$\sqrt{-G}=\sqrt{-g_4}\;b^4\sqrt{\hat g},\qquad
+G^{mn}=\frac{1}{b^2}\hat g^{mn}.$$
+</div>
+
+<hr/>
+
+<h2>5. The key CP$^2$ integrals (computed explicitly)</h2>
+
+<p>All reduced couplings come from the following integrals:</p>
+<div class="eq">
+$$I_2{}_{AB}=\int_{\mathbb{CP}^2}\!\sqrt{\hat g}\,\mu_A\mu_B,\qquad
+I_3{}_{ABC}=\int_{\mathbb{CP}^2}\!\sqrt{\hat g}\,\mu_A\mu_B\mu_C,\qquad
+I_4{}_{ABCD}=\int_{\mathbb{CP}^2}\!\sqrt{\hat g}\,\mu_A\mu_B\mu_C\mu_D.$$
+</div>
+
+<h3>5.1 General Haar/FS moment formula for projectors</h3>
+
+<p>Because the FS measure is SU(3)-invariant, the random variable $P(y)$ is distributed like a Haar-random rank-1 projector in $\mathbb{C}^3$.
+For $d=3$ one has the universal identity (symmetric-subspace projector formula):</p>
+
+<div class="eq">
+$$\boxed{\ \int_{\mathbb{CP}^2}\!\sqrt{\hat g}\,P^{\otimes k}
+= \mathrm{Vol}(\mathbb{CP}^2)\;\frac{1}{(d)_k}\sum_{\sigma\in S_k}U_\sigma,\qquad (d)_k:=d(d+1)\cdots(d+k-1)\ }$$
+</div>
+
+<p>Here $U_\sigma$ permutes the tensor factors according to $\sigma$, and for us $d=3$ so</p>
+<div class="eq">$$ (3)_2=3\cdot 4=12,\qquad (3)_3=3\cdot 4\cdot 5=60,\qquad (3)_4=3\cdot 4\cdot 5\cdot 6=360.$$</div>
+
+<p>We now compute $I_2,I_3,I_4$ by contracting this identity with $T_A$ matrices.</p>
+
+<h3>5.2 Quadratic integral $I_2$</h3>
+
+<p>Start from $\mu_A=\mathrm{Tr}(T_A P)$, hence</p>
+<div class="eq">
+$$\mu_A\mu_B=\mathrm{Tr}(T_A P)\,\mathrm{Tr}(T_B P)
+=(T_A)_{ji}(T_B)_{lk}\,P_{ij}P_{kl}.$$
+</div>
+
+<p>Use the $k=2$ moment identity for $P_{ij}P_{kl}$ (equivalently the $S_2$ sum):</p>
+<div class="eq">
+$$\int P_{ij}P_{kl}
+=\mathrm{Vol}\,\frac{1}{(3)_2}\big(\delta_{ij}\delta_{kl}+\delta_{il}\delta_{kj}\big)
+=\mathrm{Vol}\,\frac{1}{12}\big(\delta_{ij}\delta_{kl}+\delta_{il}\delta_{kj}\big).$$
+</div>
+
+<p>Contract:</p>
+<div class="eq">
+$$I_2{}_{AB}
+=\mathrm{Vol}\,\frac{1}{12}\Big[(T_A)_{ji}(T_B)_{lk}\delta_{ij}\delta_{kl}+(T_A)_{ji}(T_B)_{lk}\delta_{il}\delta_{kj}\Big].$$
+</div>
+
+<p>Evaluate each term:</p>
+<ul>
+  <li>First term: $(T_A)_{ji}\delta_{ij}=\mathrm{Tr}(T_A)=0$ (traceless), so it vanishes.</li>
+  <li>Second term: $(T_A)_{ji}(T_B)_{lk}\delta_{il}\delta_{kj}=(T_A)_{jk}(T_B)_{kj}=\mathrm{Tr}(T_A T_B)=\frac12\delta_{AB}$.</li>
+</ul>
+
+<p>Therefore</p>
+<div class="eq">$$\boxed{\ I_2{}_{AB}=\mathrm{Vol}\cdot\frac{1}{12}\cdot\frac12\,\delta_{AB}
+=\frac{\mathrm{Vol}(\mathbb{CP}^2)}{24}\,\delta_{AB}\ }$$</div>
+
+<h3>5.3 Cubic integral $I_3$</h3>
+
+<p>Similarly</p>
+<div class="eq">$$\mu_A\mu_B\mu_C=(T_A)_{j_1 i_1}(T_B)_{j_2 i_2}(T_C)_{j_3 i_3}\,P_{i_1j_1}P_{i_2j_2}P_{i_3j_3}.$$</div>
+
+<p>The $k=3$ projector moment gives</p>
+<div class="eq">
+$$\int P_{i_1j_1}P_{i_2j_2}P_{i_3j_3}
+=\mathrm{Vol}\,\frac{1}{(3)_3}\sum_{\sigma\in S_3}\delta_{i_1 j_{\sigma(1)}}\delta_{i_2 j_{\sigma(2)}}\delta_{i_3 j_{\sigma(3)}}
+=\mathrm{Vol}\,\frac{1}{60}\sum_{\sigma\in S_3}\cdots.$$
+</div>
+
+<p>Carrying out the six contractions is equivalent to the cycle-trace identity, yielding the SU(3)-invariant tensor proportional to $d_{ABC}$.
+One finds (explicitly, using $\mathrm{Tr}(T_AT_BT_C)=\tfrac14 d_{ABC}$ for the fully symmetric part):</p>
+
+<div class="eq">
+$$\boxed{\ I_3{}_{ABC}=\frac{\mathrm{Vol}(\mathbb{CP}^2)}{120}\,d_{ABC}\ }$$</div>
+
+<p class="small">Cross-check: for $A=B=C=8$, $d_{888}=-\frac{\sqrt{3}}{3}$ so $I_3{}_{888}=-\frac{\sqrt{3}}{360}\,\mathrm{Vol}$.</p>
+
+<h3>5.4 Quartic integral $I_4$</h3>
+
+<p>By the $k=4$ moment identity,</p>
+<div class="eq">
+$$\int P^{\otimes 4}
+=\mathrm{Vol}\,\frac{1}{(3)_4}\sum_{\sigma\in S_4}U_\sigma
+=\mathrm{Vol}\,\frac{1}{360}\sum_{\sigma\in S_4}U_\sigma.$$
+</div>
+
+<p>Contracting with $T_A\otimes T_B\otimes T_C\otimes T_D$ and using the cycle-trace rule gives a fully symmetric SU(3)-invariant tensor.
+Because $\mu_A$ are commuting scalar functions, <i>antisymmetric</i> $f_{ABC}$ structures cannot appear. The only possible
+rank-4 symmetric invariant is the symmetrized $\delta$-pairing, and one obtains the exact result</p>
+
+<div class="eq">
+$$\boxed{\ I_4{}_{ABCD}
+=\frac{\mathrm{Vol}(\mathbb{CP}^2)}{720}\Big(\delta_{AB}\delta_{CD}+\delta_{AC}\delta_{BD}+\delta_{AD}\delta_{BC}\Big)\ }$$
+</div>
+
+<p>As a very explicit corollary, for any adjoint vector $\phi^A$:</p>
+<div class="eq">
+$$\int (\phi^A\mu_A)^4
+= \phi^A\phi^B\phi^C\phi^D\,I_4{}_{ABCD}
+=\frac{\mathrm{Vol}}{720}\cdot 3\,(\phi^A\phi^A)^2
+=\frac{\mathrm{Vol}}{240}\,(\phi^A\phi^A)^2.$$
+</div>
+
+<hr/>
+
+<h2>6. Reduction of the scalar kinetic term and emergence of the 4D adjoint covariant derivative</h2>
+
+<h3>6.1 The KK-covariant derivative on scalars</h3>
+
+<p>For a higher-dimensional scalar $\varphi(x,y)$, the KK ansatz implies that derivatives along $x^\mu$ become gauge-covariant:</p>
+<div class="eq">
+$$\boxed{\ D_\mu\varphi := \partial_\mu\varphi - A_\mu^A(x)\,K_A^m(y)\,\partial_m\varphi\ }$$
+</div>
+
+<p>Now insert the truncation $\varphi=\phi^B(x)\mu_B(y)$:</p>
+<div class="eq">
+$$D_\mu\varphi
+= (\partial_\mu\phi^B)\mu_B - A_\mu^A\,\phi^B\,K_A(\mu_B).$$
+</div>
+
+<p>Using $K_A(\mu_B)=f_{AB}{}^C\mu_C$:</p>
+<div class="eq">
+$$D_\mu\varphi=\big(\partial_\mu\phi^C + f_{AB}{}^C A_\mu^A\phi^B\big)\mu_C.$$
+</div>
+
+<p>Therefore the 4D fields transform with the <b>adjoint covariant derivative</b></p>
+<div class="eq">
+$$\boxed{\ D_\mu\phi^C = \partial_\mu\phi^C + f_{AB}{}^C A_\mu^A\phi^B\ }$$
+</div>
+
+<h3>6.2 Reduce the $x$-derivative kinetic term</h3>
+
+<p>The higher-dimensional kinetic term contributes</p>
+<div class="eq">
+$$S_{\rm kin}^{(x)}=-\frac12\int d^8X\,\sqrt{-G}\,G^{\mu\nu}\partial_\mu\varphi\,\partial_\nu\varphi
+\ \longrightarrow\
+-\frac12\int d^4x\,\sqrt{-g_4}\;\Big[b^4\int_{\mathbb{CP}^2}\sqrt{\hat g}\;\mu_A\mu_B\Big]\,D_\mu\phi^A D^\mu\phi^B.$$
+</div>
+
+<p>Using $I_2{}_{AB}=\mathrm{Vol}\,\delta_{AB}/24$:</p>
+<div class="eq">
+$$S_{\rm kin}^{(x)}=-\frac12\int d^4x\,\sqrt{-g_4}\;\underbrace{\Big(\frac{b^4\,\mathrm{Vol}}{24}\Big)}_{=:Z}\;\delta_{AB}\,D_\mu\phi^A D^\mu\phi^B.$$
+</div>
+
+<p>Define the canonically normalized 4D Higgs multiplet</p>
+<div class="eq">$$\boxed{\ \Phi^A := \sqrt{Z}\,\phi^A,\qquad Z=\frac{b^4\,\mathrm{Vol}(\mathbb{CP}^2)}{24}\ }$$</div>
+
+<p>Then</p>
+<div class="eq">$$S_{\rm kin}^{(x)}=-\frac12\int d^4x\,\sqrt{-g_4}\;\delta_{AB}\,D_\mu\Phi^A D^\mu\Phi^B.$$</div>
+
+<hr/>
+
+<h2>7. KK mass term from internal gradients (the geometric contribution)</h2>
+
+<p>The internal part of the kinetic term gives a positive mass contribution:</p>
+<div class="eq">
+$$S_{\rm kin}^{(y)}=-\frac12\int d^8X\,\sqrt{-G}\,G^{mn}\partial_m\varphi\,\partial_n\varphi.$$
+</div>
+
+<p>Using $\sqrt{-G}=\sqrt{-g_4}\,b^4\sqrt{\hat g}$ and $G^{mn}=b^{-2}\hat g^{mn}$:</p>
+<div class="eq">
+$$S_{\rm kin}^{(y)}
+=-\frac12\int d^4x\,\sqrt{-g_4}\;b^2\int_{\mathbb{CP}^2}\sqrt{\hat g}\;\hat g^{mn}\partial_m\varphi\,\partial_n\varphi.$$
+</div>
+
+<p>Insert $\varphi=\phi^A\mu_A$:</p>
+<div class="eq">
+$$\hat g^{mn}\partial_m\varphi\,\partial_n\varphi
+=\phi^A\phi^B\,\hat g^{mn}\partial_m\mu_A\,\partial_n\mu_B.$$
+</div>
+
+<p>Integrate by parts:</p>
+<div class="eq">
+$$\int\sqrt{\hat g}\;\hat g^{mn}\partial_m\mu_A\,\partial_n\mu_B
+=-\int\sqrt{\hat g}\;\mu_A\,\hat\Delta \mu_B.$$
+</div>
+
+<p>Use $\hat\Delta\mu_B=12\,\mu_B$:</p>
+<div class="eq">
+$$\int\sqrt{\hat g}\;\hat g^{mn}\partial_m\mu_A\,\partial_n\mu_B
+=12\int\sqrt{\hat g}\;\mu_A\mu_B
+=12\cdot \frac{\mathrm{Vol}}{24}\delta_{AB}
+=\frac{\mathrm{Vol}}{2}\delta_{AB}.$$
+</div>
+
+<p>Therefore</p>
+<div class="eq">
+$$S_{\rm kin}^{(y)}
+=-\frac12\int d^4x\,\sqrt{-g_4}\;b^2\cdot\frac{\mathrm{Vol}}{2}\;\delta_{AB}\,\phi^A\phi^B.$$
+</div>
+
+<p>Rewrite in canonical variables $\Phi^A=\sqrt{Z}\phi^A$ with $Z=b^4\mathrm{Vol}/24$:</p>
+<div class="eq">
+$$S_{\rm kin}^{(y)}
+=-\frac12\int d^4x\,\sqrt{-g_4}\;\delta_{AB}\,\Big(\frac{12}{b^2}\Big)\,\Phi^A\Phi^B.$$
+</div>
+
+<div class="box">
+  <b>Geometric KK mass.</b>
+  $$\boxed{\ m_{\rm KK}^2=\frac{12}{b^2}\ }$$
+</div>
+
+<hr/>
+
+<h2>8. Reduction of the 8D local potential $U_8(\varphi)$</h2>
+
+<p>The 8D potential contributes to the 4D potential via</p>
+<div class="eq">
+$$S_{U}=-\int d^8X\,\sqrt{-G}\;U_8(\varphi)
+=-\int d^4x\,\sqrt{-g_4}\;\underbrace{b^4\int_{\mathbb{CP}^2}\sqrt{\hat g}\;U_8(\varphi)}_{=: \int d^4x\sqrt{-g_4}\,V_U(\phi)}.$$
+</div>
+
+<h3>8.1 Quadratic term</h3>
+
+<p>From $U_8\supset -\frac{\mu_8^2}{2}\varphi^2$:</p>
+<div class="eq">
+$$V_U^{(2)}(\phi)= b^4\left(-\frac{\mu_8^2}{2}\right)\int \sqrt{\hat g}\;(\phi^A\mu_A)^2
+= b^4\left(-\frac{\mu_8^2}{2}\right)\phi^A\phi^B I_2{}_{AB}.$$
+</div>
+
+<p>Use $I_2{}_{AB}=\mathrm{Vol}\,\delta_{AB}/24$:</p>
+<div class="eq">
+$$V_U^{(2)}(\phi)= -\frac{\mu_8^2}{2}\;\underbrace{\Big(\frac{b^4\mathrm{Vol}}{24}\Big)}_{Z}\;\phi^A\phi^A
+=-\frac{\mu_8^2}{2}\;\Phi^A\Phi^A.$$
+</div>
+
+<p>So in canonical variables:</p>
+<div class="eq">$$\boxed{\ V_U^{(2)}(\Phi)= -\frac{\mu_8^2}{2}\,\Phi^A\Phi^A\ }$$</div>
+
+<h3>8.2 Cubic term (this generates the $d_{ABC}$ invariant)</h3>
+
+<p>From $U_8\supset \frac{g_8}{3}\varphi^3$:</p>
+<div class="eq">
+$$V_U^{(3)}(\phi)= b^4\frac{g_8}{3}\int \sqrt{\hat g}\;(\phi^A\mu_A)^3
+=b^4\frac{g_8}{3}\phi^A\phi^B\phi^C\,I_3{}_{ABC}.$$
+</div>
+
+<p>Use $I_3{}_{ABC}=\mathrm{Vol}\,d_{ABC}/120$:</p>
+<div class="eq">
+$$V_U^{(3)}(\phi)= b^4\frac{g_8}{3}\cdot \frac{\mathrm{Vol}}{120}\;d_{ABC}\phi^A\phi^B\phi^C.$$
+</div>
+
+<p>Convert to canonical fields $\Phi=\sqrt{Z}\phi$:</p>
+<div class="eq">
+$$\phi^A\phi^B\phi^C=\frac{\Phi^A\Phi^B\Phi^C}{Z^{3/2}},\qquad
+Z=\frac{b^4\mathrm{Vol}}{24}.$$
+</div>
+
+<p>Hence</p>
+<div class="eq">
+$$V_U^{(3)}(\Phi)=\frac{\kappa}{3}\,d_{ABC}\Phi^A\Phi^B\Phi^C,$$
+</div>
+
+<p>with the <b>explicit 4D cubic coupling</b></p>
+<div class="eq">
+$$\boxed{\ \kappa = g_8\,\frac{b^4\mathrm{Vol}}{120}\cdot \frac{1}{Z^{3/2}}
+= g_8\,\frac{24^{3/2}}{120}\cdot \frac{1}{b^2\sqrt{\mathrm{Vol}}}
+= g_8\,\frac{2\sqrt{6}}{5}\cdot \frac{1}{b^2\sqrt{\mathrm{Vol}(\mathbb{CP}^2)}}\ }$$
+</div>
+
+<h3>8.3 Quartic term</h3>
+
+<p>From $U_8\supset \frac{\lambda_8}{4}\varphi^4$:</p>
+<div class="eq">
+$$V_U^{(4)}(\phi)=b^4\frac{\lambda_8}{4}\int\sqrt{\hat g}\;(\phi^A\mu_A)^4
+=b^4\frac{\lambda_8}{4}\cdot \frac{\mathrm{Vol}}{240}\,(\phi^A\phi^A)^2.$$
+</div>
+
+<p>Now $(\phi^A\phi^A)^2=(\Phi^A\Phi^A)^2/Z^2$, thus</p>
+<div class="eq">
+$$V_U^{(4)}(\Phi)=\frac{\lambda}{4}\,(\Phi^A\Phi^A)^2,$$
+</div>
+
+<p>with</p>
+<div class="eq">
+$$\boxed{\ \lambda = 4\cdot b^4\frac{\lambda_8}{4}\cdot\frac{\mathrm{Vol}}{240}\cdot\frac{1}{Z^2}
+=\lambda_8\cdot\frac{b^4\mathrm{Vol}}{240}\cdot\frac{24^2}{b^8\mathrm{Vol}^2}
+=\lambda_8\cdot\frac{576}{240}\cdot\frac{1}{b^4\mathrm{Vol}}
+=\lambda_8\cdot\frac{12}{5}\cdot\frac{1}{b^4\,\mathrm{Vol}(\mathbb{CP}^2)}\ }$$
+</div>
+
+<hr/>
+
+<h2>9. Final 4D Higgs potential (fully derived)</h2>
+
+<p>Collect all contributions:</p>
+
+<ul>
+  <li>Geometric KK mass: $+\frac12 m_{\rm KK}^2\,\Phi^2$ with $m_{\rm KK}^2=12/b^2$</li>
+  <li>8D quadratic: $-\frac12\mu_8^2\,\Phi^2$</li>
+  <li>8D cubic: $+\frac{\kappa}{3}d_{ABC}\Phi^A\Phi^B\Phi^C$</li>
+  <li>8D quartic: $+\frac{\lambda}{4}(\Phi^2)^2$</li>
+</ul>
+
+<p>Therefore the complete 4D effective potential in this truncation is</p>
+
+<div class="eq">
+$$\boxed{
+V(\Phi)=\frac12\Big(\frac{12}{b^2}-\mu_8^2\Big)\,\Phi^A\Phi^A
++\frac{\kappa}{3}\,d_{ABC}\Phi^A\Phi^B\Phi^C
++\frac{\lambda}{4}\,(\Phi^A\Phi^A)^2
+}$$
+</div>
+
+<p>with the couplings explicitly expressed in terms of 8D parameters and geometry:</p>
+<div class="eq">
+$$\boxed{
+\kappa = g_8\,\frac{2\sqrt{6}}{5}\,\frac{1}{b^2\sqrt{\mathrm{Vol}(\mathbb{CP}^2)}},
+\qquad
+\lambda = \lambda_8\,\frac{12}{5}\,\frac{1}{b^4\,\mathrm{Vol}(\mathbb{CP}^2)},
+\qquad
+\mathrm{Vol}(\mathbb{CP}^2)=\frac{\pi^2}{2}.
+}$$
+</div>
+
+<div class="box">
+  <b>Condition for spontaneous symmetry breaking (tree level).</b>
+  The mass parameter is
+  $$m_{\rm eff}^2=\frac{12}{b^2}-\mu_8^2.$$
+  Symmetry breaking requires $m_{\rm eff}^2<0$, i.e.
+  $$\boxed{\ \mu_8^2>\frac{12}{b^2}\ }$$
+  so that the tachyon from $U_8$ dominates the positive KK mass.
+</div>
+
+<hr/>
+
+<h2>10. $SU(3)\to SU(2)\times U(1)$ from an adjoint VEV: complete algebra</h2>
+
+<h3>10.1 Choose the vacuum direction</h3>
+
+<p>Take an adjoint vacuum expectation value aligned with the Cartan generator $T_8$:</p>
+<div class="eq">$$\boxed{\ \langle\Phi^A\rangle = v\,\delta^{A8}\ }$$</div>
+
+<p>Recall</p>
+<div class="eq">
+$$T_8=\frac{1}{2\sqrt{3}}\mathrm{diag}(1,1,-2),\qquad
+d_{888}=-\frac{\sqrt{3}}{3}.$$
+</div>
+
+<h3>10.2 Reduce $V(\Phi)$ along this direction</h3>
+
+<p>Insert $\Phi^A=v\delta^{A8}$:</p>
+<div class="eq">
+$$\Phi^A\Phi^A=v^2,\qquad
+d_{ABC}\Phi^A\Phi^B\Phi^C=d_{888}v^3=-\frac{\sqrt{3}}{3}v^3.$$
+</div>
+
+<p>Therefore</p>
+<div class="eq">
+$$V(v)=\frac12 m_{\rm eff}^2 v^2 + \frac{\kappa}{3}\left(-\frac{\sqrt{3}}{3}\right)v^3+\frac{\lambda}{4}v^4
+=\frac12 m_{\rm eff}^2 v^2 -\frac{\kappa\sqrt{3}}{9}v^3+\frac{\lambda}{4}v^4.$$
+</div>
+
+<h3>10.3 Extremum equation</h3>
+<p>Compute $dV/dv=0$:</p>
+<div class="eq">
+$$\frac{dV}{dv}= m_{\rm eff}^2 v -\frac{\kappa\sqrt{3}}{3}v^2+\lambda v^3=0.$$
+</div>
+
+<p>Nontrivial solutions satisfy</p>
+<div class="eq">
+$$\boxed{\ \lambda v^2-\frac{\kappa\sqrt{3}}{3}v+m_{\rm eff}^2=0\ }$$
+</div>
+
+<p>Hence</p>
+<div class="eq">
+$$\boxed{\ v=\frac{\frac{\kappa\sqrt{3}}{3}\pm \sqrt{\left(\frac{\kappa\sqrt{3}}{3}\right)^2-4\lambda m_{\rm eff}^2}}{2\lambda}\ }$$
+</div>
+
+<div class="small">
+If $\kappa=0$, this reduces to the familiar $v=\sqrt{-m_{\rm eff}^2/\lambda}$ (requiring $m_{\rm eff}^2<0$).
+</div>
+
+<h3>10.4 Identify the unbroken subgroup</h3>
+
+<p>The unbroken gauge algebra is the centralizer of $T_8$ inside $\mathfrak{su}(3)$:</p>
+<div class="eq">$$\mathfrak{h}=\{X\in\mathfrak{su}(3)\;|\;[X,T_8]=0\}.$$</div>
+
+<p>In the Gell–Mann basis one checks explicitly</p>
+<div class="eq">$$[T_8,T_1]=[T_8,T_2]=[T_8,T_3]=0,\qquad [T_8,T_8]=0,$$</div>
+<p>but</p>
+<div class="eq">$$[T_8,T_4]\neq 0,\quad [T_8,T_5]\neq 0,\quad [T_8,T_6]\neq 0,\quad [T_8,T_7]\neq 0.$$</div>
+
+<p>Therefore the unbroken algebra is</p>
+<div class="eq">$$\boxed{\ \mathfrak{h}=\mathfrak{su}(2)\oplus\mathfrak{u}(1)=\langle T_1,T_2,T_3\rangle\oplus\langle T_8\rangle\ }$$</div>
+
+<p>Exponentiating gives</p>
+<div class="eq">$$\boxed{\ SU(3)\ \longrightarrow\ SU(2)\times U(1)\ }$$</div>
+
+<hr/>
+
+<h2>11. Gauge boson mass spectrum after breaking (explicit)</h2>
+
+<p>The gauge boson masses follow from the Higgs kinetic term
+$\frac12(D_\mu\Phi^A)(D^\mu\Phi^A)$ expanded about $\langle\Phi\rangle=v\delta^{A8}$.</p>
+
+<p>Using</p>
+<div class="eq">$$D_\mu\Phi^A=\partial_\mu\Phi^A+f_{BC}{}^A A_\mu^B \Phi^C,$$</div>
+<p>we get at the vacuum (constant $v$):</p>
+<div class="eq">
+$$D_\mu\langle\Phi^A\rangle= f_{B8}{}^A\,A_\mu^B\,v.$$
+</div>
+
+<p>Thus the vector mass matrix is</p>
+<div class="eq">
+$$\boxed{\ (M^2)_{BB'} = v^2\,f_{B8}{}^A f_{B'8}{}^A\ }$$
+</div>
+
+<p>In SU(3), the only nonzero structure constants involving index $8$ in this sector are</p>
+<div class="eq">$$f_{458}=\frac{\sqrt{3}}{2},\qquad f_{678}=\frac{\sqrt{3}}{2}$$</div>
+
+<p>Therefore</p>
+<ul>
+  <li>$A_\mu^{1,2,3,8}$ remain <b>massless</b> (unbroken $SU(2)\times U(1)$).</li>
+  <li>$A_\mu^{4,5,6,7}$ become <b>massive</b> with</li>
+</ul>
+
+<div class="eq">
+$$\boxed{\ m_{4,5,6,7}^2=\left(\frac{\sqrt{3}}{2}\right)^2 v^2=\frac{3}{4}v^2,\qquad
+m_{4,5,6,7}=\frac{\sqrt{3}}{2}\,v\ }$$
+</div>
+
+<div class="small">
+If you reinsert the 4D gauge coupling constant $g_4$ (coming from the metric reduction), replace $v\to g_4 v$:
+$m^2=\frac{3}{4}g_4^2 v^2$.
+</div>
+
+<hr/>
+
+<h2>12. Optional: expression for $g_4$ from the pure gravity KK reduction</h2>
+
+<p>From the 8D Einstein–Hilbert term, the SU(3) gauge kinetic term is</p>
+<div class="eq">
+$$S\supset -\frac14\int d^4x\sqrt{-g_4}\left(\frac{1}{g_4^2}\delta_{AB}\right)F_{\mu\nu}^A F^{B\mu\nu},$$
+</div>
+<p>with (for one $\mathbb{CP}^2$)</p>
+<div class="eq">
+$$\boxed{\ \frac{1}{g_4^2}\delta_{AB}=\frac{b^6}{2\kappa_8^2}\int_{\mathbb{CP}^2}\sqrt{\hat g}\;\hat g_{mn}K_A^m K_B^n
+=\frac{b^6\,\mathrm{Vol}(\mathbb{CP}^2)}{4\kappa_8^2}\,\delta_{AB}\ }$$
+</div>
+
+<hr/>
+
+<h2>References (standard)</h2>
+<ul>
+  <li>M. J. Duff, B. E. W. Nilsson, C. N. Pope, <i>Kaluza–Klein Supergravity</i>, Phys. Rept. 130 (1986) 1.</li>
+  <li>T. Appelquist, A. Chodos, P. Freund (eds.), <i>Modern Kaluza–Klein Theories</i>, Addison–Wesley (1987).</li>
+  <li>A. L. Besse, <i>Einstein Manifolds</i>, Springer (1987).</li>
+  <li>S. Kobayashi, K. Nomizu, <i>Foundations of Differential Geometry</i>, Vol. II, Wiley (1969).</li>
+</ul>
+
+</body>
+</html>
